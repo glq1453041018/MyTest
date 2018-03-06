@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"LOLITA测试");
+    NSArray *arr;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
