@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"cwn测试");
+    NSLog(@"LOLITA测试");
     // Do any additional setup after loading the view, typically from a nib.
 }
 
