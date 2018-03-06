@@ -1,0 +1,10 @@
+platform :ios, '8.0'
+
+target 'SuperScholar' do
+
+#   pod 'SDWebImage', '~> 4.0.0-beta2'
+#    pod 'AFNetworking', '~> 3.1.0'
+#    pod 'FMDB', '~> 2.6.2'
+#   pod 'MJRefresh', '~> 3.1.12'
+
+end
