@@ -1,5 +1,5 @@
 //
-//  AdsTableViewCell.h
+//  AdsCollectionViewCell.h
 //  SuperScholar
 //
 //  Created by guolq on 2018/3/7.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AdsTableViewCell : UITableViewCell
+@interface AdsCollectionViewCell : UICollectionViewCell
 
 @end
