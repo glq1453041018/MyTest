@@ -43,11 +43,12 @@
     
     //2.初始化collectionView
     self.CollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT) collectionViewLayout:layout];
-    self.CollectionView.backgroundColor = [UIColor whiteColor];
+    self.CollectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     //3.注册collectionViewCell
     //注意，此处的ReuseIdentifier 必须和 cellForItemAtIndexPath 方法中 一致 均为 cellId
     [self.CollectionView registerNib:[UINib nibWithNibName:@"AdsCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"adscell"];
+    
     
     //4.设置代理
     self.CollectionView.delegate = self;
@@ -130,7 +131,7 @@
     
     static NSString *cellId = @"adscell";
     AdsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    
+   
 //    cell.selected = indexPath.item == selectIndex;
 //    float cellwidth = [self.typeArray_height[indexPath.row] floatValue];
 //    cell.titleLable.frame = CGRectMake(0, 0, cellwidth, cell.contentView.frame.size.height);
