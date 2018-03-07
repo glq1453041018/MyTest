@@ -13,11 +13,19 @@
 		C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CF204E88BD00C6437F /* Assets.xcassets */; };
 		C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5D1204E88BD00C6437F /* LaunchScreen.storyboard */; };
 		C73DD5DB204E88E900C6437F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5DA204E88E900C6437F /* Podfile */; };
-		C76169CC204F735A00C94311 /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169CA204F735A00C94311 /* AdsViewController.m */; };
-		C76169CD204F735A00C94311 /* AdsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169CB204F735A00C94311 /* AdsViewController.xib */; };
-		C76169D1204F742800C94311 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169D0204F742800C94311 /* AppDelegate.m */; };
-		C76169D6204F746200C94311 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169D4204F746200C94311 /* MainTabBarViewController.m */; };
-		C76169D7204F746200C94311 /* MainTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169D5204F746200C94311 /* MainTabBarViewController.xib */; };
+		C76169E8204F835400C94311 /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169E5204F835400C94311 /* AdsViewController.m */; };
+		C76169E9204F835400C94311 /* AdsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169E6204F835400C94311 /* AdsViewController.xib */; };
+		C76169EF204F839200C94311 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169ED204F839200C94311 /* ActivityViewController.m */; };
+		C76169F0204F839200C94311 /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169EE204F839200C94311 /* ActivityViewController.xib */; };
+		C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169F4204F889300C94311 /* MainTabBarViewController.m */; };
+		C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169F5204F889300C94311 /* MainTabBarViewController.xib */; };
+		C76169FB204F889900C94311 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169FA204F889900C94311 /* AppDelegate.m */; };
+		C7616A00204F8F2600C94311 /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169FE204F8F2600C94311 /* ClassViewController.m */; };
+		C7616A01204F8F2600C94311 /* ClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169FF204F8F2600C94311 /* ClassViewController.xib */; };
+		C7616A06204F8F4C00C94311 /* MySelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A04204F8F4C00C94311 /* MySelfViewController.m */; };
+		C7616A07204F8F4C00C94311 /* MySelfViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7616A05204F8F4C00C94311 /* MySelfViewController.xib */; };
+		C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */; };
+		C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,18 +38,30 @@
 		C73DD5D2204E88BD00C6437F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73DD5D4204E88BD00C6437F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C73DD5DA204E88E900C6437F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C76169C9204F735A00C94311 /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
-		C76169CA204F735A00C94311 /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
-		C76169CB204F735A00C94311 /* AdsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsViewController.xib; sourceTree = "<group>"; };
-		C76169CF204F742800C94311 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C76169D0204F742800C94311 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C76169D3204F746200C94311 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
-		C76169D4204F746200C94311 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
-		C76169D5204F746200C94311 /* MainTabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarViewController.xib; sourceTree = "<group>"; };
 		C76169DC204F779400C94311 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
 		C76169DD204F786200C94311 /* AppConfigInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfigInfo.h; sourceTree = "<group>"; };
 		C76169DE204F794B00C94311 /* AppAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppAPI.h; sourceTree = "<group>"; };
 		C76169DF204F79C900C94311 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C76169E5204F835400C94311 /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
+		C76169E6204F835400C94311 /* AdsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsViewController.xib; sourceTree = "<group>"; };
+		C76169E7204F835400C94311 /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
+		C76169EC204F839200C94311 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		C76169ED204F839200C94311 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		C76169EE204F839200C94311 /* ActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
+		C76169F3204F889300C94311 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		C76169F4204F889300C94311 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
+		C76169F5204F889300C94311 /* MainTabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarViewController.xib; sourceTree = "<group>"; };
+		C76169F9204F889900C94311 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C76169FA204F889900C94311 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C76169FD204F8F2600C94311 /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
+		C76169FE204F8F2600C94311 /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
+		C76169FF204F8F2600C94311 /* ClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewController.xib; sourceTree = "<group>"; };
+		C7616A03204F8F4C00C94311 /* MySelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySelfViewController.h; sourceTree = "<group>"; };
+		C7616A04204F8F4C00C94311 /* MySelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySelfViewController.m; sourceTree = "<group>"; };
+		C7616A05204F8F4C00C94311 /* MySelfViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySelfViewController.xib; sourceTree = "<group>"; };
+		C7616A09204F8F6A00C94311 /* InteractiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveViewController.h; sourceTree = "<group>"; };
+		C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractiveViewController.m; sourceTree = "<group>"; };
+		C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InteractiveViewController.xib; sourceTree = "<group>"; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,9 +110,11 @@
 			children = (
 				C76169C8204F733400C94311 /* AdsModule */,
 				C76169E2204F7F6E00C94311 /* ActivityModule */,
-				C76169E1204F7F6E00C94311 /* FriendsModule */,
+				C76169F1204F865300C94311 /* ClassModule */,
 				C76169E3204F7F6E00C94311 /* InteractiveModule */,
 				C76169E0204F7F6E00C94311 /* MySelfModule */,
+				C76169F2204F889300C94311 /* TabBarController */,
+				C76169F8204F889900C94311 /* AppDelegate */,
 				C76169C3204F72AE00C94311 /* Public */,
 				C76169C6204F72AE00C94311 /* Resource */,
 				C73DD5CC204E88BD00C6437F /* Main.storyboard */,
@@ -121,7 +143,6 @@
 				C76169DA204F774300C94311 /* Manager */,
 				C76169D8204F774300C94311 /* Category */,
 				C76169D9204F774300C94311 /* Header */,
-				C76169CE204F742800C94311 /* AppDelegate */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -136,28 +157,14 @@
 		C76169C8204F733400C94311 /* AdsModule */ = {
 			isa = PBXGroup;
 			children = (
-				C76169C9204F735A00C94311 /* AdsViewController.h */,
-				C76169CA204F735A00C94311 /* AdsViewController.m */,
-				C76169CB204F735A00C94311 /* AdsViewController.xib */,
+				C76169E4204F835400C94311 /* IndexModule */,
 			);
 			path = AdsModule;
-			sourceTree = "<group>";
-		};
-		C76169CE204F742800C94311 /* AppDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				C76169CF204F742800C94311 /* AppDelegate.h */,
-				C76169D0204F742800C94311 /* AppDelegate.m */,
-			);
-			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		C76169D2204F743800C94311 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C76169D3204F746200C94311 /* MainTabBarViewController.h */,
-				C76169D4204F746200C94311 /* MainTabBarViewController.m */,
-				C76169D5204F746200C94311 /* MainTabBarViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,20 +203,15 @@
 		C76169E0204F7F6E00C94311 /* MySelfModule */ = {
 			isa = PBXGroup;
 			children = (
+				C7616A02204F8F3D00C94311 /* IndexModule */,
 			);
 			path = MySelfModule;
-			sourceTree = "<group>";
-		};
-		C76169E1204F7F6E00C94311 /* FriendsModule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FriendsModule;
 			sourceTree = "<group>";
 		};
 		C76169E2204F7F6E00C94311 /* ActivityModule */ = {
 			isa = PBXGroup;
 			children = (
+				C76169EB204F837900C94311 /* IndexModule */,
 			);
 			path = ActivityModule;
 			sourceTree = "<group>";
@@ -217,8 +219,86 @@
 		C76169E3204F7F6E00C94311 /* InteractiveModule */ = {
 			isa = PBXGroup;
 			children = (
+				C7616A08204F8F5D00C94311 /* IndexModule */,
 			);
 			path = InteractiveModule;
+			sourceTree = "<group>";
+		};
+		C76169E4204F835400C94311 /* IndexModule */ = {
+			isa = PBXGroup;
+			children = (
+				C76169E7204F835400C94311 /* AdsViewController.h */,
+				C76169E5204F835400C94311 /* AdsViewController.m */,
+				C76169E6204F835400C94311 /* AdsViewController.xib */,
+			);
+			path = IndexModule;
+			sourceTree = "<group>";
+		};
+		C76169EB204F837900C94311 /* IndexModule */ = {
+			isa = PBXGroup;
+			children = (
+				C76169EC204F839200C94311 /* ActivityViewController.h */,
+				C76169ED204F839200C94311 /* ActivityViewController.m */,
+				C76169EE204F839200C94311 /* ActivityViewController.xib */,
+			);
+			path = IndexModule;
+			sourceTree = "<group>";
+		};
+		C76169F1204F865300C94311 /* ClassModule */ = {
+			isa = PBXGroup;
+			children = (
+				C76169FC204F8F1600C94311 /* IndexModule */,
+			);
+			path = ClassModule;
+			sourceTree = "<group>";
+		};
+		C76169F2204F889300C94311 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				C76169F3204F889300C94311 /* MainTabBarViewController.h */,
+				C76169F4204F889300C94311 /* MainTabBarViewController.m */,
+				C76169F5204F889300C94311 /* MainTabBarViewController.xib */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		C76169F8204F889900C94311 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C76169F9204F889900C94311 /* AppDelegate.h */,
+				C76169FA204F889900C94311 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		C76169FC204F8F1600C94311 /* IndexModule */ = {
+			isa = PBXGroup;
+			children = (
+				C76169FD204F8F2600C94311 /* ClassViewController.h */,
+				C76169FE204F8F2600C94311 /* ClassViewController.m */,
+				C76169FF204F8F2600C94311 /* ClassViewController.xib */,
+			);
+			path = IndexModule;
+			sourceTree = "<group>";
+		};
+		C7616A02204F8F3D00C94311 /* IndexModule */ = {
+			isa = PBXGroup;
+			children = (
+				C7616A03204F8F4C00C94311 /* MySelfViewController.h */,
+				C7616A04204F8F4C00C94311 /* MySelfViewController.m */,
+				C7616A05204F8F4C00C94311 /* MySelfViewController.xib */,
+			);
+			path = IndexModule;
+			sourceTree = "<group>";
+		};
+		C7616A08204F8F5D00C94311 /* IndexModule */ = {
+			isa = PBXGroup;
+			children = (
+				C7616A09204F8F6A00C94311 /* InteractiveViewController.h */,
+				C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */,
+				C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */,
+			);
+			path = IndexModule;
 			sourceTree = "<group>";
 		};
 		FA4F9C06915C67A5F8BC4296 /* Frameworks */ = {
@@ -292,11 +372,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */,
-				C76169CD204F735A00C94311 /* AdsViewController.xib in Resources */,
+				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
-				C76169D7204F746200C94311 /* MainTabBarViewController.xib in Resources */,
+				C76169E9204F835400C94311 /* AdsViewController.xib in Resources */,
 				C73DD5DB204E88E900C6437F /* Podfile in Resources */,
+				C7616A07204F8F4C00C94311 /* MySelfViewController.xib in Resources */,
+				C76169F0204F839200C94311 /* ActivityViewController.xib in Resources */,
+				C7616A01204F8F2600C94311 /* ClassViewController.xib in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
+				C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,10 +445,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C76169CC204F735A00C94311 /* AdsViewController.m in Sources */,
-				C76169D6204F746200C94311 /* MainTabBarViewController.m in Sources */,
+				C76169E8204F835400C94311 /* AdsViewController.m in Sources */,
+				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
+				C7616A06204F8F4C00C94311 /* MySelfViewController.m in Sources */,
+				C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
-				C76169D1204F742800C94311 /* AppDelegate.m in Sources */,
+				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
+				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
+				C7616A00204F8F2600C94311 /* ClassViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

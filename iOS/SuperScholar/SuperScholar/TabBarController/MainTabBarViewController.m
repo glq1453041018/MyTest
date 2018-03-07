@@ -8,6 +8,10 @@
 
 #import "MainTabBarViewController.h"
 #import "AdsViewController.h"               // 广告页面
+#import "ActivityViewController.h"          // 活动页面
+#import "ClassViewController.h"             // 班级页面
+#import "InteractiveViewController.h"       // 互动页面
+#import "MySelfViewController.h"            // 个人中心
 
 @interface MainTabBarViewController ()
 @property(copy,nonatomic)NSMutableArray *navs;
@@ -25,29 +29,53 @@
 // !!!: 配置视图
 -(void)initUI{
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    NSDictionary *item0 = @{
+                            @"title":@"推荐",
+                            @"selected":@"recommend",
+                            @"unSelected":@"recommend_unSelected",
+                            @"class":[AdsViewController class]
+                            };
+    NSDictionary *item1 = @{
+                            @"title":@"活动",
+                            @"selected":@"activity",
+                            @"unSelected":@"activity_unSelected",
+                            @"class":[ActivityViewController class]
+                            };
+    NSDictionary *item2 = @{
+                            @"title":@"班级",
+                            @"selected":@"class",
+                            @"unSelected":@"class_unSelected",
+                            @"class":[ClassViewController class]
+                            };
+    NSDictionary *item3 = @{
+                            @"title":@"交流",
+                            @"selected":@"interactive",
+                            @"unSelected":@"interactive_unSelected",
+                            @"class":[InteractiveViewController class]
+                            };
+    NSDictionary *item4 = @{
+                            @"title":@"我",
+                            @"selected":@"myself",
+                            @"unSelected":@"myself_unSelected",
+                            @"class":[MySelfViewController class]
+                            };
     
-    // 广告页面
-    {
-        AdsViewController *ctrl = [AdsViewController new];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ctrl];
-        UITabBarItem *barItem = [self makeItemWithTitle:@"推荐" normalImage:@"toolUnSelect" selectedImage:@"toolSelect" tag:0];
-        nav.tabBarItem = barItem;
-        [self.navs addObject:nav];
-    }
+    NSArray *items = @[item0,item1,item2,item3,item4];
     
-    // 广告页面
-    {
-        AdsViewController *ctrl = [AdsViewController new];
+    
+    for (NSDictionary *item in items) {
+        NSString *title = [item objectForKey:@"title"];
+        NSString *icon_selected = [item objectForKey:@"selected"];
+        NSString *icon_unSelected = [item objectForKey:@"unSelected"];
+        UIViewController *ctrl = [[item objectForKey:@"class"] new];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ctrl];
-        UITabBarItem *barItem = [self makeItemWithTitle:@"推荐" normalImage:@"toolUnSelect" selectedImage:@"toolSelect" tag:0];
+        UITabBarItem *barItem = [self makeItemWithTitle:title normalImage:icon_unSelected selectedImage:icon_selected tag:0];
         nav.tabBarItem = barItem;
+        nav.navigationBar.hidden = YES;
         [self.navs addObject:nav];
     }
     
     self.viewControllers = self.navs;
-    self.tabBar.backgroundColor =  KColorTheme;
-    
-    
 }
 
 

@@ -14,12 +14,13 @@
  */
 
 #pragma mark - <************************** 应用配置信息 **************************>
-// 选中的颜色
-#define kSelectedColor HexColor(0x4083ff)
-// 未选中的颜色
-#define kNoselectColor [UIColor lightGrayColor]
 // 主题色
-#define KColorTheme HexColor(0x4083ff)
+#define KColorTheme HexColor(0x74d0c6)
+// 选中的颜色
+#define kSelectedColor KColorTheme
+// 未选中的颜色
+#define kNoselectColor HexColor(0x8a8a8a)
+
 
 
 
