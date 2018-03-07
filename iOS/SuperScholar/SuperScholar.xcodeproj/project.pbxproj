@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
 		C73DD5C5204E88BD00C6437F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DD5C4204E88BD00C6437F /* main.m */; };
-		C73DD5C8204E88BD00C6437F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DD5C7204E88BD00C6437F /* AppDelegate.m */; };
-		C73DD5CB204E88BD00C6437F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DD5CA204E88BD00C6437F /* ViewController.m */; };
 		C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CC204E88BD00C6437F /* Main.storyboard */; };
 		C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CF204E88BD00C6437F /* Assets.xcassets */; };
 		C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5D1204E88BD00C6437F /* LaunchScreen.storyboard */; };
 		C73DD5DB204E88E900C6437F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5DA204E88E900C6437F /* Podfile */; };
+		C76169CC204F735A00C94311 /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169CA204F735A00C94311 /* AdsViewController.m */; };
+		C76169CD204F735A00C94311 /* AdsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169CB204F735A00C94311 /* AdsViewController.xib */; };
+		C76169D1204F742800C94311 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169D0204F742800C94311 /* AppDelegate.m */; };
+		C76169D6204F746200C94311 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169D4204F746200C94311 /* MainTabBarViewController.m */; };
+		C76169D7204F746200C94311 /* MainTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169D5204F746200C94311 /* MainTabBarViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +25,19 @@
 		BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperScholar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DD5C0204E88BD00C6437F /* SuperScholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperScholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DD5C4204E88BD00C6437F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C73DD5C6204E88BD00C6437F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C73DD5C7204E88BD00C6437F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C73DD5C9204E88BD00C6437F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C73DD5CA204E88BD00C6437F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C73DD5CD204E88BD00C6437F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C73DD5CF204E88BD00C6437F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C73DD5D2204E88BD00C6437F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73DD5D4204E88BD00C6437F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C73DD5DA204E88E900C6437F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C76169C9204F735A00C94311 /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
+		C76169CA204F735A00C94311 /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
+		C76169CB204F735A00C94311 /* AdsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsViewController.xib; sourceTree = "<group>"; };
+		C76169CF204F742800C94311 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C76169D0204F742800C94311 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C76169D3204F746200C94311 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		C76169D4204F746200C94311 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
+		C76169D5204F746200C94311 /* MainTabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarViewController.xib; sourceTree = "<group>"; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,10 +84,9 @@
 		C73DD5C2204E88BD00C6437F /* SuperScholar */ = {
 			isa = PBXGroup;
 			children = (
-				C73DD5C6204E88BD00C6437F /* AppDelegate.h */,
-				C73DD5C7204E88BD00C6437F /* AppDelegate.m */,
-				C73DD5C9204E88BD00C6437F /* ViewController.h */,
-				C73DD5CA204E88BD00C6437F /* ViewController.m */,
+				C76169C8204F733400C94311 /* AdsModule */,
+				C76169C3204F72AE00C94311 /* Public */,
+				C76169C6204F72AE00C94311 /* Resource */,
 				C73DD5CC204E88BD00C6437F /* Main.storyboard */,
 				C73DD5CF204E88BD00C6437F /* Assets.xcassets */,
 				C73DD5D1204E88BD00C6437F /* LaunchScreen.storyboard */,
@@ -96,6 +102,51 @@
 				C73DD5C4204E88BD00C6437F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C76169C3204F72AE00C94311 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				C76169D2204F743800C94311 /* Controller */,
+				C76169CE204F742800C94311 /* AppDelegate */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		C76169C6204F72AE00C94311 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		C76169C8204F733400C94311 /* AdsModule */ = {
+			isa = PBXGroup;
+			children = (
+				C76169C9204F735A00C94311 /* AdsViewController.h */,
+				C76169CA204F735A00C94311 /* AdsViewController.m */,
+				C76169CB204F735A00C94311 /* AdsViewController.xib */,
+			);
+			path = AdsModule;
+			sourceTree = "<group>";
+		};
+		C76169CE204F742800C94311 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C76169CF204F742800C94311 /* AppDelegate.h */,
+				C76169D0204F742800C94311 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		C76169D2204F743800C94311 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C76169D3204F746200C94311 /* MainTabBarViewController.h */,
+				C76169D4204F746200C94311 /* MainTabBarViewController.m */,
+				C76169D5204F746200C94311 /* MainTabBarViewController.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		FA4F9C06915C67A5F8BC4296 /* Frameworks */ = {
@@ -169,7 +220,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */,
+				C76169CD204F735A00C94311 /* AdsViewController.xib in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
+				C76169D7204F746200C94311 /* MainTabBarViewController.xib in Resources */,
 				C73DD5DB204E88E900C6437F /* Podfile in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
 			);
@@ -236,9 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C73DD5CB204E88BD00C6437F /* ViewController.m in Sources */,
-				C73DD5C8204E88BD00C6437F /* AppDelegate.m in Sources */,
+				C76169CC204F735A00C94311 /* AdsViewController.m in Sources */,
+				C76169D6204F746200C94311 /* MainTabBarViewController.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
+				C76169D1204F742800C94311 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
