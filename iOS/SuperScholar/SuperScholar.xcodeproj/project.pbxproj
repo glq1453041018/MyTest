@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010D75204FBFBC00E4511C /* AdsViewController.m */; };
+		38010D86204FBFBC00E4511C /* AdsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38010D76204FBFBC00E4511C /* AdsViewController.xib */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
 		C73DD5C5204E88BD00C6437F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DD5C4204E88BD00C6437F /* main.m */; };
 		C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CC204E88BD00C6437F /* Main.storyboard */; };
 		C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CF204E88BD00C6437F /* Assets.xcassets */; };
 		C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5D1204E88BD00C6437F /* LaunchScreen.storyboard */; };
 		C73DD5DB204E88E900C6437F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5DA204E88E900C6437F /* Podfile */; };
-		C76169E8204F835400C94311 /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169E5204F835400C94311 /* AdsViewController.m */; };
-		C76169E9204F835400C94311 /* AdsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169E6204F835400C94311 /* AdsViewController.xib */; };
 		C76169EF204F839200C94311 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169ED204F839200C94311 /* ActivityViewController.m */; };
 		C76169F0204F839200C94311 /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169EE204F839200C94311 /* ActivityViewController.xib */; };
 		C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169F4204F889300C94311 /* MainTabBarViewController.m */; };
@@ -29,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38010D74204FBFBC00E4511C /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
+		38010D75204FBFBC00E4511C /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
+		38010D76204FBFBC00E4511C /* AdsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsViewController.xib; sourceTree = "<group>"; };
 		AA3BC876F4E559385FBF2362 /* Pods-SuperScholar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperScholar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DD5C0204E88BD00C6437F /* SuperScholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperScholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,9 +45,6 @@
 		C76169DD204F786200C94311 /* AppConfigInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfigInfo.h; sourceTree = "<group>"; };
 		C76169DE204F794B00C94311 /* AppAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppAPI.h; sourceTree = "<group>"; };
 		C76169DF204F79C900C94311 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		C76169E5204F835400C94311 /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
-		C76169E6204F835400C94311 /* AdsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsViewController.xib; sourceTree = "<group>"; };
-		C76169E7204F835400C94311 /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
 		C76169EC204F839200C94311 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
 		C76169ED204F839200C94311 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		C76169EE204F839200C94311 /* ActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
@@ -77,6 +77,133 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38010D72204FBFBC00E4511C /* IndexModule */ = {
+			isa = PBXGroup;
+			children = (
+				38010D73204FBFBC00E4511C /* Controller */,
+				38010D77204FBFBC00E4511C /* Model */,
+				38010D78204FBFBC00E4511C /* View */,
+			);
+			path = IndexModule;
+			sourceTree = "<group>";
+		};
+		38010D73204FBFBC00E4511C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38010D74204FBFBC00E4511C /* AdsViewController.h */,
+				38010D75204FBFBC00E4511C /* AdsViewController.m */,
+				38010D76204FBFBC00E4511C /* AdsViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38010D77204FBFBC00E4511C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38010D78204FBFBC00E4511C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38010D79204FBFBC00E4511C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				38010D7A204FBFBC00E4511C /* Controller */,
+				38010D7B204FBFBC00E4511C /* Model */,
+				38010D7C204FBFBC00E4511C /* View */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		38010D7A204FBFBC00E4511C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38010D7B204FBFBC00E4511C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38010D7C204FBFBC00E4511C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38010D7D204FBFBC00E4511C /* PushMessage */ = {
+			isa = PBXGroup;
+			children = (
+				38010D7E204FBFBC00E4511C /* Controller */,
+				38010D7F204FBFBC00E4511C /* Model */,
+				38010D80204FBFBC00E4511C /* View */,
+			);
+			path = PushMessage;
+			sourceTree = "<group>";
+		};
+		38010D7E204FBFBC00E4511C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38010D7F204FBFBC00E4511C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38010D80204FBFBC00E4511C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38010D81204FBFBC00E4511C /* SearchContent */ = {
+			isa = PBXGroup;
+			children = (
+				38010D82204FBFBC00E4511C /* Controller */,
+				38010D83204FBFBC00E4511C /* Model */,
+				38010D84204FBFBC00E4511C /* View */,
+			);
+			path = SearchContent;
+			sourceTree = "<group>";
+		};
+		38010D82204FBFBC00E4511C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38010D83204FBFBC00E4511C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38010D84204FBFBC00E4511C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6A9C8E1F03854DBE509E4709 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +284,10 @@
 		C76169C8204F733400C94311 /* AdsModule */ = {
 			isa = PBXGroup;
 			children = (
-				C76169E4204F835400C94311 /* IndexModule */,
+				38010D72204FBFBC00E4511C /* IndexModule */,
+				38010D79204FBFBC00E4511C /* Map */,
+				38010D7D204FBFBC00E4511C /* PushMessage */,
+				38010D81204FBFBC00E4511C /* SearchContent */,
 			);
 			path = AdsModule;
 			sourceTree = "<group>";
@@ -222,16 +352,6 @@
 				C7616A08204F8F5D00C94311 /* IndexModule */,
 			);
 			path = InteractiveModule;
-			sourceTree = "<group>";
-		};
-		C76169E4204F835400C94311 /* IndexModule */ = {
-			isa = PBXGroup;
-			children = (
-				C76169E7204F835400C94311 /* AdsViewController.h */,
-				C76169E5204F835400C94311 /* AdsViewController.m */,
-				C76169E6204F835400C94311 /* AdsViewController.xib */,
-			);
-			path = IndexModule;
 			sourceTree = "<group>";
 		};
 		C76169EB204F837900C94311 /* IndexModule */ = {
@@ -372,9 +492,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */,
+				38010D86204FBFBC00E4511C /* AdsViewController.xib in Resources */,
 				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
-				C76169E9204F835400C94311 /* AdsViewController.xib in Resources */,
 				C73DD5DB204E88E900C6437F /* Podfile in Resources */,
 				C7616A07204F8F4C00C94311 /* MySelfViewController.xib in Resources */,
 				C76169F0204F839200C94311 /* ActivityViewController.xib in Resources */,
@@ -445,12 +565,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C76169E8204F835400C94311 /* AdsViewController.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
 				C7616A06204F8F4C00C94311 /* MySelfViewController.m in Sources */,
 				C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
+				38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
 				C7616A00204F8F2600C94311 /* ClassViewController.m in Sources */,
 			);
