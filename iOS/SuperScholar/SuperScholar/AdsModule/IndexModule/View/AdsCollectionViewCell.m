@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self adjustFrame];
     // Initialization code
 }
 

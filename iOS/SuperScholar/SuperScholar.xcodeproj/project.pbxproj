@@ -11,6 +11,7 @@
 		38010D86204FBFBC00E4511C /* AdsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38010D76204FBFBC00E4511C /* AdsViewController.xib */; };
 		38010D8F204FD6E500E4511C /* AdsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010D8D204FD6E500E4511C /* AdsCollectionViewCell.m */; };
 		38010D90204FD6E500E4511C /* AdsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38010D8E204FD6E500E4511C /* AdsCollectionViewCell.xib */; };
+		38010D98204FE63B00E4511C /* NSDictionary+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010D97204FE63B00E4511C /* NSDictionary+Utility.m */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
 		C73DD5C5204E88BD00C6437F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DD5C4204E88BD00C6437F /* main.m */; };
 		C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CC204E88BD00C6437F /* Main.storyboard */; };
@@ -40,6 +41,8 @@
 		38010D8C204FD6E500E4511C /* AdsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsCollectionViewCell.h; sourceTree = "<group>"; };
 		38010D8D204FD6E500E4511C /* AdsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsCollectionViewCell.m; sourceTree = "<group>"; };
 		38010D8E204FD6E500E4511C /* AdsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsCollectionViewCell.xib; sourceTree = "<group>"; };
+		38010D96204FE63B00E4511C /* NSDictionary+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Utility.h"; sourceTree = "<group>"; };
+		38010D97204FE63B00E4511C /* NSDictionary+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Utility.m"; sourceTree = "<group>"; };
 		AA3BC876F4E559385FBF2362 /* Pods-SuperScholar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperScholar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DD5C0204E88BD00C6437F /* SuperScholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperScholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -319,6 +322,8 @@
 		C76169D8204F774300C94311 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				38010D96204FE63B00E4511C /* NSDictionary+Utility.h */,
+				38010D97204FE63B00E4511C /* NSDictionary+Utility.m */,
 				C7616A11204FDDBF00C94311 /* NSObject+InitData.h */,
 				C7616A12204FDDBF00C94311 /* NSObject+InitData.m */,
 				C7616A0E204FDDB400C94311 /* UIView+AdjustFrame.h */,
@@ -603,6 +608,7 @@
 				C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
+				38010D98204FE63B00E4511C /* NSDictionary+Utility.m in Sources */,
 				C7616A13204FDDBF00C94311 /* NSObject+InitData.m in Sources */,
 				38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
