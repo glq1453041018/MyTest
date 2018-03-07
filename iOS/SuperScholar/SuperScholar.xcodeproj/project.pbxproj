@@ -20,6 +20,12 @@
 		C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169F4204F889300C94311 /* MainTabBarViewController.m */; };
 		C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169F5204F889300C94311 /* MainTabBarViewController.xib */; };
 		C76169FB204F889900C94311 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169FA204F889900C94311 /* AppDelegate.m */; };
+		C7616A00204F8F2600C94311 /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169FE204F8F2600C94311 /* ClassViewController.m */; };
+		C7616A01204F8F2600C94311 /* ClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169FF204F8F2600C94311 /* ClassViewController.xib */; };
+		C7616A06204F8F4C00C94311 /* MySelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A04204F8F4C00C94311 /* MySelfViewController.m */; };
+		C7616A07204F8F4C00C94311 /* MySelfViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7616A05204F8F4C00C94311 /* MySelfViewController.xib */; };
+		C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */; };
+		C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +53,15 @@
 		C76169F5204F889300C94311 /* MainTabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarViewController.xib; sourceTree = "<group>"; };
 		C76169F9204F889900C94311 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C76169FA204F889900C94311 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C76169FD204F8F2600C94311 /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
+		C76169FE204F8F2600C94311 /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
+		C76169FF204F8F2600C94311 /* ClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewController.xib; sourceTree = "<group>"; };
+		C7616A03204F8F4C00C94311 /* MySelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySelfViewController.h; sourceTree = "<group>"; };
+		C7616A04204F8F4C00C94311 /* MySelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySelfViewController.m; sourceTree = "<group>"; };
+		C7616A05204F8F4C00C94311 /* MySelfViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySelfViewController.xib; sourceTree = "<group>"; };
+		C7616A09204F8F6A00C94311 /* InteractiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveViewController.h; sourceTree = "<group>"; };
+		C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractiveViewController.m; sourceTree = "<group>"; };
+		C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InteractiveViewController.xib; sourceTree = "<group>"; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +203,7 @@
 		C76169E0204F7F6E00C94311 /* MySelfModule */ = {
 			isa = PBXGroup;
 			children = (
+				C7616A02204F8F3D00C94311 /* IndexModule */,
 			);
 			path = MySelfModule;
 			sourceTree = "<group>";
@@ -203,6 +219,7 @@
 		C76169E3204F7F6E00C94311 /* InteractiveModule */ = {
 			isa = PBXGroup;
 			children = (
+				C7616A08204F8F5D00C94311 /* IndexModule */,
 			);
 			path = InteractiveModule;
 			sourceTree = "<group>";
@@ -230,6 +247,7 @@
 		C76169F1204F865300C94311 /* ClassModule */ = {
 			isa = PBXGroup;
 			children = (
+				C76169FC204F8F1600C94311 /* IndexModule */,
 			);
 			path = ClassModule;
 			sourceTree = "<group>";
@@ -251,6 +269,36 @@
 				C76169FA204F889900C94311 /* AppDelegate.m */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		C76169FC204F8F1600C94311 /* IndexModule */ = {
+			isa = PBXGroup;
+			children = (
+				C76169FD204F8F2600C94311 /* ClassViewController.h */,
+				C76169FE204F8F2600C94311 /* ClassViewController.m */,
+				C76169FF204F8F2600C94311 /* ClassViewController.xib */,
+			);
+			path = IndexModule;
+			sourceTree = "<group>";
+		};
+		C7616A02204F8F3D00C94311 /* IndexModule */ = {
+			isa = PBXGroup;
+			children = (
+				C7616A03204F8F4C00C94311 /* MySelfViewController.h */,
+				C7616A04204F8F4C00C94311 /* MySelfViewController.m */,
+				C7616A05204F8F4C00C94311 /* MySelfViewController.xib */,
+			);
+			path = IndexModule;
+			sourceTree = "<group>";
+		};
+		C7616A08204F8F5D00C94311 /* IndexModule */ = {
+			isa = PBXGroup;
+			children = (
+				C7616A09204F8F6A00C94311 /* InteractiveViewController.h */,
+				C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */,
+				C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */,
+			);
+			path = IndexModule;
 			sourceTree = "<group>";
 		};
 		FA4F9C06915C67A5F8BC4296 /* Frameworks */ = {
@@ -324,10 +372,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */,
+				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
 				C76169E9204F835400C94311 /* AdsViewController.xib in Resources */,
 				C73DD5DB204E88E900C6437F /* Podfile in Resources */,
+				C7616A07204F8F4C00C94311 /* MySelfViewController.xib in Resources */,
 				C76169F0204F839200C94311 /* ActivityViewController.xib in Resources */,
+				C7616A01204F8F2600C94311 /* ClassViewController.xib in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
 				C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */,
 			);
@@ -396,9 +447,12 @@
 			files = (
 				C76169E8204F835400C94311 /* AdsViewController.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
+				C7616A06204F8F4C00C94311 /* MySelfViewController.m in Sources */,
+				C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
+				C7616A00204F8F2600C94311 /* ClassViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
