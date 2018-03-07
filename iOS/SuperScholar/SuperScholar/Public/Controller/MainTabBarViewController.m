@@ -35,8 +35,19 @@
         [self.navs addObject:nav];
     }
     
+    // 广告页面
+    {
+        AdsViewController *ctrl = [AdsViewController new];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ctrl];
+        UITabBarItem *barItem = [self makeItemWithTitle:@"推荐" normalImage:@"toolUnSelect" selectedImage:@"toolSelect" tag:0];
+        nav.tabBarItem = barItem;
+        [self.navs addObject:nav];
+    }
+    
     self.viewControllers = self.navs;
-    self.tabBar.backgroundColor = [UIColor whiteColor];
+    self.tabBar.backgroundColor =  KColorTheme;
+    
+    
 }
 
 
@@ -72,8 +83,8 @@
         tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:normalImage tag:tag];
     }
     tabBarItem.tag = tag;
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0],NSForegroundColorAttributeName:[UIColor purpleColor]} forState:UIControlStateSelected];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0],NSForegroundColorAttributeName:[UIColor purpleColor]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0],NSForegroundColorAttributeName:kSelectedColor} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0],NSForegroundColorAttributeName:kNoselectColor} forState:UIControlStateNormal];
     return tabBarItem;
 }
 
@@ -81,7 +92,7 @@
 
 #pragma mark - <************************** 检测释放 **************************>
 - (void)dealloc{
-    NSLog(@"%@释放掉",[self class]);
+    DLog(@"%@释放掉",[self class]);
 }
 
 - (void)didReceiveMemoryWarning {

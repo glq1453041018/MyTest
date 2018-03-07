@@ -38,6 +38,10 @@
 		C76169D3204F746200C94311 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		C76169D4204F746200C94311 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		C76169D5204F746200C94311 /* MainTabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarViewController.xib; sourceTree = "<group>"; };
+		C76169DC204F779400C94311 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
+		C76169DD204F786200C94311 /* AppConfigInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfigInfo.h; sourceTree = "<group>"; };
+		C76169DE204F794B00C94311 /* AppAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppAPI.h; sourceTree = "<group>"; };
+		C76169DF204F79C900C94311 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				C76169C8204F733400C94311 /* AdsModule */,
+				C76169E2204F7F6E00C94311 /* ActivityModule */,
+				C76169E1204F7F6E00C94311 /* FriendsModule */,
+				C76169E3204F7F6E00C94311 /* InteractiveModule */,
+				C76169E0204F7F6E00C94311 /* MySelfModule */,
 				C76169C3204F72AE00C94311 /* Public */,
 				C76169C6204F72AE00C94311 /* Resource */,
 				C73DD5CC204E88BD00C6437F /* Main.storyboard */,
@@ -100,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				C73DD5C4204E88BD00C6437F /* main.m */,
+				C76169DF204F79C900C94311 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -108,6 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				C76169D2204F743800C94311 /* Controller */,
+				C76169DB204F774300C94311 /* View */,
+				C76169DA204F774300C94311 /* Manager */,
+				C76169D8204F774300C94311 /* Category */,
+				C76169D9204F774300C94311 /* Header */,
 				C76169CE204F742800C94311 /* AppDelegate */,
 			);
 			path = Public;
@@ -147,6 +160,65 @@
 				C76169D5204F746200C94311 /* MainTabBarViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C76169D8204F774300C94311 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		C76169D9204F774300C94311 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				C76169DE204F794B00C94311 /* AppAPI.h */,
+				C76169DC204F779400C94311 /* AppMacro.h */,
+				C76169DD204F786200C94311 /* AppConfigInfo.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		C76169DA204F774300C94311 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C76169DB204F774300C94311 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C76169E0204F7F6E00C94311 /* MySelfModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MySelfModule;
+			sourceTree = "<group>";
+		};
+		C76169E1204F7F6E00C94311 /* FriendsModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FriendsModule;
+			sourceTree = "<group>";
+		};
+		C76169E2204F7F6E00C94311 /* ActivityModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ActivityModule;
+			sourceTree = "<group>";
+		};
+		C76169E3204F7F6E00C94311 /* InteractiveModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InteractiveModule;
 			sourceTree = "<group>";
 		};
 		FA4F9C06915C67A5F8BC4296 /* Frameworks */ = {
@@ -414,6 +486,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DY8NXRF8KD;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SuperScholar/PrefixHeader.pch";
 				INFOPLIST_FILE = SuperScholar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -428,6 +502,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DY8NXRF8KD;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SuperScholar/PrefixHeader.pch";
 				INFOPLIST_FILE = SuperScholar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
