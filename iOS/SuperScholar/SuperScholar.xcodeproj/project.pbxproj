@@ -263,7 +263,7 @@
 				TargetAttributes = {
 					C73DD5BF204E88BD00C6437F = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = DY8NXRF8KD;
+						DevelopmentTeam = P6247WX9N5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -485,7 +485,7 @@
 			baseConfigurationReference = AA3BC876F4E559385FBF2362 /* Pods-SuperScholar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DY8NXRF8KD;
+				DEVELOPMENT_TEAM = P6247WX9N5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SuperScholar/PrefixHeader.pch";
 				INFOPLIST_FILE = SuperScholar/Info.plist;
@@ -501,7 +501,7 @@
 			baseConfigurationReference = D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DY8NXRF8KD;
+				DEVELOPMENT_TEAM = P6247WX9N5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SuperScholar/PrefixHeader.pch";
 				INFOPLIST_FILE = SuperScholar/Info.plist;
