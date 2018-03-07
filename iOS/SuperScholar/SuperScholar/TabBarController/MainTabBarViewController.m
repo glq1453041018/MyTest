@@ -8,6 +8,7 @@
 
 #import "MainTabBarViewController.h"
 #import "AdsViewController.h"               // 广告页面
+#import "ActivityViewController.h"          // 活动页面
 
 @interface MainTabBarViewController ()
 @property(copy,nonatomic)NSMutableArray *navs;
@@ -30,16 +31,16 @@
     {
         AdsViewController *ctrl = [AdsViewController new];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ctrl];
-        UITabBarItem *barItem = [self makeItemWithTitle:@"推荐" normalImage:@"toolUnSelect" selectedImage:@"toolSelect" tag:0];
+        UITabBarItem *barItem = [self makeItemWithTitle:@"推荐" normalImage:@"recommend_unSelected" selectedImage:@"recommend" tag:0];
         nav.tabBarItem = barItem;
         [self.navs addObject:nav];
     }
     
-    // 广告页面
+    // 活动页面
     {
-        AdsViewController *ctrl = [AdsViewController new];
+        ActivityViewController *ctrl = [ActivityViewController new];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ctrl];
-        UITabBarItem *barItem = [self makeItemWithTitle:@"推荐" normalImage:@"toolUnSelect" selectedImage:@"toolSelect" tag:0];
+        UITabBarItem *barItem = [self makeItemWithTitle:@"活动" normalImage:@"recommend_unSelected" selectedImage:@"recommend" tag:1];
         nav.tabBarItem = barItem;
         [self.navs addObject:nav];
     }

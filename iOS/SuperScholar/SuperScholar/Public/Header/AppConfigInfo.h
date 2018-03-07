@@ -17,7 +17,7 @@
 // 选中的颜色
 #define kSelectedColor HexColor(0x4083ff)
 // 未选中的颜色
-#define kNoselectColor [UIColor lightGrayColor]
+#define kNoselectColor HexColor(0x8a8a8a)
 // 主题色
 #define KColorTheme HexColor(0x4083ff)
 
