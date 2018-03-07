@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010D75204FBFBC00E4511C /* AdsViewController.m */; };
 		38010D86204FBFBC00E4511C /* AdsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38010D76204FBFBC00E4511C /* AdsViewController.xib */; };
+		38010D8A204FC15A00E4511C /* AdsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010D88204FC15A00E4511C /* AdsTableViewCell.m */; };
+		38010D8B204FC15A00E4511C /* AdsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38010D89204FC15A00E4511C /* AdsTableViewCell.xib */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
 		C73DD5C5204E88BD00C6437F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DD5C4204E88BD00C6437F /* main.m */; };
 		C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CC204E88BD00C6437F /* Main.storyboard */; };
@@ -32,6 +34,9 @@
 		38010D74204FBFBC00E4511C /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
 		38010D75204FBFBC00E4511C /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
 		38010D76204FBFBC00E4511C /* AdsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsViewController.xib; sourceTree = "<group>"; };
+		38010D87204FC15A00E4511C /* AdsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsTableViewCell.h; sourceTree = "<group>"; };
+		38010D88204FC15A00E4511C /* AdsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsTableViewCell.m; sourceTree = "<group>"; };
+		38010D89204FC15A00E4511C /* AdsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsTableViewCell.xib; sourceTree = "<group>"; };
 		AA3BC876F4E559385FBF2362 /* Pods-SuperScholar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperScholar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DD5C0204E88BD00C6437F /* SuperScholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperScholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +112,9 @@
 		38010D78204FBFBC00E4511C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38010D87204FC15A00E4511C /* AdsTableViewCell.h */,
+				38010D88204FC15A00E4511C /* AdsTableViewCell.m */,
+				38010D89204FC15A00E4511C /* AdsTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -496,6 +504,7 @@
 				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
 				C73DD5DB204E88E900C6437F /* Podfile in Resources */,
+				38010D8B204FC15A00E4511C /* AdsTableViewCell.xib in Resources */,
 				C7616A07204F8F4C00C94311 /* MySelfViewController.xib in Resources */,
 				C76169F0204F839200C94311 /* ActivityViewController.xib in Resources */,
 				C7616A01204F8F2600C94311 /* ClassViewController.xib in Resources */,
@@ -572,6 +581,7 @@
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
+				38010D8A204FC15A00E4511C /* AdsTableViewCell.m in Sources */,
 				C7616A00204F8F2600C94311 /* ClassViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
