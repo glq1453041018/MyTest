@@ -31,6 +31,8 @@
 		C7616A10204FDDB400C94311 /* UIView+AdjustFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A0F204FDDB400C94311 /* UIView+AdjustFrame.m */; };
 		C7616A13204FDDBF00C94311 /* NSObject+InitData.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A12204FDDBF00C94311 /* NSObject+InitData.m */; };
 		C7616A17204FDE5400C94311 /* IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A16204FDE5400C94311 /* IndicatorView.m */; };
+		C7616A1A204FE2CE00C94311 /* UIView+CWNView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A19204FE2CD00C94311 /* UIView+CWNView.m */; };
+		C7616A1D204FE76500C94311 /* LLNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A1C204FE76500C94311 /* LLNavigationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,10 @@
 		C7616A12204FDDBF00C94311 /* NSObject+InitData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+InitData.m"; sourceTree = "<group>"; };
 		C7616A15204FDE5400C94311 /* IndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicatorView.h; sourceTree = "<group>"; };
 		C7616A16204FDE5400C94311 /* IndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndicatorView.m; sourceTree = "<group>"; };
+		C7616A18204FE2CD00C94311 /* UIView+CWNView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CWNView.h"; sourceTree = "<group>"; };
+		C7616A19204FE2CD00C94311 /* UIView+CWNView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CWNView.m"; sourceTree = "<group>"; };
+		C7616A1B204FE76500C94311 /* LLNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNavigationView.h; sourceTree = "<group>"; };
+		C7616A1C204FE76500C94311 /* LLNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNavigationView.m; sourceTree = "<group>"; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -319,6 +325,8 @@
 		C76169D8204F774300C94311 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C7616A18204FE2CD00C94311 /* UIView+CWNView.h */,
+				C7616A19204FE2CD00C94311 /* UIView+CWNView.m */,
 				C7616A11204FDDBF00C94311 /* NSObject+InitData.h */,
 				C7616A12204FDDBF00C94311 /* NSObject+InitData.m */,
 				C7616A0E204FDDB400C94311 /* UIView+AdjustFrame.h */,
@@ -348,6 +356,8 @@
 			isa = PBXGroup;
 			children = (
 				C7616A14204FDE4D00C94311 /* IndicatorView */,
+				C7616A1B204FE76500C94311 /* LLNavigationView.h */,
+				C7616A1C204FE76500C94311 /* LLNavigationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -601,10 +611,12 @@
 				C7616A10204FDDB400C94311 /* UIView+AdjustFrame.m in Sources */,
 				C7616A06204F8F4C00C94311 /* MySelfViewController.m in Sources */,
 				C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */,
+				C7616A1D204FE76500C94311 /* LLNavigationView.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				C7616A13204FDDBF00C94311 /* NSObject+InitData.m in Sources */,
 				38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */,
+				C7616A1A204FE2CE00C94311 /* UIView+CWNView.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
 				38010D8F204FD6E500E4511C /* AdsCollectionViewCell.m in Sources */,
 				C7616A17204FDE5400C94311 /* IndicatorView.m in Sources */,
