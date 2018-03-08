@@ -8,6 +8,7 @@
 
 #import "LLNavigationView.h"
 @interface LLNavigationView ()
+@property (strong ,nonatomic) NSLayoutConstraint *self_top;
 @end
 @implementation LLNavigationView
 
@@ -31,6 +32,7 @@
         _titleLabel.font = [UIFont boldSystemFontOfSize:17.0];
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.numberOfLines = 0;
+        [self addSubview:_titleLabel];
     }
     return _titleLabel;
 }
@@ -44,37 +46,130 @@
     return _rightBtn;
 }
 
+-(void)willMoveToSuperview:(UIView *)newSuperview{
+    [super willMoveToSuperview:newSuperview];
+    self.backgroundColor = KColorTheme;
+    // 监听屏幕旋转
+    //设备旋转通知
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleDeviceOrientationDidChange:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil
+     ];
+}
 
-
-
-
-
-
-
-#pragma mark - <************************** 设置方法 **************************>
--(void)setTitle:(NSString *)title leftImage:(NSString *)leftImg rightImage:(NSString *)rightImg{
-    if (leftImg&&leftImg.length) {
-        [self.letfBtn setImage:[UIImage imageNamed:leftImg] forState:UIControlStateNormal];
-        [self.letfBtn cwn_makeConstraints:^(UIView *maker) {
-            maker.leftToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).width(kNavigationbarHeight);
-        }];
-    }
-    if (rightImg&&rightImg.length) {
-        [self.rightBtn setImage:[UIImage imageNamed:rightImg] forState:UIControlStateNormal];
-        [self.rightBtn cwn_makeConstraints:^(UIView *maker) {
-            maker.rightToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).width(kNavigationbarHeight);
-        }];
-    }
-    if (title&&title.length) {
-        self.titleLabel.text = title;
-        [self.titleLabel cwn_makeConstraints:^(UIView *maker) {
-            maker.centerXtoSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).leftToSuper(kNavigationbarHeight);
-        }];
-    }
+-(void)didMoveToSuperview{
+    [super didMoveToSuperview];
+    WS(ws);
+    [self cwn_makeConstraints:^(UIView *maker) {
+        ws.self_top = maker.rightToSuper(0).leftToSuper(0).height(kNavigationbarHeight).topToSuper(0).lastConstraint;
+    }];
 }
 
 
 
+#pragma mark - <************************** 设置方法 **************************>
+-(void)setTitle:(NSString *)title leftImage:(NSString *)leftImg leftText:(NSString*)leftText rightImage:(NSString *)rightImg rightText:(NSString*)rightText{
+    CGFloat defaultWidth = kNavigationbarHeight-kStatusBarHeight;
+    CGFloat maxWidth = defaultWidth;
+    // 左边
+    if (leftImg&&leftImg.length) {
+        [self.letfBtn setImage:[UIImage imageNamed:leftImg] forState:UIControlStateNormal];
+        [self.letfBtn cwn_reMakeConstraints:^(UIView *maker) {
+            maker.leftToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).width(defaultWidth);
+        }];
+    }
+    if (leftText&&leftText.length) {
+        [self.letfBtn setTitle:leftText forState:UIControlStateNormal];
+        maxWidth = [leftText sizeWithAttributes:@{NSFontAttributeName:self.letfBtn.titleLabel.font}].width + 10;
+        maxWidth = MIN(kScreenWidth/2.0, MAX(maxWidth, defaultWidth));
+        [self.letfBtn cwn_reMakeConstraints:^(UIView *maker) {
+            maker.leftToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).width(maxWidth);
+        }];
+    }
+    // 右边
+    if (rightImg&&rightImg.length) {
+        [self.rightBtn setImage:[UIImage imageNamed:rightImg] forState:UIControlStateNormal];
+        [self.rightBtn cwn_reMakeConstraints:^(UIView *maker) {
+            maker.rightToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).width(defaultWidth);
+        }];
+    }
+    if (rightText&&rightText.length) {
+        [self.rightBtn setTitle:rightText forState:UIControlStateNormal];
+        maxWidth = [rightText sizeWithAttributes:@{NSFontAttributeName:self.rightBtn.titleLabel.font}].width + 10;
+        maxWidth = MAX(maxWidth, defaultWidth);
+        maxWidth = MIN(kScreenWidth/2.0, MAX(maxWidth, defaultWidth));
+        [self.rightBtn cwn_reMakeConstraints:^(UIView *maker) {
+            maker.rightToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).width(maxWidth);
+        }];
+    }
+    // 中间文字
+    if (title&&title.length) {
+        self.titleLabel.text = title;
+        maxWidth = MIN(maxWidth, kScreenWidth);
+        [self.titleLabel cwn_reMakeConstraints:^(UIView *maker) {
+            maker.centerXtoSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).leftToSuper(maxWidth);
+        }];
+    }
+}
+
+// !!!: 设置左右图片
+-(void)setTitle:(NSString *)title leftImage:(NSString *)leftImg rightImage:(NSString *)rightImg{
+    [self setTitle:title leftImage:leftImg leftText:nil rightImage:rightImg rightText:nil];
+}
+
+// !!!: 设置左右文字
+-(void)setTitle:(NSString*)title leftText:(NSString*)leftText rightText:(NSString *)rightText{
+    [self setTitle:title leftImage:nil leftText:leftText rightImage:nil rightText:rightText];
+}
+
+// !!!: 设置左图右文
+-(void)setTitle:(NSString *)title leftImage:(NSString *)leftImg rightText:(NSString *)rightText{
+    [self setTitle:title leftImage:leftImg leftText:nil rightImage:nil rightText:rightText];
+}
+
+// !!!: 设置左文右图
+-(void)setTitle:(NSString*)title leftText:(NSString*)leftText rightImage:(NSString *)rightImg{
+    [self setTitle:title leftImage:nil leftText:leftText rightImage:rightImg rightText:nil];
+}
+
+
+// !!!: 设置自定义视图
+-(void)setCenterView:(UIView *)centerView leftView:(UIView *)leftView rightView:(UIView *)rightView{
+    CGFloat defaultWidth = kNavigationbarHeight-kStatusBarHeight;
+    CGFloat maxWidth = defaultWidth;
+    if (leftView) {
+        [self addSubview:leftView];
+        maxWidth = MAX(maxWidth, leftView.viewWidth);
+        maxWidth = MIN(maxWidth, kScreenWidth/2.0);
+        [leftView cwn_makeConstraints:^(UIView *maker) {
+            maker.leftToSuper(10).centerYtoSuper(kStatusBarHeight/2.0).height(maker.viewHeight).width(maker.viewWidth);
+        }];
+        // 添加手势
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftClickEvent)];
+        [leftView addGestureRecognizer:tap];
+    }
+    if (rightView) {
+        [self addSubview:rightView];
+        maxWidth = MAX(maxWidth, rightView.viewWidth);
+        maxWidth = MIN(maxWidth, kScreenWidth/2.0);
+        [rightView cwn_makeConstraints:^(UIView *maker) {
+            maker.rightToSuper(10).centerYtoSuper(kStatusBarHeight/2.0).height(maker.viewHeight).width(maker.viewWidth);
+        }];
+        // 添加手势
+        rightView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightClickEvent)];
+        [rightView addGestureRecognizer:tap];
+    }
+    if (centerView) {
+        [self addSubview:centerView];
+        maxWidth = MIN(maxWidth, kScreenWidth);
+        [centerView cwn_makeConstraints:^(UIView *maker) {
+            maker.centerXtoSuper(0).centerYtoSuper(kStatusBarHeight/2.0).height(maker.viewHeight).width(maker.viewWidth);
+        }];
+    }
+}
 
 
 
@@ -91,5 +186,25 @@
     }
 }
 
+
+
+#pragma mark - <************************** 通知 **************************>
+// !!!: 屏幕旋转方向
+- (void)handleDeviceOrientationDidChange:(UIInterfaceOrientation)interfaceOrientation{
+    UIDevice *device = [UIDevice currentDevice] ;
+    switch (device.orientation) {
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+            self.self_top.constant = -(self.viewHeight - kNavigationbarHeight);
+            break;
+        case UIDeviceOrientationPortrait:
+        case UIDeviceOrientationPortraitUpsideDown:
+            self.self_top.constant = 0;
+            break;
+        default:
+            DLog(@"无法辨识");
+            break;
+    }
+}
 
 @end

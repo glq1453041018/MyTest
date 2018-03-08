@@ -7,6 +7,7 @@
 //
 
 #import "ClassViewController.h"
+#import "MySelfViewController.h"
 #import "LLNavigationView.h"
 
 @interface ClassViewController ()
@@ -18,11 +19,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    LLNavigationView *navView = [[LLNavigationView alloc] init];
-    [navView setTitle:@"hahahah" leftImage:@"" rightImage:@""];
-    [self.view addSubview:navView];
+    [self.navigationBar setTitle:@"急死哦飞机司法及司法 i 计算机房手机哦的" leftImage:@"public_left" rightText:@"确定"];
+    
+    [self.loadingView startAnimating];
+}
+
+
+-(void)navigationViewLeftClickEvent{
     
 }
+
+-(void)navigationViewRightClickEvent{
+    [self.navigationController pushViewController:[MySelfViewController new] animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
