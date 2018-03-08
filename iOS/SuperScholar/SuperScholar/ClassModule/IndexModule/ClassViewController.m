@@ -7,6 +7,7 @@
 //
 
 #import "ClassViewController.h"
+#import "LLNavigationView.h"
 
 @interface ClassViewController ()
 
@@ -16,7 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    LLNavigationView *navView = [[LLNavigationView alloc] init];
+    [navView setTitle:@"hahahah" leftImage:@"" rightImage:@""];
+    [self.view addSubview:navView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
