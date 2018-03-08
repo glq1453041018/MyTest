@@ -18,7 +18,8 @@
 // !!!: ------------------------------------共用封装------------------------------------
 #import "UIView+AdjustFrame.h"
 #import "NSObject+InitData.h"
-
+#import "MJDIYHeader.h"
+#import "MJDIYAutoFooter.h"
 
 // !!!: ------------------------------------其他------------------------------------
 #import "AppMacro.h"            // 常用的宏
