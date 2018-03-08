@@ -7,7 +7,9 @@
 //
 
 #import "AdsViewController.h"
+#import "ZhaoShengViewController.h"
 #import "AdsCollectionViewCell.h"
+
 @interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic,strong) UICollectionView *CollectionView;
 
@@ -169,7 +171,8 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    
+    ZhaoShengViewController *zhaosheng = [[ZhaoShengViewController alloc]initWithNibName:@"ZhaoShengViewController" bundle:nil];
+    [self.navigationController pushViewController:zhaosheng animated:YES];
 }
 
 #pragma mark - <************************** 点击事件 **************************>

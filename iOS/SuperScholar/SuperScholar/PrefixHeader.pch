@@ -19,7 +19,8 @@
 #import "UIView+AdjustFrame.h"
 #import "UIView+CWNView.h"
 #import "NSObject+InitData.h"
-
+#import "MJDIYHeader.h"
+#import "MJDIYAutoFooter.h"
 
 // !!!: ------------------------------------其他------------------------------------
 #import "AppMacro.h"            // 常用的宏

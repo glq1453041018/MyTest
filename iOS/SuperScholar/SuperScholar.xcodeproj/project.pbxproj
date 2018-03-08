@@ -12,6 +12,12 @@
 		38010D8F204FD6E500E4511C /* AdsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010D8D204FD6E500E4511C /* AdsCollectionViewCell.m */; };
 		38010D90204FD6E500E4511C /* AdsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38010D8E204FD6E500E4511C /* AdsCollectionViewCell.xib */; };
 		38010D98204FE63B00E4511C /* NSDictionary+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010D97204FE63B00E4511C /* NSDictionary+Utility.m */; };
+		38010DAC204FFB3500E4511C /* ZhaoShengViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010DAA204FFB3500E4511C /* ZhaoShengViewController.m */; };
+		38010DAD204FFB3500E4511C /* ZhaoShengViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38010DAB204FFB3500E4511C /* ZhaoShengViewController.xib */; };
+		38010DB1204FFB5E00E4511C /* ZhaoShengTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010DAF204FFB5E00E4511C /* ZhaoShengTableViewCell.m */; };
+		38010DB2204FFB5E00E4511C /* ZhaoShengTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38010DB0204FFB5E00E4511C /* ZhaoShengTableViewCell.xib */; };
+		38010DB8204FFEA000E4511C /* MJDIYAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010DB5204FFEA000E4511C /* MJDIYAutoFooter.m */; };
+		38010DB9204FFEA000E4511C /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010DB7204FFEA000E4511C /* MJDIYHeader.m */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
 		C73DD5C5204E88BD00C6437F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DD5C4204E88BD00C6437F /* main.m */; };
 		C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CC204E88BD00C6437F /* Main.storyboard */; };
@@ -46,6 +52,16 @@
 		38010D8E204FD6E500E4511C /* AdsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsCollectionViewCell.xib; sourceTree = "<group>"; };
 		38010D96204FE63B00E4511C /* NSDictionary+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Utility.h"; sourceTree = "<group>"; };
 		38010D97204FE63B00E4511C /* NSDictionary+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Utility.m"; sourceTree = "<group>"; };
+		38010DA9204FFB3500E4511C /* ZhaoShengViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhaoShengViewController.h; sourceTree = "<group>"; };
+		38010DAA204FFB3500E4511C /* ZhaoShengViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhaoShengViewController.m; sourceTree = "<group>"; };
+		38010DAB204FFB3500E4511C /* ZhaoShengViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZhaoShengViewController.xib; sourceTree = "<group>"; };
+		38010DAE204FFB5E00E4511C /* ZhaoShengTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhaoShengTableViewCell.h; sourceTree = "<group>"; };
+		38010DAF204FFB5E00E4511C /* ZhaoShengTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhaoShengTableViewCell.m; sourceTree = "<group>"; };
+		38010DB0204FFB5E00E4511C /* ZhaoShengTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZhaoShengTableViewCell.xib; sourceTree = "<group>"; };
+		38010DB4204FFEA000E4511C /* MJDIYAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYAutoFooter.h; sourceTree = "<group>"; };
+		38010DB5204FFEA000E4511C /* MJDIYAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYAutoFooter.m; sourceTree = "<group>"; };
+		38010DB6204FFEA000E4511C /* MJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYHeader.h; sourceTree = "<group>"; };
+		38010DB7204FFEA000E4511C /* MJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYHeader.m; sourceTree = "<group>"; };
 		AA3BC876F4E559385FBF2362 /* Pods-SuperScholar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperScholar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DD5C0204E88BD00C6437F /* SuperScholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperScholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,32 +221,153 @@
 		38010D81204FBFBC00E4511C /* SearchContent */ = {
 			isa = PBXGroup;
 			children = (
-				38010D82204FBFBC00E4511C /* Controller */,
-				38010D83204FBFBC00E4511C /* Model */,
-				38010D84204FBFBC00E4511C /* View */,
+				38010DA5204FFAF400E4511C /* Index */,
+				38010DA1204FFABC00E4511C /* ZhaoShengQiShi */,
+				38010D99204FFABC00E4511C /* Activity */,
+				38010D9D204FFABC00E4511C /* School */,
 			);
 			path = SearchContent;
 			sourceTree = "<group>";
 		};
-		38010D82204FBFBC00E4511C /* Controller */ = {
+		38010D99204FFABC00E4511C /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				38010D9A204FFABC00E4511C /* Controller */,
+				38010D9B204FFABC00E4511C /* Model */,
+				38010D9C204FFABC00E4511C /* View */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		38010D9A204FFABC00E4511C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		38010D83204FBFBC00E4511C /* Model */ = {
+		38010D9B204FFABC00E4511C /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		38010D84204FBFBC00E4511C /* View */ = {
+		38010D9C204FFABC00E4511C /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		38010D9D204FFABC00E4511C /* School */ = {
+			isa = PBXGroup;
+			children = (
+				38010D9E204FFABC00E4511C /* Controller */,
+				38010D9F204FFABC00E4511C /* Model */,
+				38010DA0204FFABC00E4511C /* View */,
+			);
+			path = School;
+			sourceTree = "<group>";
+		};
+		38010D9E204FFABC00E4511C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38010D9F204FFABC00E4511C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38010DA0204FFABC00E4511C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38010DA1204FFABC00E4511C /* ZhaoShengQiShi */ = {
+			isa = PBXGroup;
+			children = (
+				38010DA2204FFABC00E4511C /* Controller */,
+				38010DA3204FFABC00E4511C /* Model */,
+				38010DA4204FFABC00E4511C /* View */,
+			);
+			path = ZhaoShengQiShi;
+			sourceTree = "<group>";
+		};
+		38010DA2204FFABC00E4511C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38010DA9204FFB3500E4511C /* ZhaoShengViewController.h */,
+				38010DAA204FFB3500E4511C /* ZhaoShengViewController.m */,
+				38010DAB204FFB3500E4511C /* ZhaoShengViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38010DA3204FFABC00E4511C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38010DA4204FFABC00E4511C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38010DAE204FFB5E00E4511C /* ZhaoShengTableViewCell.h */,
+				38010DAF204FFB5E00E4511C /* ZhaoShengTableViewCell.m */,
+				38010DB0204FFB5E00E4511C /* ZhaoShengTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38010DA5204FFAF400E4511C /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				38010DA6204FFAF400E4511C /* Controller */,
+				38010DA7204FFAF400E4511C /* Model */,
+				38010DA8204FFAF400E4511C /* View */,
+			);
+			path = Index;
+			sourceTree = "<group>";
+		};
+		38010DA6204FFAF400E4511C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38010DA7204FFAF400E4511C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38010DA8204FFAF400E4511C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38010DB3204FFEA000E4511C /* MJDIYView */ = {
+			isa = PBXGroup;
+			children = (
+				38010DB4204FFEA000E4511C /* MJDIYAutoFooter.h */,
+				38010DB5204FFEA000E4511C /* MJDIYAutoFooter.m */,
+				38010DB6204FFEA000E4511C /* MJDIYHeader.h */,
+				38010DB7204FFEA000E4511C /* MJDIYHeader.m */,
+			);
+			path = MJDIYView;
 			sourceTree = "<group>";
 		};
 		6A9C8E1F03854DBE509E4709 /* Pods */ = {
@@ -365,6 +502,7 @@
 		C76169DB204F774300C94311 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38010DB3204FFEA000E4511C /* MJDIYView */,
 				C7616A14204FDE4D00C94311 /* IndicatorView */,
 				C7616A1B204FE76500C94311 /* LLNavigationView.h */,
 				C7616A1C204FE76500C94311 /* LLNavigationView.m */,
@@ -552,6 +690,8 @@
 				C76169F0204F839200C94311 /* ActivityViewController.xib in Resources */,
 				C7616A01204F8F2600C94311 /* ClassViewController.xib in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
+				38010DB2204FFB5E00E4511C /* ZhaoShengTableViewCell.xib in Resources */,
+				38010DAD204FFB3500E4511C /* ZhaoShengViewController.xib in Resources */,
 				C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,11 +758,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
+				38010DB8204FFEA000E4511C /* MJDIYAutoFooter.m in Sources */,
+				38010DB9204FFEA000E4511C /* MJDIYHeader.m in Sources */,
 				C7616A10204FDDB400C94311 /* UIView+AdjustFrame.m in Sources */,
 				C7616A06204F8F4C00C94311 /* MySelfViewController.m in Sources */,
 				C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */,
 				C7616A1D204FE76500C94311 /* LLNavigationView.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
+				38010DB1204FFB5E00E4511C /* ZhaoShengTableViewCell.m in Sources */,
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				38010D98204FE63B00E4511C /* NSDictionary+Utility.m in Sources */,
 				C7616A13204FDDBF00C94311 /* NSObject+InitData.m in Sources */,
@@ -630,6 +773,7 @@
 				C7616A202050DC6600C94311 /* UIViewController+Based.m in Sources */,
 				C7616A1A204FE2CE00C94311 /* UIView+CWNView.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
+				38010DAC204FFB3500E4511C /* ZhaoShengViewController.m in Sources */,
 				38010D8F204FD6E500E4511C /* AdsCollectionViewCell.m in Sources */,
 				C7616A17204FDE5400C94311 /* IndicatorView.m in Sources */,
 				C7616A00204F8F2600C94311 /* ClassViewController.m in Sources */,
