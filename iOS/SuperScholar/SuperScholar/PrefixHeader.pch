@@ -16,6 +16,7 @@
 
 
 // !!!: ------------------------------------共用封装------------------------------------
+#import "UIViewController+Based.h"
 #import "UIView+AdjustFrame.h"
 #import "UIView+CWNView.h"
 #import "NSObject+InitData.h"

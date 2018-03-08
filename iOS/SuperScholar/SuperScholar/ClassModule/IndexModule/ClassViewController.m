@@ -19,9 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.navigationBar setTitle:@"急死哦飞机司法及司法 i 计算机房手机哦的" leftImage:@"public_left" rightText:@"确定"];
-    
-    [self.loadingView startAnimating];
 }
 
 
@@ -30,7 +27,6 @@
 }
 
 -(void)navigationViewRightClickEvent{
-    [self.navigationController pushViewController:[MySelfViewController new] animated:YES];
 }
 
 
