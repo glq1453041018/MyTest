@@ -53,6 +53,9 @@
 //随机颜色
 #define RandColor ColorWithRGB(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
 
+//默认颜色
+#define GLOBAL_TABLSECTION_LINECOLOR HexColor(0xc9ced6)
+
 
 #pragma mark - <************************** 适配 **************************>
 // 以iPhone6为基准，获取缩放比例来设置控件的自适应
