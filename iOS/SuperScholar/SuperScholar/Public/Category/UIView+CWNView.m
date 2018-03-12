@@ -155,6 +155,17 @@
     return block;
 }
 
+- (void (^)(UIEdgeInsets))edgeInsetsToSuper{
+    __weak typeof(self) weakSelf = self;
+    void (^block)(UIEdgeInsets) = ^(UIEdgeInsets insets){
+        [weakSelf setLayoutTopFromSuperViewWithConstant:insets.top];
+        [weakSelf setLayoutRightFromSuperViewWithConstant:insets.right];
+        [weakSelf setLayoutBottomFromSuperViewWithConstant:insets.bottom];
+        [weakSelf setLayoutLeftFromSuperViewWithConstant:insets.left];
+    };
+    return block;
+}
+
 - (UIView *(^)(UIView *, CGFloat, CGFloat))topTo{
     __weak typeof(self) weakSelf = self;
     UIView *(^block)(UIView *, CGFloat, CGFloat) = ^(UIView *targetView, CGFloat m, CGFloat c){

@@ -49,6 +49,7 @@
  *  2.支持约束重建，使用cwn_reMakeConstraints获取操作器即可
  *  3.支持全部约束适配、水平、竖直方向约束单独适配
  *  4.支持控件width、height约束的快速获取，可以定位xib中的对应约束，进行修改
+ *  5.支持相对父视图top、bottom、right、left的约束快速创建：edgeInsetsToSuper
  */
 
 
@@ -112,6 +113,7 @@
 - (UIView *(^)(CGFloat constant))leftToSuper;
 - (UIView *(^)(CGFloat constant))rightToSuper;
 - (UIView *(^)(CGFloat constant))bottomToSuper;
+- (void(^)(UIEdgeInsets edgeInsets))edgeInsetsToSuper;
 
 /**
  *  控件间相对约束设置方法
