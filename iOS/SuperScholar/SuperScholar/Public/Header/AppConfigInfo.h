@@ -21,9 +21,19 @@
 // 未选中的颜色
 #define kNoselectColor HexColor(0x8a8a8a)
 
+//默认颜色
+#define GLOBAL_TABLSECTION_LINECOLOR HexColor(0xc9ced6)
+//分割线颜色
+#define SeparatorLineColor  HexColor(0xe0e0e0)
+//选项卡的高度
+#define kscrollerbarHeight 40
 
-
-
+//字体大小
+#define FontSize_15 15
+#define FontSize_11 11
+//字体颜色
+#define FontSize_colorgray HexColor(0x333333)
+#define FontSize_colorlightgray HexColor(0x999999)
 #pragma mark - <************************** 通知字段 **************************>
 
 

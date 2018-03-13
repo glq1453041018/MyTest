@@ -39,6 +39,17 @@
  *  @author 陈伟南, 17-12-14 11:21:55
  *
  *  不再提供普通方法进行约束布局、适配，，，，约束布局、适配统一采用链式方法
+ *
+ *
+ *
+ *
+ *  @author 陈伟南, 18-03-09 10:50:32
+ *
+ *  1.支持相对对齐约束leftToLeft、rightToRight等的设置
+ *  2.支持约束重建，使用cwn_reMakeConstraints获取操作器即可
+ *  3.支持全部约束适配、水平、竖直方向约束单独适配
+ *  4.支持控件width、height约束的快速获取，可以定位xib中的对应约束，进行修改
+ *  5.支持相对父视图top、bottom、right、left的约束快速创建：edgeInsetsToSuper
  */
 
 
@@ -83,6 +94,15 @@
  * @note 用途：动态更新，需先定义变量进行存储
  */
 @property (strong, nonatomic) NSLayoutConstraint *lastConstraint;
+/**
+ * 控件的宽度约束(可能是xib或代码创建的)
+ */
+@property (strong, nonatomic) NSLayoutConstraint *widthConstraint;
+/**
+ * 控件的高度约束(可能是xib或代码创建的)
+ */
+@property (strong, nonatomic) NSLayoutConstraint *heightConstraint;
+
 
 /**
  *  控件相对父视图约束设置方法
@@ -93,6 +113,7 @@
 - (UIView *(^)(CGFloat constant))leftToSuper;
 - (UIView *(^)(CGFloat constant))rightToSuper;
 - (UIView *(^)(CGFloat constant))bottomToSuper;
+- (void(^)(UIEdgeInsets edgeInsets))edgeInsetsToSuper;
 
 /**
  *  控件间相对约束设置方法
@@ -103,6 +124,7 @@
  * @ note   setLayoutLeft:方法相对的是参照视图的Right，其他方法同理
  */
 - (UIView *(^)(UIView *targetView, CGFloat multiplier, CGFloat constant))topTo;
+- (UIView *(^)(UIView *targetView, CGFloat multiplier, CGFloat constant))topToTop;
 - (UIView *(^)(UIView *targetView, CGFloat multiplier, CGFloat constant))leftTo;
 - (UIView *(^)(UIView *targetView, CGFloat multiplier, CGFloat constant))leftToLeft;
 - (UIView *(^)(UIView *targetView, CGFloat multiplier, CGFloat constant))rightTo;
@@ -140,7 +162,8 @@
 #pragma mark ----------------------------------autolayout适配-------------------------------------
 
 - (UIView *(^)())shipeiAllSubViewsUsinglayout;//全部适配
-- (UIView *(^)())shiPeiAllSubViews_X_W_UsingLayout;//相对父布局适配
+- (UIView *(^)())shiPeiAllSubViews_X_W_UsingLayout;//适配水平约束
+- (UIView *(^)())shiPeiAllSubViews_Y_H_UsingLayout;//适配竖直约束
 
 
 #pragma mark ----------------------------------frame适配-------------------------------------

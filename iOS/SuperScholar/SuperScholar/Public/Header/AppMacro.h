@@ -20,6 +20,7 @@
 #define S_WIDTH @"[UIScreen mainScreen].bounds.size.width-40"
 #define IEW_WIDTH [UIScreen mainScreen].bounds.size.width
 #define IEW_HEGHT [UIScreen mainScreen].bounds.size.height
+//只能用于横屏的时候
 #define SCREEN_HEIGHT MIN([UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height)
 #define SCREEN_WIDTH MAX([UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height)
 #define MAIN_SPWP  SCREEN_WIDTH/667.0
@@ -53,8 +54,7 @@
 //随机颜色
 #define RandColor ColorWithRGB(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
 
-//默认颜色
-#define GLOBAL_TABLSECTION_LINECOLOR HexColor(0xc9ced6)
+
 
 
 #pragma mark - <************************** 适配 **************************>

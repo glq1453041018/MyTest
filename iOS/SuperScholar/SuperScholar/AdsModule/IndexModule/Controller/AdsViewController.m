@@ -7,7 +7,7 @@
 //
 
 #import "AdsViewController.h"
-#import "ZhaoShengViewController.h"
+#import "SearchIndexViewController.h"
 #import "AdsCollectionViewCell.h"
 
 @interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -171,7 +171,8 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    ZhaoShengViewController *zhaosheng = [[ZhaoShengViewController alloc]initWithNibName:@"ZhaoShengViewController" bundle:nil];
+    SearchIndexViewController *zhaosheng = [[SearchIndexViewController alloc]initWithNibName:@"SearchIndexViewController" bundle:nil];
+    zhaosheng.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:zhaosheng animated:YES];
 }
 

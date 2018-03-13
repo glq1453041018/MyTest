@@ -1,22 +1,21 @@
 //
-//  ZhaoShengViewController.m
+//  SchoolViewController.m
 //  SuperScholar
 //
-//  Created by guolq on 2018/3/7.
+//  Created by guolq on 2018/3/9.
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-#import "ZhaoShengViewController.h"
-#import "ZhaoShengTableViewCell.h"
-@interface ZhaoShengViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "SchoolViewController.h"
+#import "SchoolTableViewCell.h"
+@interface SchoolViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,assign) NSInteger page;
 @property (nonatomic,strong)NSMutableArray *dataArray;
 
 @end
 
-@implementation ZhaoShengViewController
-
+@implementation SchoolViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -80,65 +79,65 @@
 // !!!: 获取数据
 -(void)getDataFormServer{
     
-//    NSString *url = [NSString stringWithFormat:@"%@%@",YuMing3,JingDianAnLi];
-//    
-//    NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:
-//                         [[NSUserDefaults standardUserDefaults] valueForKey:@"userid"],@"userid",
-//                         self.channelid,@"channel_id",
-//                         [NSNumber numberWithInteger:self.page],@"page",
-//                         [NSNumber numberWithInt:10],@"pagesize",
-//                         nil];
-//    __weak typeof(self) weakself = self;
-//    service *servi = [[service alloc]init];
-//    
-//    [servi requestWithURLString:url parameters:dic type:HttpRequestTyepPost success:^(id responseObject) {
-//        
-//        NSArray *resultArr = [responseObject objectForKey:@"table"];
-//        
-//        if (weakself.page==1) {
-//            [weakself.dataArray removeAllObjects];
-//        }
-//        [resultArr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            JingDianAnLiModel *model = [JingDianAnLiModel objectWithModuleDic:obj hintDic:nil];
-//            [weakself.dataArray addObject:model];
-//        }];
-//        [weakself.tableView reloadData];
-//        
-//        weakself.tableView.mj_footer.hidden = NO;
-//        //        // 拿到当前的下拉刷新控件，结束刷新状态
-//        [weakself.tableView.mj_footer endRefreshing];
-//        [weakself.tableView.mj_header endRefreshing];
-//        
-//        if(weakself.dataArray.count == 0){
-//            weakself.tableView.mj_footer.hidden = YES;
-//            NoDaTaFootView *footview = [[NoDaTaFootView alloc]initWithFrame:CGRectMake(0, (MAIN_HEIGHT-170-64-30)/2.0, MAIN_WIDTH, 170)];
-//            UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MAIN_WIDTH, MAIN_HEIGHT-64)];
-//            [view addSubview:footview];
-//            [footview SetImageWithImage:@"NodataImage" andTitle:@"暂无相关数据，请耐心等待！"];
-//            weakself.tableView.tableFooterView = view;
-//            
-//        }
-//        else{
-//            UIView *View = [[UIView alloc]initWithFrame:CGRectZero];
-//            weakself.tableView.tableFooterView =View ;
-//        }
-//        if(weakself.dataArray.count != 0&&resultArr.count == 0){
-//            [weakself.tableView.mj_footer endRefreshingWithNoMoreData] ;
-//        }
-//        weakself.page++;
-//    } failure:^(NSError *error) {
-//        [weakself.tableView.mj_header endRefreshing];
-//        [weakself.tableView.mj_footer endRefreshing];
-//        if ([error isKindOfClass:[NSError class]]) {
-//            NSError * err = (NSError *)error;
-//            [LLAlertView showSystemAlertViewClickBlock:^(NSInteger index) {
-//                if (index == 1) {
-//                    [self getDataFormServer];
-//                }
-//            } message:ServerError_Description(err.code) buttonTitles:@"取消",@"重试",nil];
-//        }
-//        [weakself.loadingView stopAnimating];
-//    }];
+    //    NSString *url = [NSString stringWithFormat:@"%@%@",YuMing3,JingDianAnLi];
+    //
+    //    NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:
+    //                         [[NSUserDefaults standardUserDefaults] valueForKey:@"userid"],@"userid",
+    //                         self.channelid,@"channel_id",
+    //                         [NSNumber numberWithInteger:self.page],@"page",
+    //                         [NSNumber numberWithInt:10],@"pagesize",
+    //                         nil];
+    //    __weak typeof(self) weakself = self;
+    //    service *servi = [[service alloc]init];
+    //
+    //    [servi requestWithURLString:url parameters:dic type:HttpRequestTyepPost success:^(id responseObject) {
+    //
+    //        NSArray *resultArr = [responseObject objectForKey:@"table"];
+    //
+    //        if (weakself.page==1) {
+    //            [weakself.dataArray removeAllObjects];
+    //        }
+    //        [resultArr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    //            JingDianAnLiModel *model = [JingDianAnLiModel objectWithModuleDic:obj hintDic:nil];
+    //            [weakself.dataArray addObject:model];
+    //        }];
+    //        [weakself.tableView reloadData];
+    //
+    //        weakself.tableView.mj_footer.hidden = NO;
+    //        //        // 拿到当前的下拉刷新控件，结束刷新状态
+    //        [weakself.tableView.mj_footer endRefreshing];
+    //        [weakself.tableView.mj_header endRefreshing];
+    //
+    //        if(weakself.dataArray.count == 0){
+    //            weakself.tableView.mj_footer.hidden = YES;
+    //            NoDaTaFootView *footview = [[NoDaTaFootView alloc]initWithFrame:CGRectMake(0, (MAIN_HEIGHT-170-64-30)/2.0, MAIN_WIDTH, 170)];
+    //            UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MAIN_WIDTH, MAIN_HEIGHT-64)];
+    //            [view addSubview:footview];
+    //            [footview SetImageWithImage:@"NodataImage" andTitle:@"暂无相关数据，请耐心等待！"];
+    //            weakself.tableView.tableFooterView = view;
+    //
+    //        }
+    //        else{
+    //            UIView *View = [[UIView alloc]initWithFrame:CGRectZero];
+    //            weakself.tableView.tableFooterView =View ;
+    //        }
+    //        if(weakself.dataArray.count != 0&&resultArr.count == 0){
+    //            [weakself.tableView.mj_footer endRefreshingWithNoMoreData] ;
+    //        }
+    //        weakself.page++;
+    //    } failure:^(NSError *error) {
+    //        [weakself.tableView.mj_header endRefreshing];
+    //        [weakself.tableView.mj_footer endRefreshing];
+    //        if ([error isKindOfClass:[NSError class]]) {
+    //            NSError * err = (NSError *)error;
+    //            [LLAlertView showSystemAlertViewClickBlock:^(NSInteger index) {
+    //                if (index == 1) {
+    //                    [self getDataFormServer];
+    //                }
+    //            } message:ServerError_Description(err.code) buttonTitles:@"取消",@"重试",nil];
+    //        }
+    //        [weakself.loadingView stopAnimating];
+    //    }];
     
     
 }
@@ -171,37 +170,33 @@
 //        cell = [nibs objectAtIndex:1];
 //        [cell adjustFrame];
 //        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        
+//
 //    }
-//    
+//
 //    if (self.adImages.count > 0) {
 //        NSDictionary *dic = self.adImages[section%self.adImages.count];
 //        cell.AddImageBtn.tag = section;
 //        [cell.AddImageBtn addTarget:self action:@selector(AddImageClick:) forControlEvents:UIControlEventTouchUpInside];
-//        
+//
 //        BOOL isUnderReview = [MYMemoryDefaults standardUserDefaults].isUnderReview;//是否是审核期间，如果是，则不需要相关增值服务
 //        [cell.AddImageBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:isUnderReview?ImageYuMingUrl([dic objectForKeyNotNull:@"ShImgSrc"]): ImageYuMingUrl([dic objectForKeyNotNull:@"ImgSrc"])] forState:UIControlStateNormal];
-//        
+//
 //    }
 //    return cell;
 //}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row<10) {
-        return 124*MAIN_SPWPW;}
-    else{
-        return 124*MAIN_SPWPW;
+
+        return 110*MAIN_SPWPW;
     }
 
-    
-}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row<10) {
-        static NSString *cellId = @"zhaoshengcell";
-        ZhaoShengTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+
+        static NSString *cellId = @"schooolcell";
+        SchoolTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (cell == nil) {
-            NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"ZhaoShengTableViewCell" owner:self options:nil];
+            NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"SchoolTableViewCell" owner:self options:nil];
             cell = [nibs objectAtIndex:0];
             [cell adjustFrame];
             cell.headImage.layer.cornerRadius = 4;
@@ -228,39 +223,7 @@
         cell.contentLable.lineBreakMode = NSLineBreakByTruncatingTail;
         
         
-        return cell;
-    }else{
-        static NSString *cellId = @"zhaoshengcell2";
-        ZhaoShengTableViewCell_NOImage *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-        if (cell == nil) {
-            NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"ZhaoShengTableViewCell" owner:self options:nil];
-            cell = [nibs objectAtIndex:1];
-            [cell adjustFrame];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
-        }
-        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        [paragraphStyle setLineSpacing:4.0];//调整行间距
-        
-        NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:@"新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教婴早教莆田教育婴早教莆田教育莆田教育中心新爱婴早教莆田教育中心"];
-        
-        //    if (fenxianTip.length>5) {
-        [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
-        //设置文字颜色
-        [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
-        //设置文字大小
-        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_15] range:NSMakeRange(0, attributStr.length)];
-        
-        //    }
-        
-        //赋值
-        cell.contentLable.attributedText = attributStr;
-        cell.contentLable.lineBreakMode = NSLineBreakByTruncatingTail;
-        
-        
-        return cell;
-    }
-    
+    return cell;
     
     
 }
@@ -286,6 +249,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 /*
 #pragma mark - Navigation
 

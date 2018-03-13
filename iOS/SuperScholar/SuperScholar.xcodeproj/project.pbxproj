@@ -25,6 +25,12 @@
 		384A555D20521F20006D8C23 /* MJDIYAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A555320521F20006D8C23 /* MJDIYAutoFooter.m */; };
 		384A555E20521F20006D8C23 /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A555520521F20006D8C23 /* MJDIYHeader.m */; };
 		384A556220521F2E006D8C23 /* MYSegmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A556120521F2E006D8C23 /* MYSegmentController.m */; };
+		384A556620522095006D8C23 /* SearchIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A556420522095006D8C23 /* SearchIndexViewController.m */; };
+		384A556720522095006D8C23 /* SearchIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384A556520522095006D8C23 /* SearchIndexViewController.xib */; };
+		384A556B205266D8006D8C23 /* SchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A5569205266D8006D8C23 /* SchoolViewController.m */; };
+		384A556C205266D8006D8C23 /* SchoolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384A556A205266D8006D8C23 /* SchoolViewController.xib */; };
+		384A55702052674F006D8C23 /* SchoolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A556E2052674F006D8C23 /* SchoolTableViewCell.m */; };
+		384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384A556F2052674F006D8C23 /* SchoolTableViewCell.xib */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
 		C73DD5C5204E88BD00C6437F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DD5C4204E88BD00C6437F /* main.m */; };
 		C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CC204E88BD00C6437F /* Main.storyboard */; };
@@ -80,6 +86,15 @@
 		384A555520521F20006D8C23 /* MJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYHeader.m; sourceTree = "<group>"; };
 		384A556020521F2E006D8C23 /* MYSegmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSegmentController.h; sourceTree = "<group>"; };
 		384A556120521F2E006D8C23 /* MYSegmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSegmentController.m; sourceTree = "<group>"; };
+		384A556320522095006D8C23 /* SearchIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchIndexViewController.h; sourceTree = "<group>"; };
+		384A556420522095006D8C23 /* SearchIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchIndexViewController.m; sourceTree = "<group>"; };
+		384A556520522095006D8C23 /* SearchIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchIndexViewController.xib; sourceTree = "<group>"; };
+		384A5568205266D8006D8C23 /* SchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolViewController.h; sourceTree = "<group>"; };
+		384A5569205266D8006D8C23 /* SchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolViewController.m; sourceTree = "<group>"; };
+		384A556A205266D8006D8C23 /* SchoolViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolViewController.xib; sourceTree = "<group>"; };
+		384A556D2052674F006D8C23 /* SchoolTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolTableViewCell.h; sourceTree = "<group>"; };
+		384A556E2052674F006D8C23 /* SchoolTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolTableViewCell.m; sourceTree = "<group>"; };
+		384A556F2052674F006D8C23 /* SchoolTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolTableViewCell.xib; sourceTree = "<group>"; };
 		AA3BC876F4E559385FBF2362 /* Pods-SuperScholar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperScholar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DD5C0204E88BD00C6437F /* SuperScholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperScholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +291,9 @@
 		38010D9E204FFABC00E4511C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				384A5568205266D8006D8C23 /* SchoolViewController.h */,
+				384A5569205266D8006D8C23 /* SchoolViewController.m */,
+				384A556A205266D8006D8C23 /* SchoolViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -290,6 +308,9 @@
 		38010DA0204FFABC00E4511C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				384A556D2052674F006D8C23 /* SchoolTableViewCell.h */,
+				384A556E2052674F006D8C23 /* SchoolTableViewCell.m */,
+				384A556F2052674F006D8C23 /* SchoolTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,6 +365,9 @@
 		38010DA6204FFAF400E4511C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				384A556320522095006D8C23 /* SearchIndexViewController.h */,
+				384A556420522095006D8C23 /* SearchIndexViewController.m */,
+				384A556520522095006D8C23 /* SearchIndexViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -696,10 +720,13 @@
 				C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */,
 				38010D86204FBFBC00E4511C /* AdsViewController.xib in Resources */,
 				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
+				384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
+				384A556C205266D8006D8C23 /* SchoolViewController.xib in Resources */,
 				C73DD5DB204E88E900C6437F /* Podfile in Resources */,
 				C7616A07204F8F4C00C94311 /* MySelfViewController.xib in Resources */,
 				38010D90204FD6E500E4511C /* AdsCollectionViewCell.xib in Resources */,
+				384A556720522095006D8C23 /* SearchIndexViewController.xib in Resources */,
 				C76169F0204F839200C94311 /* ActivityViewController.xib in Resources */,
 				C7616A01204F8F2600C94311 /* ClassViewController.xib in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
@@ -781,14 +808,17 @@
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				384A555B20521F20006D8C23 /* IndicatorView.m in Sources */,
 				384A555E20521F20006D8C23 /* MJDIYHeader.m in Sources */,
+				384A55702052674F006D8C23 /* SchoolTableViewCell.m in Sources */,
 				38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */,
 				384A555720521F20006D8C23 /* NSObject+InitData.m in Sources */,
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
 				384A556220521F2E006D8C23 /* MYSegmentController.m in Sources */,
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
+				384A556B205266D8006D8C23 /* SchoolViewController.m in Sources */,
 				384A555920521F20006D8C23 /* UIView+CWNView.m in Sources */,
 				38010DAC204FFB3500E4511C /* ZhaoShengViewController.m in Sources */,
+				384A556620522095006D8C23 /* SearchIndexViewController.m in Sources */,
 				38010D8F204FD6E500E4511C /* AdsCollectionViewCell.m in Sources */,
 				C7616A00204F8F2600C94311 /* ClassViewController.m in Sources */,
 			);
