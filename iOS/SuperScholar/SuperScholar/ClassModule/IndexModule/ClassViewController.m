@@ -20,6 +20,8 @@
     [super viewDidLoad];
     
     [self.navigationBar setTitle:@"测试" leftText:@"取消" rightText:@"确定"];
+    
+    self.view.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.2];
 }
 
 
