@@ -589,9 +589,9 @@
 - (void)shiPeiAllSubView_X_W_UsingLayout{//水平适配
     [self.constraints enumerateObjectsUsingBlock:^(__kindof NSLayoutConstraint * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if(obj.firstItem == self)
-            if((obj.firstAttribute == NSLayoutAttributeLeft) || obj.firstAttribute == NSLayoutAttributeRight || obj.firstAttribute == NSLayoutAttributeLeading || obj.firstAttribute == NSLayoutAttributeTrailing || obj.firstAttribute == NSLayoutAttributeWidth || obj.firstAttribute == NSLayoutAttributeCenterX){
-                obj.constant = SHIPEI(obj.constant);
-            }
+        if((obj.firstAttribute == NSLayoutAttributeLeft) || obj.firstAttribute == NSLayoutAttributeRight || obj.firstAttribute == NSLayoutAttributeLeading || obj.firstAttribute == NSLayoutAttributeTrailing || obj.firstAttribute == NSLayoutAttributeWidth || obj.firstAttribute == NSLayoutAttributeCenterX){
+            obj.constant = SHIPEI(obj.constant);
+        }
     }];
     
     [self shiPeiAllSubViews_X_W_UsingLayout:self];
