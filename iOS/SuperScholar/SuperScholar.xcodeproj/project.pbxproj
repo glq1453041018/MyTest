@@ -32,6 +32,11 @@
 		384A55702052674F006D8C23 /* SchoolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A556E2052674F006D8C23 /* SchoolTableViewCell.m */; };
 		384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384A556F2052674F006D8C23 /* SchoolTableViewCell.xib */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
+		C71887DC2058E7DA00333387 /* ClassSapceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887DB2058E7DA00333387 /* ClassSapceViewController.m */; };
+		C71887E02058E81100333387 /* ClassSapceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887DE2058E81100333387 /* ClassSapceTableViewCell.m */; };
+		C71887E12058E81100333387 /* ClassSapceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C71887DF2058E81100333387 /* ClassSapceTableViewCell.xib */; };
+		C71887E42058E82300333387 /* ClassSapceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887E32058E82300333387 /* ClassSapceModel.m */; };
+		C71887E720592E1E00333387 /* ClassSapceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887E620592E1E00333387 /* ClassSapceManager.m */; };
 		C73DD5C5204E88BD00C6437F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DD5C4204E88BD00C6437F /* main.m */; };
 		C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CC204E88BD00C6437F /* Main.storyboard */; };
 		C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CF204E88BD00C6437F /* Assets.xcassets */; };
@@ -97,6 +102,15 @@
 		384A556F2052674F006D8C23 /* SchoolTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolTableViewCell.xib; sourceTree = "<group>"; };
 		AA3BC876F4E559385FBF2362 /* Pods-SuperScholar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperScholar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C71887DA2058E7DA00333387 /* ClassSapceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSapceViewController.h; sourceTree = "<group>"; };
+		C71887DB2058E7DA00333387 /* ClassSapceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSapceViewController.m; sourceTree = "<group>"; };
+		C71887DD2058E81100333387 /* ClassSapceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSapceTableViewCell.h; sourceTree = "<group>"; };
+		C71887DE2058E81100333387 /* ClassSapceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSapceTableViewCell.m; sourceTree = "<group>"; };
+		C71887DF2058E81100333387 /* ClassSapceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassSapceTableViewCell.xib; sourceTree = "<group>"; };
+		C71887E22058E82300333387 /* ClassSapceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSapceModel.h; sourceTree = "<group>"; };
+		C71887E32058E82300333387 /* ClassSapceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSapceModel.m; sourceTree = "<group>"; };
+		C71887E520592E1E00333387 /* ClassSapceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSapceManager.h; sourceTree = "<group>"; };
+		C71887E620592E1E00333387 /* ClassSapceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSapceManager.m; sourceTree = "<group>"; };
 		C73DD5C0204E88BD00C6437F /* SuperScholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperScholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DD5C4204E88BD00C6437F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C73DD5CD204E88BD00C6437F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -477,6 +491,46 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C71887D62058E7B800333387 /* ClassSapce */ = {
+			isa = PBXGroup;
+			children = (
+				C71887D72058E7B800333387 /* Controller */,
+				C71887D82058E7B800333387 /* Model */,
+				C71887D92058E7B800333387 /* View */,
+			);
+			path = ClassSapce;
+			sourceTree = "<group>";
+		};
+		C71887D72058E7B800333387 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C71887DA2058E7DA00333387 /* ClassSapceViewController.h */,
+				C71887DB2058E7DA00333387 /* ClassSapceViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C71887D82058E7B800333387 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C71887E22058E82300333387 /* ClassSapceModel.h */,
+				C71887E32058E82300333387 /* ClassSapceModel.m */,
+				C71887E520592E1E00333387 /* ClassSapceManager.h */,
+				C71887E620592E1E00333387 /* ClassSapceManager.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C71887D92058E7B800333387 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C71887DD2058E81100333387 /* ClassSapceTableViewCell.h */,
+				C71887DE2058E81100333387 /* ClassSapceTableViewCell.m */,
+				C71887DF2058E81100333387 /* ClassSapceTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C73DD5B7204E88BD00C6437F = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +647,7 @@
 		C76169F1204F865300C94311 /* ClassModule */ = {
 			isa = PBXGroup;
 			children = (
+				C71887D62058E7B800333387 /* ClassSapce */,
 				C76169FC204F8F1600C94311 /* IndexModule */,
 			);
 			path = ClassModule;
@@ -733,6 +788,7 @@
 				38010DB2204FFB5E00E4511C /* ZhaoShengTableViewCell.xib in Resources */,
 				38010DAD204FFB3500E4511C /* ZhaoShengViewController.xib in Resources */,
 				C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */,
+				C71887E12058E81100333387 /* ClassSapceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +864,7 @@
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				384A555B20521F20006D8C23 /* IndicatorView.m in Sources */,
 				384A555E20521F20006D8C23 /* MJDIYHeader.m in Sources */,
+				C71887E720592E1E00333387 /* ClassSapceManager.m in Sources */,
 				384A55702052674F006D8C23 /* SchoolTableViewCell.m in Sources */,
 				38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */,
 				384A555720521F20006D8C23 /* NSObject+InitData.m in Sources */,
@@ -819,8 +876,11 @@
 				384A555920521F20006D8C23 /* UIView+CWNView.m in Sources */,
 				38010DAC204FFB3500E4511C /* ZhaoShengViewController.m in Sources */,
 				384A556620522095006D8C23 /* SearchIndexViewController.m in Sources */,
+				C71887DC2058E7DA00333387 /* ClassSapceViewController.m in Sources */,
+				C71887E42058E82300333387 /* ClassSapceModel.m in Sources */,
 				38010D8F204FD6E500E4511C /* AdsCollectionViewCell.m in Sources */,
 				C7616A00204F8F2600C94311 /* ClassViewController.m in Sources */,
+				C71887E02058E81100333387 /* ClassSapceTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

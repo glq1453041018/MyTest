@@ -7,8 +7,8 @@
 //
 
 #import "ClassViewController.h"
-#import "MySelfViewController.h"
-#import "LLNavigationView.h"
+#import "ClassSapceViewController.h"
+
 
 @interface ClassViewController ()
 
@@ -18,18 +18,59 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 初始化视图
+    [self initUI];
+    // 获取数据
+    [self getDataFormServer];
+}
+
+#pragma mark - <************************** 获取数据 **************************>
+// !!!: 获取数据
+-(void)getDataFormServer{
     
-    [self.navigationBar setTitle:@"测试" leftText:@"取消" rightText:@"确定"];
-    
-    self.view.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.2];
 }
 
 
--(void)navigationViewLeftClickEvent{
+#pragma mark - <************************** 配置视图 **************************>
+// !!!: 配置视图
+-(void)initUI{
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    [self.navigationBar setTitle:nil leftImage:nil rightText:@"动态"];
+    
     
 }
 
+
+#pragma mark - <*********************** 初始化控件/数据 **********************>
+
+
+
+
+#pragma mark - <************************** 代理方法 **************************>
+// !!!: 导航栏
 -(void)navigationViewRightClickEvent{
+    ClassSapceViewController *ctrl = [ClassSapceViewController new];
+    ctrl.title = @"AI学院";
+    ctrl.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
+
+
+
+#pragma mark - <************************** 点击事件 **************************>
+
+
+
+
+#pragma mark - <************************** 其他方法 **************************>
+
+
+
+
+#pragma mark - <************************** 检测释放 **************************>
+- (void)dealloc{
+    DLog(@"%@释放掉",[self class]);
 }
 
 

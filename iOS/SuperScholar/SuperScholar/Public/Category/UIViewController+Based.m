@@ -18,7 +18,7 @@
 -(IndicatorView *)loadingView{
     IndicatorView *loading = objc_getAssociatedObject(self, _cmd);
     if (loading==nil) {
-        loading = [[IndicatorView alloc] initWithType:IndicatorTypeBounceSpot3 tintColor:[UIColor redColor]];
+        loading = [[IndicatorView alloc] initWithType:IndicatorTypeBounceSpot1 tintColor:[UIColor redColor]];
         [self.view addSubview:loading];
 //        loading.center = CGPointMake(kScreenWidth/2.0, (kScreenHeight-kNavigationbarHeight)/2.0+kNavigationbarHeight);
         [loading cwn_makeConstraints:^(UIView *maker) {

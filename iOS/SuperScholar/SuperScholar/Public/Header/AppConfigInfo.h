@@ -34,6 +34,11 @@
 //字体颜色
 #define FontSize_colorgray HexColor(0x333333)
 #define FontSize_colorlightgray HexColor(0x999999)
+
+// 返回按钮
+#define kGoBackImageString @"public_left"
+
+
 #pragma mark - <************************** 通知字段 **************************>
 
 

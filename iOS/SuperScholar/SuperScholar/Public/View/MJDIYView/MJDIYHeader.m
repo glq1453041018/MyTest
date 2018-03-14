@@ -31,7 +31,7 @@
 {
     [super prepare];
     
-    indicatorSize = CGSizeMake(25, 30);
+    indicatorSize = CGSizeMake(25, 25);
     space = 2;
     
     // 设置控件的高度
@@ -45,7 +45,7 @@
     _label.textColor = [UIColor darkGrayColor];
     [self addSubview:_label];
 
-    _indicator = [[IndicatorView alloc] initWithType:IndicatorTypeMusic1 tintColor:KColorTheme size:indicatorSize];
+    _indicator = [[IndicatorView alloc] initWithType:IndicatorTypeBounceSpot1 tintColor:KColorTheme size:indicatorSize];
     [self addSubview:_indicator];
     
     
@@ -126,7 +126,7 @@
             self.label.text = @"正在刷新数据中…";
             CGSize size = [self.label.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:16]}];
             self.label.center = CGPointMake(self.mj_w/2.0+space+indicatorSize.width/2.0, self.mj_h/2.0);
-            self.indicator.center = CGPointMake(self.mj_w/2.0-size.width/2.0-space-20/2.0+space/2.0+indicatorSize.width/2.0, self.mj_h/2.0-7);
+            self.indicator.center = CGPointMake(self.mj_w/2.0-size.width/2.0-space-20/2.0+space/2.0+indicatorSize.width/2.0, self.mj_h/2.0);
             [self.indicator startAnimating];
             break;
         default:
