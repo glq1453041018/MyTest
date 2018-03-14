@@ -18,7 +18,6 @@
 		384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A553C20521F20006D8C23 /* NSDictionary+Utility.m */; };
 		384A555720521F20006D8C23 /* NSObject+InitData.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A553E20521F20006D8C23 /* NSObject+InitData.m */; };
 		384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A554020521F20006D8C23 /* UIView+AdjustFrame.m */; };
-		384A555920521F20006D8C23 /* UIView+CWNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A554220521F20006D8C23 /* UIView+CWNView.m */; };
 		384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A554420521F20006D8C23 /* UIViewController+Based.m */; };
 		384A555B20521F20006D8C23 /* IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A554E20521F20006D8C23 /* IndicatorView.m */; };
 		384A555C20521F20006D8C23 /* LLNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A555020521F20006D8C23 /* LLNavigationView.m */; };
@@ -74,8 +73,6 @@
 		384A553E20521F20006D8C23 /* NSObject+InitData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+InitData.m"; sourceTree = "<group>"; };
 		384A553F20521F20006D8C23 /* UIView+AdjustFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AdjustFrame.h"; sourceTree = "<group>"; };
 		384A554020521F20006D8C23 /* UIView+AdjustFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AdjustFrame.m"; sourceTree = "<group>"; };
-		384A554120521F20006D8C23 /* UIView+CWNView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CWNView.h"; sourceTree = "<group>"; };
-		384A554220521F20006D8C23 /* UIView+CWNView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CWNView.m"; sourceTree = "<group>"; };
 		384A554320521F20006D8C23 /* UIViewController+Based.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Based.h"; sourceTree = "<group>"; };
 		384A554420521F20006D8C23 /* UIViewController+Based.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Based.m"; sourceTree = "<group>"; };
 		384A554720521F20006D8C23 /* AppAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppAPI.h; sourceTree = "<group>"; };
@@ -409,8 +406,6 @@
 				384A553E20521F20006D8C23 /* NSObject+InitData.m */,
 				384A553F20521F20006D8C23 /* UIView+AdjustFrame.h */,
 				384A554020521F20006D8C23 /* UIView+AdjustFrame.m */,
-				384A554120521F20006D8C23 /* UIView+CWNView.h */,
-				384A554220521F20006D8C23 /* UIView+CWNView.m */,
 				384A554320521F20006D8C23 /* UIViewController+Based.h */,
 				384A554420521F20006D8C23 /* UIViewController+Based.m */,
 			);
@@ -824,7 +819,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -873,7 +868,6 @@
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
 				384A556B205266D8006D8C23 /* SchoolViewController.m in Sources */,
-				384A555920521F20006D8C23 /* UIView+CWNView.m in Sources */,
 				38010DAC204FFB3500E4511C /* ZhaoShengViewController.m in Sources */,
 				384A556620522095006D8C23 /* SearchIndexViewController.m in Sources */,
 				C71887DC2058E7DA00333387 /* ClassSapceViewController.m in Sources */,
