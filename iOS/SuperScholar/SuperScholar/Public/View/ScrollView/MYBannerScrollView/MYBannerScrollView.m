@@ -80,7 +80,26 @@
     _pageControlBottom = [NSLayoutConstraint constraintWithItem:_pageControl attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
     [self addConstraint:_pageControlBottom];
     [_pageControl cwn_makeConstraints:^(UIView *maker) {
-        maker.height(25).centerXtoSuper(0);
+        switch (weakself.location) {
+            case locationCenter:
+            {
+                maker.height(25).centerXtoSuper(0);
+            }
+                break;
+            case locationRight:
+            {
+                maker.height(25).rightToSuper(20);
+            }
+                break;
+            case locationLeft:
+            {
+                maker.height(25).leftToSuper(20);
+            }
+                break;
+                
+            default:
+                break;
+        }
     }];
     
     [self.scrollView addSubview:self.leftImageView];
@@ -120,6 +139,32 @@
 }
 
 #pragma mark Self method
+
+-(void)setLocation:(MYPageControlLocation)location{
+    _location = location;
+    [self.pageControl cwn_reMakeConstraints:^(UIView *maker) {
+        switch (location) {
+            case locationCenter:
+            {
+                maker.height(25).centerXtoSuper(0).bottomToSuper(0);
+            }
+                break;
+            case locationRight:
+            {
+                maker.height(25).rightToSuper(20).bottomToSuper(0);
+            }
+                break;
+            case locationLeft:
+            {
+                maker.height(25).leftToSuper(20).bottomToSuper(0);
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }];
+}
 
 - (NSInteger)checkNextPageIndex:(NSInteger)nextPage{
     if(nextPage == -1)
@@ -304,7 +349,7 @@
         [_pageControl setTranslatesAutoresizingMaskIntoConstraints:NO];
         [_pageControl sizeToFit];
         [_pageControl setEnabled:NO];//不可点
-        [_pageControl setCurrentPageIndicatorTintColor:[UIColor colorWithWhite:220.0/255.0 alpha:1.0]];
+        [_pageControl setCurrentPageIndicatorTintColor:KColorTheme];
         [_pageControl setHidden:YES];
     }
     return _pageControl;

@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
+typedef NS_ENUM(NSInteger , MYPageControlLocation) {
+    locationCenter,
+    locationLeft,
+    locationRight
+};
+
+
 @class MYBannerScrollView;
 
 @protocol MYBannerScrollViewDelegate  <NSObject>
@@ -23,6 +31,8 @@
 @property (assign, nonatomic) NSTimeInterval autoDuration;
 @property (assign, nonatomic) id<MYBannerScrollViewDelegate> delegate;
 @property (assign, nonatomic) BOOL enableTimer;//是否开启定时轮播
+
+@property (assign ,nonatomic) MYPageControlLocation location;
 
 //默认开启滚动视差效果和下拉放大效果
 @property (assign, nonatomic) BOOL useHorizontalParallaxEffect;

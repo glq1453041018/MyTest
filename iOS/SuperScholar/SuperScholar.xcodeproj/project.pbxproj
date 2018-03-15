@@ -42,6 +42,11 @@
 		C71887FE205A6D7900333387 /* MYBannerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887F9205A6D7900333387 /* MYBannerImageView.m */; };
 		C7188801205A6EE800333387 /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = C7188800205A6EE800333387 /* NSTimer+Addition.m */; };
 		C7188804205A6F4500333387 /* NSArray+ExtraMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = C7188803205A6F4500333387 /* NSArray+ExtraMethod.m */; };
+		C7188807205A713700333387 /* ClassInfoHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7188806205A713700333387 /* ClassInfoHeadView.m */; };
+		C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7188808205A714900333387 /* ClassInfoHeadView.xib */; };
+		C718880D205A894900333387 /* ClassInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C718880B205A894900333387 /* ClassInfoTableViewCell.m */; };
+		C718880E205A894900333387 /* ClassInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C718880C205A894900333387 /* ClassInfoTableViewCell.xib */; };
+		C7188811205A91B100333387 /* ClassInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7188810205A91B100333387 /* ClassInfoModel.m */; };
 		C73DD5C5204E88BD00C6437F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DD5C4204E88BD00C6437F /* main.m */; };
 		C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CC204E88BD00C6437F /* Main.storyboard */; };
 		C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CF204E88BD00C6437F /* Assets.xcassets */; };
@@ -126,6 +131,14 @@
 		C7188800205A6EE800333387 /* NSTimer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Addition.m"; sourceTree = "<group>"; };
 		C7188802205A6F4500333387 /* NSArray+ExtraMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ExtraMethod.h"; sourceTree = "<group>"; };
 		C7188803205A6F4500333387 /* NSArray+ExtraMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ExtraMethod.m"; sourceTree = "<group>"; };
+		C7188805205A713700333387 /* ClassInfoHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoHeadView.h; sourceTree = "<group>"; };
+		C7188806205A713700333387 /* ClassInfoHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoHeadView.m; sourceTree = "<group>"; };
+		C7188808205A714900333387 /* ClassInfoHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassInfoHeadView.xib; sourceTree = "<group>"; };
+		C718880A205A894900333387 /* ClassInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoTableViewCell.h; sourceTree = "<group>"; };
+		C718880B205A894900333387 /* ClassInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoTableViewCell.m; sourceTree = "<group>"; };
+		C718880C205A894900333387 /* ClassInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassInfoTableViewCell.xib; sourceTree = "<group>"; };
+		C718880F205A91B100333387 /* ClassInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoModel.h; sourceTree = "<group>"; };
+		C7188810205A91B100333387 /* ClassInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoModel.m; sourceTree = "<group>"; };
 		C73DD5C0204E88BD00C6437F /* SuperScholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperScholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DD5C4204E88BD00C6437F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C73DD5CD204E88BD00C6437F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -581,6 +594,8 @@
 		C71887EE205A568000333387 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C718880F205A91B100333387 /* ClassInfoModel.h */,
+				C7188810205A91B100333387 /* ClassInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -588,6 +603,12 @@
 		C71887EF205A568000333387 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C7188805205A713700333387 /* ClassInfoHeadView.h */,
+				C7188806205A713700333387 /* ClassInfoHeadView.m */,
+				C7188808205A714900333387 /* ClassInfoHeadView.xib */,
+				C718880A205A894900333387 /* ClassInfoTableViewCell.h */,
+				C718880B205A894900333387 /* ClassInfoTableViewCell.m */,
+				C718880C205A894900333387 /* ClassInfoTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -603,10 +624,10 @@
 		C71887F7205A6D7900333387 /* MYBannerScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				C71887F8205A6D7900333387 /* MYBannerScrollView.m */,
-				C71887F9205A6D7900333387 /* MYBannerImageView.m */,
 				C71887FA205A6D7900333387 /* MYBannerScrollView.h */,
+				C71887F8205A6D7900333387 /* MYBannerScrollView.m */,
 				C71887FB205A6D7900333387 /* MYBannerImageView.h */,
+				C71887F9205A6D7900333387 /* MYBannerImageView.m */,
 			);
 			path = MYBannerScrollView;
 			sourceTree = "<group>";
@@ -858,6 +879,7 @@
 				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
+				C718880E205A894900333387 /* ClassInfoTableViewCell.xib in Resources */,
 				384A556C205266D8006D8C23 /* SchoolViewController.xib in Resources */,
 				C73DD5DB204E88E900C6437F /* Podfile in Resources */,
 				C7616A07204F8F4C00C94311 /* MySelfViewController.xib in Resources */,
@@ -866,6 +888,7 @@
 				C76169F0204F839200C94311 /* ActivityViewController.xib in Resources */,
 				C7616A01204F8F2600C94311 /* ClassViewController.xib in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
+				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
 				38010DB2204FFB5E00E4511C /* ZhaoShengTableViewCell.xib in Resources */,
 				38010DAD204FFB3500E4511C /* ZhaoShengViewController.xib in Resources */,
 				C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */,
@@ -935,6 +958,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				384A555D20521F20006D8C23 /* MJDIYAutoFooter.m in Sources */,
+				C7188807205A713700333387 /* ClassInfoHeadView.m in Sources */,
 				384A555C20521F20006D8C23 /* LLNavigationView.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
@@ -955,12 +979,14 @@
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
 				C71887F2205A5C1400333387 /* ClassInfoViewController.m in Sources */,
 				384A556220521F2E006D8C23 /* MYSegmentController.m in Sources */,
+				C7188811205A91B100333387 /* ClassInfoModel.m in Sources */,
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
 				384A556B205266D8006D8C23 /* SchoolViewController.m in Sources */,
 				38010DAC204FFB3500E4511C /* ZhaoShengViewController.m in Sources */,
 				384A556620522095006D8C23 /* SearchIndexViewController.m in Sources */,
 				C7188804205A6F4500333387 /* NSArray+ExtraMethod.m in Sources */,
+				C718880D205A894900333387 /* ClassInfoTableViewCell.m in Sources */,
 				C71887DC2058E7DA00333387 /* ClassSapceViewController.m in Sources */,
 				C71887FD205A6D7900333387 /* MYBannerScrollView.m in Sources */,
 				C71887E42058E82300333387 /* ClassSapceModel.m in Sources */,

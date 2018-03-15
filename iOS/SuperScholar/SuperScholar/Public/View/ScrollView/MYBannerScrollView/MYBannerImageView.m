@@ -84,7 +84,7 @@
         _imageView = [[UIImageView alloc] init];
         [_imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
         [_imageView setUserInteractionEnabled:NO];
-//        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _imageView;
 }
