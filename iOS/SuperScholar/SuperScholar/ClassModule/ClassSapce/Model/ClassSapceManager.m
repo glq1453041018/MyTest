@@ -7,57 +7,74 @@
 //
 
 #import "ClassSapceManager.h"
+#import "ClassSapceTableViewCell.h"
 
 @implementation ClassSapceManager
 
 // !!!: 获取数据
 +(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock{
     NSArray *contents = @[
-                          @"水电费就是封建势力的开发建设快乐的肌肤克赖斯基风口浪尖上看到了就分开就开始了对方就 看老师的九分裤设计的肌肤立即受到了饭就流口水的肌肤",
-                          @"发建设快乐的肌肤克赖斯基风口浪尖上看到了就分开就开始了对方",
-                          @"发建设快乐的肌肤克赖斯基风口浪尖上看到了就分开就开始了对方发建设快乐的肌肤克赖斯基风口浪尖上看到了就分开就开始了对方发建设快乐的肌肤克赖斯基风口浪尖上看到了就分开就开始了对方发建设快乐的肌肤克赖斯基风口浪尖上看到了就分开就开始了对方发建设快乐的肌肤克赖斯基风口浪尖上看到了就分开就开始了对方发建设快乐的肌肤克赖斯基风口浪尖上看到了就分开就开始了对方"
+                          @"一天当中，我们起码应该挤出十分钟的宁静，让自己有喘一口气的闲暇，有一个可以让阳光照进来的间隙。长期处在动荡、嘈杂的生活中，会迷失方向、烦乱而浮躁。",
+                          @"有一种路程叫万水千山，有一种情意叫海枯石烂。有一种约定叫天荒地老，有一种记忆叫刻骨铭心。有一种思念叫望穿秋水，有一种爱情叫至死不渝。有一种幸福叫天长地久，有一种拥有叫别无所求。有一种遥远叫天涯海角，有一种思念叫肝肠寸断，还有一种叫失恋无言以对。",
+                          @"曾经在千年树下等候，只求你回眸一笑，曾经在菩提下焚香，只为等一世轮回的相遇。阡陌红尘，终究一场繁花落寞，回忆在岁月中飘落了谁的眼泪，往事在时间中飘落谁的忧伤。如烟往事，不知谁飘落了谁的相思，如梦的回忆，不知谁飘落了谁的等待。与你作别，不问曾经伤痛几何。",
+                          @"喜欢一个人，在一起的时候会很开心。爱一个人，在一起的时候会莫名的失落。喜欢一个人，永远是欢乐，爱一个人，你会常常流泪。喜欢一个人，当你想起他会微微一笑。爱一个人，当你想起他会对着天空发呆。喜欢一个人，是看到了他的优点。爱一个人，是包容了他的缺点。喜欢，是一种心情，爱，是一种感情。",
                           ];
     NSArray *picsUrl = @[
-                         @"http://img02.tooopen.com/images/20150507/tooopen_sy_122395947985.jpg",
-                         @"http://pic2.nipic.com/20090424/1242397_110033072_2.jpg",
-                         @"http://img.zcool.cn/community/0191f1589c3469a8012060c83cebf3.jpg@1280w_1l_2o_100sh.png",
-                         @"http://img.sccnn.com/bimg/338/34264.jpg",
-                         @"http://img.zcool.cn/community/0166e959ac1386a801211d25c63563.jpg@1280w_1l_2o_100sh.jpg",
-                         @"http://img.zcool.cn/community/0190b359772978a8012193a34ea33b.jpg@1280w_1l_2o_100sh.jpg",
-                         @"http://img.taopic.com/uploads/allimg/121014/234931-1210140JK414.jpg",
-                         @"http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg",
-                         @"http://img05.tooopen.com/images/20140328/sy_57865838889.jpg"
+                         @"http://pic33.photophoto.cn/20141023/0017030062939942_b.jpg",
+                         @"http://pic14.nipic.com/20110427/5006708_200927797000_2.jpg",
+                         @"http://pic23.nipic.com/20120803/9171548_144243306196_2.jpg",
+                         @"http://pic39.nipic.com/20140311/8821914_214422866000_2.jpg",
+                         @"http://pic7.nipic.com/20100609/3143623_160732828380_2.jpg",
+                         @"http://pic9.photophoto.cn/20081128/0020033015544930_b.jpg",
+                         @"http://pic2.16pic.com/00/35/74/16pic_3574684_b.jpg",
+                         @"http://pic42.nipic.com/20140605/9081536_142458626145_2.jpg",
+                         @"http://pic35.photophoto.cn/20150626/0017029557111337_b.jpg"
                          ];
     NSMutableArray *cells = [NSMutableArray array];
     NSInteger number = 10;
+    // 创建cell
+    ClassSapceTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSapceTableViewCell" owner:nil options:nil] firstObject];
     for (int i=0; i<number; i++) {
         ClassSapceModel *csm = [ClassSapceModel new];
-        NSInteger ran = getRandomNumberFromAtoB(0, 10)%3;
+        NSInteger ran = getRandomNumberFromAtoB(0, 10)%4;
         csm.content = contents[ran];
+        csm.contentAttring = [self changeToAttr:csm.content];
         NSMutableArray *pics = [NSMutableArray array];
         for (int j=0; j<getRandomNumberFromAtoB(0, 9); j++) {
             [pics addObject:picsUrl[getRandomNumberFromAtoB(0, 8)]];
         }
         csm.pics = pics;
-        // 创建cell
-        ClassSapceTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSapceTableViewCell" owner:nil options:nil] firstObject];
-        cell.contentLabel.text = csm.content;
+        cell.contentLabel.attributedText = csm.contentAttring;
         CGSize size = [cell.contentLabel sizeThatFits:CGSizeMake(AdaptedWidthValue(355), MAXFLOAT)];
-        csm.contentLabelHeight = size.height + 5*2;
-        [self handlePics:csm.pics withModel:csm];
-        csm.cellHeight = cell.contentLabel.y+csm.contentLabelHeight+csm.mediaView.bottom+cell.bottomView.viewHeight;
-        
+        csm.contentLabelHeight = size.height + 10*2;
+        [self addPicsWithModel:csm];
+        csm.cellHeight = cell.contentLabel.y+csm.contentLabelHeight+csm.mediaView.viewHeight+cell.bottomView.viewHeight;
         [cells addObject:csm];
     }
-    if (responseBlock) {
-        responseBlock(cells,nil);
-    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.75 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (responseBlock) {
+            responseBlock(cells,nil);
+        }
+    });
 }
 
++(CGFloat)getMediaViewHeight:(ClassSapceModel*)csm{
+    CGFloat height = 0;
+    if (csm.pics.count==0) {
+        return height;
+    }
+    CGFloat space = 5;
+    CGFloat width_total = AdaptedWidthValue(355);
+    CGFloat width_item = (width_total-space*2)/3.0;
+    NSInteger i = csm.pics.count;
+    NSInteger row = ceilf(i/3.0);
+    height = row * width_item + (row-1) * space;
+    return height;
+}
 
-
-+(void)handlePics:(NSArray*)pics withModel:(ClassSapceModel*)csm{
-    if (pics.count==0||csm.picViews.count) {
+// !!!: 添加图片控件
++(void)addPicsWithModel:(ClassSapceModel*)csm{
+    if (csm.pics.count==0) {
         return;
     }
     CGFloat space = 5;
@@ -84,6 +101,27 @@
     csm.mediaView.viewSize = CGSizeMake(width_total, lastBtn.frame.size.height+lastBtn.frame.origin.y);
 }
 
+// !!!: 移除图片控件
++(void)removePicsWithModel:(ClassSapceModel*)csm{
+    [csm.mediaView removeFromSuperview];
+    csm.mediaView = nil;
+    csm.picViews = nil;
+}
 
+
+// !!!: 转换为富文本内容
++(NSMutableAttributedString*)changeToAttr:(NSString*)content{
+    NSMutableAttributedString *attr = nil;
+    if (content.length==0||content==nil) {
+        return attr;
+    }
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineSpacing = 6;
+    attr = [[NSMutableAttributedString alloc] initWithString:content attributes:@{
+                                                                                  NSFontAttributeName:[UIFont systemFontOfSize:FontSize_16],
+                                                                                  NSParagraphStyleAttributeName:style
+                                                                                  }];
+    return attr;
+}
 
 @end

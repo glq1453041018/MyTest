@@ -16,7 +16,7 @@
 // !!!: 视图类
 @property (strong ,nonatomic) UITableView *table;
 // !!!: 数据类
-@property (copy ,nonatomic) NSArray *data;
+@property (strong ,nonatomic) NSMutableArray *data;
 @end
 
 @implementation ClassSapceViewController
@@ -33,12 +33,22 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
+    [self.loadingView startAnimating];
     [ClassSapceManager requestDataResponse:^(NSArray *resArray, id error) {
-        self.data = resArray;
+        [self.loadingView stopAnimating];
+        self.data = resArray.mutableCopy;
         [self.table reloadData];
     }];
 }
-
+-(void)loadMoreData{
+    [ClassSapceManager requestDataResponse:^(NSArray *resArray, id error) {
+        [self.table.mj_footer endRefreshing];
+        if (error==nil) {
+            [self.data addObjectsFromArray:resArray];
+            [self.table reloadData];
+        }
+    }];
+}
 
 #pragma mark - <************************** 配置视图 **************************>
 // !!!: 配置视图
@@ -60,6 +70,7 @@
         _table.dataSource = self;
         _table.separatorStyle = NO;
         _table.tableFooterView = [UIView new];
+        _table.mj_footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     }
     return _table;
 }
@@ -89,7 +100,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSapceTableViewCell" owner:self options:nil] firstObject];
         cell.selectionStyle = NO;
     }
-    [cell loadData:self.data index:indexPath.row];
+    [cell loadData:self.data index:indexPath.row pageSize:10];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

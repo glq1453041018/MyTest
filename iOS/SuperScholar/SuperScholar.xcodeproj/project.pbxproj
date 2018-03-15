@@ -36,6 +36,7 @@
 		C71887E12058E81100333387 /* ClassSapceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C71887DF2058E81100333387 /* ClassSapceTableViewCell.xib */; };
 		C71887E42058E82300333387 /* ClassSapceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887E32058E82300333387 /* ClassSapceModel.m */; };
 		C71887E720592E1E00333387 /* ClassSapceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887E620592E1E00333387 /* ClassSapceManager.m */; };
+		C71887EB205A385000333387 /* PhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887EA205A385000333387 /* PhotoBrowser.m */; };
 		C73DD5C5204E88BD00C6437F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DD5C4204E88BD00C6437F /* main.m */; };
 		C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CC204E88BD00C6437F /* Main.storyboard */; };
 		C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DD5CF204E88BD00C6437F /* Assets.xcassets */; };
@@ -108,6 +109,8 @@
 		C71887E32058E82300333387 /* ClassSapceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSapceModel.m; sourceTree = "<group>"; };
 		C71887E520592E1E00333387 /* ClassSapceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSapceManager.h; sourceTree = "<group>"; };
 		C71887E620592E1E00333387 /* ClassSapceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSapceManager.m; sourceTree = "<group>"; };
+		C71887E9205A385000333387 /* PhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrowser.h; sourceTree = "<group>"; };
+		C71887EA205A385000333387 /* PhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowser.m; sourceTree = "<group>"; };
 		C73DD5C0204E88BD00C6437F /* SuperScholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperScholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DD5C4204E88BD00C6437F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C73DD5CD204E88BD00C6437F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -440,6 +443,7 @@
 		384A554B20521F20006D8C23 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C71887E8205A384900333387 /* PhotoBrowser */,
 				384A554C20521F20006D8C23 /* IndicatorView */,
 				384A554F20521F20006D8C23 /* LLNavigationView.h */,
 				384A555020521F20006D8C23 /* LLNavigationView.m */,
@@ -524,6 +528,15 @@
 				C71887DF2058E81100333387 /* ClassSapceTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C71887E8205A384900333387 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				C71887E9205A385000333387 /* PhotoBrowser.h */,
+				C71887EA205A385000333387 /* PhotoBrowser.m */,
+			);
+			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
 		C73DD5B7204E88BD00C6437F = {
@@ -859,6 +872,7 @@
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				384A555B20521F20006D8C23 /* IndicatorView.m in Sources */,
 				384A555E20521F20006D8C23 /* MJDIYHeader.m in Sources */,
+				C71887EB205A385000333387 /* PhotoBrowser.m in Sources */,
 				C71887E720592E1E00333387 /* ClassSapceManager.m in Sources */,
 				384A55702052674F006D8C23 /* SchoolTableViewCell.m in Sources */,
 				38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */,

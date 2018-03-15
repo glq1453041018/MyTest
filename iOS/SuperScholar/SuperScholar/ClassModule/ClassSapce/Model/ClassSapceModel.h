@@ -14,6 +14,7 @@
 @property (copy ,nonatomic) NSString *userName;
 @property (copy ,nonatomic) NSString *time;
 @property (copy ,nonatomic) NSString *content;
+@property (copy ,nonatomic) NSAttributedString *contentAttring;
 
 @property (assign ,nonatomic) NSInteger viewNum;
 @property (assign ,nonatomic) NSInteger likeNum;
@@ -23,6 +24,7 @@
 
 @property (assign ,nonatomic) CGFloat contentLabelHeight;
 @property (assign ,nonatomic) CGFloat cellHeight;
+
 @property (strong ,nonatomic) UIView *mediaView;
 @property (copy ,nonatomic) NSMutableArray *picViews;
 @end

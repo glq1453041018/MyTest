@@ -29,8 +29,8 @@
 #define kscrollerbarHeight 40
 
 //字体大小
-#define FontSize_15 15
-#define FontSize_11 11
+#define FontSize_16 16
+#define FontSize_12 12
 //字体颜色
 #define FontSize_colorgray HexColor(0x333333)
 #define FontSize_colorlightgray HexColor(0x999999)

@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "ClassSapceModel.h"
-#import "ClassSapceTableViewCell.h"
 
 @interface ClassSapceManager : NSObject
 
 // !!!: 获取数据
 +(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock;
 
++(void)addPicsWithModel:(ClassSapceModel*)csm;
+
++(void)removePicsWithModel:(ClassSapceModel*)csm;
 
 @end

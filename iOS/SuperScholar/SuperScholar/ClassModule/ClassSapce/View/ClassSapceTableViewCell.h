@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
 
 // !!!: 加载视图
--(void)loadData:(NSArray*)data index:(NSInteger)index;
+-(void)loadData:(NSArray *)data index:(NSInteger)index pageSize:(NSInteger)pageSize;
 
 @end
 
