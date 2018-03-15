@@ -144,7 +144,7 @@
         maxWidth = MAX(maxWidth, leftView.viewWidth);
         maxWidth = MIN(maxWidth, kScreenWidth/2.0);
         [leftView cwn_makeConstraints:^(UIView *maker) {
-            maker.leftToSuper(10).centerYtoSuper(kStatusBarHeight/2.0).height(maker.viewHeight).width(maker.viewWidth);
+            maker.leftToSuper(15).centerYtoSuper(kStatusBarHeight/2.0).height(maker.viewHeight).width(maker.viewWidth);
         }];
         // 添加手势
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftClickEvent)];
@@ -155,7 +155,7 @@
         maxWidth = MAX(maxWidth, rightView.viewWidth);
         maxWidth = MIN(maxWidth, kScreenWidth/2.0);
         [rightView cwn_makeConstraints:^(UIView *maker) {
-            maker.rightToSuper(10).centerYtoSuper(kStatusBarHeight/2.0).height(maker.viewHeight).width(maker.viewWidth);
+            maker.rightToSuper(15).centerYtoSuper(kStatusBarHeight/2.0).height(maker.viewHeight).width(maker.viewWidth);
         }];
         // 添加手势
         rightView.userInteractionEnabled = YES;

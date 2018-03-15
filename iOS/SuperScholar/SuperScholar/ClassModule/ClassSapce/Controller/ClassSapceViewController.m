@@ -6,10 +6,12 @@
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
+// !!!: 控制器类
 #import "ClassSapceViewController.h"
-
+#import "ClassInfoViewController.h"
+// !!!: 视图类
 #import "ClassSapceTableViewCell.h"
-
+// !!!: 管理类
 #import "ClassSapceManager.h"
 
 @interface ClassSapceViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -109,6 +111,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    ClassInfoViewController *ctrl = [ClassInfoViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 
