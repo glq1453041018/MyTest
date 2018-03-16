@@ -47,13 +47,12 @@
     self.navigationBar.hidden = isLogin;//导航栏显隐
     self.didLoginView.hidden = !isLogin;//已登录视图显隐
     self.titleButtonsBackView.hidden = !isLogin;//评论、收藏、历史背景视图显隐
+    self.tabelHeaderView.viewHeight =  self.topBackView.viewHeight + (isLogin ?  70 : 0); //评论、收藏、历史等功能显隐 
     
     if(isLogin){//登录状态
         //高斯模糊背景
         UIImage *image = [UIImage imageNamed:@"testimage"];
         self.backImageView.image = [image applyBlurWithRadius:5 tintColor:[KColorTheme colorWithAlphaComponent:0.1] saturationDeltaFactor:1.0 maskImage:nil];
-        //隐藏评论、收藏、历史等功能
-        self.tabelHeaderView.viewHeight = self.topBackView.viewHeight + 70;
     }else{//未登录状态
         self.backImageView.image = nil;
         self.tabelHeaderView.viewHeight = self.topBackView.viewHeight;
