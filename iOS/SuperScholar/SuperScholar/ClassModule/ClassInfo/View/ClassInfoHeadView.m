@@ -30,6 +30,7 @@
     self.scrollView.location = locationRight;
     self.scrollView.backgroundColor = [UIColor cyanColor];
     self.scrollView.useScaleEffect = YES;
+    self.scrollView.needBgView = YES;
 }
 
 @end

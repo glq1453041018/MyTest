@@ -84,6 +84,10 @@
 		C781F85F205BCD0100BE37AD /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F85D205BCD0100BE37AD /* ClassViewController.m */; };
 		C781F860205BCD0100BE37AD /* ClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F85E205BCD0100BE37AD /* ClassViewController.xib */; };
 		C781F863205BCEC800BE37AD /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F862205BCEC800BE37AD /* UIImage+ImageEffects.m */; };
+		C781F866205BE91900BE37AD /* ClassViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F865205BE91900BE37AD /* ClassViewManager.m */; };
+		C781F869205BE92E00BE37AD /* ClassViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F868205BE92E00BE37AD /* ClassViewModel.m */; };
+		C781F871205BFFE000BE37AD /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F86F205BFFE000BE37AD /* AddressViewController.m */; };
+		C781F872205BFFE000BE37AD /* AddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F870205BFFE000BE37AD /* AddressViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -219,6 +223,13 @@
 		C781F85E205BCD0100BE37AD /* ClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewController.xib; sourceTree = "<group>"; };
 		C781F861205BCEC800BE37AD /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		C781F862205BCEC800BE37AD /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		C781F864205BE91900BE37AD /* ClassViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewManager.h; sourceTree = "<group>"; };
+		C781F865205BE91900BE37AD /* ClassViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewManager.m; sourceTree = "<group>"; };
+		C781F867205BE92E00BE37AD /* ClassViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewModel.h; sourceTree = "<group>"; };
+		C781F868205BE92E00BE37AD /* ClassViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewModel.m; sourceTree = "<group>"; };
+		C781F86E205BFFE000BE37AD /* AddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewController.h; sourceTree = "<group>"; };
+		C781F86F205BFFE000BE37AD /* AddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewController.m; sourceTree = "<group>"; };
+		C781F870205BFFE000BE37AD /* AddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressViewController.xib; sourceTree = "<group>"; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -267,37 +278,6 @@
 				38010D8C204FD6E500E4511C /* AdsCollectionViewCell.h */,
 				38010D8D204FD6E500E4511C /* AdsCollectionViewCell.m */,
 				38010D8E204FD6E500E4511C /* AdsCollectionViewCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		38010D79204FBFBC00E4511C /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				38010D7A204FBFBC00E4511C /* Controller */,
-				38010D7B204FBFBC00E4511C /* Model */,
-				38010D7C204FBFBC00E4511C /* View */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
-		38010D7A204FBFBC00E4511C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		38010D7B204FBFBC00E4511C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		38010D7C204FBFBC00E4511C /* View */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -890,8 +870,8 @@
 		C76169C8204F733400C94311 /* AdsModule */ = {
 			isa = PBXGroup;
 			children = (
+				C781F86A205BFFC100BE37AD /* AddressModule */,
 				38010D72204FBFBC00E4511C /* IndexModule */,
-				38010D79204FBFBC00E4511C /* Map */,
 				38010D7D204FBFBC00E4511C /* PushMessage */,
 				38010D81204FBFBC00E4511C /* SearchContent */,
 			);
@@ -1014,6 +994,10 @@
 		C781F84F205BC21700BE37AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C781F864205BE91900BE37AD /* ClassViewManager.h */,
+				C781F865205BE91900BE37AD /* ClassViewManager.m */,
+				C781F867205BE92E00BE37AD /* ClassViewModel.h */,
+				C781F868205BE92E00BE37AD /* ClassViewModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1035,6 +1019,40 @@
 				C781F85A205BC89E00BE37AD /* MYVisualEffectView.m */,
 			);
 			path = VisualEffectView;
+			sourceTree = "<group>";
+		};
+		C781F86A205BFFC100BE37AD /* AddressModule */ = {
+			isa = PBXGroup;
+			children = (
+				C781F86B205BFFC100BE37AD /* Controller */,
+				C781F86C205BFFC100BE37AD /* Model */,
+				C781F86D205BFFC100BE37AD /* View */,
+			);
+			path = AddressModule;
+			sourceTree = "<group>";
+		};
+		C781F86B205BFFC100BE37AD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C781F86E205BFFE000BE37AD /* AddressViewController.h */,
+				C781F86F205BFFE000BE37AD /* AddressViewController.m */,
+				C781F870205BFFE000BE37AD /* AddressViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C781F86C205BFFC100BE37AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C781F86D205BFFC100BE37AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FA4F9C06915C67A5F8BC4296 /* Frameworks */ = {
@@ -1119,6 +1137,7 @@
 				C718880E205A894900333387 /* ClassInfoTableViewCell.xib in Resources */,
 				384A556C205266D8006D8C23 /* SchoolViewController.xib in Resources */,
 				C73DD5DB204E88E900C6437F /* Podfile in Resources */,
+				C781F872205BFFE000BE37AD /* AddressViewController.xib in Resources */,
 				38010D90204FD6E500E4511C /* AdsCollectionViewCell.xib in Resources */,
 				384A556720522095006D8C23 /* SearchIndexViewController.xib in Resources */,
 				C76169F0204F839200C94311 /* ActivityViewController.xib in Resources */,
@@ -1214,6 +1233,7 @@
 				38010DB1204FFB5E00E4511C /* ZhaoShengTableViewCell.m in Sources */,
 				C781F85F205BCD0100BE37AD /* ClassViewController.m in Sources */,
 				C71887FE205A6D7900333387 /* MYBannerImageView.m in Sources */,
+				C781F869205BE92E00BE37AD /* ClassViewModel.m in Sources */,
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				384A555B20521F20006D8C23 /* IndicatorView.m in Sources */,
 				BE950EC7205B8634009F562B /* MySelfViewController.m in Sources */,
@@ -1222,6 +1242,8 @@
 				C71887E720592E1E00333387 /* ClassSapceManager.m in Sources */,
 				384A55702052674F006D8C23 /* SchoolTableViewCell.m in Sources */,
 				38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */,
+				C781F871205BFFE000BE37AD /* AddressViewController.m in Sources */,
+				C781F866205BE91900BE37AD /* ClassViewManager.m in Sources */,
 				384A555720521F20006D8C23 /* NSObject+InitData.m in Sources */,
 				C781F842205B580A00BE37AD /* ClassInfoFootView.m in Sources */,
 				BE950ECB205B8634009F562B /* MYAutoScaleView.m in Sources */,
@@ -1371,7 +1393,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SuperScholar/PrefixHeader.pch";
 				INFOPLIST_FILE = SuperScholar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1387,7 +1409,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SuperScholar/PrefixHeader.pch";
 				INFOPLIST_FILE = SuperScholar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";

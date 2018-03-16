@@ -34,6 +34,7 @@ typedef NS_ENUM(NSInteger , MYPageControlLocation) {
 
 @property (assign ,nonatomic) MYPageControlLocation location;
 @property (strong ,nonatomic ,readonly) NSArray *imagePaths;
+@property (assign ,nonatomic) BOOL needBgView;  // 是否需要背景
 
 //默认开启滚动视差效果和下拉放大效果
 @property (assign, nonatomic) BOOL useHorizontalParallaxEffect;

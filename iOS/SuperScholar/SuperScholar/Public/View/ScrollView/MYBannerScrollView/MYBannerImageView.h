@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSLayoutConstraint *imageLeft;
 @property (strong, nonatomic) NSLayoutConstraint *imageWidth;
 @property (strong, nonatomic) NSLayoutConstraint *imageHeight;
+@property (assign ,nonatomic) BOOL needBgView;  // 是否需要背景
 
 - (void)loadImageWithImagePath:(NSString *)imagePath;
 

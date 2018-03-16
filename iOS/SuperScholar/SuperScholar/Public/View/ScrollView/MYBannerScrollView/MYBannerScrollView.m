@@ -165,6 +165,12 @@
         }
     }];
 }
+-(void)setNeedBgView:(BOOL)needBgView{
+    _needBgView = needBgView;
+    self.leftImageView.needBgView = needBgView;
+    self.centerImageView.needBgView = needBgView;
+    self.rightImageView.needBgView = needBgView;
+}
 
 - (NSInteger)checkNextPageIndex:(NSInteger)nextPage{
     if(nextPage == -1)

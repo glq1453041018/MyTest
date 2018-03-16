@@ -8,24 +8,28 @@
 
 #import "AdsViewController.h"
 #import "SearchIndexViewController.h"
+#import "AddressViewController.h"
 #import "AdsCollectionViewCell.h"
 
 @interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic,strong) UICollectionView *CollectionView;
-
+@property (strong ,nonatomic) UIView *leftView;
+@property (copy ,nonatomic) NSString *address;
+@property (strong ,nonatomic) UISearchBar *searchBar;
+@property (strong ,nonatomic) UILabel *rightLabel;
 @end
 
 @implementation AdsViewController
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.address = @[@"福州",@"连云港",@"阿拉善盟",@"大厂回族自治县"][getRandomNumberFromAtoB(0, 3)];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
     // 初始化视图
     [self initUI];
-    [self creatCollectionView];
-    
-    
 }
 
 #pragma mark - <************************** 配置视图 **************************>
@@ -33,18 +37,81 @@
 -(void)initUI{
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.frame = CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT);
+
+    self.address = @"福州";
+    [self.navigationBar setCenterView:self.searchBar leftView:self.leftView rightView:self.rightLabel];
+    
+    [self creatCollectionView];
 }
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
+-(UIView *)leftView{
+    if (_leftView==nil) {
+        _leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
+        UILabel *addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
+        addressLabel.textColor = [UIColor whiteColor];
+        addressLabel.font = [UIFont systemFontOfSize:FontSize_16];
+        addressLabel.numberOfLines = 0;
+        addressLabel.adjustsFontSizeToFitWidth = YES;
+        addressLabel.textAlignment = NSTextAlignmentCenter;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+        imageView.image = [UIImage imageNamed:@"down"];
+        [_leftView addSubview:addressLabel];
+        [_leftView addSubview:imageView];
+    }
+    return _leftView;
+}
+-(void)setAddress:(NSString *)address{
+    _address = address;
+    UILabel *addressLabel = nil;
+    UIImageView *addressImageView = nil;
+    for (UIView *itemView in self.leftView.subviews) {
+        if ([itemView isKindOfClass:UILabel.class]) {
+            addressLabel = (UILabel*)itemView;
+        }
+        if ([itemView isKindOfClass:UIImageView.class]) {
+            addressImageView = (UIImageView*)itemView;
+        }
+    }
+    addressLabel.text = address;
+    CGSize size = [address sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:FontSize_16]}];
+    CGSize size2 = [@"连云港" sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:FontSize_16]}];   // 最多4个字
+    addressLabel.viewWidth = MIN(size.width, size2.width);
+    addressLabel.centerY = self.leftView.bounds.size.height/2.0;
+    addressImageView.left = addressLabel.right;
+    addressImageView.centerY = addressLabel.centerY;
+}
+-(UILabel *)rightLabel{
+    if (_rightLabel==nil) {
+        _rightLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+        _rightLabel.textAlignment = NSTextAlignmentRight;
+        _rightLabel.textColor = [UIColor whiteColor];
+        _rightLabel.font = [UIFont systemFontOfSize:FontSize_16];
+        _rightLabel.text = @"消息";
+    }
+    return _rightLabel;
+}
+
+-(UISearchBar *)searchBar{
+    if (_searchBar==nil) {
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, AdaptedWidthValue(230), 35)];
+        _searchBar.placeholder = @"搜索";
+        _searchBar.backgroundImage = [UIImage new];
+        _searchBar.userInteractionEnabled = NO;
+    }
+    return _searchBar;
+}
+
+
 -(void)creatCollectionView{
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     //1.初始化layout
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     //设置collectionView滚动方向
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
     
     //2.初始化collectionView
-    self.CollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT) collectionViewLayout:layout];
+    self.CollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.navigationBar.bottom, IEW_WIDTH, IEW_HEGHT-self.navigationBar.bottom-kTabBarHeight) collectionViewLayout:layout];
     self.CollectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     //3.注册collectionViewCell
@@ -113,6 +180,14 @@
 
 
 #pragma mark - <************************** collectionView 代理方法 **************************>
+// !!!: 导航代理
+-(void)navigationViewLeftClickEvent{
+    AddressViewController *ctrl = [AddressViewController new];
+    [self.navigationController presentViewController:ctrl animated:YES completion:nil];
+}
+-(void)navigationViewRightClickEvent{
+    
+}
 
 #pragma mark -- UICollectionViewDataSource
 
