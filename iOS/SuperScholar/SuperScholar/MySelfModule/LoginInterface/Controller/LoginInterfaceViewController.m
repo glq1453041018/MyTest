@@ -41,7 +41,7 @@
     // !!!: 获取验证码请求
 //    WeakObj(self);
     [SMSManager getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneField.text result:^(NSError *error) {
-        if(error){
+        if(!error){
             NSLog(@"获取验证码成功！");
         }
     }];

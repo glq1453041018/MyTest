@@ -38,6 +38,8 @@
 		BE950ED9205B8793009F562B /* SMSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950ED8205B8793009F562B /* SMSManager.m */; };
 		BE950EDE205BE97E009F562B /* LLAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE950EDB205BE97E009F562B /* LLAlertView.bundle */; };
 		BE950EDF205BE97E009F562B /* LLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950EDD205BE97E009F562B /* LLAlertView.m */; };
+		BE950EE7205BECAF009F562B /* DataEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950EE5205BECAF009F562B /* DataEditingViewController.m */; };
+		BE950EE8205BECAF009F562B /* DataEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE950EE6205BECAF009F562B /* DataEditingViewController.xib */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
 		C71887DC2058E7DA00333387 /* ClassSapceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887DB2058E7DA00333387 /* ClassSapceViewController.m */; };
 		C71887E02058E81100333387 /* ClassSapceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887DE2058E81100333387 /* ClassSapceTableViewCell.m */; };
@@ -139,6 +141,9 @@
 		BE950EDB205BE97E009F562B /* LLAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LLAlertView.bundle; sourceTree = "<group>"; };
 		BE950EDC205BE97E009F562B /* LLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLAlertView.h; sourceTree = "<group>"; };
 		BE950EDD205BE97E009F562B /* LLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLAlertView.m; sourceTree = "<group>"; };
+		BE950EE4205BECAF009F562B /* DataEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEditingViewController.h; sourceTree = "<group>"; };
+		BE950EE5205BECAF009F562B /* DataEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEditingViewController.m; sourceTree = "<group>"; };
+		BE950EE6205BECAF009F562B /* DataEditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataEditingViewController.xib; sourceTree = "<group>"; };
 		C71887DA2058E7DA00333387 /* ClassSapceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSapceViewController.h; sourceTree = "<group>"; };
 		C71887DB2058E7DA00333387 /* ClassSapceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSapceViewController.m; sourceTree = "<group>"; };
 		C71887DD2058E81100333387 /* ClassSapceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSapceTableViewCell.h; sourceTree = "<group>"; };
@@ -655,6 +660,40 @@
 			path = LLAlertView;
 			sourceTree = "<group>";
 		};
+		BE950EE0205BEC84009F562B /* DataEditing */ = {
+			isa = PBXGroup;
+			children = (
+				BE950EE1205BEC84009F562B /* Controller */,
+				BE950EE2205BEC84009F562B /* Model */,
+				BE950EE3205BEC84009F562B /* View */,
+			);
+			path = DataEditing;
+			sourceTree = "<group>";
+		};
+		BE950EE1205BEC84009F562B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE950EE4205BECAF009F562B /* DataEditingViewController.h */,
+				BE950EE5205BECAF009F562B /* DataEditingViewController.m */,
+				BE950EE6205BECAF009F562B /* DataEditingViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE950EE2205BEC84009F562B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE950EE3205BEC84009F562B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C71887D62058E7B800333387 /* ClassSapce */ = {
 			isa = PBXGroup;
 			children = (
@@ -856,6 +895,7 @@
 			children = (
 				BE950EB8205B8634009F562B /* IndexModule */,
 				BE950EBE205B8634009F562B /* LoginInterface */,
+				BE950EE0205BEC84009F562B /* DataEditing */,
 			);
 			path = MySelfModule;
 			sourceTree = "<group>";
@@ -1064,6 +1104,7 @@
 				38010D86204FBFBC00E4511C /* AdsViewController.xib in Resources */,
 				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				BE950ED3205B8728009F562B /* LoginInterfaceViewController.xib in Resources */,
+				BE950EE8205BECAF009F562B /* DataEditingViewController.xib in Resources */,
 				384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */,
 				BE950EDE205BE97E009F562B /* LLAlertView.bundle in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
@@ -1151,6 +1192,7 @@
 				384A555D20521F20006D8C23 /* MJDIYAutoFooter.m in Sources */,
 				C7188807205A713700333387 /* ClassInfoHeadView.m in Sources */,
 				C781F83F205B529200BE37AD /* MYCommentStarView.m in Sources */,
+				BE950EE7205BECAF009F562B /* DataEditingViewController.m in Sources */,
 				BE950EDF205BE97E009F562B /* LLAlertView.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
 				C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */,

@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MySelfViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIView *didLoginView;//已登录视图
-@property (weak, nonatomic) IBOutlet UIButton *loginButtton;//短信登录按钮
-@property (weak, nonatomic) IBOutlet UIImageView *backImageView;//高斯模糊背景图
+
 @end
