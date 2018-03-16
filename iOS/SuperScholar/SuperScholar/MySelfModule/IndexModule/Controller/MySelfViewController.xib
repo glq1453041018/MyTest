@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MySelfViewController">
+            <connections>
+                <outlet property="tableView" destination="VSU-Zb-a5k" id="Prv-cn-NAe"/>
+                <outlet property="topView" destination="M9F-GO-uOf" id="tcm-Sd-M8H"/>
+                <outlet property="view" destination="Hyi-Hw-Is3" id="ID3-ZL-MtI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Hyi-Hw-Is3">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VSU-Zb-a5k">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="k4l-nH-4c6"/>
+                        <outlet property="delegate" destination="-1" id="Tbl-YC-3h4"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="VSU-Zb-a5k" secondAttribute="bottom" constant="49" id="Lnt-OW-t8Y"/>
+                <constraint firstAttribute="trailing" secondItem="VSU-Zb-a5k" secondAttribute="trailing" id="f4t-Iu-cvu"/>
+                <constraint firstItem="VSU-Zb-a5k" firstAttribute="leading" secondItem="Hyi-Hw-Is3" secondAttribute="leading" id="mNa-cN-tGe"/>
+                <constraint firstItem="VSU-Zb-a5k" firstAttribute="top" secondItem="Hyi-Hw-Is3" secondAttribute="top" id="uGZ-12-WKz"/>
+            </constraints>
+            <point key="canvasLocation" x="35.5" y="54.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="M9F-GO-uOf">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="KpY-8l-PnU">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhK-7F-axB">
+                    <rect key="frame" x="42" y="89" width="46" height="46"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="EC1-Eu-uan"/>
+                        <constraint firstAttribute="width" secondItem="xhK-7F-axB" secondAttribute="height" multiplier="1:1" id="Lvt-Ij-wAX"/>
+                    </constraints>
+                    <state key="normal" title="短信">
+                        <color key="titleColor" red="1" green="0.54117647059999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="23"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onClickMSMBtn:" destination="-1" eventType="touchUpInside" id="hmT-Fk-pcy"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="KpY-8l-PnU" secondAttribute="bottom" id="3m2-wW-1CF"/>
+                <constraint firstItem="KpY-8l-PnU" firstAttribute="top" secondItem="M9F-GO-uOf" secondAttribute="top" id="AKg-E4-GUK"/>
+                <constraint firstAttribute="trailing" secondItem="KpY-8l-PnU" secondAttribute="trailing" id="Dnx-Zq-Ryp"/>
+                <constraint firstItem="KpY-8l-PnU" firstAttribute="leading" secondItem="M9F-GO-uOf" secondAttribute="leading" id="SNB-9I-6m6"/>
+                <constraint firstAttribute="bottom" secondItem="xhK-7F-axB" secondAttribute="bottom" constant="40" id="Zcv-85-w6Y"/>
+                <constraint firstItem="xhK-7F-axB" firstAttribute="leading" secondItem="M9F-GO-uOf" secondAttribute="leading" constant="42" id="prI-BK-Th7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="47" y="-436"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="timg.jpg" width="550" height="413"/>
+    </resources>
+</document>
