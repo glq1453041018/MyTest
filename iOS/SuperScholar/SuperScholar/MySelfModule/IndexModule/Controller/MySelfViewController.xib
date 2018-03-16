@@ -7,11 +7,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MySelfViewController">
             <connections>
+                <outlet property="didLoginView" destination="cuT-6O-MJl" id="Bwg-n0-4ei"/>
                 <outlet property="tableView" destination="VSU-Zb-a5k" id="Prv-cn-NAe"/>
                 <outlet property="topView" destination="M9F-GO-uOf" id="tcm-Sd-M8H"/>
                 <outlet property="view" destination="Hyi-Hw-Is3" id="ID3-ZL-MtI"/>
@@ -44,8 +46,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="KpY-8l-PnU">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KpY-8l-PnU">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -70,21 +73,60 @@
                         <action selector="onClickMSMBtn:" destination="-1" eventType="touchUpInside" id="hmT-Fk-pcy"/>
                     </connections>
                 </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuT-6O-MJl">
+                    <rect key="frame" x="0.0" y="88" width="375" height="87"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OEv-P0-3V7">
+                            <rect key="frame" x="30" y="4" width="58" height="58"/>
+                            <color key="backgroundColor" red="1" green="0.54117647059999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="OEv-P0-3V7" secondAttribute="height" multiplier="1:1" id="bOT-Xp-FH7"/>
+                                <constraint firstAttribute="width" constant="58" id="shv-Nw-BKm"/>
+                            </constraints>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我爱我家" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqe-8B-j1f">
+                            <rect key="frame" x="96" y="8" width="70" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="TTF-8U-csG"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我爱我家我爱我家我爱我家我爱我家我爱我家我爱我家我爱我家我爱我家我爱我家" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCX-z7-mdf">
+                            <rect key="frame" x="96" y="33" width="271" height="32"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Iqe-8B-j1f" firstAttribute="top" secondItem="OEv-P0-3V7" secondAttribute="top" constant="4" id="ESV-9N-Qge"/>
+                        <constraint firstAttribute="trailing" secondItem="jCX-z7-mdf" secondAttribute="trailing" constant="8" id="I6V-EN-eoN"/>
+                        <constraint firstItem="jCX-z7-mdf" firstAttribute="top" secondItem="Iqe-8B-j1f" secondAttribute="bottom" constant="4" id="LPN-qp-s9u"/>
+                        <constraint firstItem="OEv-P0-3V7" firstAttribute="leading" secondItem="cuT-6O-MJl" secondAttribute="leading" constant="30" id="T52-DP-YKE"/>
+                        <constraint firstAttribute="bottom" secondItem="OEv-P0-3V7" secondAttribute="bottom" constant="25" id="WKh-o3-QNq"/>
+                        <constraint firstItem="Iqe-8B-j1f" firstAttribute="leading" secondItem="OEv-P0-3V7" secondAttribute="trailing" constant="8" id="rp8-QB-8ee"/>
+                        <constraint firstItem="jCX-z7-mdf" firstAttribute="leading" secondItem="Iqe-8B-j1f" secondAttribute="leading" id="wjF-HZ-bW9"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="KpY-8l-PnU" secondAttribute="bottom" id="3m2-wW-1CF"/>
+                <constraint firstItem="cuT-6O-MJl" firstAttribute="height" secondItem="M9F-GO-uOf" secondAttribute="height" multiplier="1:2" id="5ss-QH-iGD"/>
                 <constraint firstItem="KpY-8l-PnU" firstAttribute="top" secondItem="M9F-GO-uOf" secondAttribute="top" id="AKg-E4-GUK"/>
                 <constraint firstAttribute="trailing" secondItem="KpY-8l-PnU" secondAttribute="trailing" id="Dnx-Zq-Ryp"/>
+                <constraint firstItem="cuT-6O-MJl" firstAttribute="leading" secondItem="M9F-GO-uOf" secondAttribute="leading" id="MV9-08-Mgg"/>
                 <constraint firstItem="KpY-8l-PnU" firstAttribute="leading" secondItem="M9F-GO-uOf" secondAttribute="leading" id="SNB-9I-6m6"/>
+                <constraint firstAttribute="bottom" secondItem="cuT-6O-MJl" secondAttribute="bottom" id="Vxu-jd-UY0"/>
+                <constraint firstAttribute="trailing" secondItem="cuT-6O-MJl" secondAttribute="trailing" id="Xhv-7U-gy5"/>
                 <constraint firstAttribute="bottom" secondItem="xhK-7F-axB" secondAttribute="bottom" constant="40" id="Zcv-85-w6Y"/>
                 <constraint firstItem="xhK-7F-axB" firstAttribute="leading" secondItem="M9F-GO-uOf" secondAttribute="leading" constant="42" id="prI-BK-Th7"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="47" y="-436"/>
+            <point key="canvasLocation" x="35.5" y="-438.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="timg.jpg" width="550" height="413"/>
-    </resources>
 </document>

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MySelfViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UIView *didLoginView;//已登录视图
 @end

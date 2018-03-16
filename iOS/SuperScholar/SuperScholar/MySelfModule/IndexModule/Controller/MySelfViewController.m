@@ -47,7 +47,7 @@
 - (void)configNavigationBar{
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.isNeedGoBack = YES;
-    [self.navigationBar setTitle:self.title leftText:nil rightImage:nil];
+    [self.navigationBar setTitle:@"登录推荐更准确" leftText:nil rightImage:nil];
     self.navigationBar.backgroundColor = [UIColor clearColor];
 }
 - (void)configTableView{
