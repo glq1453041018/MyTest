@@ -72,10 +72,12 @@
 		C781F844205B581400BE37AD /* ClassInfoFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F843205B581400BE37AD /* ClassInfoFootView.xib */; };
 		C781F848205B702D00BE37AD /* ClassInfoTitleItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F847205B702D00BE37AD /* ClassInfoTitleItemView.m */; };
 		C781F84A205B703900BE37AD /* ClassInfoTitleItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F849205B703900BE37AD /* ClassInfoTitleItemView.xib */; };
-		C781F851205BC21700BE37AD /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F84C205BC21700BE37AD /* ClassViewController.m */; };
-		C781F852205BC21700BE37AD /* ClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F84E205BC21700BE37AD /* ClassViewController.xib */; };
 		C781F856205BC28600BE37AD /* ClassViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F854205BC28600BE37AD /* ClassViewCollectionViewCell.m */; };
 		C781F857205BC28600BE37AD /* ClassViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F855205BC28600BE37AD /* ClassViewCollectionViewCell.xib */; };
+		C781F85B205BC89E00BE37AD /* MYVisualEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F85A205BC89E00BE37AD /* MYVisualEffectView.m */; };
+		C781F85F205BCD0100BE37AD /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F85D205BCD0100BE37AD /* ClassViewController.m */; };
+		C781F860205BCD0100BE37AD /* ClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F85E205BCD0100BE37AD /* ClassViewController.xib */; };
+		C781F863205BCEC800BE37AD /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F862205BCEC800BE37AD /* UIImage+ImageEffects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,12 +194,16 @@
 		C781F846205B702D00BE37AD /* ClassInfoTitleItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoTitleItemView.h; sourceTree = "<group>"; };
 		C781F847205B702D00BE37AD /* ClassInfoTitleItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoTitleItemView.m; sourceTree = "<group>"; };
 		C781F849205B703900BE37AD /* ClassInfoTitleItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassInfoTitleItemView.xib; sourceTree = "<group>"; };
-		C781F84C205BC21700BE37AD /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
-		C781F84D205BC21700BE37AD /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
-		C781F84E205BC21700BE37AD /* ClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewController.xib; sourceTree = "<group>"; };
 		C781F853205BC28600BE37AD /* ClassViewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewCollectionViewCell.h; sourceTree = "<group>"; };
 		C781F854205BC28600BE37AD /* ClassViewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewCollectionViewCell.m; sourceTree = "<group>"; };
 		C781F855205BC28600BE37AD /* ClassViewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewCollectionViewCell.xib; sourceTree = "<group>"; };
+		C781F859205BC89E00BE37AD /* MYVisualEffectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYVisualEffectView.h; sourceTree = "<group>"; };
+		C781F85A205BC89E00BE37AD /* MYVisualEffectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYVisualEffectView.m; sourceTree = "<group>"; };
+		C781F85C205BCD0100BE37AD /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
+		C781F85D205BCD0100BE37AD /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
+		C781F85E205BCD0100BE37AD /* ClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewController.xib; sourceTree = "<group>"; };
+		C781F861205BCEC800BE37AD /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		C781F862205BCEC800BE37AD /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -465,6 +471,8 @@
 		384A553A20521F20006D8C23 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C781F861205BCEC800BE37AD /* UIImage+ImageEffects.h */,
+				C781F862205BCEC800BE37AD /* UIImage+ImageEffects.m */,
 				C7188802205A6F4500333387 /* NSArray+ExtraMethod.h */,
 				C7188803205A6F4500333387 /* NSArray+ExtraMethod.m */,
 				C71887FF205A6EE800333387 /* NSTimer+Addition.h */,
@@ -511,6 +519,7 @@
 		384A554B20521F20006D8C23 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C781F858205BC89E00BE37AD /* VisualEffectView */,
 				C781F83C205B528500BE37AD /* CommentStarView */,
 				C781F838205B528200BE37AD /* NavigationView */,
 				C71887F3205A6D7900333387 /* ScrollView */,
@@ -931,9 +940,9 @@
 		C781F84B205BC21700BE37AD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C781F84D205BC21700BE37AD /* ClassViewController.h */,
-				C781F84C205BC21700BE37AD /* ClassViewController.m */,
-				C781F84E205BC21700BE37AD /* ClassViewController.xib */,
+				C781F85C205BCD0100BE37AD /* ClassViewController.h */,
+				C781F85D205BCD0100BE37AD /* ClassViewController.m */,
+				C781F85E205BCD0100BE37AD /* ClassViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -953,6 +962,15 @@
 				C781F855205BC28600BE37AD /* ClassViewCollectionViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C781F858205BC89E00BE37AD /* VisualEffectView */ = {
+			isa = PBXGroup;
+			children = (
+				C781F859205BC89E00BE37AD /* MYVisualEffectView.h */,
+				C781F85A205BC89E00BE37AD /* MYVisualEffectView.m */,
+			);
+			path = VisualEffectView;
 			sourceTree = "<group>";
 		};
 		FA4F9C06915C67A5F8BC4296 /* Frameworks */ = {
@@ -1028,7 +1046,6 @@
 				C781F857205BC28600BE37AD /* ClassViewCollectionViewCell.xib in Resources */,
 				C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */,
 				38010D86204FBFBC00E4511C /* AdsViewController.xib in Resources */,
-				C781F852205BC21700BE37AD /* ClassViewController.xib in Resources */,
 				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				BE950ED3205B8728009F562B /* LoginInterfaceViewController.xib in Resources */,
 				384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */,
@@ -1047,6 +1064,7 @@
 				38010DB2204FFB5E00E4511C /* ZhaoShengTableViewCell.xib in Resources */,
 				38010DAD204FFB3500E4511C /* ZhaoShengViewController.xib in Resources */,
 				C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */,
+				C781F860205BCD0100BE37AD /* ClassViewController.xib in Resources */,
 				C71887E12058E81100333387 /* ClassSapceTableViewCell.xib in Resources */,
 				C781F84A205B703900BE37AD /* ClassInfoTitleItemView.xib in Resources */,
 			);
@@ -1124,6 +1142,7 @@
 				C781F856205BC28600BE37AD /* ClassViewCollectionViewCell.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
 				38010DB1204FFB5E00E4511C /* ZhaoShengTableViewCell.m in Sources */,
+				C781F85F205BCD0100BE37AD /* ClassViewController.m in Sources */,
 				C71887FE205A6D7900333387 /* MYBannerImageView.m in Sources */,
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				384A555B20521F20006D8C23 /* IndicatorView.m in Sources */,
@@ -1137,9 +1156,9 @@
 				C781F842205B580A00BE37AD /* ClassInfoFootView.m in Sources */,
 				BE950ECB205B8634009F562B /* MYAutoScaleView.m in Sources */,
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
+				C781F85B205BC89E00BE37AD /* MYVisualEffectView.m in Sources */,
 				C71887F2205A5C1400333387 /* ClassInfoViewController.m in Sources */,
 				C781F83B205B528200BE37AD /* LLNavigationView.m in Sources */,
-				C781F851205BC21700BE37AD /* ClassViewController.m in Sources */,
 				384A556220521F2E006D8C23 /* MYSegmentController.m in Sources */,
 				C7188811205A91B100333387 /* ClassInfoModel.m in Sources */,
 				BE950ED9205B8793009F562B /* SMSManager.m in Sources */,
@@ -1150,6 +1169,7 @@
 				38010DAC204FFB3500E4511C /* ZhaoShengViewController.m in Sources */,
 				384A556620522095006D8C23 /* SearchIndexViewController.m in Sources */,
 				C7188804205A6F4500333387 /* NSArray+ExtraMethod.m in Sources */,
+				C781F863205BCEC800BE37AD /* UIImage+ImageEffects.m in Sources */,
 				C718880D205A894900333387 /* ClassInfoTableViewCell.m in Sources */,
 				C781F848205B702D00BE37AD /* ClassInfoTitleItemView.m in Sources */,
 				C71887DC2058E7DA00333387 /* ClassSapceViewController.m in Sources */,
