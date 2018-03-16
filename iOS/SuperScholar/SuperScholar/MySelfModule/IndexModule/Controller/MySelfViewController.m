@@ -29,6 +29,14 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.didLoginView.hidden = GetInfoForKey(UserId_NSUserDefaults) == nil;
+    self.loginButtton.hidden = !self.didLoginView.hidden;
+    self.navigationBar.hidden = self.loginButtton.hidden;
+    self.backImageView.image = [UIImage imageNamed:@"timg.jpg"];
+}
+
 
 
 #pragma mark - <************************** 获取数据 **************************>

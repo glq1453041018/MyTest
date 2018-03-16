@@ -54,6 +54,7 @@
 //        dispatch_cancel(weakself.timer);
         if(!error){
             NSLog(@"登录成功!");
+            SaveInfoForKey(@"abcdefg", UserId_NSUserDefaults);
             [self dismissViewControllerAnimated:YES completion:nil];
         }else{//验证码错误
             self.vertifyErrorLog.text = @"验证码错误";

@@ -13,7 +13,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MySelfViewController">
             <connections>
+                <outlet property="backImageView" destination="KpY-8l-PnU" id="kII-0H-gDn"/>
                 <outlet property="didLoginView" destination="cuT-6O-MJl" id="Bwg-n0-4ei"/>
+                <outlet property="loginButtton" destination="xhK-7F-axB" id="4lo-Fy-Gpu"/>
                 <outlet property="tableView" destination="VSU-Zb-a5k" id="Prv-cn-NAe"/>
                 <outlet property="topView" destination="M9F-GO-uOf" id="tcm-Sd-M8H"/>
                 <outlet property="view" destination="Hyi-Hw-Is3" id="ID3-ZL-MtI"/>

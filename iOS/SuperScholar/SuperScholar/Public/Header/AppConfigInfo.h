@@ -51,7 +51,7 @@
 
 
 #pragma mark - <************************** NSUserDefaults **************************>
-
+static NSString *UserId_NSUserDefaults = @"userid";
 
 
 
