@@ -28,7 +28,7 @@
                                 <state key="normal" backgroundImage="bgImage"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LOLITA0164" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8i-De-FHb">
-                                <rect key="frame" x="50" y="10" width="300" height="20"/>
+                                <rect key="frame" x="50" y="10" width="200" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,6 +41,11 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuq-7s-fxw" customClass="MYCommentStarView">
+                                <rect key="frame" x="250" y="15" width="110" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="的索科洛夫极乐世界封口机索科洛夫极乐世界阿奎罗放假啊瞌睡了就分开了斯捷克洛夫教练卡设计开发了就流口水的肌肤立刻就阿斯科利的风景克拉监考老师的九分裤拉基舍夫克拉监考老师放假阿莱克斯解放路开始减肥了" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWK-f1-s51">
@@ -97,10 +102,12 @@
                 <outlet property="headerBtn" destination="5Jg-Cu-Swc" id="QpZ-C4-0NV"/>
                 <outlet property="likeBtn" destination="hZw-Kf-kYb" id="o5t-te-iCv"/>
                 <outlet property="mediaView" destination="6Zp-n5-n91" id="2uM-F1-HoZ"/>
+                <outlet property="starView" destination="cuq-7s-fxw" id="9t8-ID-dkK"/>
                 <outlet property="timeLabel" destination="oHg-jg-pVX" id="aZE-g4-euf"/>
                 <outlet property="userNamelLabel" destination="c8i-De-FHb" id="xQC-lT-Bhh"/>
                 <outlet property="viewLabel" destination="kne-7q-iJn" id="Wit-50-iJG"/>
             </connections>
+            <point key="canvasLocation" x="33.5" y="54"/>
         </tableViewCell>
     </objects>
     <resources>

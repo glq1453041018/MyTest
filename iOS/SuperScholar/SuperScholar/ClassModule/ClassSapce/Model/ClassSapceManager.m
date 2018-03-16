@@ -12,7 +12,11 @@
 @implementation ClassSapceManager
 
 // !!!: 获取数据
-+(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock{
++(void)requestDataStyle:(InteractiveStyle)style response:(void(^)(NSArray *resArray,id error))responseBlock{
+    
+    // 配置相关地址和参数
+    
+    
     NSArray *contents = @[
                           @"一天当中，我们起码应该挤出十分钟的宁静，让自己有喘一口气的闲暇，有一个可以让阳光照进来的间隙。长期处在动荡、嘈杂的生活中，会迷失方向、烦乱而浮躁。",
                           @"有一种路程叫万水千山，有一种情意叫海枯石烂。有一种约定叫天荒地老，有一种记忆叫刻骨铭心。有一种思念叫望穿秋水，有一种爱情叫至死不渝。有一种幸福叫天长地久，有一种拥有叫别无所求。有一种遥远叫天涯海角，有一种思念叫肝肠寸断，还有一种叫失恋无言以对。",
@@ -39,6 +43,10 @@
         NSInteger ran = getRandomNumberFromAtoB(0, 10)%4;
         csm.content = contents[ran];
         csm.contentAttring = [self changeToAttr:csm.content];
+        csm.style = style;
+        if (csm.style==ClassCommentStyle||csm.style==SchoolCommentStyle) {
+            csm.starNum = getRandomNumberFromAtoB(0, 5);
+        }
         NSMutableArray *pics = [NSMutableArray array];
         for (int j=0; j<getRandomNumberFromAtoB(0, 9); j++) {
             [pics addObject:picsUrl[getRandomNumberFromAtoB(0, 8)]];

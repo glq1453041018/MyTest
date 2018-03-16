@@ -20,6 +20,11 @@
 #define kSelectedColor KColorTheme
 // 未选中的颜色
 #define kNoselectColor HexColor(0x8a8a8a)
+// 橙色
+#define kDarkOrangeColor HexColor(0xFF8C00)
+// 错误颜色
+#define kErrorRedColor HexColor(0xFF5e5e)
+
 
 //默认颜色
 #define GLOBAL_TABLSECTION_LINECOLOR HexColor(0xc9ced6)
@@ -46,6 +51,21 @@
 
 
 #pragma mark - <************************** NSUserDefaults **************************>
+
+
+
+
+
+#pragma mark - <************************** 枚举类型 **************************>
+// !!!: 互动圈的类型
+typedef NS_ENUM(NSInteger , InteractiveStyle) {
+    ClassSpaceStyle,        // 班级动态圈
+    ClassInfoStyle,         // 班级信息
+    ClassCommentStyle,      // 班级评价
+    SchoolInfoStyle,        // 学校信息
+    SchoolCommentStyle      // 学校评价
+};
+
 
 
 

@@ -28,12 +28,61 @@
 
 
 
+
+@implementation ClassInfoTableViewCell_Title
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+
+}
+
+-(void)loadData:(NSArray *)data{
+    self.data = data;
+    
+    for (UIView* view in self.subviews) {
+        if ([view isKindOfClass:[ClassInfoTitleItemView class]]) {
+            [view removeFromSuperview];
+        }
+    }
+    
+    if (data.count) {
+        CGFloat width = kScreenWidth / data.count;
+        for (int i=0; i<data.count; i++) {
+            ClassInfoModel *cim = data[i];
+            ClassInfoTitleItemView *itemView = [[[NSBundle mainBundle] loadNibNamed:@"ClassInfoTitleItemView" owner:nil options:nil] firstObject];
+            itemView.titleLabel.text = cim.key.length?cim.key:@"-";
+            itemView.detailLabel.text = cim.value.length?cim.value:@"-";
+            [itemView.tapBtn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+            itemView.tapBtn.tag = i;
+            itemView.centerX = width/2.0 * (2*i+1);
+            [self addSubview:itemView];
+        }
+    }
+}
+
+-(void)click:(UIButton*)btn{
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(classInfoTableViewCell_TitleClickEvent:data:)]) {
+        [self.delegate classInfoTableViewCell_TitleClickEvent:btn.tag data:self.data[btn.tag]];
+    }
+}
+
+@end
+
+
+
+
+
 @implementation ClassInfoTableViewCell_PingJia
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    self.starView.noAnimation = YES;
+    self.starView.tinColor = kDarkOrangeColor;
+    self.starView.userInteractionEnabled = NO;
     
+    self.starLabel.textColor = kDarkOrangeColor;
+
 }
 
 
