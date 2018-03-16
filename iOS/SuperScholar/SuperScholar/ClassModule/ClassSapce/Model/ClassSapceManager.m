@@ -14,6 +14,7 @@
 // !!!: 获取数据
 +(void)requestDataStyle:(InteractiveStyle)style response:(void(^)(NSArray *resArray,id error))responseBlock{
     
+    // 配置相关地址和参数
     
     
     NSArray *contents = @[
@@ -42,6 +43,10 @@
         NSInteger ran = getRandomNumberFromAtoB(0, 10)%4;
         csm.content = contents[ran];
         csm.contentAttring = [self changeToAttr:csm.content];
+        csm.style = style;
+        if (csm.style==ClassCommentStyle||csm.style==SchoolCommentStyle) {
+            csm.starNum = getRandomNumberFromAtoB(0, 5);
+        }
         NSMutableArray *pics = [NSMutableArray array];
         for (int j=0; j<getRandomNumberFromAtoB(0, 9); j++) {
             [pics addObject:picsUrl[getRandomNumberFromAtoB(0, 8)]];

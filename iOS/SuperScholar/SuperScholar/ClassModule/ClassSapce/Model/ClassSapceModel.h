@@ -17,7 +17,7 @@
 @property (copy ,nonatomic) NSString *content;
 @property (copy ,nonatomic) NSAttributedString *contentAttring;
 @property (assign ,nonatomic) CGFloat starNum;  // 评价星级数
-@property (assign ,nonatomic) BOOL needStar;    // 是否需要星星
+@property (assign ,nonatomic) InteractiveStyle style;   // 用来判断是否需要星星的依据
 
 // !!!: 底部信息
 @property (assign ,nonatomic) NSInteger viewNum;

@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "ClassSapceModel.h"
+#import "MYCommentStarView.h"
 
 @interface ClassSapceTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *headerBtn;
 @property (weak, nonatomic) IBOutlet UILabel *userNamelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet MYCommentStarView *starView;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIView *mediaView;

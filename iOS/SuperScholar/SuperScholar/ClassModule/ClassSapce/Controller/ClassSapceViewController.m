@@ -113,6 +113,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     ClassInfoViewController *ctrl = [ClassInfoViewController new];
+    ctrl.style = ClassInfoStyle;
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 

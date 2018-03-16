@@ -10,7 +10,7 @@
 
 @implementation ClassInfoManager
 
-+(void)requestDataResponse:(void (^)(NSArray *, id))responseBlock{
++(void)requestDataStyle:(InteractiveStyle)style response:(void(^)(NSArray *resArray,id error))responseBlock{
     NSMutableArray *titles = [NSMutableArray array];
     for (int i=0; i<4; i++) {
         ClassInfoModel *cim = [ClassInfoModel new];
@@ -22,6 +22,11 @@
     ClassInfoModel_PingJia *cimpj = [ClassInfoModel_PingJia new];
     cimpj.starNum = 5;
     cimpj.commentNum = 123;
+    if (style==ClassInfoStyle) {
+        cimpj.style = ClassCommentStyle;
+    }else if (style==SchoolInfoStyle){
+        cimpj.style = SchoolCommentStyle;
+    }
     cimpj.cellHeight = AdaptedWidthValue(44);
     NSArray *pingjias = @[cimpj];
     NSMutableArray *items = [NSMutableArray array];
