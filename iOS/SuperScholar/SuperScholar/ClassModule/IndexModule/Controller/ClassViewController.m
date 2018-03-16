@@ -9,11 +9,13 @@
 #import "ClassViewController.h"
 #import "ClassSapceViewController.h"
 
+#import "ClassViewCollectionViewCell.h"
 
-@interface ClassViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface ClassViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 
 @end
 
@@ -38,12 +40,14 @@
 // !!!: 配置视图
 -(void)initUI{
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.navigationBar setTitle:nil leftImage:nil rightText:@"动态"];
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"TZTestCell"];
+    self.constraint.constant = self.navigationBar.bottom;
+    [self.collectionView registerNib:[UINib nibWithNibName:@"ClassViewCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ClassViewCollectionViewCell"];
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.showsHorizontalScrollIndicator = NO;
+
     
 }
 
@@ -65,16 +69,31 @@
 
 // !!!: UICollectionView代理方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return 100;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TZTestCell" forIndexPath:indexPath];
+    ClassViewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ClassViewCollectionViewCell" forIndexPath:indexPath];
     cell.backgroundColor = KColorTheme;
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake((kScreenWidth-30)/2.0, AdaptedWidthValue(100));
+}
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(10, 10, 0, 10);
+}
+//设置单元格间的横向间距
+-(CGFloat )collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return 10;
+}
+//设置纵向的行间距
+-(CGFloat )collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return 10;
 }
 
 // !!!: LxGridViewDataSource

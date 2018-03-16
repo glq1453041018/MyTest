@@ -7,12 +7,16 @@
 //
 
 #import "ClassViewCollectionViewCell.h"
+#import "UIImage+ImageEffects.h"
 
 @implementation ClassViewCollectionViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    UIImage *image = [UIImage imageNamed:@"testimage"];
+    self.bgImageView.image = [image applyBlurWithRadius:5 tintColor:[[[UIColor whiteColor] colorWithAlphaComponent:0.7] colorWithAlphaComponent:0.3] saturationDeltaFactor:1.0 maskImage:nil];
+    
 }
 
 @end

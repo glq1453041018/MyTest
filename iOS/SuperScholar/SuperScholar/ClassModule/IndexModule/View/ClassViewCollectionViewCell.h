@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ClassViewCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 
 @end
