@@ -63,8 +63,6 @@
 		C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169F4204F889300C94311 /* MainTabBarViewController.m */; };
 		C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169F5204F889300C94311 /* MainTabBarViewController.xib */; };
 		C76169FB204F889900C94311 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169FA204F889900C94311 /* AppDelegate.m */; };
-		C7616A00204F8F2600C94311 /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169FE204F8F2600C94311 /* ClassViewController.m */; };
-		C7616A01204F8F2600C94311 /* ClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169FF204F8F2600C94311 /* ClassViewController.xib */; };
 		C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */; };
 		C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */; };
 		C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F836205B4B1900BE37AD /* ClassInfoManager.m */; };
@@ -74,6 +72,10 @@
 		C781F844205B581400BE37AD /* ClassInfoFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F843205B581400BE37AD /* ClassInfoFootView.xib */; };
 		C781F848205B702D00BE37AD /* ClassInfoTitleItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F847205B702D00BE37AD /* ClassInfoTitleItemView.m */; };
 		C781F84A205B703900BE37AD /* ClassInfoTitleItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F849205B703900BE37AD /* ClassInfoTitleItemView.xib */; };
+		C781F851205BC21700BE37AD /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F84C205BC21700BE37AD /* ClassViewController.m */; };
+		C781F852205BC21700BE37AD /* ClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F84E205BC21700BE37AD /* ClassViewController.xib */; };
+		C781F856205BC28600BE37AD /* ClassViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F854205BC28600BE37AD /* ClassViewCollectionViewCell.m */; };
+		C781F857205BC28600BE37AD /* ClassViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F855205BC28600BE37AD /* ClassViewCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,9 +177,6 @@
 		C76169F5204F889300C94311 /* MainTabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarViewController.xib; sourceTree = "<group>"; };
 		C76169F9204F889900C94311 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C76169FA204F889900C94311 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C76169FD204F8F2600C94311 /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
-		C76169FE204F8F2600C94311 /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
-		C76169FF204F8F2600C94311 /* ClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewController.xib; sourceTree = "<group>"; };
 		C7616A09204F8F6A00C94311 /* InteractiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveViewController.h; sourceTree = "<group>"; };
 		C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractiveViewController.m; sourceTree = "<group>"; };
 		C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InteractiveViewController.xib; sourceTree = "<group>"; };
@@ -193,6 +192,12 @@
 		C781F846205B702D00BE37AD /* ClassInfoTitleItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoTitleItemView.h; sourceTree = "<group>"; };
 		C781F847205B702D00BE37AD /* ClassInfoTitleItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoTitleItemView.m; sourceTree = "<group>"; };
 		C781F849205B703900BE37AD /* ClassInfoTitleItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassInfoTitleItemView.xib; sourceTree = "<group>"; };
+		C781F84C205BC21700BE37AD /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
+		C781F84D205BC21700BE37AD /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
+		C781F84E205BC21700BE37AD /* ClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewController.xib; sourceTree = "<group>"; };
+		C781F853205BC28600BE37AD /* ClassViewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewCollectionViewCell.h; sourceTree = "<group>"; };
+		C781F854205BC28600BE37AD /* ClassViewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewCollectionViewCell.m; sourceTree = "<group>"; };
+		C781F855205BC28600BE37AD /* ClassViewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -888,9 +893,9 @@
 		C76169FC204F8F1600C94311 /* IndexModule */ = {
 			isa = PBXGroup;
 			children = (
-				C76169FD204F8F2600C94311 /* ClassViewController.h */,
-				C76169FE204F8F2600C94311 /* ClassViewController.m */,
-				C76169FF204F8F2600C94311 /* ClassViewController.xib */,
+				C781F84B205BC21700BE37AD /* Controller */,
+				C781F84F205BC21700BE37AD /* Model */,
+				C781F850205BC21700BE37AD /* View */,
 			);
 			path = IndexModule;
 			sourceTree = "<group>";
@@ -921,6 +926,33 @@
 				C781F83E205B529200BE37AD /* MYCommentStarView.m */,
 			);
 			path = CommentStarView;
+			sourceTree = "<group>";
+		};
+		C781F84B205BC21700BE37AD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C781F84D205BC21700BE37AD /* ClassViewController.h */,
+				C781F84C205BC21700BE37AD /* ClassViewController.m */,
+				C781F84E205BC21700BE37AD /* ClassViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C781F84F205BC21700BE37AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C781F850205BC21700BE37AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C781F853205BC28600BE37AD /* ClassViewCollectionViewCell.h */,
+				C781F854205BC28600BE37AD /* ClassViewCollectionViewCell.m */,
+				C781F855205BC28600BE37AD /* ClassViewCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FA4F9C06915C67A5F8BC4296 /* Frameworks */ = {
@@ -993,8 +1025,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C781F857205BC28600BE37AD /* ClassViewCollectionViewCell.xib in Resources */,
 				C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */,
 				38010D86204FBFBC00E4511C /* AdsViewController.xib in Resources */,
+				C781F852205BC21700BE37AD /* ClassViewController.xib in Resources */,
 				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				BE950ED3205B8728009F562B /* LoginInterfaceViewController.xib in Resources */,
 				384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */,
@@ -1007,7 +1041,6 @@
 				C76169F0204F839200C94311 /* ActivityViewController.xib in Resources */,
 				BE950EC8205B8634009F562B /* MySelfViewController.xib in Resources */,
 				BE950ECD205B866B009F562B /* timg.jpg in Resources */,
-				C7616A01204F8F2600C94311 /* ClassViewController.xib in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
 				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
 				C781F844205B581400BE37AD /* ClassInfoFootView.xib in Resources */,
@@ -1088,6 +1121,7 @@
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
 				C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */,
 				C7188801205A6EE800333387 /* NSTimer+Addition.m in Sources */,
+				C781F856205BC28600BE37AD /* ClassViewCollectionViewCell.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
 				38010DB1204FFB5E00E4511C /* ZhaoShengTableViewCell.m in Sources */,
 				C71887FE205A6D7900333387 /* MYBannerImageView.m in Sources */,
@@ -1105,6 +1139,7 @@
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
 				C71887F2205A5C1400333387 /* ClassInfoViewController.m in Sources */,
 				C781F83B205B528200BE37AD /* LLNavigationView.m in Sources */,
+				C781F851205BC21700BE37AD /* ClassViewController.m in Sources */,
 				384A556220521F2E006D8C23 /* MYSegmentController.m in Sources */,
 				C7188811205A91B100333387 /* ClassInfoModel.m in Sources */,
 				BE950ED9205B8793009F562B /* SMSManager.m in Sources */,
@@ -1121,7 +1156,6 @@
 				C71887FD205A6D7900333387 /* MYBannerScrollView.m in Sources */,
 				C71887E42058E82300333387 /* ClassSapceModel.m in Sources */,
 				38010D8F204FD6E500E4511C /* AdsCollectionViewCell.m in Sources */,
-				C7616A00204F8F2600C94311 /* ClassViewController.m in Sources */,
 				C71887E02058E81100333387 /* ClassSapceTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

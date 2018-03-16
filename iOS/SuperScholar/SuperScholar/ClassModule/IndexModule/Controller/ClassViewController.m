@@ -10,7 +10,10 @@
 #import "ClassSapceViewController.h"
 
 
-@interface ClassViewController ()
+@interface ClassViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 
 @end
 
@@ -38,6 +41,9 @@
     
     [self.navigationBar setTitle:nil leftImage:nil rightText:@"动态"];
     
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"TZTestCell"];
+    self.collectionView.showsVerticalScrollIndicator = NO;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
     
 }
 
@@ -55,6 +61,30 @@
     ctrl.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:ctrl animated:YES];
 }
+
+
+// !!!: UICollectionView代理方法
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 10;
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TZTestCell" forIndexPath:indexPath];
+    cell.backgroundColor = KColorTheme;
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+// !!!: LxGridViewDataSource
+//- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+//}
+//- (BOOL)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)sourceIndexPath canMoveToIndexPath:(NSIndexPath *)destinationIndexPath {
+//}
+//- (void)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)sourceIndexPath didMoveToIndexPath:(NSIndexPath *)destinationIndexPath {
+//}
+
 
 
 
