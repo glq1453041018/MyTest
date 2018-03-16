@@ -36,6 +36,8 @@
 		BE950ED2205B8728009F562B /* LoginInterfaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950ED0205B8728009F562B /* LoginInterfaceViewController.m */; };
 		BE950ED3205B8728009F562B /* LoginInterfaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE950ED1205B8728009F562B /* LoginInterfaceViewController.xib */; };
 		BE950ED9205B8793009F562B /* SMSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950ED8205B8793009F562B /* SMSManager.m */; };
+		BE950EDE205BE97E009F562B /* LLAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE950EDB205BE97E009F562B /* LLAlertView.bundle */; };
+		BE950EDF205BE97E009F562B /* LLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950EDD205BE97E009F562B /* LLAlertView.m */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
 		C71887DC2058E7DA00333387 /* ClassSapceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887DB2058E7DA00333387 /* ClassSapceViewController.m */; };
 		C71887E02058E81100333387 /* ClassSapceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887DE2058E81100333387 /* ClassSapceTableViewCell.m */; };
@@ -134,6 +136,9 @@
 		BE950ED1205B8728009F562B /* LoginInterfaceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginInterfaceViewController.xib; sourceTree = "<group>"; };
 		BE950ED7205B8793009F562B /* SMSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSManager.h; sourceTree = "<group>"; };
 		BE950ED8205B8793009F562B /* SMSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSManager.m; sourceTree = "<group>"; };
+		BE950EDB205BE97E009F562B /* LLAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LLAlertView.bundle; sourceTree = "<group>"; };
+		BE950EDC205BE97E009F562B /* LLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLAlertView.h; sourceTree = "<group>"; };
+		BE950EDD205BE97E009F562B /* LLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLAlertView.m; sourceTree = "<group>"; };
 		C71887DA2058E7DA00333387 /* ClassSapceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSapceViewController.h; sourceTree = "<group>"; };
 		C71887DB2058E7DA00333387 /* ClassSapceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSapceViewController.m; sourceTree = "<group>"; };
 		C71887DD2058E81100333387 /* ClassSapceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSapceTableViewCell.h; sourceTree = "<group>"; };
@@ -526,6 +531,7 @@
 				C71887E8205A384900333387 /* PhotoBrowser */,
 				384A554C20521F20006D8C23 /* IndicatorView */,
 				384A555120521F20006D8C23 /* MJDIYView */,
+				BE950EDA205BE97E009F562B /* LLAlertView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -637,6 +643,16 @@
 				BE950EC6205B8634009F562B /* MYAutoScaleView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BE950EDA205BE97E009F562B /* LLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				BE950EDB205BE97E009F562B /* LLAlertView.bundle */,
+				BE950EDC205BE97E009F562B /* LLAlertView.h */,
+				BE950EDD205BE97E009F562B /* LLAlertView.m */,
+			);
+			path = LLAlertView;
 			sourceTree = "<group>";
 		};
 		C71887D62058E7B800333387 /* ClassSapce */ = {
@@ -1049,6 +1065,7 @@
 				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				BE950ED3205B8728009F562B /* LoginInterfaceViewController.xib in Resources */,
 				384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */,
+				BE950EDE205BE97E009F562B /* LLAlertView.bundle in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
 				C718880E205A894900333387 /* ClassInfoTableViewCell.xib in Resources */,
 				384A556C205266D8006D8C23 /* SchoolViewController.xib in Resources */,
@@ -1134,6 +1151,7 @@
 				384A555D20521F20006D8C23 /* MJDIYAutoFooter.m in Sources */,
 				C7188807205A713700333387 /* ClassInfoHeadView.m in Sources */,
 				C781F83F205B529200BE37AD /* MYCommentStarView.m in Sources */,
+				BE950EDF205BE97E009F562B /* LLAlertView.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
 				C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */,
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
