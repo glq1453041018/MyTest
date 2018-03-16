@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface ClassSapceViewController : UIViewController
+
+@property (assign ,nonatomic) InteractiveStyle style;   // 互动类型
 
 @end

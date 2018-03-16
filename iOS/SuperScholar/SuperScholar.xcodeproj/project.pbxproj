@@ -20,7 +20,6 @@
 		384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A554020521F20006D8C23 /* UIView+AdjustFrame.m */; };
 		384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A554420521F20006D8C23 /* UIViewController+Based.m */; };
 		384A555B20521F20006D8C23 /* IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A554E20521F20006D8C23 /* IndicatorView.m */; };
-		384A555C20521F20006D8C23 /* LLNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A555020521F20006D8C23 /* LLNavigationView.m */; };
 		384A555D20521F20006D8C23 /* MJDIYAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A555320521F20006D8C23 /* MJDIYAutoFooter.m */; };
 		384A555E20521F20006D8C23 /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A555520521F20006D8C23 /* MJDIYHeader.m */; };
 		384A556220521F2E006D8C23 /* MYSegmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A556120521F2E006D8C23 /* MYSegmentController.m */; };
@@ -63,6 +62,13 @@
 		C7616A07204F8F4C00C94311 /* MySelfViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7616A05204F8F4C00C94311 /* MySelfViewController.xib */; };
 		C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */; };
 		C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */; };
+		C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F836205B4B1900BE37AD /* ClassInfoManager.m */; };
+		C781F83B205B528200BE37AD /* LLNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F839205B528200BE37AD /* LLNavigationView.m */; };
+		C781F83F205B529200BE37AD /* MYCommentStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F83E205B529200BE37AD /* MYCommentStarView.m */; };
+		C781F842205B580A00BE37AD /* ClassInfoFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F841205B580A00BE37AD /* ClassInfoFootView.m */; };
+		C781F844205B581400BE37AD /* ClassInfoFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F843205B581400BE37AD /* ClassInfoFootView.xib */; };
+		C781F848205B702D00BE37AD /* ClassInfoTitleItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F847205B702D00BE37AD /* ClassInfoTitleItemView.m */; };
+		C781F84A205B703900BE37AD /* ClassInfoTitleItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F849205B703900BE37AD /* ClassInfoTitleItemView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,8 +97,6 @@
 		384A554920521F20006D8C23 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
 		384A554D20521F20006D8C23 /* IndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicatorView.h; sourceTree = "<group>"; };
 		384A554E20521F20006D8C23 /* IndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndicatorView.m; sourceTree = "<group>"; };
-		384A554F20521F20006D8C23 /* LLNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNavigationView.h; sourceTree = "<group>"; };
-		384A555020521F20006D8C23 /* LLNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNavigationView.m; sourceTree = "<group>"; };
 		384A555220521F20006D8C23 /* MJDIYAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYAutoFooter.h; sourceTree = "<group>"; };
 		384A555320521F20006D8C23 /* MJDIYAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYAutoFooter.m; sourceTree = "<group>"; };
 		384A555420521F20006D8C23 /* MJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYHeader.h; sourceTree = "<group>"; };
@@ -164,6 +168,18 @@
 		C7616A09204F8F6A00C94311 /* InteractiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveViewController.h; sourceTree = "<group>"; };
 		C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractiveViewController.m; sourceTree = "<group>"; };
 		C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InteractiveViewController.xib; sourceTree = "<group>"; };
+		C781F835205B4B1900BE37AD /* ClassInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoManager.h; sourceTree = "<group>"; };
+		C781F836205B4B1900BE37AD /* ClassInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoManager.m; sourceTree = "<group>"; };
+		C781F839205B528200BE37AD /* LLNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNavigationView.m; sourceTree = "<group>"; };
+		C781F83A205B528200BE37AD /* LLNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNavigationView.h; sourceTree = "<group>"; };
+		C781F83D205B529200BE37AD /* MYCommentStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYCommentStarView.h; sourceTree = "<group>"; };
+		C781F83E205B529200BE37AD /* MYCommentStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYCommentStarView.m; sourceTree = "<group>"; };
+		C781F840205B580A00BE37AD /* ClassInfoFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoFootView.h; sourceTree = "<group>"; };
+		C781F841205B580A00BE37AD /* ClassInfoFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoFootView.m; sourceTree = "<group>"; };
+		C781F843205B581400BE37AD /* ClassInfoFootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassInfoFootView.xib; sourceTree = "<group>"; };
+		C781F846205B702D00BE37AD /* ClassInfoTitleItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoTitleItemView.h; sourceTree = "<group>"; };
+		C781F847205B702D00BE37AD /* ClassInfoTitleItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoTitleItemView.m; sourceTree = "<group>"; };
+		C781F849205B703900BE37AD /* ClassInfoTitleItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassInfoTitleItemView.xib; sourceTree = "<group>"; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -475,11 +491,11 @@
 		384A554B20521F20006D8C23 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C781F83C205B528500BE37AD /* CommentStarView */,
+				C781F838205B528200BE37AD /* NavigationView */,
 				C71887F3205A6D7900333387 /* ScrollView */,
 				C71887E8205A384900333387 /* PhotoBrowser */,
 				384A554C20521F20006D8C23 /* IndicatorView */,
-				384A554F20521F20006D8C23 /* LLNavigationView.h */,
-				384A555020521F20006D8C23 /* LLNavigationView.m */,
 				384A555120521F20006D8C23 /* MJDIYView */,
 			);
 			path = View;
@@ -596,6 +612,8 @@
 			children = (
 				C718880F205A91B100333387 /* ClassInfoModel.h */,
 				C7188810205A91B100333387 /* ClassInfoModel.m */,
+				C781F835205B4B1900BE37AD /* ClassInfoManager.h */,
+				C781F836205B4B1900BE37AD /* ClassInfoManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -606,9 +624,15 @@
 				C7188805205A713700333387 /* ClassInfoHeadView.h */,
 				C7188806205A713700333387 /* ClassInfoHeadView.m */,
 				C7188808205A714900333387 /* ClassInfoHeadView.xib */,
+				C781F846205B702D00BE37AD /* ClassInfoTitleItemView.h */,
+				C781F847205B702D00BE37AD /* ClassInfoTitleItemView.m */,
+				C781F849205B703900BE37AD /* ClassInfoTitleItemView.xib */,
 				C718880A205A894900333387 /* ClassInfoTableViewCell.h */,
 				C718880B205A894900333387 /* ClassInfoTableViewCell.m */,
 				C718880C205A894900333387 /* ClassInfoTableViewCell.xib */,
+				C781F840205B580A00BE37AD /* ClassInfoFootView.h */,
+				C781F841205B580A00BE37AD /* ClassInfoFootView.m */,
+				C781F843205B581400BE37AD /* ClassInfoFootView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -804,6 +828,24 @@
 			path = IndexModule;
 			sourceTree = "<group>";
 		};
+		C781F838205B528200BE37AD /* NavigationView */ = {
+			isa = PBXGroup;
+			children = (
+				C781F839205B528200BE37AD /* LLNavigationView.m */,
+				C781F83A205B528200BE37AD /* LLNavigationView.h */,
+			);
+			path = NavigationView;
+			sourceTree = "<group>";
+		};
+		C781F83C205B528500BE37AD /* CommentStarView */ = {
+			isa = PBXGroup;
+			children = (
+				C781F83D205B529200BE37AD /* MYCommentStarView.h */,
+				C781F83E205B529200BE37AD /* MYCommentStarView.m */,
+			);
+			path = CommentStarView;
+			sourceTree = "<group>";
+		};
 		FA4F9C06915C67A5F8BC4296 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -889,10 +931,12 @@
 				C7616A01204F8F2600C94311 /* ClassViewController.xib in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
 				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
+				C781F844205B581400BE37AD /* ClassInfoFootView.xib in Resources */,
 				38010DB2204FFB5E00E4511C /* ZhaoShengTableViewCell.xib in Resources */,
 				38010DAD204FFB3500E4511C /* ZhaoShengViewController.xib in Resources */,
 				C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */,
 				C71887E12058E81100333387 /* ClassSapceTableViewCell.xib in Resources */,
+				C781F84A205B703900BE37AD /* ClassInfoTitleItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,8 +1003,9 @@
 			files = (
 				384A555D20521F20006D8C23 /* MJDIYAutoFooter.m in Sources */,
 				C7188807205A713700333387 /* ClassInfoHeadView.m in Sources */,
-				384A555C20521F20006D8C23 /* LLNavigationView.m in Sources */,
+				C781F83F205B529200BE37AD /* MYCommentStarView.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
+				C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */,
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
 				C7616A06204F8F4C00C94311 /* MySelfViewController.m in Sources */,
 				C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */,
@@ -976,8 +1021,10 @@
 				384A55702052674F006D8C23 /* SchoolTableViewCell.m in Sources */,
 				38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */,
 				384A555720521F20006D8C23 /* NSObject+InitData.m in Sources */,
+				C781F842205B580A00BE37AD /* ClassInfoFootView.m in Sources */,
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
 				C71887F2205A5C1400333387 /* ClassInfoViewController.m in Sources */,
+				C781F83B205B528200BE37AD /* LLNavigationView.m in Sources */,
 				384A556220521F2E006D8C23 /* MYSegmentController.m in Sources */,
 				C7188811205A91B100333387 /* ClassInfoModel.m in Sources */,
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
@@ -987,6 +1034,7 @@
 				384A556620522095006D8C23 /* SearchIndexViewController.m in Sources */,
 				C7188804205A6F4500333387 /* NSArray+ExtraMethod.m in Sources */,
 				C718880D205A894900333387 /* ClassInfoTableViewCell.m in Sources */,
+				C781F848205B702D00BE37AD /* ClassInfoTitleItemView.m in Sources */,
 				C71887DC2058E7DA00333387 /* ClassSapceViewController.m in Sources */,
 				C71887FD205A6D7900333387 /* MYBannerScrollView.m in Sources */,
 				C71887E42058E82300333387 /* ClassSapceModel.m in Sources */,

@@ -178,6 +178,7 @@
 #pragma mark Public method
 
 - (void)loadImages:(NSArray *)imagePaths estimateSize:(CGSize)estimateSize{
+    self.imagePaths = imagePaths;
     _imageWidth.constant = estimateSize.width;
     _imageHeight.constant = estimateSize.height;
     _leftImageView.imageHeight.constant = estimateSize.height;

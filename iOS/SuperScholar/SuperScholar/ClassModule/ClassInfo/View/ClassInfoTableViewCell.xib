@@ -18,10 +18,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXA-HT-P9E">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="44"/>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXA-HT-P9E" customClass="MYCommentStarView">
+                        <rect key="frame" x="10" y="12" width="85" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.25098039220000001" green="0.51372549020000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5.0分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysc-UZ-LFk">
                         <rect key="frame" x="100" y="0.0" width="50" height="44"/>
@@ -30,19 +29,24 @@
                         <color key="textColor" red="0.93261188268661499" green="0.73396104159154674" blue="0.045582007978495653" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P31-eC-0SM">
-                        <rect key="frame" x="345" y="0.0" width="20" height="44"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="public_right" translatesAutoresizingMaskIntoConstraints="NO" id="P31-eC-0SM">
+                        <rect key="frame" x="345" y="13" width="20" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100人评价" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFw-4n-1pf">
                         <rect key="frame" x="240" y="0.0" width="100" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="commentLabel" destination="KFw-4n-1pf" id="2cX-Wi-bjf"/>
+                <outlet property="starLabel" destination="Ysc-UZ-LFk" id="GER-uZ-y5N"/>
+                <outlet property="starView" destination="dXA-HT-P9E" id="Bq3-35-WPA"/>
+            </connections>
             <point key="canvasLocation" x="-60" y="-192"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassInfoTableViewCell_Item" id="yIO-mS-Uc3" customClass="ClassInfoTableViewCell_Item">
@@ -60,16 +64,21 @@
                         <rect key="frame" x="260" y="0.0" width="100" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pty-jR-kSx">
-                        <rect key="frame" x="40" y="0.0" width="220" height="44"/>
+                        <rect key="frame" x="40" y="0.0" width="325" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H4k-vh-k07">
+                        <rect key="frame" x="10" y="43.5" width="355" height="1"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -77,7 +86,19 @@
                 <outlet property="iconImageView" destination="865-hG-Pzq" id="2M1-0Z-Pgj"/>
                 <outlet property="titleLabel" destination="Pty-jR-kSx" id="43q-GI-Xaq"/>
             </connections>
-            <point key="canvasLocation" x="-61" y="-84"/>
+            <point key="canvasLocation" x="-61" y="-88"/>
+        </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0cW-K3-K1A" customClass="ClassInfoTableViewCell_Title">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0cW-K3-K1A" id="bGr-Fp-KC9">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-61" y="-295"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="public_right" width="30" height="30"/>
+    </resources>
 </document>

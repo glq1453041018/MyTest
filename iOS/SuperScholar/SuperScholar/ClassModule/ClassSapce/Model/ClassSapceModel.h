@@ -10,23 +10,31 @@
 
 @interface ClassSapceModel : NSObject
 
+// !!!: 头部信息
 @property (copy ,nonatomic) NSString *headerIcon;
 @property (copy ,nonatomic) NSString *userName;
 @property (copy ,nonatomic) NSString *time;
 @property (copy ,nonatomic) NSString *content;
 @property (copy ,nonatomic) NSAttributedString *contentAttring;
+@property (assign ,nonatomic) CGFloat starNum;  // 评价星级数
+@property (assign ,nonatomic) BOOL needStar;    // 是否需要星星
 
+// !!!: 底部信息
 @property (assign ,nonatomic) NSInteger viewNum;
 @property (assign ,nonatomic) NSInteger likeNum;
 @property (assign ,nonatomic) NSInteger commentNum;
 
-@property (copy ,nonatomic) NSArray *pics;              // 图片数组
+
+// !!!: 多媒体信息
+@property (copy ,nonatomic) NSArray *pics;
+@property (strong ,nonatomic) UIView *mediaView;
+@property (copy ,nonatomic) NSMutableArray *picViews;
+
 
 @property (assign ,nonatomic) CGFloat contentLabelHeight;
 @property (assign ,nonatomic) CGFloat cellHeight;
 
-@property (strong ,nonatomic) UIView *mediaView;
-@property (copy ,nonatomic) NSMutableArray *picViews;
+
 @end
 
 

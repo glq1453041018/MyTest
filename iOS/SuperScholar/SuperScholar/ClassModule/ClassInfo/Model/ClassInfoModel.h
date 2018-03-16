@@ -11,18 +11,21 @@
 @interface ClassInfoModel : NSObject
 @property (copy ,nonatomic) NSString *key;
 @property (copy ,nonatomic) NSString *value;
+@property (assign ,nonatomic) NSInteger cellHeight;
 @end
 
 
 
 @interface ClassInfoModel_PingJia : ClassInfoModel
-
+@property (assign ,nonatomic) CGFloat starNum;
+@property (assign ,nonatomic) NSInteger commentNum;
 @end
 
 
 
 @interface ClassInfoModel_Item : ClassInfoModel
 @property (copy ,nonatomic) NSString *icon;
+@property (copy ,nonatomic) NSString *code;
 @end
 
 

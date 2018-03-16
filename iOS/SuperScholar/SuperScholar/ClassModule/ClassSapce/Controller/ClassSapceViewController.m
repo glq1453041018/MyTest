@@ -36,14 +36,14 @@
 // !!!: 获取数据
 -(void)getDataFormServer{
     [self.loadingView startAnimating];
-    [ClassSapceManager requestDataResponse:^(NSArray *resArray, id error) {
+    [ClassSapceManager requestDataStyle:self.style response:^(NSArray *resArray, id error) {
         [self.loadingView stopAnimating];
         self.data = resArray.mutableCopy;
         [self.table reloadData];
     }];
 }
 -(void)loadMoreData{
-    [ClassSapceManager requestDataResponse:^(NSArray *resArray, id error) {
+    [ClassSapceManager requestDataStyle:self.style response:^(NSArray *resArray, id error) {
         [self.table.mj_footer endRefreshing];
         if (error==nil) {
             [self.data addObjectsFromArray:resArray];

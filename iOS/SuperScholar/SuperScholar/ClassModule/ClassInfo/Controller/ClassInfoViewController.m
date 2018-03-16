@@ -9,13 +9,17 @@
 #import "ClassInfoViewController.h"
 #import "ClassInfoHeadView.h"
 #import "ClassInfoTableViewCell.h"
+#import "ClassInfoFootView.h"
+#import "PhotoBrowser.h"
 
 #import "ClassInfoModel.h"
+#import "ClassInfoManager.h"
 
-@interface ClassInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ClassInfoViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate,ClassInfoTableViewCell_TitleDelegate>
 // !!!: 视图类
 @property (strong ,nonatomic) UITableView *table;
 @property (strong ,nonatomic) ClassInfoHeadView *headView;
+@property (strong ,nonatomic) ClassInfoFootView *footView;
 // !!!: 数据类
 @property (strong ,nonatomic) NSMutableArray *data;
 
@@ -36,8 +40,13 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    self.data = self.data;
-    [self.table reloadData];
+    [ClassInfoManager requestDataResponse:^(NSArray *resArray, id error) {
+        if (error) {
+            return;
+        }
+        self.data = resArray.mutableCopy;
+        [self.table reloadData];
+    }];
 }
 
 
@@ -53,6 +62,8 @@
     [self.view insertSubview:self.table belowSubview:self.navigationBar];
     
     self.table.tableHeaderView = self.headView;
+    
+    [self.view addSubview:self.footView];
 }
 
 
@@ -72,18 +83,24 @@
 -(ClassInfoHeadView *)headView{
     if (_headView==nil) {
         _headView = [[[NSBundle mainBundle] loadNibNamed:@"ClassInfoHeadView" owner:nil options:nil] firstObject];
+        _headView.scrollView.delegate = self;
     }
     return _headView;
+}
+
+-(ClassInfoFootView *)footView{
+    if (_footView==nil) {
+        _footView = [[[NSBundle mainBundle] loadNibNamed:@"ClassInfoFootView" owner:nil options:nil] firstObject];
+        _footView.frame = CGRectMake(0, kScreenHeight-AdaptedWidthValue(50), kScreenWidth, AdaptedWidthValue(50));
+        [_footView.advisoryBtn addTarget:self action:@selector(callPhone) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _footView;
 }
 
 
 -(NSMutableArray *)data{
     if (_data==nil) {
-        ClassInfoModel_Item *cimi = [ClassInfoModel_Item new];
-        cimi.icon = @"testImg";
-        cimi.key = @"联系方式";
-        cimi.value = @"18093872047";
-        _data = [NSMutableArray arrayWithArray:@[@[cimi],@[cimi],@[cimi,cimi,cimi]]];
+        _data = [NSMutableArray array];
     }
     return _data;
 }
@@ -107,13 +124,20 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSArray *items = self.data[indexPath.section];
     if (indexPath.section==0) {
-        static NSString *cellId = @"CSCellID";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        static NSString *cellId = @"ClassInfoTableViewCell_Title";
+        ClassInfoTableViewCell_Title *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (cell==nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"ClassInfoTableViewCell" owner:nil options:nil];
+            for (id cellItem in cells) {
+                if ([cellItem isKindOfClass:ClassInfoTableViewCell_Title.class]) {
+                    cell = cellItem;
+                    cell.selectionStyle = NO;
+                    break;
+                }
+            }
         }
-        ClassInfoModel_Item *cim = items[indexPath.row];
-        cell.textLabel.text = cim.key;
+        [cell loadData:items.firstObject];
+        cell.delegate = self;
         return cell;
     }
     else if (indexPath.section==1){
@@ -124,10 +148,15 @@
             for (id cellItem in cells) {
                 if ([cellItem isKindOfClass:ClassInfoTableViewCell_PingJia.class]) {
                     cell = cellItem;
+                    cell.selectionStyle = NO;
                     break;
                 }
             }
         }
+        ClassInfoModel_PingJia *cimpj = items.firstObject;
+        cell.starView.scorePercent = MIN(cimpj.starNum, 5.0) / 5.0;
+        cell.starLabel.text = [NSString stringWithFormat:@"%.1f分",cimpj.starNum];
+        cell.commentLabel.text = [NSString stringWithFormat:@"%ld人评价",cimpj.commentNum];
         return cell;
     }
     else{
@@ -138,6 +167,7 @@
             for (id cellItem in cells) {
                 if ([cellItem isKindOfClass:ClassInfoTableViewCell_Item.class]) {
                     cell = cellItem;
+                    cell.selectionStyle = NO;
                     break;
                 }
             }
@@ -151,7 +181,15 @@
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return AdaptedWidthValue(44);
+    NSArray *items = self.data[indexPath.section];
+    ClassInfoModel *cim = nil;
+    if (indexPath.section==0) {
+        cim = [items firstObject][indexPath.row];
+    }
+    else{
+        cim = items[indexPath.row];
+    }
+    return cim.cellHeight;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section==1) {
@@ -167,14 +205,46 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    NSArray *items = self.data[indexPath.section];
+    if (indexPath.section == 2) {
+        ClassInfoModel_Item *cimi = items[indexPath.row];
+        if ([cimi.code isEqualToString:@"phone"]) {
+            [self callPhone];
+        }
+    }
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self.headView.scrollView scrollViewDidScroll:scrollView];
 }
 
-#pragma mark - <************************** 点击事件 **************************>
+// !!!: 滚动视图的代理事件
+-(void)bannerScrollView:(MYBannerScrollView *)bannerScrollView didClickScrollView:(NSInteger)pageIndex{
+    [PhotoBrowser showURLImages:bannerScrollView.imagePaths placeholderImage:[UIImage imageNamed:@"zhanweifu"] selectedIndex:pageIndex];
+}
 
+// !!!: 标题视图的代理事件
+-(void)classInfoTableViewCell_TitleClickEvent:(NSInteger)index data:(ClassInfoModel *)model{
+    DLog(@"点击了:%@",model.key);
+    
+}
+
+
+#pragma mark - <************************** 点击事件 **************************>
+// !!!: 拨打电话
+-(void)callPhone{
+    NSString *phoneNumber = @"10086";
+    if (phoneNumber.length) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phoneNumber]];
+        if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        }
+        else{
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }
+}
+// !!!: 私聊
 
 
 
