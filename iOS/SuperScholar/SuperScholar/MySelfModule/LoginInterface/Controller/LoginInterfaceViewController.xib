@@ -28,16 +28,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4K-1o-ukY">
-                    <rect key="frame" x="337" y="0.0" width="30" height="40"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                    <state key="normal" title="x">
-                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onClickCloseBtn:" destination="-1" eventType="touchUpInside" id="6IP-U4-AdG"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录你的学霸，精彩永不丢失" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJy-bi-hRd">
                     <rect key="frame" x="8" y="64" width="359" height="22"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -158,6 +148,16 @@
                     <color key="textColor" red="1" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4K-1o-ukY">
+                    <rect key="frame" x="337" y="8" width="30" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                    <state key="normal" title="x">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onClickCloseBtn:" destination="-1" eventType="touchUpInside" id="6IP-U4-AdG"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -171,7 +171,7 @@
                 <constraint firstItem="Xez-tZ-9QY" firstAttribute="leading" secondItem="IOV-eY-hdZ" secondAttribute="leading" id="PFu-Qj-86i"/>
                 <constraint firstItem="ad1-jy-8MD" firstAttribute="top" secondItem="eB0-DU-qQ9" secondAttribute="bottom" constant="24" id="T0F-ax-yDb"/>
                 <constraint firstItem="ad1-jy-8MD" firstAttribute="leading" secondItem="eB0-DU-qQ9" secondAttribute="leading" id="U0f-TL-eW3"/>
-                <constraint firstItem="S4K-1o-ukY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WFf-YC-hHK"/>
+                <constraint firstItem="S4K-1o-ukY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="WFf-YC-hHK"/>
                 <constraint firstItem="ugB-BB-dM5" firstAttribute="top" secondItem="ad1-jy-8MD" secondAttribute="bottom" id="WfP-ai-ZBc"/>
                 <constraint firstAttribute="trailing" secondItem="S4K-1o-ukY" secondAttribute="trailing" constant="8" id="ZOa-qO-YG6"/>
                 <constraint firstItem="vPl-sQ-3EW" firstAttribute="trailing" secondItem="ad1-jy-8MD" secondAttribute="trailing" id="Zjy-ZN-amo"/>
