@@ -8,15 +8,22 @@
 
 #import "ClassViewCollectionViewCell.h"
 #import "UIImage+ImageEffects.h"
-
+#import "ClassViewModel.h"
 @implementation ClassViewCollectionViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    UIImage *image = [UIImage imageNamed:@"testimage"];
-    self.bgImageView.image = [image applyBlurWithRadius:5 tintColor:[[[UIColor whiteColor] colorWithAlphaComponent:0.7] colorWithAlphaComponent:0.3] saturationDeltaFactor:1.0 maskImage:nil];
-    
+    self.layer.cornerRadius = 3;
+    self.layer.masksToBounds = YES;
 }
+
+
+-(void)loadData:(NSArray *)data index:(NSInteger)index{
+    ClassViewModel *cvm = data[index];
+    self.titleLabel.text = cvm.title;
+    UIImage *image = [UIImage imageNamed:cvm.icon];
+    self.bgImageView.image = image;
+}
+
 
 @end

@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 
+@property (strong ,nonatomic) UIView *bgView;
+
 @end
 
 @implementation MYBannerImageView
@@ -54,6 +56,7 @@
     [_scrollView addConstraint:_imageHeight];
     _imageWidth = [NSLayoutConstraint constraintWithItem:_imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:0];
     [_scrollView addConstraint:_imageWidth];
+    
 }
 
 - (void)loadImageWithImagePath:(NSString *)imagePath{
@@ -88,6 +91,24 @@
     }
     return _imageView;
 }
+
+-(UIView *)bgView{
+    if (_bgView==nil) {
+        _bgView = [UIView new];
+        _bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+        _bgView.userInteractionEnabled = NO;
+    }
+    return _bgView;
+}
+
+-(void)setNeedBgView:(BOOL)needBgView{
+    _needBgView = needBgView;
+    [self addSubview:self.bgView];
+    [self.bgView cwn_makeConstraints:^(UIView *maker) {
+        maker.edgeInsetsToSuper(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+}
+
 
 - (UIScrollView *)scrollView{
     if(!_scrollView){
