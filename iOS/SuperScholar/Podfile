@@ -6,5 +6,6 @@ target 'SuperScholar' do
    pod 'AFNetworking', '~> 3.1.0'
    pod 'FMDB', '~> 2.6.2'
    pod 'MJRefresh', '~> 3.1.12'
-
+   pod 'MYAutoLayout', '~> 1.0.0'
+   pod 'SMSSDK', '~> 3.0.1'    #短信验证
 end

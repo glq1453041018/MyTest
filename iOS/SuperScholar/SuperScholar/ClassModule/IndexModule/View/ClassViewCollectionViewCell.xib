@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClassViewCollectionViewCell" id="gTV-IL-0wX" customClass="ClassViewCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="175" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="175" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testimage" translatesAutoresizingMaskIntoConstraints="NO" id="ElZ-bE-XEK">
+                        <rect key="frame" x="0.0" y="0.0" width="175" height="100"/>
+                    </imageView>
+                    <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWy-Ia-3gK">
+                        <rect key="frame" x="0.0" y="0.0" width="175" height="100"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AI学堂" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQr-aZ-i5O">
+                        <rect key="frame" x="10" y="0.0" width="110" height="100"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="0.0" height="0.5"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9T9-9c-0Ub">
+                        <rect key="frame" x="125" y="0.0" width="50" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="jr8-QU-OfV"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="10" minY="35" maxX="10" maxY="35"/>
+                        <state key="normal" image="classDetail"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="9T9-9c-0Ub" secondAttribute="bottom" id="1bk-WB-ASf"/>
+                <constraint firstItem="ElZ-bE-XEK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9sO-3K-1oS"/>
+                <constraint firstAttribute="bottom" secondItem="eWy-Ia-3gK" secondAttribute="bottom" id="A9S-UP-vJ4"/>
+                <constraint firstAttribute="bottom" secondItem="aQr-aZ-i5O" secondAttribute="bottom" id="Ih0-qO-MbP"/>
+                <constraint firstItem="ElZ-bE-XEK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="MZV-vR-d9d"/>
+                <constraint firstItem="9T9-9c-0Ub" firstAttribute="leading" secondItem="aQr-aZ-i5O" secondAttribute="trailing" constant="5" id="Uq5-Ea-HYV"/>
+                <constraint firstAttribute="bottom" secondItem="ElZ-bE-XEK" secondAttribute="bottom" id="WW0-e4-Mq4"/>
+                <constraint firstItem="9T9-9c-0Ub" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gXh-zC-aNH"/>
+                <constraint firstAttribute="trailing" secondItem="eWy-Ia-3gK" secondAttribute="trailing" id="mTa-Xb-QZ8"/>
+                <constraint firstItem="aQr-aZ-i5O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="qeG-Vv-55n"/>
+                <constraint firstItem="eWy-Ia-3gK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="sX9-c1-EaE"/>
+                <constraint firstItem="aQr-aZ-i5O" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="uib-zU-xeB"/>
+                <constraint firstAttribute="trailing" secondItem="ElZ-bE-XEK" secondAttribute="trailing" id="yEB-l2-hOJ"/>
+                <constraint firstAttribute="trailing" secondItem="9T9-9c-0Ub" secondAttribute="trailing" id="yPO-ut-88a"/>
+                <constraint firstItem="eWy-Ia-3gK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zth-Dn-1ud"/>
+            </constraints>
+            <connections>
+                <outlet property="bgImageView" destination="ElZ-bE-XEK" id="vB1-se-iFF"/>
+                <outlet property="detailBtn" destination="9T9-9c-0Ub" id="BJV-7O-Rgq"/>
+                <outlet property="titleLabel" destination="aQr-aZ-i5O" id="gHx-ck-oeJ"/>
+            </connections>
+            <point key="canvasLocation" x="90.5" y="-45"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="classDetail" width="60" height="60"/>
+        <image name="testimage" width="250" height="163"/>
+    </resources>
+</document>

@@ -219,7 +219,7 @@
         //设置文字颜色
         [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
         //设置文字大小
-        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_15] range:NSMakeRange(0, attributStr.length)];
+        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
         
         //    }
         
@@ -249,7 +249,7 @@
         //设置文字颜色
         [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
         //设置文字大小
-        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_15] range:NSMakeRange(0, attributStr.length)];
+        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
         
         //    }
         
