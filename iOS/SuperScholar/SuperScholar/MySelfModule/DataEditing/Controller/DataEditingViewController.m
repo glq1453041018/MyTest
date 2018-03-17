@@ -8,6 +8,7 @@
 
 #import "DataEditingViewController.h"
 #import "DataEditTableViewCell.h"
+#import <SVProgressHUD.h>
 
 @interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -124,6 +125,7 @@
 
 #pragma mark - <************************** 点击事件 **************************>
 - (IBAction)onClickExit:(id)sender{
+    [SVProgressHUD showSuccessWithStatus:@"退出成功"];
     SaveInfoForKey(nil, UserId_NSUserDefaults);
     [self.navigationController popViewControllerAnimated:YES];
 }

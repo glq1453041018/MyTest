@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "42770A951824C32E030E11C2295E4564"
-               BlueprintName = "SDWebImage"
+               BlueprintIdentifier = "BE75D9D62F2E3A9E97A339598E81E533"
+               BlueprintName = "SVProgressHUD-0.8.1"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libSDWebImage.a">
+               BuildableName = "libSVProgressHUD-0.8.1.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

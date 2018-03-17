@@ -7,6 +7,7 @@
 //
 
 #import "SuggestionViewController.h"
+#import <SVProgressHUD.h>
 
 @interface SuggestionViewController ()<UITextViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -43,6 +44,8 @@
     self.isNeedGoBack = YES;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.commitBtn.backgroundColor = [KColorTheme colorWithAlphaComponent:0.8];
 }
 
 
@@ -59,7 +62,7 @@
 #pragma mark UITextViewDelegate
 - (void)textViewDidChange:(UITextView *)textView{
     self.commitBtn.enabled = [textView.text length] > 0;
-    self.commitBtn.alpha = self.commitBtn.enabled ? 1.0 : 0.9;
+    self.commitBtn.backgroundColor = [KColorTheme colorWithAlphaComponent:self.commitBtn.enabled ? 1 : 0.8];
 }
 
 #pragma mark UITextFieldDelegate
@@ -71,6 +74,8 @@
 
 - (IBAction)onClickCommitBtn:(UIButton *)sender {
     // !!!: 提交按钮点击事件
+    [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - <************************** 私有方法 **************************>
