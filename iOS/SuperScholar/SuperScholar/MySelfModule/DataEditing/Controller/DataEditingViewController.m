@@ -7,6 +7,7 @@
 //
 
 #import "DataEditingViewController.h"
+#import "DataEditTableViewCell.h"
 
 @interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -60,6 +61,7 @@
     self.tableView.showsVerticalScrollIndicator = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DataEditTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"DataEditingCellid"];
     
     self.tableFooterView.viewWidth = IEW_WIDTH;
     self.tableView.tableFooterView = self.tableFooterView;
@@ -92,14 +94,8 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellid"];
-    if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellid"];
-        cell.textLabel.font = [UIFont systemFontOfSize:FontSize_16];
-        cell.textLabel.textColor = HexColor(0x333333);
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    cell.textLabel.text = text;
+    DataEditTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DataEditingCellid"];
+    cell.leftLabel.text = text;
     return cell;
 }
 
@@ -116,6 +112,10 @@
     NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     text = [NSString stringWithFormat:@"跳转%@", text];
     LLAlert(text);
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
 }
 
 
