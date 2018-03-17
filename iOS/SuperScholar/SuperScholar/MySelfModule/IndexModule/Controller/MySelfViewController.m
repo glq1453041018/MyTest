@@ -7,12 +7,29 @@
 //
 
 #import "MySelfViewController.h"
-#import "MYAutoScaleView.h"
+#import "DataEditingViewController.h"
 #import "LoginInterfaceViewController.h"
+#import "SuggestionViewController.h"
+#import "MessageRemindViewController.h"
+
+#import "MYAutoScaleView.h"
+
+#import "UIImage+ImageEffects.h"
 
 @interface MySelfViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIView *topView;
+@property (strong, nonatomic) NSMutableArray *data;//数据
+
+@property (weak, nonatomic) IBOutlet UIView *tabelHeaderView;//列表header
+@property (weak, nonatomic) IBOutlet MYAutoScaleView*topBackView;//头部背景视图
+@property (weak, nonatomic) IBOutlet UIView *topView;//头部视图
+@property (weak, nonatomic) IBOutlet UIImageView *backImageView;//高斯模糊背景图
+
+//已登录
+@property (weak, nonatomic) IBOutlet UIView *didLoginView;//已登录视图
+@property (weak, nonatomic) IBOutlet UIView *titleButtonsBackView;//已登录，评论、收藏、历史背景视图
+//未登录
+@property (weak, nonatomic) IBOutlet UIButton *loginButtton;//未登录，短信登录按钮
 @end
 
 @implementation MySelfViewController
@@ -23,10 +40,28 @@
     
     // 初始化视图
     [self initUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    BOOL isLogin = GetInfoForKey(UserId_NSUserDefaults) != nil;
+    self.loginButtton.hidden = isLogin;//登录按钮显隐
+    self.navigationBar.hidden = isLogin;//导航栏显隐
+    self.didLoginView.hidden = !isLogin;//已登录视图显隐
+    self.titleButtonsBackView.hidden = !isLogin;//评论、收藏、历史背景视图显隐
+    self.tabelHeaderView.viewHeight =  self.topBackView.viewHeight + (isLogin ?  70 : 0); //评论、收藏、历史等功能显隐 
+    
+    if(isLogin){//登录状态
+        //高斯模糊背景
+        UIImage *image = [UIImage imageNamed:@"testimage"];
+        self.backImageView.image = [image applyBlurWithRadius:5 tintColor:[KColorTheme colorWithAlphaComponent:0.1] saturationDeltaFactor:1.0 maskImage:nil];
+    }else{//未登录状态
+        self.backImageView.image = nil;
+        self.tabelHeaderView.viewHeight = self.topBackView.viewHeight;
+    }
     
     // 获取数据
     [self getDataFormServer];
-    
 }
 
 
@@ -34,7 +69,12 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    
+    BOOL islogin = GetInfoForKey(UserId_NSUserDefaults) != nil;
+    if(islogin)
+        self.data = [NSMutableArray arrayWithObjects:@[@"消息通知", @"我的动态"],  @[@"用户反馈", @"当前版本"], nil];
+    else
+        self.data = [NSMutableArray arrayWithObjects:@[@"用户反馈", @"当前版本"], nil];
+    [self.tableView reloadData];
 }
 
 
@@ -47,43 +87,57 @@
 - (void)configNavigationBar{
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.isNeedGoBack = YES;
-    [self.navigationBar setTitle:self.title leftText:nil rightImage:nil];
+    [self.navigationBar setTitle:@"登录推荐更准确" leftText:nil rightImage:nil];
     self.navigationBar.backgroundColor = [UIColor clearColor];
 }
 - (void)configTableView{
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.tableView.showsVerticalScrollIndicator = NO;
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    MYAutoScaleView *scale = [[MYAutoScaleView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 175)];
-    [scale setContentView:self.topView scrollview:self.tableView];
-    self.tableView.tableHeaderView = scale;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+    [self.topBackView setContentView:self.topView scrollview:self.tableView];
+    self.tabelHeaderView.viewHeight = 245;
+    self.tableView.tableHeaderView = self.tabelHeaderView;
 }
 
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
-
+- (NSMutableArray *)data{
+    if(!_data){
+        _data = [NSMutableArray array];
+    }
+    return _data;
+}
 
 
 
 #pragma mark - <************************** 代理方法 **************************>
 #pragma mark UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return [self.data count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return [[self.data objectAtIndex:section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellid"];
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellid"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellid"];
+        cell.textLabel.font = [UIFont systemFontOfSize:FontSize_16];
+        cell.textLabel.textColor = HexColor(0x333333);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if([text isEqualToString:@"当前版本"]){
+            NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+            cell.detailTextLabel.text = version;
+        }else
+            cell.detailTextLabel.text = @"";
     }
-    [cell.textLabel setText:[NSString stringWithFormat:@"这是第%ld行", indexPath.row]];
+    [cell.textLabel setText:text];
     return cell;
 }
 
@@ -91,10 +145,61 @@
     return 50;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    BOOL islogin = GetInfoForKey(UserId_NSUserDefaults) != nil;
+    return section == 0 ? (islogin ? 10 : CGFLOAT_MIN) : CGFLOAT_MIN;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if(![text isEqualToString:@"当前版本"]){
+        if([text isEqualToString:@"用户反馈"]){
+            SuggestionViewController *vc = [SuggestionViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if([text isEqualToString:@"消息通知"]){
+            MessageRemindViewController *vc = [MessageRemindViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.title = @"消息通知";
+            vc.listType = MessageRemindListTypeDefault;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            NSString *tip = [NSString stringWithFormat:@"跳转%@", text];
+            LLAlert(tip);
+        }
+    }
+}
+
 #pragma mark - <************************** 点击事件 **************************>
 - (IBAction)onClickMSMBtn:(UIButton *)sender {
     LoginInterfaceViewController *loginVc = [LoginInterfaceViewController new];
     [self presentViewController:loginVc animated:YES completion:nil];
+}
+- (IBAction)onClickTitleButtons:(UIControl *)sender {
+    // !!!: 评论、收藏、历史点击事件
+    switch (sender.tag) {
+        case 0://评论
+            LLAlert(@"跳转评论");
+            break;
+        case 1://收藏
+            LLAlert(@"跳转收藏");
+            break;
+        case 2://历史
+            LLAlert(@"跳转历史");
+            break;
+        default:
+            break;
+    }
+}
+- (IBAction)onClickHeaderImage:(UIButton *)sender {
+    // !!!: 头像点击事件
+    DataEditingViewController *vc = [DataEditingViewController new];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

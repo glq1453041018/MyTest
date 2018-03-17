@@ -7,7 +7,7 @@
 //
 
 #import "ClassInfoViewController.h"
-#import "ClassSapceViewController.h"
+#import "ClassSpaceViewController.h"
 
 #import "ClassInfoHeadView.h"
 #import "ClassInfoTableViewCell.h"
@@ -42,7 +42,7 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    [ClassInfoManager requestDataStyle:self.style response:^(NSArray *resArray, id error) {
+    [ClassInfoManager requestDataResponse:^(NSArray *resArray, id error) {
         if (error) {
             return;
         }
@@ -211,7 +211,6 @@
     if (indexPath.section == 1) {                                           // 评价
         ClassInfoModel_PingJia *cimpj = items.lastObject;
         ClassSapceViewController *ctrl = [ClassSapceViewController new];
-        ctrl.style = cimpj.style;
         ctrl.title = @"评价详情";
         [self.navigationController pushViewController:ctrl animated:YES];
     }

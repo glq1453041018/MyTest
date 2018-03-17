@@ -40,6 +40,9 @@
 #define FontSize_colorgray HexColor(0x333333)
 #define FontSize_colorlightgray HexColor(0x999999)
 
+//行间距
+#define LineSpace 6.0
+
 // 返回按钮
 #define kGoBackImageString @"public_left"
 
@@ -51,23 +54,18 @@
 
 
 #pragma mark - <************************** NSUserDefaults **************************>
-
+static NSString *UserId_NSUserDefaults = @"userid";
 
 
 
 
 #pragma mark - <************************** 枚举类型 **************************>
-// !!!: 互动圈的类型
-typedef NS_ENUM(NSInteger , InteractiveStyle) {
-    ClassSpaceStyle,        // 班级动态圈
-    ClassInfoStyle,         // 班级信息
-    ClassCommentStyle,      // 班级评价
-    SchoolInfoStyle,        // 学校信息
-    SchoolCommentStyle      // 学校评价
-};
 
 
 
+
+#pragma mark - <************************** 三方平台配置信息 **************************>
+#define kMapKey @"b8bb72f6e81eff210cdae81d84d65c59"
 
 
 

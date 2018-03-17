@@ -14,6 +14,11 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AMap2DMap-NO-IDFA (5.6.0):
+    - AMapFoundation-NO-IDFA (~> 1.4)
+  - AMapFoundation-NO-IDFA (1.4.3)
+  - AMapLocation-NO-IDFA (2.6.0):
+    - AMapFoundation-NO-IDFA (~> 1.4)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
@@ -25,24 +30,32 @@ PODS:
   - SDWebImage/Core (4.0.0)
   - SMSSDK (3.0.1):
     - MOBFoundation
+  - SVProgressHUD-0.8.1 (0.8)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - AMap2DMap-NO-IDFA
+  - AMapLocation-NO-IDFA
   - FMDB (~> 2.6.2)
   - MJRefresh (~> 3.1.12)
   - MYAutoLayout (~> 1.0.0)
   - SDWebImage (~> 4.0.0-beta2)
   - SMSSDK (~> 3.0.1)
+  - SVProgressHUD-0.8.1 (~> 0.8)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AMap2DMap-NO-IDFA: 277965383679f1a4676df7e1a0439a1e14d0599a
+  AMapFoundation-NO-IDFA: b6cbefab250ae8ab2e31aa9bb3dbbb98137cd76f
+  AMapLocation-NO-IDFA: a75b762ae9a90840ce683de12504ac843a9f3b6c
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   MOBFoundation: 5c7cd437320b5252ebe0ca20283cc1ffe66f7669
   MYAutoLayout: 53c79ab80864f9c8ce3217d1fcc95168b91f80bf
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SMSSDK: a811c8ea6e89393097037b7cf6493248a40e50f0
+  SVProgressHUD-0.8.1: ee9e6e58b5b5ffaf3f1a62c2dc409763470df143
 
-PODFILE CHECKSUM: 1ffebc605cf7efcfa69bc80ccad04920a869435c
+PODFILE CHECKSUM: 71ef724630311188b6af8add80672070759b144e
 
 COCOAPODS: 1.4.0

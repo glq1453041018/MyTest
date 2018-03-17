@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassViewController">
             <connections>
                 <outlet property="collectionView" destination="60X-Mw-cIM" id="Iox-V6-Fdg"/>
+                <outlet property="constraint" destination="8bb-O1-7YL" id="qKz-KZ-QzP"/>
+                <outlet property="constraintBottom" destination="oj7-Pk-uBE" id="aFJ-ad-WMN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,10 +22,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="60X-Mw-cIM">
-                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="60X-Mw-cIM">
+                    <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lo5-Jw-Nq4">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aOE-tx-HTg">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -40,7 +42,7 @@
                 <constraint firstItem="60X-Mw-cIM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="8bb-O1-7YL"/>
                 <constraint firstItem="60X-Mw-cIM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SoT-TS-2BS"/>
                 <constraint firstAttribute="trailing" secondItem="60X-Mw-cIM" secondAttribute="trailing" id="nqJ-Ap-Pyy"/>
-                <constraint firstAttribute="bottom" secondItem="60X-Mw-cIM" secondAttribute="bottom" id="oj7-Pk-uBE"/>
+                <constraint firstAttribute="bottom" secondItem="60X-Mw-cIM" secondAttribute="bottom" constant="49" id="oj7-Pk-uBE"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>

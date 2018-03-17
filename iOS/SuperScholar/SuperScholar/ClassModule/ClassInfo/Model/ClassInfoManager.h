@@ -12,6 +12,6 @@
 @interface ClassInfoManager : NSObject
 
 // !!!: 获取数据
-+(void)requestDataStyle:(InteractiveStyle)style response:(void(^)(NSArray *resArray,id error))responseBlock;
++(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock;
 
 @end
