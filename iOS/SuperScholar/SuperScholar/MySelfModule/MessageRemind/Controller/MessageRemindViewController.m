@@ -7,7 +7,7 @@
 //
 
 #import "MessageRemindViewController.h"
-#import "MessageRemindTableViewCell.h"
+#import "ZhaoShengTableViewCell.h"
 
 @interface MessageRemindViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -35,7 +35,7 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    for (int i=0; i < 100; i ++) {
+    for (int i=0; i < 10; i ++) {
         [self.data addObject:@"fdas"];
     }
 }
@@ -62,7 +62,7 @@
 - (void)configTable{
     self.tableView.tableHeaderView = [UIView new];
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
@@ -92,11 +92,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *cellid = @"messageRemindId";
-    MessageRemindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+    NSString *cellid = indexPath.row % 4 ? @"zhaoshengcell2" : @"zhaoshengcell";
+    ZhaoShengTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if(!cell){
-        cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MessageRemindTableViewCell class]) owner:nil options:nil] firstObject];
+        if(indexPath.row % 4)
+            cell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ZhaoShengTableViewCell class]) owner:nil options:nil][1];
+        else
+            cell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ZhaoShengTableViewCell class]) owner:nil options:nil][0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell cwn_makeShiPeis:^(UIView *maker) {
+            maker.shiPeiAllSubViews().shiPeiSelf();
+        }];
     }
     return cell;
 }
@@ -104,7 +110,7 @@
 #pragma mark UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 130;
+    return ShiPei(134);
 }
 
 #pragma mark - <************************** 点击事件 **************************>
