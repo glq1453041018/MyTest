@@ -6,11 +6,11 @@
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-#import "ClassSapceTableViewCell.h"
-#import "ClassSapceManager.h"
+#import "ClassSpaceTableViewCell.h"
+#import "ClassSpaceManager.h"
 #import "PhotoBrowser.h"
 
-@implementation ClassSapceTableViewCell
+@implementation ClassSpaceTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -24,18 +24,10 @@
 }
 // !!!: 加载视图
 -(void)loadData:(NSArray *)data index:(NSInteger)index pageSize:(NSInteger)pageSize{
-    ClassSapceModel *csm = data[index];
+    ClassSpaceModel *csm = data[index];
     // content
     self.userNamelLabel.text = [NSString stringWithFormat:@"%ld row",index];
     self.contentLabel.attributedText = csm.contentAttring;
-    // 评价星星
-    if (csm.style==ClassCommentStyle||csm.style==SchoolCommentStyle) {
-        self.starView.hidden = NO;
-        self.starView.scorePercent = MIN(csm.starNum, 5) / 5.0;
-    }else{
-        self.starView.hidden = YES;
-    }
-    
     
     NSInteger totalPage = data.count/pageSize;
     NSInteger currentPage = index/pageSize;
@@ -47,14 +39,14 @@
         if (currentPage>=2) {   // 删除当前页的 前2和后2页的数据，并创建当前页
             // 删除 -2 页数据
             for (NSInteger i=(currentPage-2)*pageSize; i<(currentPage-1)*pageSize; i++) {
-                ClassSapceModel *csmTmp = data[i];
-                [ClassSapceManager removePicsWithModel:csmTmp];
+                ClassSpaceModel *csmTmp = data[i];
+                [ClassSpaceManager removePicsWithModel:csmTmp];
             }
             if (currentPage<=totalPage-2) {
                 // 删除 +2 页数据
                 for (NSInteger j=(currentPage+1)*pageSize; j<(currentPage+2)*pageSize; j++) {
-                    ClassSapceModel *csmTmp = data[j];
-                    [ClassSapceManager removePicsWithModel:csmTmp];
+                    ClassSpaceModel *csmTmp = data[j];
+                    [ClassSpaceManager removePicsWithModel:csmTmp];
                 }
             }
         }
@@ -62,11 +54,11 @@
     
     // 创建
     for (NSInteger i=MAX((currentPage-1)*pageSize, 0); i<MIN(data.count, (currentPage+1)*pageSize); i++) {
-        ClassSapceModel *csmTmp = data[i];
+        ClassSpaceModel *csmTmp = data[i];
         if (csmTmp.mediaView.subviews.count==0) {
             if (csmTmp.pics.count) {
             }
-            [ClassSapceManager addPicsWithModel:csmTmp];
+            [ClassSpaceManager addPicsWithModel:csmTmp];
         }
     }
     
@@ -90,7 +82,7 @@
 
 -(void)imageActionEvent:(UIButton*)btn{
     DLog(@"第%ld个图片",btn.tag);
-    ClassSapceModel *csm = objc_getAssociatedObject(btn, @"imageBtn");
+    ClassSpaceModel *csm = objc_getAssociatedObject(btn, @"imageBtn");
     [PhotoBrowser showURLImages:csm.pics placeholderImage:[UIImage imageNamed:@"zhanweitu"] selectedIndex:btn.tag];
 }
 

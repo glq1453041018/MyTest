@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AddressViewManager.h"
 #import "MainTabBarViewController.h"
 
 @interface AppDelegate ()
@@ -21,6 +22,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [MainTabBarViewController new];
     [self.window makeKeyAndVisible];
+    
+    [AddressViewManager configMap];
+    
     return YES;
 }
 

@@ -7,16 +7,19 @@
 //
 
 // !!!: 控制器类
-#import "ClassSapceViewController.h"
+#import "ClassSpaceViewController.h"
 #import "ClassInfoViewController.h"
 // !!!: 视图类
-#import "ClassSapceTableViewCell.h"
+#import "ClassSpaceTableViewCell.h"
+#import "ClassSpaceHeadView.h"
 // !!!: 管理类
-#import "ClassSapceManager.h"
+#import "ClassSpaceManager.h"
 
 @interface ClassSapceViewController ()<UITableViewDelegate,UITableViewDataSource>
 // !!!: 视图类
 @property (strong ,nonatomic) UITableView *table;
+@property (strong ,nonatomic) ClassSpaceHeadView *headView;
+
 // !!!: 数据类
 @property (strong ,nonatomic) NSMutableArray *data;
 @end
@@ -36,14 +39,14 @@
 // !!!: 获取数据
 -(void)getDataFormServer{
     [self.loadingView startAnimating];
-    [ClassSapceManager requestDataStyle:self.style response:^(NSArray *resArray, id error) {
+    [ClassSpaceManager requestDataResponse:^(NSArray *resArray, id error) {
         [self.loadingView stopAnimating];
         self.data = resArray.mutableCopy;
         [self.table reloadData];
     }];
 }
 -(void)loadMoreData{
-    [ClassSapceManager requestDataStyle:self.style response:^(NSArray *resArray, id error) {
+    [ClassSpaceManager requestDataResponse:^(NSArray *resArray, id error) {
         [self.table.mj_footer endRefreshing];
         if (error==nil) {
             [self.data addObjectsFromArray:resArray];
@@ -60,6 +63,7 @@
     [self.navigationBar setTitle:self.title?self.title:@"班级动态" leftImage:kGoBackImageString rightText:@"发布"];
     self.isNeedGoBack = YES;
     
+    self.table.tableHeaderView = self.headView;
     [self.view addSubview:self.table];
 }
 
@@ -77,7 +81,13 @@
     return _table;
 }
 
-
+-(ClassSpaceHeadView *)headView{
+    if (_headView==nil) {
+        _headView = [[NSBundle mainBundle] loadNibNamed:@"ClassSpaceHeadView" owner:nil options:nil].lastObject;
+        [_headView adjustFrame];
+    }
+    return _headView;
+}
 
 #pragma mark - <************************** 代理方法 **************************>
 // !!!: 导航栏
@@ -95,18 +105,21 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.data.count;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 10;
+}
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"CSCellID";
-    ClassSapceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    static NSString *cellId = @"ClassSpaceTableViewCell";
+    ClassSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell==nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSapceTableViewCell" owner:self options:nil] firstObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
         cell.selectionStyle = NO;
     }
     [cell loadData:self.data index:indexPath.row pageSize:10];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ClassSapceModel *csm = self.data[indexPath.row];
+    ClassSpaceModel *csm = self.data[indexPath.row];
     return csm.cellHeight;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

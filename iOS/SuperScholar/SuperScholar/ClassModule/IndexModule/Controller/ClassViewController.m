@@ -7,7 +7,7 @@
 //
 
 #import "ClassViewController.h"
-#import "ClassSapceViewController.h"
+#import "ClassSpaceViewController.h"
 #import "ClassInfoViewController.h"
 
 #import "ClassViewCollectionViewCell.h"
@@ -126,7 +126,6 @@
 // !!!: 进入班级列表
 -(void)detailBtnAction:(UIButton*)btn{
     ClassInfoViewController *ctrl = [ClassInfoViewController new];
-    ctrl.style = ClassInfoStyle;
     ctrl.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:ctrl animated:YES];
 }
