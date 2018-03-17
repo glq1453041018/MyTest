@@ -91,6 +91,8 @@
 		C781F871205BFFE000BE37AD /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F86F205BFFE000BE37AD /* AddressViewController.m */; };
 		C781F872205BFFE000BE37AD /* AddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F870205BFFE000BE37AD /* AddressViewController.xib */; };
 		C781F875205CA79E00BE37AD /* AddressViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F874205CA79E00BE37AD /* AddressViewManager.m */; };
+		F44A6B63205D0F07005DBF33 /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F44A6B61205D0F07005DBF33 /* SuggestionViewController.m */; };
+		F44A6B64205D0F07005DBF33 /* SuggestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F44A6B62205D0F07005DBF33 /* SuggestionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,6 +241,9 @@
 		C781F873205CA79E00BE37AD /* AddressViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewManager.h; sourceTree = "<group>"; };
 		C781F874205CA79E00BE37AD /* AddressViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewManager.m; sourceTree = "<group>"; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
+		F44A6B60205D0F07005DBF33 /* SuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
+		F44A6B61205D0F07005DBF33 /* SuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
+		F44A6B62205D0F07005DBF33 /* SuggestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -895,6 +900,7 @@
 				BE950EB8205B8634009F562B /* IndexModule */,
 				BE950EBE205B8634009F562B /* LoginInterface */,
 				BE950EE0205BEC84009F562B /* DataEditing */,
+				F44A6B5C205D0E9A005DBF33 /* Suggestion */,
 			);
 			path = MySelfModule;
 			sourceTree = "<group>";
@@ -1068,6 +1074,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F44A6B5C205D0E9A005DBF33 /* Suggestion */ = {
+			isa = PBXGroup;
+			children = (
+				F44A6B5D205D0E9A005DBF33 /* Controller */,
+				F44A6B5E205D0E9A005DBF33 /* Model */,
+				F44A6B5F205D0E9A005DBF33 /* View */,
+			);
+			path = Suggestion;
+			sourceTree = "<group>";
+		};
+		F44A6B5D205D0E9A005DBF33 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F44A6B60205D0F07005DBF33 /* SuggestionViewController.h */,
+				F44A6B61205D0F07005DBF33 /* SuggestionViewController.m */,
+				F44A6B62205D0F07005DBF33 /* SuggestionViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F44A6B5E205D0E9A005DBF33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F44A6B5F205D0E9A005DBF33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FA4F9C06915C67A5F8BC4296 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1166,6 +1206,7 @@
 				38010DAD204FFB3500E4511C /* ZhaoShengViewController.xib in Resources */,
 				C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */,
 				C781F860205BCD0100BE37AD /* ClassViewController.xib in Resources */,
+				F44A6B64205D0F07005DBF33 /* SuggestionViewController.xib in Resources */,
 				C781F84A205B703900BE37AD /* ClassInfoTitleItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1203,7 +1244,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1253,6 +1295,7 @@
 				C781F869205BE92E00BE37AD /* ClassViewModel.m in Sources */,
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				384A555B20521F20006D8C23 /* IndicatorView.m in Sources */,
+				F44A6B63205D0F07005DBF33 /* SuggestionViewController.m in Sources */,
 				BE950EC7205B8634009F562B /* MySelfViewController.m in Sources */,
 				384A555E20521F20006D8C23 /* MJDIYHeader.m in Sources */,
 				C71887EB205A385000333387 /* PhotoBrowser.m in Sources */,

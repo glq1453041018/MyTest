@@ -9,6 +9,7 @@
 #import "MySelfViewController.h"
 #import "DataEditingViewController.h"
 #import "LoginInterfaceViewController.h"
+#import "SuggestionViewController.h"
 
 #import "MYAutoScaleView.h"
 
@@ -67,7 +68,8 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    if(GetInfoForKey(UserId_NSUserDefaults) != nil)
+    BOOL islogin = GetInfoForKey(UserId_NSUserDefaults) != nil;
+    if(islogin)
         self.data = [NSMutableArray arrayWithObjects:@[@"消息通知", @"我的动态"],  @[@"用户反馈", @"当前版本"], nil];
     else
         self.data = [NSMutableArray arrayWithObjects:@[@"用户反馈", @"当前版本"], nil];
@@ -124,10 +126,15 @@
     NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellid"];
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellid"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellid"];
         cell.textLabel.font = [UIFont systemFontOfSize:FontSize_16];
         cell.textLabel.textColor = HexColor(0x333333);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if([text isEqualToString:@"当前版本"]){
+            NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+            cell.detailTextLabel.text = version;
+        }else
+            cell.detailTextLabel.text = @"";
     }
     [cell.textLabel setText:text];
     return cell;
@@ -148,8 +155,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    NSString *tip = [NSString stringWithFormat:@"跳转%@", text];
-    LLAlert(tip);
+    if(![text isEqualToString:@"当前版本"]){
+        if([text isEqualToString:@"用户反馈"]){
+            SuggestionViewController *vc = [SuggestionViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            NSString *tip = [NSString stringWithFormat:@"跳转%@", text];
+            LLAlert(tip);
+        }
+    }
 }
 
 #pragma mark - <************************** 点击事件 **************************>

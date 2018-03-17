@@ -96,6 +96,9 @@
     NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     DataEditTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DataEditingCellid"];
     cell.leftLabel.text = text;
+    cell.headerImage.hidden = !(indexPath.section == 0 && indexPath.row == 0);
+    cell.rightLabel.hidden = !cell.headerImage.hidden;
+    cell.rightLabel.text = @"待完善";
     return cell;
 }
 
