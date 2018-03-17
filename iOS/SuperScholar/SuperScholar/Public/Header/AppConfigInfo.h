@@ -40,6 +40,9 @@
 #define FontSize_colorgray HexColor(0x333333)
 #define FontSize_colorlightgray HexColor(0x999999)
 
+//行间距
+#define LineSpace 6.0
+
 // 返回按钮
 #define kGoBackImageString @"public_left"
 

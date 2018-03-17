@@ -186,7 +186,7 @@
 //}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-        return 110*MAIN_SPWPW;
+        return 120*MAIN_SPWPW;
     }
 
 
@@ -205,7 +205,7 @@
             
         }
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        [paragraphStyle setLineSpacing:4.0];//调整行间距
+        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
         
         NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:@"新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教婴早教莆田教育婴早教莆田教育莆田教育中心新爱婴早教莆田教育中心"];
         
