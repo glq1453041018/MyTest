@@ -131,12 +131,13 @@
         cell.textLabel.font = [UIFont systemFontOfSize:FontSize_16];
         cell.textLabel.textColor = HexColor(0x333333);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        if([text isEqualToString:@"当前版本"]){
-            NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-            cell.detailTextLabel.text = version;
-        }else
-            cell.detailTextLabel.text = @"";
     }
+    
+    if([text isEqualToString:@"当前版本"]){
+        NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        cell.detailTextLabel.text = version;
+    }else
+        cell.detailTextLabel.text = @"";
     [cell.textLabel setText:text];
     return cell;
 }
