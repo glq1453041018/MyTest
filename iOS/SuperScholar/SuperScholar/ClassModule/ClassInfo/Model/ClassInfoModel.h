@@ -11,7 +11,6 @@
 @interface ClassInfoModel : NSObject
 @property (copy ,nonatomic) NSString *key;
 @property (copy ,nonatomic) NSString *value;
-@property (assign ,nonatomic) InteractiveStyle style;
 @property (assign ,nonatomic) NSInteger cellHeight;
 @end
 

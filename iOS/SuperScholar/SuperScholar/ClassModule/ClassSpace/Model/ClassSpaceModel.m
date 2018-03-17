@@ -6,9 +6,9 @@
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-#import "ClassSapceModel.h"
+#import "ClassSpaceModel.h"
 
-@implementation ClassSapceModel
+@implementation ClassSpaceModel
 
 -(NSMutableArray *)picViews{
     if (_picViews==nil) {

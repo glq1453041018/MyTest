@@ -6,13 +6,13 @@
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-#import "ClassSapceManager.h"
-#import "ClassSapceTableViewCell.h"
+#import "ClassSpaceManager.h"
+#import "ClassSpaceTableViewCell.h"
 
-@implementation ClassSapceManager
+@implementation ClassSpaceManager
 
 // !!!: 获取数据
-+(void)requestDataStyle:(InteractiveStyle)style response:(void(^)(NSArray *resArray,id error))responseBlock{
++(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock{
     
     // 配置相关地址和参数
     
@@ -37,16 +37,12 @@
     NSMutableArray *cells = [NSMutableArray array];
     NSInteger number = 10;
     // 创建cell
-    ClassSapceTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSapceTableViewCell" owner:nil options:nil] firstObject];
+    ClassSpaceTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:nil options:nil] firstObject];
     for (int i=0; i<number; i++) {
-        ClassSapceModel *csm = [ClassSapceModel new];
+        ClassSpaceModel *csm = [ClassSpaceModel new];
         NSInteger ran = getRandomNumberFromAtoB(0, 10)%4;
         csm.content = contents[ran];
         csm.contentAttring = [self changeToAttr:csm.content];
-        csm.style = style;
-        if (csm.style==ClassCommentStyle||csm.style==SchoolCommentStyle) {
-            csm.starNum = getRandomNumberFromAtoB(0, 5);
-        }
         NSMutableArray *pics = [NSMutableArray array];
         for (int j=0; j<getRandomNumberFromAtoB(0, 9); j++) {
             [pics addObject:picsUrl[getRandomNumberFromAtoB(0, 8)]];
@@ -66,7 +62,7 @@
     });
 }
 
-+(CGFloat)getMediaViewHeight:(ClassSapceModel*)csm{
++(CGFloat)getMediaViewHeight:(ClassSpaceModel*)csm{
     CGFloat height = 0;
     if (csm.pics.count==0) {
         return height;
@@ -81,7 +77,7 @@
 }
 
 // !!!: 添加图片控件
-+(void)addPicsWithModel:(ClassSapceModel*)csm{
++(void)addPicsWithModel:(ClassSpaceModel*)csm{
     if (csm.pics.count==0) {
         return;
     }
@@ -110,7 +106,7 @@
 }
 
 // !!!: 移除图片控件
-+(void)removePicsWithModel:(ClassSapceModel*)csm{
++(void)removePicsWithModel:(ClassSpaceModel*)csm{
     [csm.mediaView removeFromSuperview];
     csm.mediaView = nil;
     csm.picViews = nil;

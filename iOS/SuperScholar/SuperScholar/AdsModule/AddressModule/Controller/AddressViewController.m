@@ -7,6 +7,7 @@
 //
 
 #import "AddressViewController.h"
+#import "AddressViewManager.h"
 
 @interface AddressViewController ()
 // !!!: 视图类
@@ -15,12 +16,20 @@
 
 // !!!: 数据类
 @property (strong ,nonatomic) NSArray *data;
+@property (strong ,nonatomic) AddressViewManager *addrManager;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 
 @end
 
 @implementation AddressViewController
+
+-(void)loadView{
+    [super loadView];
+    [self.addrManager locationCompletionBlock:^(AMapLocationReGeocode *regeocode, NSError *error) {
+        
+    }];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,6 +46,7 @@
 -(void)getDataFormServer{
     
     self.data = @[@"",@"",@""];
+
 }
 
 
@@ -64,6 +74,12 @@
     return _searchBar;
 }
 
+-(AddressViewManager *)addrManager{
+    if (_addrManager==nil) {
+        _addrManager = [AddressViewManager new];
+    }
+    return _addrManager;
+}
 
 #pragma mark - <************************** 代理方法 **************************>
 // !!!: 导航代理

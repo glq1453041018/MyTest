@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ClassSapceModel : NSObject
+@interface ClassSpaceModel : NSObject
 
 // !!!: 头部信息
 @property (copy ,nonatomic) NSString *headerIcon;
@@ -17,7 +17,6 @@
 @property (copy ,nonatomic) NSString *content;
 @property (copy ,nonatomic) NSAttributedString *contentAttring;
 @property (assign ,nonatomic) CGFloat starNum;  // 评价星级数
-@property (assign ,nonatomic) InteractiveStyle style;   // 用来判断是否需要星星的依据
 
 // !!!: 底部信息
 @property (assign ,nonatomic) NSInteger viewNum;

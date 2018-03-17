@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ClassSapceModel.h"
+#import "ClassSpaceModel.h"
 #import "MYCommentStarView.h"
 
-@interface ClassSapceTableViewCell : UITableViewCell
+@interface ClassSpaceTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *headerBtn;
 @property (weak, nonatomic) IBOutlet UILabel *userNamelLabel;

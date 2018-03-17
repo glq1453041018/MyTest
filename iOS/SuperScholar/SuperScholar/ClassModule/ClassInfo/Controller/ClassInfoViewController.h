@@ -10,6 +10,5 @@
 
 @interface ClassInfoViewController : UIViewController
 
-@property (assign ,nonatomic) InteractiveStyle style;
 
 @end
