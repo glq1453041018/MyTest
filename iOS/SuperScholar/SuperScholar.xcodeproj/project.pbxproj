@@ -93,6 +93,10 @@
 		C781F875205CA79E00BE37AD /* AddressViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F874205CA79E00BE37AD /* AddressViewManager.m */; };
 		F44A6B63205D0F07005DBF33 /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F44A6B61205D0F07005DBF33 /* SuggestionViewController.m */; };
 		F44A6B64205D0F07005DBF33 /* SuggestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F44A6B62205D0F07005DBF33 /* SuggestionViewController.xib */; };
+		F49D7D4A205D5E90009D17EA /* MessageRemindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D7D48205D5E90009D17EA /* MessageRemindViewController.m */; };
+		F49D7D4B205D5E90009D17EA /* MessageRemindViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49D7D49205D5E90009D17EA /* MessageRemindViewController.xib */; };
+		F49D7D54205D6F2A009D17EA /* MessageRemindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D7D52205D6F2A009D17EA /* MessageRemindTableViewCell.m */; };
+		F49D7D55205D6F2A009D17EA /* MessageRemindTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49D7D53205D6F2A009D17EA /* MessageRemindTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -244,6 +248,12 @@
 		F44A6B60205D0F07005DBF33 /* SuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
 		F44A6B61205D0F07005DBF33 /* SuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
 		F44A6B62205D0F07005DBF33 /* SuggestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestionViewController.xib; sourceTree = "<group>"; };
+		F49D7D47205D5E90009D17EA /* MessageRemindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageRemindViewController.h; sourceTree = "<group>"; };
+		F49D7D48205D5E90009D17EA /* MessageRemindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageRemindViewController.m; sourceTree = "<group>"; };
+		F49D7D49205D5E90009D17EA /* MessageRemindViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageRemindViewController.xib; sourceTree = "<group>"; };
+		F49D7D51205D6F2A009D17EA /* MessageRemindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageRemindTableViewCell.h; sourceTree = "<group>"; };
+		F49D7D52205D6F2A009D17EA /* MessageRemindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageRemindTableViewCell.m; sourceTree = "<group>"; };
+		F49D7D53205D6F2A009D17EA /* MessageRemindTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageRemindTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -901,6 +911,7 @@
 				BE950EBE205B8634009F562B /* LoginInterface */,
 				BE950EE0205BEC84009F562B /* DataEditing */,
 				F44A6B5C205D0E9A005DBF33 /* Suggestion */,
+				F49D7D43205D5E76009D17EA /* MessageRemind */,
 			);
 			path = MySelfModule;
 			sourceTree = "<group>";
@@ -1108,6 +1119,43 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F49D7D43205D5E76009D17EA /* MessageRemind */ = {
+			isa = PBXGroup;
+			children = (
+				F49D7D44205D5E76009D17EA /* Controller */,
+				F49D7D45205D5E76009D17EA /* Model */,
+				F49D7D46205D5E76009D17EA /* View */,
+			);
+			path = MessageRemind;
+			sourceTree = "<group>";
+		};
+		F49D7D44205D5E76009D17EA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F49D7D47205D5E90009D17EA /* MessageRemindViewController.h */,
+				F49D7D48205D5E90009D17EA /* MessageRemindViewController.m */,
+				F49D7D49205D5E90009D17EA /* MessageRemindViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F49D7D45205D5E76009D17EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F49D7D46205D5E76009D17EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F49D7D51205D6F2A009D17EA /* MessageRemindTableViewCell.h */,
+				F49D7D52205D6F2A009D17EA /* MessageRemindTableViewCell.m */,
+				F49D7D53205D6F2A009D17EA /* MessageRemindTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FA4F9C06915C67A5F8BC4296 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1200,10 +1248,12 @@
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
 				BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */,
 				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
+				F49D7D55205D6F2A009D17EA /* MessageRemindTableViewCell.xib in Resources */,
 				C7613F27205CC48B002604A3 /* ClassSpaceTableViewCell.xib in Resources */,
 				C781F844205B581400BE37AD /* ClassInfoFootView.xib in Resources */,
 				38010DB2204FFB5E00E4511C /* ZhaoShengTableViewCell.xib in Resources */,
 				38010DAD204FFB3500E4511C /* ZhaoShengViewController.xib in Resources */,
+				F49D7D4B205D5E90009D17EA /* MessageRemindViewController.xib in Resources */,
 				C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */,
 				C781F860205BCD0100BE37AD /* ClassViewController.xib in Resources */,
 				F44A6B64205D0F07005DBF33 /* SuggestionViewController.xib in Resources */,
@@ -1298,6 +1348,7 @@
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				384A555B20521F20006D8C23 /* IndicatorView.m in Sources */,
 				F44A6B63205D0F07005DBF33 /* SuggestionViewController.m in Sources */,
+				F49D7D54205D6F2A009D17EA /* MessageRemindTableViewCell.m in Sources */,
 				BE950EC7205B8634009F562B /* MySelfViewController.m in Sources */,
 				384A555E20521F20006D8C23 /* MJDIYHeader.m in Sources */,
 				C71887EB205A385000333387 /* PhotoBrowser.m in Sources */,
@@ -1311,6 +1362,7 @@
 				C781F842205B580A00BE37AD /* ClassInfoFootView.m in Sources */,
 				BE950ECB205B8634009F562B /* MYAutoScaleView.m in Sources */,
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
+				F49D7D4A205D5E90009D17EA /* MessageRemindViewController.m in Sources */,
 				C781F85B205BC89E00BE37AD /* MYVisualEffectView.m in Sources */,
 				C71887F2205A5C1400333387 /* ClassInfoViewController.m in Sources */,
 				C7613F23205CC48B002604A3 /* ClassSpaceViewController.m in Sources */,

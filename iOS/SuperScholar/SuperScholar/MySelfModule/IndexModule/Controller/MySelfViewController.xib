@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -147,7 +146,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YI1-KE-dhW" customClass="MYAutoScaleView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="175" id="G0d-Mb-7UG"/>
                     </constraints>
@@ -242,6 +241,13 @@
                                 <action selector="onClickTitleButtons:" destination="-1" eventType="touchUpInside" id="AaX-y1-rs3"/>
                             </connections>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXi-Oc-fPY">
+                            <rect key="frame" x="0.0" y="70" width="375" height="0.0"/>
+                            <color key="backgroundColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="8KT-3r-Gko"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -252,12 +258,15 @@
                         <constraint firstItem="kLe-of-WFU" firstAttribute="height" secondItem="rDi-op-30i" secondAttribute="height" id="NL9-Nr-r2i"/>
                         <constraint firstItem="9gn-Ds-nfY" firstAttribute="centerY" secondItem="kLe-of-WFU" secondAttribute="centerY" id="WJm-tv-MeO"/>
                         <constraint firstItem="rDi-op-30i" firstAttribute="top" secondItem="5hS-qg-c7k" secondAttribute="top" id="WQ4-Oe-C7I"/>
+                        <constraint firstAttribute="bottom" secondItem="qXi-Oc-fPY" secondAttribute="bottom" id="YP0-A4-pDV"/>
                         <constraint firstAttribute="height" constant="70" id="Zix-ed-7zV"/>
                         <constraint firstAttribute="bottom" secondItem="rDi-op-30i" secondAttribute="bottom" id="fY7-IU-ToT"/>
                         <constraint firstItem="kLe-of-WFU" firstAttribute="centerY" secondItem="rDi-op-30i" secondAttribute="centerY" id="gLe-sq-rCa"/>
                         <constraint firstItem="9gn-Ds-nfY" firstAttribute="width" secondItem="kLe-of-WFU" secondAttribute="width" id="gvj-jV-u7c"/>
                         <constraint firstItem="rDi-op-30i" firstAttribute="leading" secondItem="5hS-qg-c7k" secondAttribute="leading" id="nzj-aM-ent"/>
                         <constraint firstItem="9gn-Ds-nfY" firstAttribute="leading" secondItem="kLe-of-WFU" secondAttribute="trailing" id="o8a-0M-Nge"/>
+                        <constraint firstAttribute="trailing" secondItem="qXi-Oc-fPY" secondAttribute="trailing" id="oZh-T1-og4"/>
+                        <constraint firstItem="qXi-Oc-fPY" firstAttribute="leading" secondItem="5hS-qg-c7k" secondAttribute="leading" id="uiO-xb-oBZ"/>
                     </constraints>
                 </view>
             </subviews>

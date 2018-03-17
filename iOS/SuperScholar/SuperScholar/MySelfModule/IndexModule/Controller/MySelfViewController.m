@@ -10,6 +10,7 @@
 #import "DataEditingViewController.h"
 #import "LoginInterfaceViewController.h"
 #import "SuggestionViewController.h"
+#import "MessageRemindViewController.h"
 
 #import "MYAutoScaleView.h"
 
@@ -159,6 +160,12 @@
         if([text isEqualToString:@"用户反馈"]){
             SuggestionViewController *vc = [SuggestionViewController new];
             vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if([text isEqualToString:@"消息通知"]){
+            MessageRemindViewController *vc = [MessageRemindViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.title = @"消息通知";
+            vc.listType = MessageRemindListTypeDefault;
             [self.navigationController pushViewController:vc animated:YES];
         }else{
             NSString *tip = [NSString stringWithFormat:@"跳转%@", text];
