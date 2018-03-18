@@ -9,6 +9,7 @@
 #import "DataEditingViewController.h"
 #import "DataEditTableViewCell.h"
 #import <SVProgressHUD.h>
+#import "MYDatePicker.h"
 
 @interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -16,6 +17,8 @@
 @property (strong, nonatomic) IBOutlet UIView *tableFooterView;
 
 @property (strong, nonatomic) NSMutableArray *data;
+
+@property (strong, nonatomic) MYDatePicker *birthDatePicker;//生日选择器
 
 @end
 
@@ -77,6 +80,18 @@
     return _data;
 }
 
+- (MYDatePicker *)birthDatePicker{
+    if(!_birthDatePicker){
+        _birthDatePicker = [[MYDatePicker alloc] initWithContentView:self.view dataSource:nil pickerType:MYDatePickerTypeSystemStyle];
+        _birthDatePicker.datePickerMode = UIDatePickerModeDate;
+        _birthDatePicker.maximumDate = [NSDate date];
+        [_birthDatePicker setDateSelectedBlock:^(NSString *date){
+            [SVProgressHUD showSuccessWithStatus:@"设置成功"];
+        }];
+    }
+    return _birthDatePicker;
+}
+
 
 
 #pragma mark - <************************** 代理方法 **************************>
@@ -114,8 +129,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    text = [NSString stringWithFormat:@"跳转%@", text];
-    LLAlert(text);
+    if([text isEqualToString:@"生日"]){
+        if(self.birthDatePicker.isOnShow == NO)
+            [self.birthDatePicker show];
+        else
+            [self.birthDatePicker hidden];
+    }else{
+        text = [NSString stringWithFormat:@"跳转%@", text];
+        LLAlert(text);
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
