@@ -74,7 +74,7 @@
         [obj.titleLabel setFont:[UIFont systemFontOfSize:14]];
     }];
     
-    [self.segmentController setReturnString:@"1"];
+    [self.segmentController setReturnString:@"0"];
     [self.segmentController setSegementTintColor:KColorTheme];
     
     [self.segmentController setSegementViewControllers:vc_array];

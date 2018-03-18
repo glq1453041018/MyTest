@@ -11,7 +11,7 @@
 #import <SVProgressHUD.h>
 #import "MYDatePicker.h"
 
-@interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource, MYDatePickerDatasource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *tableFooterView;
@@ -19,6 +19,8 @@
 @property (strong, nonatomic) NSMutableArray *data;
 
 @property (strong, nonatomic) MYDatePicker *birthDatePicker;//生日选择器
+@property (strong, nonatomic) MYDatePicker *sexPicker;//性别选择器
+
 
 @end
 
@@ -92,6 +94,17 @@
     return _birthDatePicker;
 }
 
+- (MYDatePicker *)sexPicker{
+    if(!_sexPicker){
+        _sexPicker = [[MYDatePicker alloc] initWithContentView:self.view dataSource:self pickerType:MYDatePickerTypeCustomStyle];
+        [_sexPicker setCurrentDateRow:0];
+        [_sexPicker setDateSelectedBlock:^(NSString *selectSex){
+            [SVProgressHUD showSuccessWithStatus:@"设置成功"];
+        }];
+    }
+    return _sexPicker;
+}
+
 
 
 #pragma mark - <************************** 代理方法 **************************>
@@ -134,6 +147,11 @@
             [self.birthDatePicker show];
         else
             [self.birthDatePicker hidden];
+    }else if([text isEqualToString:@"性别"]){
+        if(self.sexPicker.isOnShow == NO)
+            [self.sexPicker show];
+        else
+            [self.sexPicker hidden];
     }else{
         text = [NSString stringWithFormat:@"跳转%@", text];
         LLAlert(text);
@@ -144,6 +162,14 @@
     return 50;
 }
 
+#pragma mark MYDatePickerDatasource
+- (NSInteger)numberOfDates{
+    return 2;
+}
+- (NSString *)titleForRow:(NSInteger)row{
+    return row == 0 ? @"男" : @"女";
+}
+ 
 
 #pragma mark - <************************** 点击事件 **************************>
 - (IBAction)onClickExit:(id)sender{
