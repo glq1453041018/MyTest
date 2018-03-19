@@ -81,19 +81,19 @@ static int view_height = 100;
     int animationCurve =[dic[@"UIKeyboardAnimationCurveUserInfoKey"]intValue];
     
     //4.改变_inputView和tableView的坐标
-    if(self.emojiView.emojiViewIsOnShow == NO){//切换表情键盘导致的系统键盘收起
-        self.stockViewHeight.constant = ShiPei(35) * [self.stockViewController.stockArray count];
-        self.stockSearchViewHeight.constant = 0;
-        self.keyboardIsOnShow = NO;
-        self.inputToolBarBottom.constant = 10;
-        self.inputViewLeft.constant = 12;
-        self.inputBackView.layer.cornerRadius = 5;
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:animationTime];
-        [UIView setAnimationCurve:animationCurve];
-        [self.view layoutIfNeeded];
-        [UIView commitAnimations];
-    }
+//    if(self.emojiView.emojiViewIsOnShow == NO){//切换表情键盘导致的系统键盘收起
+//        self.stockViewHeight.constant = ShiPei(35) * [self.stockViewController.stockArray count];
+//        self.stockSearchViewHeight.constant = 0;
+//        self.keyboardIsOnShow = NO;
+//        self.inputToolBarBottom.constant = 10;
+//        self.inputViewLeft.constant = 12;
+//        self.inputBackView.layer.cornerRadius = 5;
+//        [UIView beginAnimations:nil context:nil];
+//        [UIView setAnimationDuration:animationTime];
+//        [UIView setAnimationCurve:animationCurve];
+//        [self.view layoutIfNeeded];
+//        [UIView commitAnimations];
+//    }
 }
 
 
