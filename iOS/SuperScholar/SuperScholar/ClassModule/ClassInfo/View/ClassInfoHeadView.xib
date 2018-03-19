@@ -22,7 +22,7 @@
                 <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSz-zH-lkm">
                     <rect key="frame" x="20" y="130" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="testImg"/>
+                    <state key="normal" image="zhanweifu"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="与狼共舞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhR-ua-WJW">
                     <rect key="frame" x="80" y="160" width="200" height="20"/>
@@ -42,6 +42,6 @@
         </view>
     </objects>
     <resources>
-        <image name="testImg" width="1023" height="476"/>
+        <image name="zhanweifu" width="120" height="120"/>
     </resources>
 </document>

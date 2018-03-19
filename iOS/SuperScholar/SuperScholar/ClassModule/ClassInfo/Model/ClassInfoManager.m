@@ -20,7 +20,7 @@
         [titles addObject:cim];
     }
     ClassInfoModel_PingJia *cimpj = [ClassInfoModel_PingJia new];
-    cimpj.starNum = 5;
+    cimpj.starNum = 4;
     cimpj.commentNum = 123;
     cimpj.cellHeight = AdaptedWidthValue(44);
     NSArray *pingjias = @[cimpj];

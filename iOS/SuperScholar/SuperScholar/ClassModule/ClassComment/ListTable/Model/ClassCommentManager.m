@@ -1,15 +1,15 @@
 //
-//  ClassSapceManager.m
+//  ClassCommentManager.m
 //  SuperScholar
 //
-//  Created by 骆亮 on 2018/3/14.
+//  Created by 骆亮 on 2018/3/19.
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-#import "ClassSpaceManager.h"
-#import "ClassSpaceTableViewCell.h"
+#import "ClassCommentManager.h"
+#import "ClassCommentTableViewCell.h"
 
-@implementation ClassSpaceManager
+@implementation ClassCommentManager
 
 // !!!: 获取数据
 +(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock{
@@ -37,23 +37,24 @@
     NSMutableArray *cells = [NSMutableArray array];
     NSInteger number = 10;
     // 创建cell
-    ClassSpaceTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:nil options:nil] firstObject];
+    ClassCommentTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassCommentTableViewCell" owner:nil options:nil] firstObject];
     for (int i=0; i<number; i++) {
-        ClassSpaceModel *csm = [ClassSpaceModel new];
+        ClassCommentModel *ccm = [ClassCommentModel new];
         NSInteger ran = getRandomNumberFromAtoB(0, 10)%4;
-        csm.content = contents[ran];
-        csm.contentAttring = [self changeToAttr:csm.content];
+        ccm.content = contents[ran];
+        ccm.contentAttring = [self changeToAttr:ccm.content];
+        ccm.starNum = getRandomNumberFromAtoB(1, 5);
         NSMutableArray *pics = [NSMutableArray array];
         for (int j=0; j<getRandomNumberFromAtoB(0, 9); j++) {
             [pics addObject:picsUrl[getRandomNumberFromAtoB(0, 8)]];
         }
-        csm.pics = pics;
-        cell.contentLabel.attributedText = csm.contentAttring;
+        ccm.pics = pics;
+        cell.contentLabel.attributedText = ccm.contentAttring;
         CGSize size = [cell.contentLabel sizeThatFits:CGSizeMake(AdaptedWidthValue(355), MAXFLOAT)];
-        csm.contentLabelHeight = size.height + 10*2;
-        [self addPicsWithModel:csm];
-        csm.cellHeight = cell.contentLabel.y+csm.contentLabelHeight+csm.mediaView.viewHeight+cell.bottomView.viewHeight;
-        [cells addObject:csm];
+        ccm.contentLabelHeight = size.height + 10*2;
+        [self addPicsWithModel:ccm];
+        ccm.cellHeight = cell.contentLabel.y+ccm.contentLabelHeight+ccm.mediaView.viewHeight+cell.bottomView.viewHeight;
+        [cells addObject:ccm];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.75 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (responseBlock) {
@@ -62,31 +63,31 @@
     });
 }
 
-+(CGFloat)getMediaViewHeight:(ClassSpaceModel*)csm{
++(CGFloat)getMediaViewHeight:(ClassCommentModel*)ccm{
     CGFloat height = 0;
-    if (csm.pics.count==0) {
+    if (ccm.pics.count==0) {
         return height;
     }
     CGFloat space = 5;
     CGFloat width_total = AdaptedWidthValue(355);
     CGFloat width_item = (width_total-space*2)/3.0;
-    NSInteger i = csm.pics.count;
+    NSInteger i = ccm.pics.count;
     NSInteger row = ceilf(i/3.0);
     height = row * width_item + (row-1) * space;
     return height;
 }
 
 // !!!: 添加图片控件
-+(void)addPicsWithModel:(ClassSpaceModel*)csm{
-    if (csm.pics.count==0) {
++(void)addPicsWithModel:(ClassCommentModel*)ccm{
+    if (ccm.pics.count==0) {
         return;
     }
     CGFloat space = 5;
     CGFloat width_total = AdaptedWidthValue(355);
     CGFloat width_item = (width_total-space*2)/3.0;
     NSMutableArray *btns = [NSMutableArray array];
-    for (int i=0; i<csm.pics.count; i++) {
-        NSString *urlString = csm.pics[i];
+    for (int i=0; i<ccm.pics.count; i++) {
+        NSString *urlString = ccm.pics[i];
         NSInteger line = i%3;
         NSInteger row = i/3;
         CGPoint center = CGPointMake(width_item/2.0*(2*line+1)+space*line, width_item/2.0*(2*row+1)+space*row);
@@ -98,18 +99,18 @@
         [btns addObject:btn];
         btn.imageView.contentMode = UIViewContentModeScaleAspectFill;
         btn.tag = i;
-        [csm.mediaView addSubview:btn];
+        [ccm.mediaView addSubview:btn];
     }
-    csm.picViews = btns;
+    ccm.picViews = btns;
     UIButton *lastBtn = btns.lastObject;
-    csm.mediaView.viewSize = CGSizeMake(width_total, lastBtn.frame.size.height+lastBtn.frame.origin.y);
+    ccm.mediaView.viewSize = CGSizeMake(width_total, lastBtn.frame.size.height+lastBtn.frame.origin.y);
 }
 
 // !!!: 移除图片控件
-+(void)removePicsWithModel:(ClassSpaceModel*)csm{
-    [csm.mediaView removeFromSuperview];
-    csm.mediaView = nil;
-    csm.picViews = nil;
++(void)removePicsWithModel:(ClassCommentModel*)ccm{
+    [ccm.mediaView removeFromSuperview];
+    ccm.mediaView = nil;
+    ccm.picViews = nil;
 }
 
 
