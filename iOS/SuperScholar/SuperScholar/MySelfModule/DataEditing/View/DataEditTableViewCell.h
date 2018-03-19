@@ -10,5 +10,7 @@
 
 @interface DataEditTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *leftLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *headerImage;
+@property (weak, nonatomic) IBOutlet UILabel *rightLabel;
 
 @end

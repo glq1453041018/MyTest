@@ -9,6 +9,9 @@
 #import "MySelfViewController.h"
 #import "DataEditingViewController.h"
 #import "LoginInterfaceViewController.h"
+#import "SuggestionViewController.h"
+#import "MessageRemindViewController.h"
+#import "MyMessageCenterViewController.h"
 
 #import "MYAutoScaleView.h"
 
@@ -47,15 +50,15 @@
     self.navigationBar.hidden = isLogin;//导航栏显隐
     self.didLoginView.hidden = !isLogin;//已登录视图显隐
     self.titleButtonsBackView.hidden = !isLogin;//评论、收藏、历史背景视图显隐
-    self.tabelHeaderView.viewHeight =  self.topBackView.viewHeight + (isLogin ?  70 : 0); //评论、收藏、历史等功能显隐 
+    self.tabelHeaderView.viewHeight =  self.topBackView.viewHeight + (isLogin ?  70 : 0); //评论、收藏、历史等功能显隐
+    self.tableView.tableHeaderView = self.tabelHeaderView;
     
     if(isLogin){//登录状态
         //高斯模糊背景
-        UIImage *image = [UIImage imageNamed:@"testimage"];
-        self.backImageView.image = [image applyBlurWithRadius:5 tintColor:[KColorTheme colorWithAlphaComponent:0.1] saturationDeltaFactor:1.0 maskImage:nil];
+        UIImage *image = [UIImage imageNamed:@"timg"];
+        self.backImageView.image = image;
     }else{//未登录状态
         self.backImageView.image = nil;
-        self.tabelHeaderView.viewHeight = self.topBackView.viewHeight;
     }
     
     // 获取数据
@@ -67,7 +70,8 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    if(GetInfoForKey(UserId_NSUserDefaults) != nil)
+    BOOL islogin = GetInfoForKey(UserId_NSUserDefaults) != nil;
+    if(islogin)
         self.data = [NSMutableArray arrayWithObjects:@[@"消息通知", @"我的动态"],  @[@"用户反馈", @"当前版本"], nil];
     else
         self.data = [NSMutableArray arrayWithObjects:@[@"用户反馈", @"当前版本"], nil];
@@ -95,7 +99,8 @@
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     [self.topBackView setContentView:self.topView scrollview:self.tableView];
-    self.tabelHeaderView.viewHeight = 245;
+    self.topBackView.viewHeight = IEW_WIDTH * 483 / 1024.0;
+    self.tabelHeaderView.frame = CGRectMake(0, 0, IEW_WIDTH, self.topBackView.viewHeight);
     self.tableView.tableHeaderView = self.tabelHeaderView;
 }
 
@@ -124,11 +129,19 @@
     NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellid"];
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellid"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellid"];
         cell.textLabel.font = [UIFont systemFontOfSize:FontSize_16];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:FontSize_16];
         cell.textLabel.textColor = HexColor(0x333333);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    
+    
+    if([text isEqualToString:@"当前版本"]){
+        NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        cell.detailTextLabel.text = version;
+    }else
+        cell.detailTextLabel.text = @"";
     [cell.textLabel setText:text];
     return cell;
 }
@@ -148,8 +161,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    NSString *tip = [NSString stringWithFormat:@"跳转%@", text];
-    LLAlert(tip);
+    if(![text isEqualToString:@"当前版本"]){
+        if([text isEqualToString:@"用户反馈"]){
+            SuggestionViewController *vc = [SuggestionViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if([text isEqualToString:@"消息通知"]){
+            MessageRemindViewController *vc = [MessageRemindViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.title = text;
+            vc.listType = MessageRemindListTypeDefault;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else if([text isEqualToString:@"我的动态"]){
+            MessageRemindViewController *vc = [MessageRemindViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.title = text;
+            vc.listType = MessageRemindListTypeDefault;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
 }
 
 #pragma mark - <************************** 点击事件 **************************>
@@ -159,19 +189,23 @@
 }
 - (IBAction)onClickTitleButtons:(UIControl *)sender {
     // !!!: 评论、收藏、历史点击事件
+    MyMessageCenterViewController *vc = [MyMessageCenterViewController new];
+    vc.title = @"评论/收藏/历史";
+    vc.hidesBottomBarWhenPushed = YES;
     switch (sender.tag) {
         case 0://评论
-            LLAlert(@"跳转评论");
+            vc.defaultType = MessageRemindListTypeComment;
             break;
         case 1://收藏
-            LLAlert(@"跳转收藏");
+            vc.defaultType = MessageRemindListTypeCollection;
             break;
         case 2://历史
-            LLAlert(@"跳转历史");
+            vc.defaultType = MessageRemindListTypeHistory;
             break;
         default:
             break;
     }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)onClickHeaderImage:(UIButton *)sender {
     // !!!: 头像点击事件

@@ -8,13 +8,19 @@
 
 #import "DataEditingViewController.h"
 #import "DataEditTableViewCell.h"
+#import <SVProgressHUD.h>
+#import "MYDatePicker.h"
 
-@interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource, MYDatePickerDatasource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *tableFooterView;
 
 @property (strong, nonatomic) NSMutableArray *data;
+
+@property (strong, nonatomic) MYDatePicker *birthDatePicker;//生日选择器
+@property (strong, nonatomic) MYDatePicker *sexPicker;//性别选择器
+
 
 @end
 
@@ -76,6 +82,29 @@
     return _data;
 }
 
+- (MYDatePicker *)birthDatePicker{
+    if(!_birthDatePicker){
+        _birthDatePicker = [[MYDatePicker alloc] initWithContentView:self.view dataSource:nil pickerType:MYDatePickerTypeSystemStyle];
+        _birthDatePicker.datePickerMode = UIDatePickerModeDate;
+        _birthDatePicker.maximumDate = [NSDate date];
+        [_birthDatePicker setDateSelectedBlock:^(NSString *date){
+            [SVProgressHUD showSuccessWithStatus:@"设置成功"];
+        }];
+    }
+    return _birthDatePicker;
+}
+
+- (MYDatePicker *)sexPicker{
+    if(!_sexPicker){
+        _sexPicker = [[MYDatePicker alloc] initWithContentView:self.view dataSource:self pickerType:MYDatePickerTypeCustomStyle];
+        [_sexPicker setCurrentDateRow:0];
+        [_sexPicker setDateSelectedBlock:^(NSString *selectSex){
+            [SVProgressHUD showSuccessWithStatus:@"设置成功"];
+        }];
+    }
+    return _sexPicker;
+}
+
 
 
 #pragma mark - <************************** 代理方法 **************************>
@@ -96,6 +125,9 @@
     NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     DataEditTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DataEditingCellid"];
     cell.leftLabel.text = text;
+    cell.headerImage.hidden = !(indexPath.section == 0 && indexPath.row == 0);
+    cell.rightLabel.hidden = !cell.headerImage.hidden;
+    cell.rightLabel.text = @"待完善";
     return cell;
 }
 
@@ -110,17 +142,38 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    text = [NSString stringWithFormat:@"跳转%@", text];
-    LLAlert(text);
+    if([text isEqualToString:@"生日"]){
+        if(self.birthDatePicker.isOnShow == NO)
+            [self.birthDatePicker show];
+        else
+            [self.birthDatePicker hidden];
+    }else if([text isEqualToString:@"性别"]){
+        if(self.sexPicker.isOnShow == NO)
+            [self.sexPicker show];
+        else
+            [self.sexPicker hidden];
+    }else{
+        text = [NSString stringWithFormat:@"跳转%@", text];
+        LLAlert(text);
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
 }
 
+#pragma mark MYDatePickerDatasource
+- (NSInteger)numberOfDates{
+    return 2;
+}
+- (NSString *)titleForRow:(NSInteger)row{
+    return row == 0 ? @"男" : @"女";
+}
+ 
 
 #pragma mark - <************************** 点击事件 **************************>
 - (IBAction)onClickExit:(id)sender{
+    [SVProgressHUD showSuccessWithStatus:@"退出成功"];
     SaveInfoForKey(nil, UserId_NSUserDefaults);
     [self.navigationController popViewControllerAnimated:YES];
 }
