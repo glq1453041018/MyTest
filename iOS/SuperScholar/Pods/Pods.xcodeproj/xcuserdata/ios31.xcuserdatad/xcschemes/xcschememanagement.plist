@@ -34,6 +34,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SVProgressHUD-0.8.1.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TZImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -47,17 +57,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42770A951824C32E030E11C2295E4564</key>
+		<key>4F35557C2EE23BE8AD3FA29AB0164223</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4F24652DEC15518EDB3697B46CA9C3C8</key>
+		<key>5DAA1415A73E50AB5FE34CA8D45DDB94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64F1F1AEDF5E318B78AB06BC6409EC2C</key>
+		<key>7CF1947D9947C2EB8ECBEBB53FAF7A81</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE75D9D62F2E3A9E97A339598E81E533</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E2701C390AAB0072FC206370E7BB959C</key>
+		<key>9FF8A45FE06CD8BDB46FE47496965ABF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
