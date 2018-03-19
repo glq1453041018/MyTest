@@ -10,6 +10,7 @@
 #import "DataEditTableViewCell.h"
 #import <SVProgressHUD.h>
 #import "MYDatePicker.h"
+#import "MYCitySelectPicker.h"
 
 @interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource, MYDatePickerDatasource>
 
@@ -21,6 +22,7 @@
 @property (strong, nonatomic) UIView *backgroundView;//黑色背景图
 @property (strong, nonatomic) MYDatePicker *birthDatePicker;//生日选择器
 @property (strong, nonatomic) MYDatePicker *sexPicker;//性别选择器
+@property (strong, nonatomic) MYCitySelectPicker *cityPicker;//城市选择器
 
 
 @end
@@ -116,6 +118,21 @@
     return _sexPicker;
 }
 
+- (MYCitySelectPicker *)cityPicker{
+    WeakObj(self);
+    if(!_cityPicker){
+        _cityPicker = [[MYCitySelectPicker alloc] initWithSuperView:self.backgroundView];
+        [_cityPicker setDateSelectedBlock:^(NSString *selectCity){
+            [SVProgressHUD showSuccessWithStatus:@"设置成功"];
+            [weakself hideBackgrounView];
+        }];
+        [_cityPicker setSelectCanceledBlock:^(){
+            [weakself hideBackgrounView];
+        }];
+    }
+    return _cityPicker;
+}
+
 - (UIView *)backgroundView{
     if(!_backgroundView){
         _backgroundView = [[UIView alloc] init];
@@ -124,6 +141,7 @@
         [_backgroundView cwn_makeConstraints:^(UIView *maker) {
             maker.edgeInsetsToSuper(UIEdgeInsetsMake(0, 0, 0, 0));
         }];
+        [self.view layoutIfNeeded];
         _backgroundView.alpha = 0;
     }
     [self.view bringSubviewToFront:_backgroundView];
@@ -182,6 +200,14 @@
             [self.sexPicker hidden];
             [self hideBackgrounView];
         }
+    }else if([text isEqualToString:@"地区"]){
+        if(self.cityPicker.isOnShow == NO){
+            [self.cityPicker show];
+            [self showBackgrounView];
+        }else{
+            [self.cityPicker hide];
+            [self hideBackgrounView];
+        }
     }else{
         text = [NSString stringWithFormat:@"跳转%@", text];
         LLAlert(text);
@@ -210,9 +236,11 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     if(self.birthDatePicker.isOnShow)
-    [self.birthDatePicker hidden];
+        [self.birthDatePicker hidden];
     if(self.sexPicker.isOnShow)
-    [self.sexPicker hidden];
+        [self.sexPicker hidden];
+    if(self.cityPicker.isOnShow)
+        [self.cityPicker hide];
     
     [self hideBackgrounView];
 }
