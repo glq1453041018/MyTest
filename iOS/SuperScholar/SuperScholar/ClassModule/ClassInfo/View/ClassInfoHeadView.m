@@ -31,6 +31,7 @@
     self.scrollView.backgroundColor = [UIColor cyanColor];
     self.scrollView.useScaleEffect = YES;
     self.scrollView.needBgView = YES;
+    self.scrollView.useVerticalParallaxEffect = YES;
 }
 
 @end

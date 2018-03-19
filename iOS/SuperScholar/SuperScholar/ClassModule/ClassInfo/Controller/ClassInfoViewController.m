@@ -7,7 +7,7 @@
 //
 
 #import "ClassInfoViewController.h"
-#import "ClassSpaceViewController.h"
+#import "ClassCommentViewController.h"
 
 #import "ClassInfoHeadView.h"
 #import "ClassInfoTableViewCell.h"
@@ -210,7 +210,7 @@
     NSArray *items = self.data[indexPath.section];
     if (indexPath.section == 1) {                                           // 评价
         ClassInfoModel_PingJia *cimpj = items.lastObject;
-        ClassSapceViewController *ctrl = [ClassSapceViewController new];
+        ClassCommentViewController *ctrl = [ClassCommentViewController new];
         ctrl.title = @"评价详情";
         [self.navigationController pushViewController:ctrl animated:YES];
     }

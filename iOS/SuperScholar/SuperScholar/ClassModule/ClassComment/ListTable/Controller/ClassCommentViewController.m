@@ -1,30 +1,30 @@
 //
-//  ClassSapceViewController.m
+//  ClassCommentViewController.m
 //  SuperScholar
 //
-//  Created by 骆亮 on 2018/3/14.
+//  Created by 骆亮 on 2018/3/19.
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-// !!!: 控制器类
-#import "ClassSpaceViewController.h"
-#import "ClassInfoViewController.h"
+#import "ClassCommentViewController.h"
+#import "ClassComDetailViewController.h"        // 评论详情
 // !!!: 视图类
-#import "ClassSpaceTableViewCell.h"
-#import "ClassSpaceHeadView.h"
+#import "ClassCommentTableViewCell.h"
+#import "ClassCommentSectionView.h"
 // !!!: 管理类
-#import "ClassSpaceManager.h"
+#import "ClassCommentManager.h"
 
-@interface ClassSapceViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ClassCommentViewController ()<UITableViewDelegate,UITableViewDataSource,ClassCommentSectionViewDelegate>
 // !!!: 视图类
-@property (strong ,nonatomic) UITableView *table;
-@property (strong ,nonatomic) ClassSpaceHeadView *headView;
-
+@property (weak, nonatomic) IBOutlet UITableView *table;
+@property (strong ,nonatomic) ClassCommentSectionView *sectionView;
 // !!!: 数据类
 @property (strong ,nonatomic) NSMutableArray *data;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
+
 @end
 
-@implementation ClassSapceViewController
+@implementation ClassCommentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,18 +35,19 @@
 }
 
 
+
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
     [self.loadingView startAnimating];
-    [ClassSpaceManager requestDataResponse:^(NSArray *resArray, id error) {
+    [ClassCommentManager requestDataResponse:^(NSArray *resArray, id error) {
         [self.loadingView stopAnimating];
         self.data = resArray.mutableCopy;
         [self.table reloadData];
     }];
 }
 -(void)loadMoreData{
-    [ClassSpaceManager requestDataResponse:^(NSArray *resArray, id error) {
+    [ClassCommentManager requestDataResponse:^(NSArray *resArray, id error) {
         [self.table.mj_footer endRefreshing];
         if (error==nil) {
             [self.data addObjectsFromArray:resArray];
@@ -55,57 +56,41 @@
     }];
 }
 
+
 #pragma mark - <************************** 配置视图 **************************>
 // !!!: 配置视图
 -(void)initUI{
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     // 导航栏
-    [self.navigationBar setTitle:self.title?self.title:@"班级动态" leftImage:kGoBackImageString rightText:@"发布"];
+    [self.navigationBar setTitle:self.title?self.title:@"班级评价" leftImage:kGoBackImageString rightText:nil];
     self.isNeedGoBack = YES;
     
-    self.table.tableHeaderView = self.headView;
-    [self.view addSubview:self.table];
+    self.constraint.constant = self.navigationBar.bottom;
+    self.table.tableFooterView = [UIView new];
+    self.table.separatorStyle = NO;
+    self.table.mj_footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
+    [self.sectionView loadData:@[@"最新",@"有图",@"好评",@"中评",@"差评"] withDelegate:self];
+    self.table.tableHeaderView = self.sectionView;
 }
 
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
--(UITableView *)table{
-    if (_table==nil) {
-        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationBar.bottom, kScreenWidth, kScreenHeight-self.navigationBar.bottom) style:UITableViewStyleGrouped];
-        _table.delegate = self;
-        _table.dataSource = self;
-        _table.separatorStyle = NO;
-        _table.tableFooterView = [UIView new];
-        _table.mj_footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+
+-(ClassCommentSectionView *)sectionView{
+    if (_sectionView==nil) {
+        _sectionView = [[[NSBundle mainBundle] loadNibNamed:@"ClassCommentSectionView" owner:nil options:nil] lastObject];
     }
-    return _table;
+    return _sectionView;
 }
 
--(ClassSpaceHeadView *)headView{
-    if (_headView==nil) {
-        _headView = [[NSBundle mainBundle] loadNibNamed:@"ClassSpaceHeadView" owner:nil options:nil].lastObject;
-        [_headView adjustFrame];
-        [_headView.clickBtn addTarget:self action:@selector(clickBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _headView;
-}
-
--(NSMutableArray *)data{
-    if (_data==nil) {
-        _data = [NSMutableArray array];
-    }
-    return _data;
-}
 
 #pragma mark - <************************** 代理方法 **************************>
 // !!!: 导航栏
 -(void)navigationViewLeftClickEvent{
     [self.navigationController popViewControllerAnimated:YES];
 }
--(void)navigationViewRightClickEvent{
-    
-}
-
 // !!!: 列表的代理方法
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -114,42 +99,38 @@
     return self.data.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"ClassSpaceTableViewCell";
-    ClassSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    static NSString *cellId = @"ClassCommentTableViewCell";
+    ClassCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell==nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassCommentTableViewCell" owner:self options:nil] firstObject];
         cell.selectionStyle = NO;
     }
     [cell loadData:self.data index:indexPath.row pageSize:10];
     return cell;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 10;
-}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ClassSpaceModel *csm = self.data[indexPath.row];
-    return csm.cellHeight;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.01;
+    ClassCommentModel *ccm = self.data[indexPath.row];
+    return ccm.cellHeight;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-}
-
-
-
-#pragma mark - <************************** 点击事件 **************************>
-// !!!: 头部点击事件
--(void)clickBtnAction:(UIButton*)btn{
-    ClassInfoViewController *ctrl = [ClassInfoViewController new];
+    
+    ClassComDetailViewController *ctrl = [ClassComDetailViewController new];
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 
 
-#pragma mark - <************************** 其他方法 **************************>
+#pragma mark - <************************** 点击事件 **************************>
 
+
+
+
+#pragma mark - <************************** 其他方法 **************************>
+// !!!: 类型视图的爱里
+-(void)classCommentSectionViewSelectedIndex:(NSInteger)index content:(NSString*)content{
+    
+}
 
 
 
@@ -157,7 +138,6 @@
 - (void)dealloc{
     DLog(@"%@释放掉",[self class]);
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

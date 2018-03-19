@@ -1,19 +1,22 @@
 //
-//  ClassSapceTableViewCell.h
+//  ClassCommentTableViewCell.h
 //  SuperScholar
 //
-//  Created by 骆亮 on 2018/3/14.
+//  Created by 骆亮 on 2018/3/19.
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "ClassSpaceModel.h"
+#import "ClassCommentManager.h"
+#import "MYCommentStarView.h"
 
-@interface ClassSpaceTableViewCell : UITableViewCell
+@interface ClassCommentTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *headerBtn;
 @property (weak, nonatomic) IBOutlet UILabel *userNamelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet MYCommentStarView *starView;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIView *mediaView;
@@ -27,9 +30,3 @@
 -(void)loadData:(NSArray *)data index:(NSInteger)index pageSize:(NSInteger)pageSize;
 
 @end
-
-
-
-
-
-
