@@ -18,6 +18,7 @@
 
 @property (strong, nonatomic) NSMutableArray *data;
 
+@property (strong, nonatomic) UIView *backgroundView;//黑色背景图
 @property (strong, nonatomic) MYDatePicker *birthDatePicker;//生日选择器
 @property (strong, nonatomic) MYDatePicker *sexPicker;//性别选择器
 
@@ -83,28 +84,51 @@
 }
 
 - (MYDatePicker *)birthDatePicker{
+    WeakObj(self);
     if(!_birthDatePicker){
-        _birthDatePicker = [[MYDatePicker alloc] initWithContentView:self.view dataSource:nil pickerType:MYDatePickerTypeSystemStyle];
+        _birthDatePicker = [[MYDatePicker alloc] initWithContentView:self.backgroundView dataSource:nil pickerType:MYDatePickerTypeSystemStyle];
         _birthDatePicker.datePickerMode = UIDatePickerModeDate;
         _birthDatePicker.maximumDate = [NSDate date];
         [_birthDatePicker setDateSelectedBlock:^(NSString *date){
             [SVProgressHUD showSuccessWithStatus:@"设置成功"];
+            [weakself hideBackgrounView];
+        }];
+        [_birthDatePicker setSelectCanceledBlock:^(){
+            [weakself hideBackgrounView];
         }];
     }
     return _birthDatePicker;
 }
 
 - (MYDatePicker *)sexPicker{
+    WeakObj(self);
     if(!_sexPicker){
-        _sexPicker = [[MYDatePicker alloc] initWithContentView:self.view dataSource:self pickerType:MYDatePickerTypeCustomStyle];
+        _sexPicker = [[MYDatePicker alloc] initWithContentView:self.backgroundView dataSource:self pickerType:MYDatePickerTypeCustomStyle];
         [_sexPicker setCurrentDateRow:0];
         [_sexPicker setDateSelectedBlock:^(NSString *selectSex){
             [SVProgressHUD showSuccessWithStatus:@"设置成功"];
+            [weakself hideBackgrounView];
+        }];
+        [_sexPicker setSelectCanceledBlock:^(){
+            [weakself hideBackgrounView];
         }];
     }
     return _sexPicker;
 }
 
+- (UIView *)backgroundView{
+    if(!_backgroundView){
+        _backgroundView = [[UIView alloc] init];
+        _backgroundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+        [self.view addSubview:_backgroundView];
+        [_backgroundView cwn_makeConstraints:^(UIView *maker) {
+            maker.edgeInsetsToSuper(UIEdgeInsetsMake(0, 0, 0, 0));
+        }];
+        _backgroundView.alpha = 0;
+    }
+    [self.view bringSubviewToFront:_backgroundView];
+    return _backgroundView;
+}
 
 
 #pragma mark - <************************** 代理方法 **************************>
@@ -143,15 +167,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     if([text isEqualToString:@"生日"]){
-        if(self.birthDatePicker.isOnShow == NO)
+        if(self.birthDatePicker.isOnShow == NO){
             [self.birthDatePicker show];
-        else
+            [self showBackgrounView];
+        }else{
             [self.birthDatePicker hidden];
+            [self hideBackgrounView];
+        }
     }else if([text isEqualToString:@"性别"]){
-        if(self.sexPicker.isOnShow == NO)
+        if(self.sexPicker.isOnShow == NO){
             [self.sexPicker show];
-        else
+            [self showBackgrounView];
+        }else{
             [self.sexPicker hidden];
+            [self hideBackgrounView];
+        }
     }else{
         text = [NSString stringWithFormat:@"跳转%@", text];
         LLAlert(text);
@@ -178,10 +208,29 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    if(self.birthDatePicker.isOnShow)
+    [self.birthDatePicker hidden];
+    if(self.sexPicker.isOnShow)
+    [self.sexPicker hidden];
+    
+    [self hideBackgrounView];
+}
 
 
 #pragma mark - <************************** 其他方法 **************************>
 
+- (void)showBackgrounView{
+    [UIView animateWithDuration:0.33 animations:^{
+        self.backgroundView.alpha = 1;
+    }];
+}
+
+- (void)hideBackgrounView{
+    [UIView animateWithDuration:0.33 animations:^{
+        self.backgroundView.alpha = 0;
+    }];
+}
 
 
 
