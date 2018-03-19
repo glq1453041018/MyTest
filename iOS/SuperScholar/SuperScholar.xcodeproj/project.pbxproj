@@ -544,6 +544,7 @@
 		384A554520521F20006D8C23 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F40AF34B205F5BB300991CC9 /* MYTipsViewController */,
 				384A555F20521F2E006D8C23 /* MYSegmentController */,
 			);
 			path = Controller;
@@ -1242,6 +1243,13 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F40AF34B205F5BB300991CC9 /* MYTipsViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MYTipsViewController;
 			sourceTree = "<group>";
 		};
 		F44A6B5C205D0E9A005DBF33 /* Suggestion */ = {
