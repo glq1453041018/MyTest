@@ -36,6 +36,7 @@
 //字体大小
 #define FontSize_16 16
 #define FontSize_12 12
+#define FontSize_14 14
 //字体颜色
 #define FontSize_colorgray HexColor(0x333333)
 #define FontSize_colorlightgray HexColor(0x999999)
