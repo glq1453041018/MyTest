@@ -12,7 +12,7 @@
 #import "SchoolViewController.h"
 
 #import "UIImage+ImageEffects.h"
-@interface SearchIndexViewController ()
+@interface SearchIndexViewController ()<UISearchBarDelegate,UITextFieldDelegate>
 {
     MYSegmentController *segmentController;
 }
@@ -92,43 +92,46 @@
     self.searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(15, 0, IEW_WIDTH-30, 44)];
     [self.searchBar setShowsCancelButton:YES animated:YES];
     
-    
-    
-//    // 修改搜索框背景图片为自定义的灰色
-////    ColorWithHex(0xE3DFDA)
-////    UIColor *ll = [[UIColor alloc]initWithCGColor:ColorWithHex(0xE3DFDA)].CGColor];
-////    UIColor *backgroundImageColor = [UIColor colorWithCGColor:ColorWithHex(0xE3DFDA)].CGColor;
-//    UIImage* clearImg = [UIImage imageWithColor:ColorWithHex(0xE3dfDA) size:CGSizeMake(IEW_WIDTH-30, 44)];
-//    [self.searchBar setBackgroundImage:clearImg];
-//    // 修改搜索框光标颜色
-////    self.tintColor = [UIColor P2Color];
-//    // 修改搜索框的搜索图标
+
+    // 修改搜索框背景图片为自定义的灰色
+//    ColorWithHex(0xE3DFDA)
+//    UIColor *ll = [[UIColor alloc]initWithCGColor:ColorWithHex(0xE3DFDA)].CGColor];
+//    UIColor *backgroundImageColor = [UIColor colorWithCGColor:ColorWithHex(0xE3DFDA)].CGColor;
+    UIImage* clearImg = [UIImage imageWithColor:ColorWithHex(0xffffff) size:CGSizeMake(IEW_WIDTH-30, 44)];
+    [self.searchBar setBackgroundImage:clearImg];
+    // 修改搜索框光标颜色
+//    self.tintColor = [UIColor P2Color];
+    // 修改搜索框的搜索图标
 //    [self.searchBar setImage:[UIImage imageNamed:@"searchIcon"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
-//    for (UIView *view in self.searchBar.subviews.lastObject.subviews) {
-//        if([view isKindOfClass:NSClassFromString(@"UISearchBarTextField")]) {
-//            UITextField *textField = (UITextField *)view;
-//            //添加话筒按钮
-////            [self.searchBar addVoiceButton:textField];
-//            //设置输入框的背景颜色
-//            textField.clipsToBounds = YES;
-//            textField.backgroundColor = [UIColor grayColor];
-//            //设置输入框边框的圆角以及颜色
-//            textField.layer.cornerRadius = 10.0f;
-////            textField.layer.borderColor = [UIColor P2Color].CGColor;
-//            textField.layer.borderWidth = 1;
-//            //设置输入字体颜色
-////            textField.textColor = [UIColor P2Color];
-//            //设置默认文字颜色
-//            textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" 搜索" attributes:@{NSForegroundColorAttributeName:[UIColor grayColor]}];
-//        }
-//        if ([view isKindOfClass:NSClassFromString(@"UINavigationButton")]) {
-//            UIButton *cancel = (UIButton *)view;
-//            [cancel setTitle:@"取消" forState:UIControlStateNormal];
-//            [cancel setTitleColor:[UIColor P2Color] forState:UIControlStateNormal];
-//        }
-//    }
+    for (UIView *view in self.searchBar.subviews.lastObject.subviews) {
+        if([view isKindOfClass:NSClassFromString(@"UISearchBarTextField")]) {
+            UITextField *textField = (UITextField *)view;
+//            textField.returnKeyType = UIReturnKeySearch;
+            //添加话筒按钮
+//            [self.searchBar addVoiceButton:textField];
+             [textField setFrame:CGRectMake(0, textField.frame.origin.y, self.searchBar.frame.size.width-60, textField.frame.size.height)];
+            //设置输入框的背景颜色
+            textField.clipsToBounds = YES;
+            textField.backgroundColor = ColorWithHex(0xededed);
+            //设置输入框边框的圆角以及颜色
+            textField.layer.cornerRadius = 3.0f;
+            textField.layer.borderColor = ColorWithHex(0xededed).CGColor;
+            textField.layer.borderWidth = 1;
+            //设置输入字体颜色
+            textField.textColor = FontSize_colorgray;
+            //设置默认文字颜色
+            textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" 请输入关键字" attributes:@{NSForegroundColorAttributeName:ColorWithHex(0x666666)}];
+        }
+        if ([view isKindOfClass:NSClassFromString(@"UINavigationButton")]) {
+            UIButton *cancel = (UIButton *)view;
+            [cancel setFrame:CGRectMake(self.searchBar.frame.size.width-50, cancel.frame.origin.y, 50, cancel.frame.size.height)];
+            [cancel setTitle:@"取消" forState:UIControlStateNormal];
+            [cancel setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        }
+    }
     
-    
+    self.searchBar.delegate = self;
+    [self.searchBar becomeFirstResponder];
     [self.navigationBar setCenterView:self.searchBar leftView:nil rightView:nil];
     self.navigationBar.backgroundColor = [UIColor clearColor];
 }
@@ -139,7 +142,15 @@
 -(void)navigationViewLeftClickEvent{
    [self.navigationController popViewControllerAnimated:YES];
 }
-#pragma mark - <************************** 请求类型数据 **************************>
+#pragma mark - <************************** UIsearchBar代理 **************************>
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    DLog(@"搜索中。。。。。。。");
+    [searchBar resignFirstResponder];
+}
+
 
 #pragma mark - <************************** 检测释放 **************************>
 - (void)dealloc{
