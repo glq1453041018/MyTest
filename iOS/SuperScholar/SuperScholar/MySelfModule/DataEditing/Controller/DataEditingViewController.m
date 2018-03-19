@@ -11,8 +11,9 @@
 #import <SVProgressHUD.h>
 #import "MYDatePicker.h"
 #import "MYCitySelectPicker.h"
+#import <TZImagePickerController.h>
 
-@interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource, MYDatePickerDatasource>
+@interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource, MYDatePickerDatasource, TZImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *tableFooterView;
@@ -23,6 +24,9 @@
 @property (strong, nonatomic) MYDatePicker *birthDatePicker;//生日选择器
 @property (strong, nonatomic) MYDatePicker *sexPicker;//性别选择器
 @property (strong, nonatomic) MYCitySelectPicker *cityPicker;//城市选择器
+
+@property (strong, nonatomic) NSString *photoUrl;//待发送相册图片链接
+@property (strong, nonatomic) UIImage *photoImage;//待发送相册图片
 
 
 @end
@@ -170,6 +174,13 @@
     cell.headerImage.hidden = !(indexPath.section == 0 && indexPath.row == 0);
     cell.rightLabel.hidden = !cell.headerImage.hidden;
     cell.rightLabel.text = @"待完善";
+    
+    if(indexPath.section == 0 && indexPath.row == 0){
+        cell.headerImage.hidden = NO;
+        cell.headerImage.image = self.photoImage ? self.photoImage : cell.headerImage.image;
+    }else{
+        cell.headerImage.hidden = YES;
+    }
     return cell;
 }
 
@@ -208,6 +219,8 @@
             [self.cityPicker hide];
             [self hideBackgrounView];
         }
+    } else if([text isEqualToString:@"头像"]){
+        [self pushImagePickerController];
     }else{
         text = [NSString stringWithFormat:@"跳转%@", text];
         LLAlert(text);
@@ -225,7 +238,22 @@
 - (NSString *)titleForRow:(NSInteger)row{
     return row == 0 ? @"男" : @"女";
 }
- 
+
+#pragma mark TZImagePickerControllerDelegate
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto{
+//    WeakObj(self);
+//    [photos enumerateObjectsUsingBlock:^(UIImage *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        [TeacherSpaceManager uploadImage:obj response:^(NSString *imageUrlString, id error) {
+//            weakself.photoUrl = imageUrlString;
+//            weakself.photoImage = obj;
+//            [weakself textFieldShouldReturn:weakself.textField];
+//        }];
+//    }];
+    UIImage *image = [photos firstObject];
+    self.photoImage = image;
+    [self.tableView reloadData];
+}
+
 
 #pragma mark - <************************** 点击事件 **************************>
 - (IBAction)onClickExit:(id)sender{
@@ -258,6 +286,26 @@
     [UIView animateWithDuration:0.33 animations:^{
         self.backgroundView.alpha = 0;
     }];
+}
+
+// !!!: push到第三方图片选择控制器中
+- (void)pushImagePickerController {
+    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 columnNumber:4 delegate:self pushPhotoPickerVc:YES];
+    //    imagePickerVc.isSelectOriginalPhoto = _isSelectOriginalPhoto;
+    // 设置目前已经选中的图片数组
+    //    imagePickerVc.selectedAssets = self.selectedAssets; // 目前已经选中的图片数组
+    imagePickerVc.navigationBar.barTintColor = KColorTheme;
+    imagePickerVc.navigationBar.tintColor = [UIColor whiteColor];
+    imagePickerVc.allowPickingVideo = NO;
+    imagePickerVc.allowPickingImage = YES;
+    imagePickerVc.allowPickingOriginalPhoto = YES;
+    imagePickerVc.allowPickingGif = YES;
+    imagePickerVc.sortAscendingByModificationDate = NO;
+    imagePickerVc.showSelectBtn = NO;
+    imagePickerVc.allowCrop = YES;
+    imagePickerVc.cropRect = CGRectMake(0, IEW_HEGHT / 2.0 - IEW_WIDTH / 2.0, IEW_WIDTH, IEW_WIDTH);
+    imagePickerVc.needCircleCrop = NO;
+    [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
 
 
