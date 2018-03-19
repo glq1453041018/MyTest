@@ -12,6 +12,7 @@
 #import "MYDatePicker.h"
 #import "MYCitySelectPicker.h"
 #import <TZImagePickerController.h>
+#import "MYInfoInputView.h"
 
 @interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource, MYDatePickerDatasource, TZImagePickerControllerDelegate>
 
@@ -27,6 +28,9 @@
 
 @property (strong, nonatomic) NSString *photoUrl;//待发送相册图片链接
 @property (strong, nonatomic) UIImage *photoImage;//待发送相册图片
+
+@property (strong, nonatomic) MYInfoInputView *usernameInputView;//用户名修改
+@property (strong, nonatomic) MYInfoInputView *introduceInputView;//介绍修改
 
 
 @end
@@ -93,6 +97,7 @@
     WeakObj(self);
     if(!_birthDatePicker){
         _birthDatePicker = [[MYDatePicker alloc] initWithContentView:self.backgroundView dataSource:nil pickerType:MYDatePickerTypeSystemStyle];
+        _birthDatePicker.alpha = 0;
         _birthDatePicker.datePickerMode = UIDatePickerModeDate;
         _birthDatePicker.maximumDate = [NSDate date];
         [_birthDatePicker setDateSelectedBlock:^(NSString *date){
@@ -110,6 +115,7 @@
     WeakObj(self);
     if(!_sexPicker){
         _sexPicker = [[MYDatePicker alloc] initWithContentView:self.backgroundView dataSource:self pickerType:MYDatePickerTypeCustomStyle];
+        _sexPicker.alpha = 0;
         [_sexPicker setCurrentDateRow:0];
         [_sexPicker setDateSelectedBlock:^(NSString *selectSex){
             [SVProgressHUD showSuccessWithStatus:@"设置成功"];
@@ -126,6 +132,7 @@
     WeakObj(self);
     if(!_cityPicker){
         _cityPicker = [[MYCitySelectPicker alloc] initWithSuperView:self.backgroundView];
+         _cityPicker.alpha = 0;
         [_cityPicker setDateSelectedBlock:^(NSString *selectCity){
             [SVProgressHUD showSuccessWithStatus:@"设置成功"];
             [weakself hideBackgrounView];
@@ -135,6 +142,42 @@
         }];
     }
     return _cityPicker;
+}
+
+- (MYInfoInputView *)usernameInputView{
+    WeakObj(self);
+    if(!_usernameInputView){
+        _usernameInputView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MYInfoInputView class]) owner:nil options:nil] firstObject];
+        _usernameInputView.inputType = MYInfoInputTypeUserName;
+        _usernameInputView.alpha = 0;
+        [self.backgroundView addSubview:_usernameInputView];
+        [_usernameInputView setInfoInputDownBlock:^(NSString *username){
+            [SVProgressHUD showSuccessWithStatus:@"设置成功"];
+            [weakself hideBackgrounView];
+        }];
+        [_usernameInputView setInfoInputCancelBlock:^(){
+            [weakself hideBackgrounView];
+        }];
+    }
+    return _usernameInputView;
+}
+
+- (MYInfoInputView *)introduceInputView{
+    WeakObj(self);
+    if(!_introduceInputView){
+        _introduceInputView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MYInfoInputView class]) owner:nil options:nil] firstObject];
+        _introduceInputView.inputType = MYInfoInputTypeIntroduce;
+        _introduceInputView.alpha = 0;
+        [self.backgroundView addSubview:_introduceInputView];
+        [_introduceInputView setInfoInputDownBlock:^(NSString *username){
+            [SVProgressHUD showSuccessWithStatus:@"设置成功"];
+            [weakself hideBackgrounView];
+        }];
+        [_introduceInputView setInfoInputCancelBlock:^(){
+            [weakself hideBackgrounView];
+        }];
+    }
+    return _introduceInputView;
 }
 
 - (UIView *)backgroundView{
@@ -221,6 +264,22 @@
         }
     } else if([text isEqualToString:@"头像"]){
         [self pushImagePickerController];
+    }else if([text isEqualToString:@"用户名"]){
+        if(self.usernameInputView.isOnShow == NO){
+            [self.usernameInputView show];
+            [self showBackgrounView];
+        }else{
+            [self.usernameInputView hide];
+            [self hideBackgrounView];
+        }
+    }else if([text isEqualToString:@"介绍"]){
+        if(self.introduceInputView.isOnShow == NO){
+            [self.introduceInputView show];
+            [self showBackgrounView];
+        }else{
+            [self.introduceInputView hide];
+            [self hideBackgrounView];
+        }
     }else{
         text = [NSString stringWithFormat:@"跳转%@", text];
         LLAlert(text);
@@ -269,6 +328,10 @@
         [self.sexPicker hidden];
     if(self.cityPicker.isOnShow)
         [self.cityPicker hide];
+    if(self.usernameInputView.isOnShow)
+        [self.usernameInputView hide];
+    if(self.introduceInputView.isOnShow)
+        [self.introduceInputView hide];
     
     [self hideBackgrounView];
 }
@@ -277,13 +340,13 @@
 #pragma mark - <************************** 其他方法 **************************>
 
 - (void)showBackgrounView{
-    [UIView animateWithDuration:0.33 animations:^{
+    [UIView animateWithDuration:0.22 animations:^{
         self.backgroundView.alpha = 1;
     }];
 }
 
 - (void)hideBackgrounView{
-    [UIView animateWithDuration:0.33 animations:^{
+    [UIView animateWithDuration:0.22 animations:^{
         self.backgroundView.alpha = 0;
     }];
 }

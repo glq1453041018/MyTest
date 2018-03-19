@@ -8,18 +8,27 @@
 
 #import "MYInfoInputView.h"
 
-static int view_height = 100;
+static int view_height = 154;
 
-@interface MYInfoInputView ()
+@interface MYInfoInputView ()<UITextViewDelegate>
 @property (strong, nonatomic) NSLayoutConstraint *inputViewBottom;//底部约束，键盘出来时设置为键盘的高度，键盘消失时设置为-输入视图自身高度即可
 @end
 @implementation MYInfoInputView
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)awakeFromNib{
     [super awakeFromNib];
     //监听键盘显示和隐藏
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+    
+    self.textViewBackView.layer.borderWidth = 0.5;
+    self.textViewBackView.layer.borderColor = HexColor(0xcccccc).CGColor;
+    
+    self.textView.delegate = self;
 }
 
 - (void)didMoveToSuperview{
@@ -27,14 +36,6 @@ static int view_height = 100;
     [self cwn_makeConstraints:^(UIView *maker) {
          weakself.inputViewBottom = maker.leftToSuper(0).rightToSuper(0).height(view_height).bottomToSuper(-view_height).lastConstraint;
     }];
-}
-
-- (void)show{
-    [self.textView becomeFirstResponder];
-}
-
-- (void)hide{
-    [self.textView resignFirstResponder];
 }
 
 - (void)keyboardWillShow:(NSNotification*)aNotification{
@@ -57,15 +58,20 @@ static int view_height = 100;
     //4.改变_inputView和tableView的坐标
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
-    self.inputViewBottom.constant = -view_height;
+    self.inputViewBottom.constant = view_height;
     [self.superview layoutIfNeeded];
     [CATransaction commit];
     
+    self.alpha =1;
+    
+    self.inputViewBottom.constant = -keyboardFrameNew.size.height;
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:animationTime];
     [UIView setAnimationCurve:animationCurve];
     [self.superview layoutIfNeeded];
     [UIView commitAnimations];
+    
+    self.isOnShow = YES;
 }
 
 -(void)keyboardWillBeHidden:(NSNotification*)aNotification{
@@ -81,19 +87,61 @@ static int view_height = 100;
     int animationCurve =[dic[@"UIKeyboardAnimationCurveUserInfoKey"]intValue];
     
     //4.改变_inputView和tableView的坐标
-//    if(self.emojiView.emojiViewIsOnShow == NO){//切换表情键盘导致的系统键盘收起
-//        self.stockViewHeight.constant = ShiPei(35) * [self.stockViewController.stockArray count];
-//        self.stockSearchViewHeight.constant = 0;
-//        self.keyboardIsOnShow = NO;
-//        self.inputToolBarBottom.constant = 10;
-//        self.inputViewLeft.constant = 12;
-//        self.inputBackView.layer.cornerRadius = 5;
-//        [UIView beginAnimations:nil context:nil];
-//        [UIView setAnimationDuration:animationTime];
-//        [UIView setAnimationCurve:animationCurve];
-//        [self.view layoutIfNeeded];
-//        [UIView commitAnimations];
+//    if(self.emojiView.emojiViewIsOnShow == NO){//切换表情键盘导致的系统键盘收
+    
+        self.inputViewBottom.constant = view_height;
+       [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:animationTime];
+        [UIView setAnimationCurve:animationCurve];
+        [self.superview layoutIfNeeded];
+        [UIView commitAnimations];
+    
+    if(self.infoInputCancelBlock){
+        self.infoInputCancelBlock();
+    }
+    
+    self.isOnShow = NO;
 //    }
+}
+
+#pragma mark UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView{
+    if([textView.text length]){
+        self.placeHolder.hidden = YES;
+    }else{
+        self.placeHolder.hidden = NO;
+    }
+}
+
+#pragma mark 事件处理
+- (IBAction)onClickCommitBtn:(UIButton *)sender {
+// !!!: 点击确定按钮
+    if(self.infoInputDownBlock){
+        self.infoInputDownBlock(self.textView.text);
+    }
+    [self hide];
+}
+
+- (void)show{
+// !!!: 显示
+    switch (self.inputType) {
+        case MYInfoInputTypeUserName:{
+            [self.placeHolder setText:@"请输入用户名"];
+        }
+            break;
+        case MYInfoInputTypeIntroduce:{
+            [self.placeHolder setText:@"请输入个性签名"];
+        }
+            break;
+        default:
+            break;
+    }
+    [self.textView becomeFirstResponder];
+}
+
+- (void)hide{
+// !!!: 隐藏
+    [self endEditing:YES];
 }
 
 

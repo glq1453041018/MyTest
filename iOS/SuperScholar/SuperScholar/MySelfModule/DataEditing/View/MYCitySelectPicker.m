@@ -154,6 +154,7 @@ static CGFloat const kCitySelectNaviPickerBarHeight = 44;
     self.bottomToSup.constant = kCitySelectNaviPickerBarHeight + kCitySelectDatePickerHeight;
     [self.superview layoutIfNeeded];
     self.bottomToSup.constant = 0;
+    self.alpha = 1;
     [UIView animateWithDuration:0.33 animations:^{
         [self.superview layoutIfNeeded];
     }completion:^(BOOL finished) {
@@ -170,6 +171,7 @@ static CGFloat const kCitySelectNaviPickerBarHeight = 44;
         [self.superview layoutIfNeeded];
     }completion:^(BOOL finished) {
         self.isOnShow = NO;
+        self.alpha = 0;
     }];
 }
 
