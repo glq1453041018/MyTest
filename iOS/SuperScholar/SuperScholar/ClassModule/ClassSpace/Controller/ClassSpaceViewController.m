@@ -8,7 +8,8 @@
 
 // !!!: 控制器类
 #import "ClassSpaceViewController.h"
-#import "ClassInfoViewController.h"
+#import "ClassInfoViewController.h"             // 班级信息
+#import "ClassComDetailViewController.h"        // 班级评论列表
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"
 #import "ClassSpaceHeadView.h"
@@ -19,9 +20,9 @@
 // !!!: 视图类
 @property (strong ,nonatomic) UITableView *table;
 @property (strong ,nonatomic) ClassSpaceHeadView *headView;
-
 // !!!: 数据类
 @property (strong ,nonatomic) NSMutableArray *data;
+@property (strong ,nonatomic) ClassSpaceManager *manager;
 @end
 
 @implementation ClassSapceViewController
@@ -71,7 +72,7 @@
 #pragma mark - <*********************** 初始化控件/数据 **********************>
 -(UITableView *)table{
     if (_table==nil) {
-        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationBar.bottom, kScreenWidth, kScreenHeight-self.navigationBar.bottom)];
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationBar.bottom, kScreenWidth, kScreenHeight-self.navigationBar.bottom) style:UITableViewStyleGrouped];
         _table.delegate = self;
         _table.dataSource = self;
         _table.separatorStyle = NO;
@@ -85,8 +86,23 @@
     if (_headView==nil) {
         _headView = [[NSBundle mainBundle] loadNibNamed:@"ClassSpaceHeadView" owner:nil options:nil].lastObject;
         [_headView adjustFrame];
+        [_headView.clickBtn addTarget:self action:@selector(clickBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _headView;
+}
+
+-(NSMutableArray *)data{
+    if (_data==nil) {
+        _data = [NSMutableArray array];
+    }
+    return _data;
+}
+
+-(ClassSpaceManager *)manager{
+    if (_manager==nil) {
+        _manager = [ClassSpaceManager new];
+    }
+    return _manager;
 }
 
 #pragma mark - <************************** 代理方法 **************************>
@@ -105,9 +121,6 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.data.count;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 10;
-}
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellId = @"ClassSpaceTableViewCell";
     ClassSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
@@ -115,19 +128,34 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
         cell.selectionStyle = NO;
     }
-    [cell loadData:self.data index:indexPath.row pageSize:10];
+    [self.manager loadData:self.data cell:cell index:indexPath.row pageSize:10];
     return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 10;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     ClassSpaceModel *csm = self.data[indexPath.row];
     return csm.cellHeight;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.01;
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    ClassComDetailViewController *ctrl = [ClassComDetailViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 
+
 #pragma mark - <************************** 点击事件 **************************>
+// !!!: 头部点击事件
+-(void)clickBtnAction:(UIButton*)btn{
+    ClassInfoViewController *ctrl = [ClassInfoViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
 
 
 

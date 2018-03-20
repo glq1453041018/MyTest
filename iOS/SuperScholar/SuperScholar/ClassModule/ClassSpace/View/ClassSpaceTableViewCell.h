@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ClassSpaceModel.h"
 #import "MYCommentStarView.h"
 
 @interface ClassSpaceTableViewCell : UITableViewCell
@@ -17,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet MYCommentStarView *starView;
 
-
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIView *mediaView;
 
@@ -25,9 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *viewLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
-
-// !!!: 加载视图
--(void)loadData:(NSArray *)data index:(NSInteger)index pageSize:(NSInteger)pageSize;
 
 @end
 

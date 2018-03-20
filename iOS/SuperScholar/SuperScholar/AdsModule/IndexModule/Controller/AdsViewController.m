@@ -9,9 +9,11 @@
 #import "AdsViewController.h"
 #import "SearchIndexViewController.h"
 #import "AddressViewController.h"
+#import "AdsDetailViewController.h"
+
 #import "AdsCollectionViewCell.h"
 
-@interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate>
 @property (nonatomic,strong) UICollectionView *CollectionView;
 @property (strong ,nonatomic) UIView *leftView;
 @property (copy ,nonatomic) NSString *address;
@@ -39,6 +41,7 @@
     self.view.frame = CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT);
 
     self.address = @"福州";
+    self.searchBar.delegate = self;
     [self.navigationBar setCenterView:self.searchBar leftView:self.leftView rightView:self.rightLabel];
     
     [self creatCollectionView];
@@ -48,16 +51,17 @@
 -(UIView *)leftView{
     if (_leftView==nil) {
         _leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
-        UILabel *addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
+        UILabel *addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 45, 30)];
         addressLabel.textColor = [UIColor whiteColor];
-        addressLabel.font = [UIFont systemFontOfSize:FontSize_16];
+        addressLabel.font = [UIFont systemFontOfSize:FontSize_14];
         addressLabel.numberOfLines = 0;
-        addressLabel.adjustsFontSizeToFitWidth = YES;
-        addressLabel.textAlignment = NSTextAlignmentCenter;
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+//        addressLabel.adjustsFontSizeToFitWidth = YES;
+        addressLabel.textAlignment = NSTextAlignmentLeft;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(45, 7, 15, 15)];
         imageView.image = [UIImage imageNamed:@"down"];
         [_leftView addSubview:addressLabel];
         [_leftView addSubview:imageView];
+//        _leftView.backgroundColor = RandColor;
     }
     return _leftView;
 }
@@ -74,12 +78,17 @@
         }
     }
     addressLabel.text = address;
-    CGSize size = [address sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:FontSize_16]}];
-    CGSize size2 = [@"连云港" sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:FontSize_16]}];   // 最多4个字
+    CGSize size = [address sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:FontSize_14]}];
+    CGSize size2 = [@"阿里斯山" sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:FontSize_14]}];   // 最多4个字
     addressLabel.viewWidth = MIN(size.width, size2.width);
     addressLabel.centerY = self.leftView.bounds.size.height/2.0;
     addressImageView.left = addressLabel.right;
     addressImageView.centerY = addressLabel.centerY;
+    self.leftView.viewWidth = addressLabel.viewWidth+addressImageView.viewWidth;
+    self.searchBar.left = self.leftView.right;
+    self.searchBar.viewWidth = IEW_WIDTH-self.leftView.viewWidth-self.rightLabel.viewWidth-30;
+//    self.searchBar.right = self.rightLabel.left;
+
 }
 -(UILabel *)rightLabel{
     if (_rightLabel==nil) {
@@ -94,11 +103,13 @@
 
 -(UISearchBar *)searchBar{
     if (_searchBar==nil) {
-        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, AdaptedWidthValue(230), 35)];
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, IEW_WIDTH-_leftView.viewWidth-_rightLabel.viewWidth, 35)];
         _searchBar.placeholder = @"搜索";
         _searchBar.backgroundImage = [UIImage new];
-        _searchBar.userInteractionEnabled = NO;
+//        _searchBar.userInteractionEnabled = NO;
+
     }
+        
     return _searchBar;
 }
 
@@ -246,13 +257,18 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
+
+    AdsDetailViewController *next = [[AdsDetailViewController alloc]initWithNibName:@"AdsDetailViewController" bundle:nil];
+    next.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:next animated:YES];
+}
+
+#pragma mark - <************************** UISearchBar代理 **************************>
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     SearchIndexViewController *zhaosheng = [[SearchIndexViewController alloc]initWithNibName:@"SearchIndexViewController" bundle:nil];
     zhaosheng.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:zhaosheng animated:YES];
 }
-
-#pragma mark - <************************** 点击事件 **************************>
-
 
 
 #pragma mark - <************************** 其他方法 **************************>

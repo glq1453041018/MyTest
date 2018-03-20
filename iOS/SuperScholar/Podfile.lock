@@ -31,6 +31,7 @@ PODS:
   - SMSSDK (3.0.1):
     - MOBFoundation
   - SVProgressHUD-0.8.1 (0.8)
+  - TZImagePickerController (2.0.0.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0.0-beta2)
   - SMSSDK (~> 3.0.1)
   - SVProgressHUD-0.8.1 (~> 0.8)
+  - TZImagePickerController (~> 2.0.0.6)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -55,7 +57,8 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SMSSDK: a811c8ea6e89393097037b7cf6493248a40e50f0
   SVProgressHUD-0.8.1: ee9e6e58b5b5ffaf3f1a62c2dc409763470df143
+  TZImagePickerController: 9bf89512bb6de53e87897f2e17e607c126a199d6
 
-PODFILE CHECKSUM: 71ef724630311188b6af8add80672070759b144e
+PODFILE CHECKSUM: 06b27efa9482b23870729e1320ceb0a58e1b0211
 
 COCOAPODS: 1.4.0

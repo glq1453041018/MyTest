@@ -58,6 +58,10 @@
 
 
 
+#pragma mark - <************************** 发消息 **************************>
+#define MsgSend(...) ((void (*)(void *, SEL, UIView *))objc_msgSend)(__VA_ARGS__)
+#define MsgTarget(target) (__bridge void *)(target)
+
 
 #pragma mark - <************************** 适配 **************************>
 // 以iPhone6为基准，获取缩放比例来设置控件的自适应

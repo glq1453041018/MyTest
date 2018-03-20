@@ -20,7 +20,7 @@
         [titles addObject:cim];
     }
     ClassInfoModel_PingJia *cimpj = [ClassInfoModel_PingJia new];
-    cimpj.starNum = 5;
+    cimpj.starNum = 4;
     cimpj.commentNum = 123;
     cimpj.cellHeight = AdaptedWidthValue(44);
     NSArray *pingjias = @[cimpj];
@@ -39,5 +39,44 @@
         responseBlock(resArray,nil);
     }
 }
+
+
+
+// !!!: 加载数据
+-(void)loadTitleCellData:(NSArray*)data cell:(ClassInfoTableViewCell_Title*)cell delegate:(id)delegate{
+    if (delegate) {
+        self.delegate = delegate;
+    }
+    
+    for (UIView* view in cell.subviews) {
+        if ([view isKindOfClass:[ClassInfoTitleItemView class]]) {
+            [view removeFromSuperview];
+        }
+    }
+    
+    if (data.count) {
+        CGFloat width = kScreenWidth / data.count;
+        for (int i=0; i<data.count; i++) {
+            ClassInfoModel *cim = data[i];
+            ClassInfoTitleItemView *itemView = [[[NSBundle mainBundle] loadNibNamed:@"ClassInfoTitleItemView" owner:nil options:nil] firstObject];
+            itemView.titleLabel.text = cim.key.length?cim.key:@"-";
+            itemView.detailLabel.text = cim.value.length?cim.value:@"-";
+            [itemView.tapBtn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+            objc_setAssociatedObject(itemView.tapBtn, @"tapBtn", cim, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            itemView.tapBtn.tag = i;
+            itemView.centerX = width/2.0 * (2*i+1);
+            [cell addSubview:itemView];
+        }
+    }
+    
+}
+
+-(void)click:(UIButton*)btn{
+    ClassInfoModel *cim = objc_getAssociatedObject(btn, @"tapBtn");
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(classInfoManagerTitleClickEvent:data:)]) {
+        [self.delegate classInfoManagerTitleClickEvent:btn.tag data:cim];
+    }
+}
+
 
 @end

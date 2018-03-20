@@ -11,4 +11,5 @@ target 'SuperScholar' do
    pod 'AMap2DMap-NO-IDFA'
    pod 'AMapLocation-NO-IDFA'
    pod 'SVProgressHUD-0.8.1', '~> 0.8'
+   pod 'TZImagePickerController', '~> 2.0.0.6'             # 多媒体选择器、
 end

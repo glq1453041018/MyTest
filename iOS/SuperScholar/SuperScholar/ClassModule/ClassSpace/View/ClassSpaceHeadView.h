@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ClassSpaceHeadView : UIView
+@property (weak, nonatomic) IBOutlet UIButton *clickBtn;
 
 @end

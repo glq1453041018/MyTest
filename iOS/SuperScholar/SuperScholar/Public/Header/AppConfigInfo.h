@@ -30,14 +30,20 @@
 #define GLOBAL_TABLSECTION_LINECOLOR HexColor(0xc9ced6)
 //分割线颜色
 #define SeparatorLineColor  HexColor(0xe0e0e0)
+//table背景颜色
+#define TableBackGroundColor  HexColor(0xf7f7f7)
 //选项卡的高度
 #define kscrollerbarHeight 40
 
 //字体大小
 #define FontSize_16 16
 #define FontSize_12 12
+#define FontSize_13 13
+#define FontSize_14 14
 //字体颜色
 #define FontSize_colorgray HexColor(0x333333)
+#define FontSize_colordarkgray HexColor(0x666666)
+#define FontSize_colorlightlightgray HexColor(0x888888)
 #define FontSize_colorlightgray HexColor(0x999999)
 
 //行间距
@@ -45,6 +51,11 @@
 
 // 返回按钮
 #define kGoBackImageString @"public_left"
+
+// 默认的头像占位符
+#define kPlaceholderHeadImage [UIImage imageNamed:@"bgImage"]
+// 默认的图片占位符
+#define kPlaceholderImage [UIImage imageNamed:@"zhanweifu"]
 
 
 #pragma mark - <************************** 通知字段 **************************>

@@ -8,6 +8,7 @@
 
 #import "SchoolViewController.h"
 #import "SchoolTableViewCell.h"
+#import "ClassInfoViewController.h"
 @interface SchoolViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,assign) NSInteger page;
@@ -229,7 +230,8 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
+    ClassInfoViewController *ctrl = [ClassInfoViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 #pragma mark - <************************** 点击事件 **************************>

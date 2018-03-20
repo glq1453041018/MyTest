@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -56,6 +56,10 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXd-lo-Cht">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhK-7F-axB">
                     <rect key="frame" x="42" y="89" width="46" height="46"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -104,12 +108,16 @@
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
+                            <color key="shadowColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <size key="shadowOffset" width="0.0" height="0.5"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我爱我家我爱我家我爱我家我爱我家我爱我家我爱我家我爱我家我爱我家我爱我家" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCX-z7-mdf">
                             <rect key="frame" x="96" y="33" width="271" height="32"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
+                            <color key="shadowColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <size key="shadowOffset" width="0.0" height="0.5"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -131,14 +139,18 @@
                 <constraint firstItem="KpY-8l-PnU" firstAttribute="top" secondItem="M9F-GO-uOf" secondAttribute="top" id="AKg-E4-GUK"/>
                 <constraint firstAttribute="trailing" secondItem="KpY-8l-PnU" secondAttribute="trailing" id="Dnx-Zq-Ryp"/>
                 <constraint firstItem="cuT-6O-MJl" firstAttribute="leading" secondItem="M9F-GO-uOf" secondAttribute="leading" id="MV9-08-Mgg"/>
+                <constraint firstAttribute="trailing" secondItem="zXd-lo-Cht" secondAttribute="trailing" id="NrJ-Rb-ezn"/>
                 <constraint firstItem="KpY-8l-PnU" firstAttribute="leading" secondItem="M9F-GO-uOf" secondAttribute="leading" id="SNB-9I-6m6"/>
+                <constraint firstItem="zXd-lo-Cht" firstAttribute="top" secondItem="M9F-GO-uOf" secondAttribute="top" id="VCk-If-oJ7"/>
                 <constraint firstAttribute="bottom" secondItem="cuT-6O-MJl" secondAttribute="bottom" id="Vxu-jd-UY0"/>
                 <constraint firstAttribute="trailing" secondItem="cuT-6O-MJl" secondAttribute="trailing" id="Xhv-7U-gy5"/>
                 <constraint firstAttribute="bottom" secondItem="xhK-7F-axB" secondAttribute="bottom" constant="40" id="Zcv-85-w6Y"/>
+                <constraint firstAttribute="bottom" secondItem="zXd-lo-Cht" secondAttribute="bottom" id="ccf-Ml-5KH"/>
                 <constraint firstItem="xhK-7F-axB" firstAttribute="leading" secondItem="M9F-GO-uOf" secondAttribute="leading" constant="42" id="prI-BK-Th7"/>
+                <constraint firstItem="zXd-lo-Cht" firstAttribute="leading" secondItem="M9F-GO-uOf" secondAttribute="leading" id="wuv-v2-qrz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-410" y="-192"/>
+            <point key="canvasLocation" x="-410.5" y="-192.5"/>
         </view>
         <view contentMode="scaleToFill" id="tJP-ka-RGo">
             <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
@@ -147,9 +159,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YI1-KE-dhW" customClass="MYAutoScaleView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
                     <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="175" id="G0d-Mb-7UG"/>
-                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hS-qg-c7k">
                     <rect key="frame" x="0.0" y="175" width="375" height="70"/>
@@ -275,12 +284,13 @@
                 <constraint firstAttribute="trailing" secondItem="YI1-KE-dhW" secondAttribute="trailing" id="9p4-bO-OOl"/>
                 <constraint firstAttribute="trailing" secondItem="5hS-qg-c7k" secondAttribute="trailing" id="HzU-zc-ped"/>
                 <constraint firstItem="YI1-KE-dhW" firstAttribute="leading" secondItem="tJP-ka-RGo" secondAttribute="leading" id="MAp-Ld-hEg"/>
+                <constraint firstItem="5hS-qg-c7k" firstAttribute="top" secondItem="YI1-KE-dhW" secondAttribute="bottom" id="NSb-SY-0BB"/>
                 <constraint firstItem="5hS-qg-c7k" firstAttribute="leading" secondItem="tJP-ka-RGo" secondAttribute="leading" id="cHY-YY-Mys"/>
                 <constraint firstAttribute="bottom" secondItem="5hS-qg-c7k" secondAttribute="bottom" id="v6j-Dr-yNY"/>
                 <constraint firstItem="YI1-KE-dhW" firstAttribute="top" secondItem="tJP-ka-RGo" secondAttribute="top" id="v71-cH-HfO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-411.5" y="81.5"/>
+            <point key="canvasLocation" x="-411" y="73"/>
         </view>
     </objects>
     <resources>
