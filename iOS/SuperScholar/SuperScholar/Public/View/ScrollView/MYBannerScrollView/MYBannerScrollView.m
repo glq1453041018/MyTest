@@ -83,17 +83,17 @@
         switch (weakself.location) {
             case locationCenter:
             {
-                maker.height(25).centerXtoSuper(0);
+                maker.height(25).centerXtoSuper(5);
             }
                 break;
             case locationRight:
             {
-                maker.height(25).rightToSuper(20);
+                maker.height(25).rightToSuper(5);
             }
                 break;
             case locationLeft:
             {
-                maker.height(25).leftToSuper(20);
+                maker.height(25).leftToSuper(5);
             }
                 break;
                 
@@ -146,17 +146,17 @@
         switch (location) {
             case locationCenter:
             {
-                maker.height(25).centerXtoSuper(0).bottomToSuper(0);
+                maker.height(25).centerXtoSuper(0).bottomToSuper(5);
             }
                 break;
             case locationRight:
             {
-                maker.height(25).rightToSuper(20).bottomToSuper(0);
+                maker.height(25).rightToSuper(20).bottomToSuper(5);
             }
                 break;
             case locationLeft:
             {
-                maker.height(25).leftToSuper(20).bottomToSuper(0);
+                maker.height(25).leftToSuper(20).bottomToSuper(5);
             }
                 break;
                 

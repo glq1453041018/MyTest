@@ -14,6 +14,11 @@ typedef NS_ENUM(NSInteger , MYPageControlLocation) {
     locationRight
 };
 
+typedef NS_ENUM(NSInteger , MYPageControlStyle) {
+    MYPageControlStyleDefault,//小圆点样式
+    MYPageControlStyleLabel,//文本样式1/5
+};
+
 
 @class MYBannerScrollView;
 
