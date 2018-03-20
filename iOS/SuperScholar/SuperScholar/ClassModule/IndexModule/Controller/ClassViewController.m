@@ -81,7 +81,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ClassViewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ClassViewCollectionViewCell" forIndexPath:indexPath];
     [cell.detailBtn addTarget:self action:@selector(detailBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [cell loadData:self.data index:indexPath.row];
+    [ClassViewManager loadCell:cell model:self.data[indexPath.row]];
     return cell;
 }
 

@@ -7,7 +7,6 @@
 //
 
 #import "ClassViewCollectionViewCell.h"
-#import "UIImage+ImageEffects.h"
 #import "ClassViewModel.h"
 @implementation ClassViewCollectionViewCell
 

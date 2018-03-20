@@ -117,6 +117,8 @@
 		C781F871205BFFE000BE37AD /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F86F205BFFE000BE37AD /* AddressViewController.m */; };
 		C781F872205BFFE000BE37AD /* AddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F870205BFFE000BE37AD /* AddressViewController.xib */; };
 		C781F875205CA79E00BE37AD /* AddressViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F874205CA79E00BE37AD /* AddressViewManager.m */; };
+		D31B768E2061345D000AA637 /* testData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D31B768D2061345D000AA637 /* testData.plist */; };
+		D31B76912061379D000AA637 /* TESTDATA.m in Sources */ = {isa = PBXBuildFile; fileRef = D31B76902061379D000AA637 /* TESTDATA.m */; };
 		F40A8FF1205E170D0087814A /* timg.png in Resources */ = {isa = PBXBuildFile; fileRef = F40A8FF0205E170D0087814A /* timg.png */; };
 		F40A8FF9205E1A4E0087814A /* MyMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40A8FF7205E1A4E0087814A /* MyMessageCenterViewController.m */; };
 		F40A8FFA205E1A4E0087814A /* MyMessageCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40A8FF8205E1A4E0087814A /* MyMessageCenterViewController.xib */; };
@@ -317,6 +319,9 @@
 		C781F870205BFFE000BE37AD /* AddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressViewController.xib; sourceTree = "<group>"; };
 		C781F873205CA79E00BE37AD /* AddressViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewManager.h; sourceTree = "<group>"; };
 		C781F874205CA79E00BE37AD /* AddressViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewManager.m; sourceTree = "<group>"; };
+		D31B768D2061345D000AA637 /* testData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testData.plist; sourceTree = "<group>"; };
+		D31B768F2061379D000AA637 /* TESTDATA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TESTDATA.h; sourceTree = "<group>"; };
+		D31B76902061379D000AA637 /* TESTDATA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TESTDATA.m; sourceTree = "<group>"; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
 		F40A8FF0205E170D0087814A /* timg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timg.png; sourceTree = "<group>"; };
 		F40A8FF6205E1A4E0087814A /* MyMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageCenterViewController.h; sourceTree = "<group>"; };
@@ -621,6 +626,8 @@
 				BE950ED8205B8793009F562B /* SMSManager.m */,
 				C758D9712060EE9100257DDB /* LLTableCellOptimization.h */,
 				C758D9722060EE9100257DDB /* LLTableCellOptimization.m */,
+				D31B768F2061379D000AA637 /* TESTDATA.h */,
+				D31B76902061379D000AA637 /* TESTDATA.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1126,6 +1133,7 @@
 			isa = PBXGroup;
 			children = (
 				BE243E6C205F780F008781EB /* city.plist */,
+				D31B768D2061345D000AA637 /* testData.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1536,6 +1544,7 @@
 				BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */,
 				C758D95E20609CD000257DDB /* ClassComDetailTableViewCell.xib in Resources */,
 				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
+				D31B768E2061345D000AA637 /* testData.plist in Resources */,
 				F49D7D55205D6F2A009D17EA /* MessageRemindTableViewCell.xib in Resources */,
 				C7613F27205CC48B002604A3 /* ClassSpaceTableViewCell.xib in Resources */,
 				C758D96D2060C66800257DDB /* CommentDetailViewController.xib in Resources */,
@@ -1664,6 +1673,7 @@
 				384A555720521F20006D8C23 /* NSObject+InitData.m in Sources */,
 				C758D9792060F4C100257DDB /* MyWebView.m in Sources */,
 				C758D96C2060C66800257DDB /* CommentDetailViewController.m in Sources */,
+				D31B76912061379D000AA637 /* TESTDATA.m in Sources */,
 				C781F842205B580A00BE37AD /* ClassInfoFootView.m in Sources */,
 				BE950ECB205B8634009F562B /* MYAutoScaleView.m in Sources */,
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
