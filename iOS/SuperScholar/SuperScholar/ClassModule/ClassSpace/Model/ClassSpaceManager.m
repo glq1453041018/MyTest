@@ -7,16 +7,12 @@
 //
 
 #import "ClassSpaceManager.h"
-#import "ClassSpaceTableViewCell.h"
 
 @implementation ClassSpaceManager
 
 // !!!: 获取数据
 +(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock{
-    
     // 配置相关地址和参数
-    
-    
     NSArray *contents = @[
                           @"一天当中，我们起码应该挤出十分钟的宁静，让自己有喘一口气的闲暇，有一个可以让阳光照进来的间隙。长期处在动荡、嘈杂的生活中，会迷失方向、烦乱而浮躁。",
                           @"有一种路程叫万水千山，有一种情意叫海枯石烂。有一种约定叫天荒地老，有一种记忆叫刻骨铭心。有一种思念叫望穿秋水，有一种爱情叫至死不渝。有一种幸福叫天长地久，有一种拥有叫别无所求。有一种遥远叫天涯海角，有一种思念叫肝肠寸断，还有一种叫失恋无言以对。",
@@ -62,19 +58,6 @@
     });
 }
 
-+(CGFloat)getMediaViewHeight:(ClassSpaceModel*)csm{
-    CGFloat height = 0;
-    if (csm.pics.count==0) {
-        return height;
-    }
-    CGFloat space = 5;
-    CGFloat width_total = AdaptedWidthValue(355);
-    CGFloat width_item = (width_total-space*2)/3.0;
-    NSInteger i = csm.pics.count;
-    NSInteger row = ceilf(i/3.0);
-    height = row * width_item + (row-1) * space;
-    return height;
-}
 
 // !!!: 添加图片控件
 +(void)addPicsWithModel:(ClassSpaceModel*)csm{
@@ -127,5 +110,77 @@
                                                                                   }];
     return attr;
 }
+
+
+
+
+
+// !!!: 加载视图
+-(void)loadData:(NSArray *)data cell:(ClassSpaceTableViewCell*)cell index:(NSInteger)index pageSize:(NSInteger)pageSize{
+    ClassSpaceModel *csm = data[index];
+    // content
+    cell.userNamelLabel.text = [NSString stringWithFormat:@"%ld row",index];
+    cell.contentLabel.attributedText = csm.contentAttring;
+    cell.starView.hidden = YES;
+    
+    NSInteger totalPage = data.count/pageSize;
+    NSInteger currentPage = index/pageSize;
+    BOOL needOperate = NO;
+    if (index % pageSize==0) {
+        needOperate = YES;
+    }
+    if (needOperate) {  // 需要进行操作
+        if (currentPage>=2) {   // 删除当前页的 前2和后2页的数据，并创建当前页
+            // 删除 -2 页数据
+            for (NSInteger i=(currentPage-2)*pageSize; i<(currentPage-1)*pageSize; i++) {
+                ClassSpaceModel *csmTmp = data[i];
+                [ClassSpaceManager removePicsWithModel:csmTmp];
+            }
+            if (currentPage<=totalPage-2) {
+                // 删除 +2 页数据
+                for (NSInteger j=(currentPage+1)*pageSize; j<(currentPage+2)*pageSize; j++) {
+                    ClassSpaceModel *csmTmp = data[j];
+                    [ClassSpaceManager removePicsWithModel:csmTmp];
+                }
+            }
+        }
+    }
+    
+    // 创建
+    for (NSInteger i=MAX((currentPage-1)*pageSize, 0); i<MIN(data.count, (currentPage+1)*pageSize); i++) {
+        ClassSpaceModel *csmTmp = data[i];
+        if (csmTmp.mediaView.subviews.count==0) {
+            if (csmTmp.pics.count) {
+            }
+            [ClassSpaceManager addPicsWithModel:csmTmp];
+        }
+    }
+    
+    for (UIView* viewItem in cell.mediaView.subviews) {
+        [viewItem removeFromSuperview];
+    }
+    [cell.mediaView addSubview:csm.mediaView];
+    
+    // frame
+    cell.contentLabel.viewHeight = csm.contentLabelHeight;
+    cell.mediaView.top = cell.contentLabel.bottom;
+    cell.mediaView.viewSize = csm.mediaView.viewSize;
+    cell.bottomView.top = cell.mediaView.bottom;
+    
+    // 图片
+    for (UIButton *btn in csm.picViews) {
+        [btn addTarget:self action:@selector(imageActionEvent:) forControlEvents:UIControlEventTouchUpInside];
+        objc_setAssociatedObject(btn, @"imageBtn", csm, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+}
+
+// !!!: 图片点击事件
+-(void)imageActionEvent:(UIButton*)btn{
+    DLog(@"第%ld个图片",btn.tag);
+    ClassSpaceModel *csm = objc_getAssociatedObject(btn, @"imageBtn");
+    [PhotoBrowser showURLImages:csm.pics placeholderImage:[UIImage imageNamed:@"zhanweitu"] selectedIndex:btn.tag];
+}
+
+
 
 @end

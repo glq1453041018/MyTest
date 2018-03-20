@@ -8,7 +8,8 @@
 
 // !!!: 控制器类
 #import "ClassSpaceViewController.h"
-#import "ClassInfoViewController.h"
+#import "ClassInfoViewController.h"             // 班级信息
+#import "ClassComDetailViewController.h"        // 班级评论列表
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"
 #import "ClassSpaceHeadView.h"
@@ -19,9 +20,9 @@
 // !!!: 视图类
 @property (strong ,nonatomic) UITableView *table;
 @property (strong ,nonatomic) ClassSpaceHeadView *headView;
-
 // !!!: 数据类
 @property (strong ,nonatomic) NSMutableArray *data;
+@property (strong ,nonatomic) ClassSpaceManager *manager;
 @end
 
 @implementation ClassSapceViewController
@@ -97,6 +98,13 @@
     return _data;
 }
 
+-(ClassSpaceManager *)manager{
+    if (_manager==nil) {
+        _manager = [ClassSpaceManager new];
+    }
+    return _manager;
+}
+
 #pragma mark - <************************** 代理方法 **************************>
 // !!!: 导航栏
 -(void)navigationViewLeftClickEvent{
@@ -120,7 +128,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
         cell.selectionStyle = NO;
     }
-    [cell loadData:self.data index:indexPath.row pageSize:10];
+    [self.manager loadData:self.data cell:cell index:indexPath.row pageSize:10];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -135,6 +143,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    ClassComDetailViewController *ctrl = [ClassComDetailViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 
@@ -145,6 +156,7 @@
     ClassInfoViewController *ctrl = [ClassInfoViewController new];
     [self.navigationController pushViewController:ctrl animated:YES];
 }
+
 
 
 

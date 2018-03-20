@@ -17,13 +17,14 @@
 #import "ClassInfoModel.h"
 #import "ClassInfoManager.h"
 
-@interface ClassInfoViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate,ClassInfoTableViewCell_TitleDelegate>
+@interface ClassInfoViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate,ClassInfoManagerDelegate>
 // !!!: 视图类
 @property (strong ,nonatomic) UITableView *table;
 @property (strong ,nonatomic) ClassInfoHeadView *headView;
 @property (strong ,nonatomic) ClassInfoFootView *footView;
 // !!!: 数据类
 @property (strong ,nonatomic) NSMutableArray *data;
+@property (strong ,nonatomic) ClassInfoManager *manager;
 
 @end
 
@@ -107,6 +108,12 @@
     return _data;
 }
 
+-(ClassInfoManager *)manager{
+    if (_manager==nil) {
+        _manager = [ClassInfoManager new];
+    }
+    return _manager;
+}
 
 
 #pragma mark - <************************** 代理方法 **************************>
@@ -138,8 +145,7 @@
                 }
             }
         }
-        [cell loadData:items.firstObject];
-        cell.delegate = self;
+        [self.manager loadTitleCellData:items.firstObject cell:cell delegate:self];
         return cell;
     }
     else if (indexPath.section==1){
@@ -232,9 +238,8 @@
 }
 
 // !!!: 标题视图的代理事件
--(void)classInfoTableViewCell_TitleClickEvent:(NSInteger)index data:(ClassInfoModel *)model{
+-(void)classInfoManagerTitleClickEvent:(NSInteger)index data:(ClassInfoModel *)model{
     DLog(@"点击了:%@",model.key);
-    
 }
 
 

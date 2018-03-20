@@ -9,44 +9,49 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 		<key>MYAutoLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-SuperScholar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>4</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>5</integer>
 		</dict>
 		<key>SVProgressHUD-0.8.1.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>TZImagePickerController.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>7</integer>
@@ -74,7 +79,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4F35557C2EE23BE8AD3FA29AB0164223</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5DAA1415A73E50AB5FE34CA8D45DDB94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>64F1F1AEDF5E318B78AB06BC6409EC2C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7CF1947D9947C2EB8ECBEBB53FAF7A81</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -85,6 +105,11 @@
 			<true/>
 		</dict>
 		<key>9E033EDB5EC0819481B0546434FA577B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9FF8A45FE06CD8BDB46FE47496965ABF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

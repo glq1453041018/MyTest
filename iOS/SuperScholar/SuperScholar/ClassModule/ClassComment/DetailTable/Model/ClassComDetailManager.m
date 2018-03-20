@@ -1,17 +1,27 @@
 //
-//  ClassCommentManager.m
+//  ClassComDetailManager.m
 //  SuperScholar
 //
 //  Created by 骆亮 on 2018/3/19.
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-#import "ClassCommentManager.h"
+#import "ClassComDetailManager.h"
 
-@implementation ClassCommentManager
+@implementation ClassComDetailManager
+// !!!: 数据模型初始化
+-(ClassComDetailModel *)dataModel{
+    if (_dataModel==nil) {
+        _dataModel = [ClassComDetailModel new];
+    }
+    return _dataModel;
+}
+
+
 
 // !!!: 获取数据
-+(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock{
+-(void)requestDataResponse:(void(^)(BOOL succeed,id error))responseBlock{
+    
     // 配置相关地址和参数
     NSArray *contents = @[
                           @"一天当中，我们起码应该挤出十分钟的宁静，让自己有喘一口气的闲暇，有一个可以让阳光照进来的间隙。长期处在动荡、嘈杂的生活中，会迷失方向、烦乱而浮躁。",
@@ -30,51 +40,54 @@
                          @"http://pic42.nipic.com/20140605/9081536_142458626145_2.jpg",
                          @"http://pic35.photophoto.cn/20150626/0017029557111337_b.jpg"
                          ];
-    NSMutableArray *cells = [NSMutableArray array];
-    NSInteger number = 10;
-    // 创建cell
+    // 创建消息主体cell
     ClassSpaceTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:nil options:nil] firstObject];
-    for (int i=0; i<number; i++) {
-        ClassSpaceModel *csm = [ClassSpaceModel new];
-        NSInteger ran = getRandomNumberFromAtoB(0, 10)%4;
-        csm.content = contents[ran];
-        csm.contentAttring = [self changeToAttr:csm.content];
-        csm.starNum = getRandomNumberFromAtoB(1, 5);
-        NSMutableArray *pics = [NSMutableArray array];
-        for (int j=0; j<getRandomNumberFromAtoB(0, 9); j++) {
-            [pics addObject:picsUrl[getRandomNumberFromAtoB(0, 8)]];
-        }
-        csm.pics = pics;
-        cell.contentLabel.attributedText = csm.contentAttring;
-        CGSize size = [cell.contentLabel sizeThatFits:CGSizeMake(AdaptedWidthValue(355), MAXFLOAT)];
-        csm.contentLabelHeight = size.height + 10*2;
-        [self addPicsWithModel:csm];
-        csm.cellHeight = cell.contentLabel.y+csm.contentLabelHeight+csm.mediaView.viewHeight+cell.bottomView.viewHeight;
-        [cells addObject:csm];
+    ClassSpaceModel *csm = [ClassSpaceModel new];
+    NSInteger ran = getRandomNumberFromAtoB(0, 10)%4;
+    csm.content = contents[ran];
+    csm.contentAttring = [self changeToAttr:csm.content];
+    csm.starNum = getRandomNumberFromAtoB(0, 5);
+    NSMutableArray *pics = [NSMutableArray array];
+    for (int j=0; j<getRandomNumberFromAtoB(0, 9); j++) {
+        [pics addObject:picsUrl[getRandomNumberFromAtoB(0, 8)]];
     }
+    csm.pics = pics;
+    cell.contentLabel.attributedText = csm.contentAttring;
+    CGSize size = [cell.contentLabel sizeThatFits:CGSizeMake(AdaptedWidthValue(355), MAXFLOAT)];
+    csm.contentLabelHeight = size.height + 10*2;
+    [self addPicsWithModel:csm];
+    csm.cellHeight = cell.contentLabel.y+csm.contentLabelHeight+csm.mediaView.viewHeight+cell.bottomView.viewHeight;
+    
+    // 回复数组
+    // 创建回复cell
+    ClassComDetailTableViewCell *cellDetail = [[[NSBundle mainBundle] loadNibNamed:@"ClassComDetailTableViewCell" owner:nil options:nil] firstObject];
+    NSMutableArray *items = [NSMutableArray array];
+    for (int i=0; i<20; i++) {
+        ClassComItemModel *itemModel = [ClassComItemModel new];
+        itemModel.userName = [NSString stringWithFormat:@"啦啦%d号",i];
+        itemModel.icon = @"bgImage";
+        itemModel.comment = contents[ran];
+        itemModel.date = @"2018-3-19";
+        cellDetail.commentLabel.text = itemModel.comment;
+        CGSize size = [cellDetail.commentLabel sizeThatFits:CGSizeMake(AdaptedWidthValue(305), MAXFLOAT)];
+        itemModel.commentLabelHeight = size.height;
+        itemModel.cellHeight = cellDetail.commentLabel.y + itemModel.commentLabelHeight + 10;
+        itemModel.cellHeight += itemModel.more?cellDetail.moreLabel.viewHeight:0;   // 是否有更多
+        [items addObject:itemModel];
+    }
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.75 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (responseBlock) {
-            responseBlock(cells,nil);
+            self.dataModel.mainModel = csm;
+            self.dataModel.responses = items;
+            responseBlock(YES,nil);
         }
     });
-}
-
-+(CGFloat)getMediaViewHeight:(ClassSpaceModel*)csm{
-    CGFloat height = 0;
-    if (csm.pics.count==0) {
-        return height;
-    }
-    CGFloat space = 5;
-    CGFloat width_total = AdaptedWidthValue(355);
-    CGFloat width_item = (width_total-space*2)/3.0;
-    NSInteger i = csm.pics.count;
-    NSInteger row = ceilf(i/3.0);
-    height = row * width_item + (row-1) * space;
-    return height;
+    
 }
 
 // !!!: 添加图片控件
-+(void)addPicsWithModel:(ClassSpaceModel*)csm{
+-(void)addPicsWithModel:(ClassSpaceModel*)csm{
     if (csm.pics.count==0) {
         return;
     }
@@ -102,16 +115,9 @@
     csm.mediaView.viewSize = CGSizeMake(width_total, lastBtn.frame.size.height+lastBtn.frame.origin.y);
 }
 
-// !!!: 移除图片控件
-+(void)removePicsWithModel:(ClassSpaceModel*)csm{
-    [csm.mediaView removeFromSuperview];
-    csm.mediaView = nil;
-    csm.picViews = nil;
-}
-
 
 // !!!: 转换为富文本内容
-+(NSMutableAttributedString*)changeToAttr:(NSString*)content{
+-(NSMutableAttributedString*)changeToAttr:(NSString*)content{
     NSMutableAttributedString *attr = nil;
     if (content.length==0||content==nil) {
         return attr;
@@ -126,47 +132,13 @@
 }
 
 
-
 // !!!: 加载视图
--(void)loadData:(NSArray *)data cell:(ClassSpaceTableViewCell*)cell index:(NSInteger)index pageSize:(NSInteger)pageSize{
-    ClassSpaceModel *csm = data[index];
+-(void)loadCell:(ClassSpaceTableViewCell*)cell{
+    ClassSpaceModel *csm = self.dataModel.mainModel;
     // content
-    cell.userNamelLabel.text = [NSString stringWithFormat:@"%ld row",index];
+//    cell.userNamelLabel.text = csm.userName;
     cell.contentLabel.attributedText = csm.contentAttring;
     cell.starView.scorePercent = MIN(csm.starNum, 5.0) / 5.0;
-    
-    NSInteger totalPage = data.count/pageSize;
-    NSInteger currentPage = index/pageSize;
-    BOOL needOperate = NO;
-    if (index % pageSize==0) {
-        needOperate = YES;
-    }
-    if (needOperate) {  // 需要进行操作
-        if (currentPage>=2) {   // 删除当前页的 前2和后2页的数据，并创建当前页
-            // 删除 -2 页数据
-            for (NSInteger i=(currentPage-2)*pageSize; i<(currentPage-1)*pageSize; i++) {
-                ClassSpaceModel *csmTmp = data[i];
-                [ClassCommentManager removePicsWithModel:csmTmp];
-            }
-            if (currentPage<=totalPage-2) {
-                // 删除 +2 页数据
-                for (NSInteger j=(currentPage+1)*pageSize; j<(currentPage+2)*pageSize; j++) {
-                    ClassSpaceModel *csmTmp = data[j];
-                    [ClassCommentManager removePicsWithModel:csmTmp];
-                }
-            }
-        }
-    }
-    
-    // 创建
-    for (NSInteger i=MAX((currentPage-1)*pageSize, 0); i<MIN(data.count, (currentPage+1)*pageSize); i++) {
-        ClassSpaceModel *csmTmp = data[i];
-        if (csmTmp.mediaView.subviews.count==0) {
-            if (csmTmp.pics.count) {
-            }
-            [ClassCommentManager addPicsWithModel:csmTmp];
-        }
-    }
     
     for (UIView* viewItem in cell.mediaView.subviews) {
         [viewItem removeFromSuperview];
@@ -186,12 +158,27 @@
     }
 }
 
-
 // !!!: 图片点击事件
 -(void)imageActionEvent:(UIButton*)btn{
     DLog(@"第%ld个图片",btn.tag);
     ClassSpaceModel *csm = objc_getAssociatedObject(btn, @"imageBtn");
     [PhotoBrowser showURLImages:csm.pics placeholderImage:[UIImage imageNamed:@"zhanweitu"] selectedIndex:btn.tag];
+}
+
+
+
+// !!!: 加载回复视图
+-(void)loadResponseCell:(ClassComDetailTableViewCell *)cell index:(NSInteger)index{
+    ClassComItemModel *ccim = self.dataModel.responses[index];
+    cell.userNameLabel.text = ccim.userName;
+    cell.iconImageView.image = [UIImage imageNamed:ccim.icon];
+    cell.dateLabel.text = ccim.date;
+    cell.commentLabel.text = ccim.comment;
+    
+    // frame
+    cell.commentLabel.viewHeight = ccim.commentLabelHeight;
+    cell.moreLabel.y = cell.commentLabel.bottom;
+    cell.moreLabel.hidden = !ccim.more;
 }
 
 

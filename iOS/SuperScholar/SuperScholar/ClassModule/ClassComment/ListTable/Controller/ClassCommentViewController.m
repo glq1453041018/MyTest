@@ -9,7 +9,7 @@
 #import "ClassCommentViewController.h"
 #import "ClassComDetailViewController.h"        // 评论详情
 // !!!: 视图类
-#import "ClassCommentTableViewCell.h"
+#import "ClassSpaceTableViewCell.h"             // cell
 #import "ClassCommentSectionView.h"
 // !!!: 管理类
 #import "ClassCommentManager.h"
@@ -20,6 +20,7 @@
 @property (strong ,nonatomic) ClassCommentSectionView *sectionView;
 // !!!: 数据类
 @property (strong ,nonatomic) NSMutableArray *data;
+@property (strong ,nonatomic) ClassCommentManager *manager;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 
 @end
@@ -85,6 +86,13 @@
     return _sectionView;
 }
 
+-(ClassCommentManager *)manager{
+    if (_manager==nil) {
+        _manager = [ClassCommentManager new];
+    }
+    return _manager;
+}
+
 
 #pragma mark - <************************** 代理方法 **************************>
 // !!!: 导航栏
@@ -99,18 +107,18 @@
     return self.data.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"ClassCommentTableViewCell";
-    ClassCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    static NSString *cellId = @"ClassSpaceTableViewCell";
+    ClassSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell==nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassCommentTableViewCell" owner:self options:nil] firstObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
         cell.selectionStyle = NO;
     }
-    [cell loadData:self.data index:indexPath.row pageSize:10];
+    [self.manager loadData:self.data cell:cell index:indexPath.row pageSize:10];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ClassCommentModel *ccm = self.data[indexPath.row];
-    return ccm.cellHeight;
+    ClassSpaceModel *csm = self.data[indexPath.row];
+    return csm.cellHeight;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
