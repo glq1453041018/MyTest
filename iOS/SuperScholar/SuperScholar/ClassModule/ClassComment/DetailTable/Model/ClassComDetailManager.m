@@ -29,6 +29,12 @@
                           @"曾经在千年树下等候，只求你回眸一笑，曾经在菩提下焚香，只为等一世轮回的相遇。阡陌红尘，终究一场繁花落寞，回忆在岁月中飘落了谁的眼泪，往事在时间中飘落谁的忧伤。如烟往事，不知谁飘落了谁的相思，如梦的回忆，不知谁飘落了谁的等待。与你作别，不问曾经伤痛几何。",
                           @"喜欢一个人，在一起的时候会很开心。爱一个人，在一起的时候会莫名的失落。喜欢一个人，永远是欢乐，爱一个人，你会常常流泪。喜欢一个人，当你想起他会微微一笑。爱一个人，当你想起他会对着天空发呆。喜欢一个人，是看到了他的优点。爱一个人，是包容了他的缺点。喜欢，是一种心情，爱，是一种感情。",
                           ];
+    NSArray *comments = @[
+                          @"破🎫",
+                          @"盖章真快啊👨‍🏫",
+                          @"薛定谔的猫🐱，最终他妈妈通过微博找到了案件的真凶😄",
+                          @"名字真皮啊ℹ️🆙🈚️🐶👎😅😁🐱👌"
+                          ];
     NSArray *picsUrl = @[
                          @"http://pic33.photophoto.cn/20141023/0017030062939942_b.jpg",
                          @"http://pic14.nipic.com/20110427/5006708_200927797000_2.jpg",
@@ -62,15 +68,18 @@
     // 创建回复cell
     ClassComDetailTableViewCell *cellDetail = [[[NSBundle mainBundle] loadNibNamed:@"ClassComDetailTableViewCell" owner:nil options:nil] firstObject];
     NSMutableArray *items = [NSMutableArray array];
-    for (int i=0; i<20; i++) {
+    for (int i=0; i<10; i++) {
         ClassComItemModel *itemModel = [ClassComItemModel new];
         itemModel.userName = [NSString stringWithFormat:@"啦啦%d号",i];
         itemModel.icon = @"bgImage";
-        itemModel.comment = contents[ran];
+        itemModel.comment = comments[getRandomNumberFromAtoB(0, 10)%4];
+        itemModel.commentAttr = [self changeToAttr:itemModel.comment];
         itemModel.date = @"2018-3-19";
         cellDetail.commentLabel.text = itemModel.comment;
         CGSize size = [cellDetail.commentLabel sizeThatFits:CGSizeMake(AdaptedWidthValue(305), MAXFLOAT)];
         itemModel.commentLabelHeight = size.height;
+        itemModel.moreNum = getRandomNumberFromAtoB(1, 20);
+        itemModel.more = YES;
         itemModel.cellHeight = cellDetail.commentLabel.y + itemModel.commentLabelHeight + 10;
         itemModel.cellHeight += itemModel.more?cellDetail.moreLabel.viewHeight:0;   // 是否有更多
         [items addObject:itemModel];
@@ -123,7 +132,7 @@
         return attr;
     }
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.lineSpacing = 6;
+    style.lineSpacing = 5;
     attr = [[NSMutableAttributedString alloc] initWithString:content attributes:@{
                                                                                   NSFontAttributeName:[UIFont systemFontOfSize:FontSize_16],
                                                                                   NSParagraphStyleAttributeName:style
@@ -171,14 +180,17 @@
 -(void)loadResponseCell:(ClassComDetailTableViewCell *)cell index:(NSInteger)index{
     ClassComItemModel *ccim = self.dataModel.responses[index];
     cell.userNameLabel.text = ccim.userName;
+    cell.commentLabel.attributedText = ccim.commentAttr;
     cell.iconImageView.image = [UIImage imageNamed:ccim.icon];
     cell.dateLabel.text = ccim.date;
     cell.commentLabel.text = ccim.comment;
+    cell.moreLabel.text = [NSString stringWithFormat:@"查看%ld回复 >",ccim.moreNum];
     
     // frame
     cell.commentLabel.viewHeight = ccim.commentLabelHeight;
     cell.moreLabel.y = cell.commentLabel.bottom;
     cell.moreLabel.hidden = !ccim.more;
+    cell.rowView.y = ccim.cellHeight-1;
 }
 
 

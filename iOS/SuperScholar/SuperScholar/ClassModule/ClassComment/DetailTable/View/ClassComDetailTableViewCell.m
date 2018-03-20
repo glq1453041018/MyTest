@@ -14,8 +14,14 @@
     [super awakeFromNib];
     [self adjustFrame];
     
+    self.userNameLabel.textColor = FontSize_colorgray;
+    
+    self.moreLabel.textColor = KColorTheme;
     self.iconImageView.layer.cornerRadius = self.iconImageView.viewHeight / 2.0;
     self.iconImageView.layer.masksToBounds = YES;
+    
+    self.moreLabel.layer.cornerRadius = 2;
+    self.moreLabel.layer.masksToBounds = YES;
 }
 
 
