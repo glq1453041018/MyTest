@@ -123,38 +123,45 @@
     cell.contentLabel.attributedText = csm.contentAttring;
     cell.starView.hidden = YES;
     
-    NSInteger totalPage = data.count/pageSize;
-    NSInteger currentPage = index/pageSize;
-    BOOL needOperate = NO;
-    if (index % pageSize==0) {
-        needOperate = YES;
-    }
-    if (needOperate) {  // 需要进行操作
-        if (currentPage>=2) {   // 删除当前页的 前2和后2页的数据，并创建当前页
-            // 删除 -2 页数据
-            for (NSInteger i=(currentPage-2)*pageSize; i<(currentPage-1)*pageSize; i++) {
-                ClassSpaceModel *csmTmp = data[i];
-                [ClassSpaceManager removePicsWithModel:csmTmp];
-            }
-            if (currentPage<=totalPage-2) {
-                // 删除 +2 页数据
-                for (NSInteger j=(currentPage+1)*pageSize; j<(currentPage+2)*pageSize; j++) {
-                    ClassSpaceModel *csmTmp = data[j];
-                    [ClassSpaceManager removePicsWithModel:csmTmp];
-                }
-            }
-        }
-    }
     
-    // 创建
-    for (NSInteger i=MAX((currentPage-1)*pageSize, 0); i<MIN(data.count, (currentPage+1)*pageSize); i++) {
-        ClassSpaceModel *csmTmp = data[i];
-        if (csmTmp.mediaView.subviews.count==0) {
-            if (csmTmp.pics.count) {
-            }
-            [ClassSpaceManager addPicsWithModel:csmTmp];
-        }
-    }
+    [LLTableCellOptimization handleTableData:data.count currentIndex:index pageSize:pageSize deleteRange:^(NSRange range) {
+        
+    } addRange:^(NSRange range) {
+        
+    }];
+    
+//    NSInteger totalPage = data.count/pageSize;
+//    NSInteger currentPage = index/pageSize;
+//    BOOL needOperate = NO;
+//    if (index % pageSize==0) {
+//        needOperate = YES;
+//    }
+//    if (needOperate) {  // 需要进行操作
+//        if (currentPage>=2) {   // 删除当前页的 前2和后2页的数据，并创建当前页
+//            // 删除 -2 页数据
+//            for (NSInteger i=(currentPage-2)*pageSize; i<(currentPage-1)*pageSize; i++) {
+//                ClassSpaceModel *csmTmp = data[i];
+//                [ClassSpaceManager removePicsWithModel:csmTmp];
+//            }
+//            if (currentPage<=totalPage-2) {
+//                // 删除 +2 页数据
+//                for (NSInteger j=(currentPage+1)*pageSize; j<(currentPage+2)*pageSize; j++) {
+//                    ClassSpaceModel *csmTmp = data[j];
+//                    [ClassSpaceManager removePicsWithModel:csmTmp];
+//                }
+//            }
+//        }
+//    }
+//    
+//    // 创建
+//    for (NSInteger i=MAX((currentPage-1)*pageSize, 0); i<MIN(data.count, (currentPage+1)*pageSize); i++) {
+//        ClassSpaceModel *csmTmp = data[i];
+//        if (csmTmp.mediaView.subviews.count==0) {
+//            if (csmTmp.pics.count) {
+//            }
+//            [ClassSpaceManager addPicsWithModel:csmTmp];
+//        }
+//    }
     
     for (UIView* viewItem in cell.mediaView.subviews) {
         [viewItem removeFromSuperview];

@@ -10,6 +10,7 @@
 #import "ClassSpaceModel.h"             // 数据模型
 #import "ClassSpaceTableViewCell.h"     // cell样式
 #import "PhotoBrowser.h"                // 图片浏览器
+#import "LLTableCellOptimization.h"     // cell优化策略
 
 @interface ClassSpaceManager : NSObject
 
