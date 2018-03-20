@@ -67,6 +67,7 @@
         itemModel.userName = [NSString stringWithFormat:@"啦啦%d号",i];
         itemModel.icon = @"bgImage";
         itemModel.comment = contents[ran];
+        itemModel.commentAttr = [self changeToAttr:itemModel.comment];
         itemModel.date = @"2018-3-19";
         cellDetail.commentLabel.text = itemModel.comment;
         CGSize size = [cellDetail.commentLabel sizeThatFits:CGSizeMake(AdaptedWidthValue(305), MAXFLOAT)];
@@ -123,7 +124,7 @@
         return attr;
     }
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.lineSpacing = 6;
+    style.lineSpacing = 5;
     attr = [[NSMutableAttributedString alloc] initWithString:content attributes:@{
                                                                                   NSFontAttributeName:[UIFont systemFontOfSize:FontSize_16],
                                                                                   NSParagraphStyleAttributeName:style
@@ -171,6 +172,7 @@
 -(void)loadResponseCell:(ClassComDetailTableViewCell *)cell index:(NSInteger)index{
     ClassComItemModel *ccim = self.dataModel.responses[index];
     cell.userNameLabel.text = ccim.userName;
+    cell.commentLabel.attributedText = ccim.commentAttr;
     cell.iconImageView.image = [UIImage imageNamed:ccim.icon];
     cell.dateLabel.text = ccim.date;
     cell.commentLabel.text = ccim.comment;
@@ -179,6 +181,7 @@
     cell.commentLabel.viewHeight = ccim.commentLabelHeight;
     cell.moreLabel.y = cell.commentLabel.bottom;
     cell.moreLabel.hidden = !ccim.more;
+    cell.rowView.y = ccim.cellHeight-1;
 }
 
 

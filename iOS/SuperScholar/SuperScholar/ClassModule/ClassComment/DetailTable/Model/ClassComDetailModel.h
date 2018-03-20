@@ -25,6 +25,7 @@
 @property (copy ,nonatomic) NSString *icon;
 @property (copy ,nonatomic) NSString *userName;
 @property (copy ,nonatomic) NSString *comment;
+@property (copy ,nonatomic) NSAttributedString *commentAttr;
 @property (copy ,nonatomic) NSString *date;
 @property (assign ,nonatomic) BOOL more;
 
