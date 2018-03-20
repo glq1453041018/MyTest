@@ -12,6 +12,7 @@ static int view_height = 154;
 
 @interface MYInfoInputView ()<UITextViewDelegate>
 @property (strong, nonatomic) NSLayoutConstraint *inputViewBottom;//底部约束，键盘出来时设置为键盘的高度，键盘消失时设置为-输入视图自身高度即可
+@property (assign, nonatomic) NSInteger limite_input;//限制个数
 @end
 @implementation MYInfoInputView
 
@@ -36,6 +37,29 @@ static int view_height = 154;
     [self cwn_makeConstraints:^(UIView *maker) {
          weakself.inputViewBottom = maker.leftToSuper(0).rightToSuper(0).height(view_height).bottomToSuper(-view_height).lastConstraint;
     }];
+    
+    switch (self.inputType) {
+        case MYInfoInputTypeUserName:{
+            [self.placeHolder setText:@"请输入用户名"];
+            self.limite_input = 14;
+            self.wordTypeTipLabel.hidden = NO;
+        }
+            break;
+        case MYInfoInputTypeIntroduce:{
+            [self.placeHolder setText:@"请输入个性签名"];
+            self.limite_input = 50;
+            self.wordTypeTipLabel.hidden = YES;
+        }
+            break;
+        default:{
+            [self.placeHolder setText:@"请输入信息"];
+            self.limite_input = 50;
+            self.wordTypeTipLabel.hidden = YES;
+        }
+            break;
+    }
+    
+    [self.wordLimiteLabel setText:[NSString stringWithFormat:@"%ld", self.limite_input]];
 }
 
 - (void)keyboardWillShow:(NSNotification*)aNotification{
@@ -61,8 +85,6 @@ static int view_height = 154;
     self.inputViewBottom.constant = view_height;
     [self.superview layoutIfNeeded];
     [CATransaction commit];
-    
-    self.alpha =1;
     
     self.inputViewBottom.constant = -keyboardFrameNew.size.height;
     [UIView beginAnimations:nil context:nil];
@@ -111,6 +133,27 @@ static int view_height = 154;
     }else{
         self.placeHolder.hidden = NO;
     }
+    
+        NSString *toBeString = textView.text;
+        //获取高亮部分
+        UITextRange *selectedRange = [textView markedTextRange];
+        UITextPosition *position = [textView positionFromPosition:selectedRange.start offset:0]; // 没有高亮选择的字，则对已输入的文字进行字数统计和限制
+        if (!position) {
+            NSInteger length = [textView.text length];
+            [self.wordLimiteLabel setText:[NSString stringWithFormat:@"%ld", MAX(0, self.limite_input - length)]];
+            
+            if(length >= self.limite_input){
+                if (toBeString.length > self.limite_input) {
+                    NSRange rangeIndex = [toBeString rangeOfComposedCharacterSequenceAtIndex:self.limite_input];
+                    if (rangeIndex.length == 1) {
+                        textView.text = [toBeString substringToIndex:self.limite_input];
+                    } else {
+                        NSRange rangeRange = [toBeString rangeOfComposedCharacterSequencesForRange:NSMakeRange(0, self.limite_input)];
+                        self.textView.text = [toBeString substringWithRange:rangeRange];
+                    }
+                }
+            }
+    }
 }
 
 #pragma mark 事件处理
@@ -124,24 +167,17 @@ static int view_height = 154;
 
 - (void)show{
 // !!!: 显示
-    switch (self.inputType) {
-        case MYInfoInputTypeUserName:{
-            [self.placeHolder setText:@"请输入用户名"];
-        }
-            break;
-        case MYInfoInputTypeIntroduce:{
-            [self.placeHolder setText:@"请输入个性签名"];
-        }
-            break;
-        default:
-            break;
-    }
     [self.textView becomeFirstResponder];
+    
+    self.alpha =1;
 }
 
 - (void)hide{
 // !!!: 隐藏
     [self endEditing:YES];
+    [UIView animateWithDuration:0.22 animations:^{
+        self.alpha = 0;
+    }];
 }
 
 

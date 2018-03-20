@@ -26,6 +26,8 @@ typedef void (^MYInfoInputCancelBlock)();//输入文本取消事件回调
 @property (weak, nonatomic) IBOutlet UILabel *placeHolder;//提示语
 
 @property (assign, nonatomic) MYInfoInputType inputType;//用户名、介绍
+@property (weak, nonatomic) IBOutlet UILabel *wordTypeTipLabel;//输入文字类型说明
+@property (weak, nonatomic) IBOutlet UILabel *wordLimiteLabel;//文字限制
 
 - (void)show;
 - (void)hide;
