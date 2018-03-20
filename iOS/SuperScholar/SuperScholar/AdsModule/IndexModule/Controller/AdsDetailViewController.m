@@ -105,6 +105,7 @@
                          ];
     [self.tableHeadView loadImages:picsUrl estimateSize:CGSizeMake(self.tableHeadView.frame.size.width , self.tableHeadView.frame.size.height)];
     self.tableHeadView.location = locationCenter;
+//    self.tableHeadView.style = MYPageControlStyleLabel;
     self.tableHeadView.backgroundColor = [UIColor cyanColor];
     self.tableHeadView.useScaleEffect = YES;
     self.tableHeadView.needBgView = YES;

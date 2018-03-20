@@ -38,6 +38,7 @@ typedef NS_ENUM(NSInteger , MYPageControlStyle) {
 @property (assign, nonatomic) BOOL enableTimer;//是否开启定时轮播
 
 @property (assign ,nonatomic) MYPageControlLocation location;
+@property (assign ,nonatomic) MYPageControlStyle style;
 @property (strong ,nonatomic ,readonly) NSArray *imagePaths;
 @property (assign ,nonatomic) BOOL needBgView;  // 是否需要背景
 
