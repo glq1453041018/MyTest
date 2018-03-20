@@ -133,11 +133,11 @@
 
 #pragma mark - Get and Set Methods
 
-- (void)setFrame:(CGRect)frame{
-    [super setFrame:frame];
-    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    [self buildDataAndUI];
-}
+//- (void)setFrame:(CGRect)frame{
+//    [super setFrame:frame];
+//    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+//    [self buildDataAndUI];
+//}
 
 - (void)setScorePercent:(CGFloat)scroePercent {
     if (_scorePercent == scroePercent) {
