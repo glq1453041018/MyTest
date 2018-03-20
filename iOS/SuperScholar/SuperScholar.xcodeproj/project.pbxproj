@@ -29,15 +29,12 @@
 		384A556C205266D8006D8C23 /* SchoolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384A556A205266D8006D8C23 /* SchoolViewController.xib */; };
 		384A55702052674F006D8C23 /* SchoolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A556E2052674F006D8C23 /* SchoolTableViewCell.m */; };
 		384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384A556F2052674F006D8C23 /* SchoolTableViewCell.xib */; };
-<<<<<<< HEAD
 		386924B5205FB1FB0093B48E /* AdressDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386924B3205FB1FB0093B48E /* AdressDetailViewController.m */; };
 		386924B6205FB1FB0093B48E /* AdressDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386924B4205FB1FB0093B48E /* AdressDetailViewController.xib */; };
-=======
 		BE243E6D205F780F008781EB /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE243E6C205F780F008781EB /* city.plist */; };
 		BE243E73205FA08A008781EB /* MYCitySelectPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BE243E72205FA08A008781EB /* MYCitySelectPicker.m */; };
 		BE243E76205FBDC3008781EB /* MYInfoInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE243E75205FBDC3008781EB /* MYInfoInputView.m */; };
 		BE243E78205FC0C6008781EB /* MYInfoInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE243E77205FC0C6008781EB /* MYInfoInputView.xib */; };
->>>>>>> 14cef69f7ffb77fb97b5d1f8a9ea74c666c3b07b
 		BE950EC7205B8634009F562B /* MySelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950EBA205B8634009F562B /* MySelfViewController.m */; };
 		BE950EC8205B8634009F562B /* MySelfViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE950EBB205B8634009F562B /* MySelfViewController.xib */; };
 		BE950ECB205B8634009F562B /* MYAutoScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950EC6205B8634009F562B /* MYAutoScaleView.m */; };
@@ -1539,11 +1536,8 @@
 				BED0DF3F205C084F00276785 /* DataEditTableViewCell.m in Sources */,
 				C7188807205A713700333387 /* ClassInfoHeadView.m in Sources */,
 				C7613F28205CC48B002604A3 /* ClassSpaceTableViewCell.m in Sources */,
-<<<<<<< HEAD
 				386924B5205FB1FB0093B48E /* AdressDetailViewController.m in Sources */,
-=======
 				BE243E73205FA08A008781EB /* MYCitySelectPicker.m in Sources */,
->>>>>>> 14cef69f7ffb77fb97b5d1f8a9ea74c666c3b07b
 				C781F83F205B529200BE37AD /* MYCommentStarView.m in Sources */,
 				BE950EE7205BECAF009F562B /* DataEditingViewController.m in Sources */,
 				BE950EDF205BE97E009F562B /* LLAlertView.m in Sources */,
