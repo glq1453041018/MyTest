@@ -71,6 +71,10 @@
 		C758D946205F848500257DDB /* ClassCommentSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D93E205F848500257DDB /* ClassCommentSectionView.m */; };
 		C758D94A205F8C3700257DDB /* ClassComDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D948205F8C3700257DDB /* ClassComDetailViewController.m */; };
 		C758D94B205F8C3700257DDB /* ClassComDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C758D949205F8C3700257DDB /* ClassComDetailViewController.xib */; };
+		C758D95D20609CD000257DDB /* ClassComDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D95B20609CD000257DDB /* ClassComDetailTableViewCell.m */; };
+		C758D95E20609CD000257DDB /* ClassComDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C758D95C20609CD000257DDB /* ClassComDetailTableViewCell.xib */; };
+		C758D96320609CE600257DDB /* ClassComDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D96020609CE600257DDB /* ClassComDetailManager.m */; };
+		C758D96420609CE600257DDB /* ClassComDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D96220609CE600257DDB /* ClassComDetailModel.m */; };
 		C7613F23205CC48B002604A3 /* ClassSpaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7613F15205CC48B002604A3 /* ClassSpaceViewController.m */; };
 		C7613F24205CC48B002604A3 /* ClassSpaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7613F1A205CC48B002604A3 /* ClassSpaceModel.m */; };
 		C7613F25205CC48B002604A3 /* ClassSpaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7613F1B205CC48B002604A3 /* ClassSpaceManager.m */; };
@@ -224,6 +228,13 @@
 		C758D947205F8C3700257DDB /* ClassComDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassComDetailViewController.h; sourceTree = "<group>"; };
 		C758D948205F8C3700257DDB /* ClassComDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassComDetailViewController.m; sourceTree = "<group>"; };
 		C758D949205F8C3700257DDB /* ClassComDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassComDetailViewController.xib; sourceTree = "<group>"; };
+		C758D95A20609CD000257DDB /* ClassComDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassComDetailTableViewCell.h; sourceTree = "<group>"; };
+		C758D95B20609CD000257DDB /* ClassComDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassComDetailTableViewCell.m; sourceTree = "<group>"; };
+		C758D95C20609CD000257DDB /* ClassComDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassComDetailTableViewCell.xib; sourceTree = "<group>"; };
+		C758D95F20609CE600257DDB /* ClassComDetailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassComDetailManager.h; sourceTree = "<group>"; };
+		C758D96020609CE600257DDB /* ClassComDetailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassComDetailManager.m; sourceTree = "<group>"; };
+		C758D96120609CE600257DDB /* ClassComDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassComDetailModel.h; sourceTree = "<group>"; };
+		C758D96220609CE600257DDB /* ClassComDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassComDetailModel.m; sourceTree = "<group>"; };
 		C7613F15205CC48B002604A3 /* ClassSpaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSpaceViewController.m; sourceTree = "<group>"; };
 		C7613F16205CC48B002604A3 /* ClassSpaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSpaceViewController.h; sourceTree = "<group>"; };
 		C7613F18205CC48B002604A3 /* ClassSpaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSpaceManager.h; sourceTree = "<group>"; };
@@ -915,6 +926,10 @@
 		C758D92C205F848500257DDB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C758D95F20609CE600257DDB /* ClassComDetailManager.h */,
+				C758D96020609CE600257DDB /* ClassComDetailManager.m */,
+				C758D96120609CE600257DDB /* ClassComDetailModel.h */,
+				C758D96220609CE600257DDB /* ClassComDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -922,6 +937,9 @@
 		C758D92D205F848500257DDB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C758D95A20609CD000257DDB /* ClassComDetailTableViewCell.h */,
+				C758D95B20609CD000257DDB /* ClassComDetailTableViewCell.m */,
+				C758D95C20609CD000257DDB /* ClassComDetailTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1431,6 +1449,7 @@
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
 				C758D945205F848500257DDB /* ClassCommentSectionView.xib in Resources */,
 				BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */,
+				C758D95E20609CD000257DDB /* ClassComDetailTableViewCell.xib in Resources */,
 				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
 				F49D7D55205D6F2A009D17EA /* MessageRemindTableViewCell.xib in Resources */,
 				C7613F27205CC48B002604A3 /* ClassSpaceTableViewCell.xib in Resources */,
@@ -1513,7 +1532,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C758D96420609CE600257DDB /* ClassComDetailModel.m in Sources */,
 				384A555D20521F20006D8C23 /* MJDIYAutoFooter.m in Sources */,
+				C758D95D20609CD000257DDB /* ClassComDetailTableViewCell.m in Sources */,
 				BED0DF3F205C084F00276785 /* DataEditTableViewCell.m in Sources */,
 				C7188807205A713700333387 /* ClassInfoHeadView.m in Sources */,
 				C7613F28205CC48B002604A3 /* ClassSpaceTableViewCell.m in Sources */,
@@ -1534,6 +1555,7 @@
 				C758D94A205F8C3700257DDB /* ClassComDetailViewController.m in Sources */,
 				38010DB1204FFB5E00E4511C /* ZhaoShengTableViewCell.m in Sources */,
 				F40A8FFD205E237F0087814A /* MYDatePicker.m in Sources */,
+				C758D96320609CE600257DDB /* ClassComDetailManager.m in Sources */,
 				C781F85F205BCD0100BE37AD /* ClassViewController.m in Sources */,
 				C71887FE205A6D7900333387 /* MYBannerImageView.m in Sources */,
 				C781F869205BE92E00BE37AD /* ClassViewModel.m in Sources */,
