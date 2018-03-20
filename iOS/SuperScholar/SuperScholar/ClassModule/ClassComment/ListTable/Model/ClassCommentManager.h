@@ -7,15 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ClassCommentModel.h"
+// !!!: 视图类
+#import "ClassSpaceTableViewCell.h"
+#import "PhotoBrowser.h"
+// !!!: 数据类
+#import "ClassSpaceModel.h"
+
 
 @interface ClassCommentManager : NSObject
 
 // !!!: 获取数据
 +(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock;
 
-+(void)addPicsWithModel:(ClassCommentModel*)csm;
++(void)addPicsWithModel:(ClassSpaceModel*)csm;
 
-+(void)removePicsWithModel:(ClassCommentModel*)csm;
++(void)removePicsWithModel:(ClassSpaceModel*)csm;
+
+// !!!: 加载视图
+-(void)loadData:(NSArray *)data cell:(ClassSpaceTableViewCell*)cell index:(NSInteger)index pageSize:(NSInteger)pageSize;
 
 @end
