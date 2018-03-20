@@ -52,6 +52,11 @@
 // 返回按钮
 #define kGoBackImageString @"public_left"
 
+// 默认的头像占位符
+#define kPlaceholderHeadImage [UIImage imageNamed:@"bgImage"]
+// 默认的图片占位符
+#define kPlaceholderImage [UIImage imageNamed:@"zhanweifu"]
+
 
 #pragma mark - <************************** 通知字段 **************************>
 

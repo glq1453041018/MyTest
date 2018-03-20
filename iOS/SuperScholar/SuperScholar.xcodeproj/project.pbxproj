@@ -79,6 +79,12 @@
 		C758D95E20609CD000257DDB /* ClassComDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C758D95C20609CD000257DDB /* ClassComDetailTableViewCell.xib */; };
 		C758D96320609CE600257DDB /* ClassComDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D96020609CE600257DDB /* ClassComDetailManager.m */; };
 		C758D96420609CE600257DDB /* ClassComDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D96220609CE600257DDB /* ClassComDetailModel.m */; };
+		C758D96C2060C66800257DDB /* CommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D96A2060C66800257DDB /* CommentDetailViewController.m */; };
+		C758D96D2060C66800257DDB /* CommentDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C758D96B2060C66800257DDB /* CommentDetailViewController.xib */; };
+		C758D9702060D47A00257DDB /* CommentDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D96F2060D47A00257DDB /* CommentDetailManager.m */; };
+		C758D9732060EE9100257DDB /* LLTableCellOptimization.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D9722060EE9100257DDB /* LLTableCellOptimization.m */; };
+		C758D9792060F4C100257DDB /* MyWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D9762060F4C100257DDB /* MyWebView.m */; };
+		C758D97A2060F4C100257DDB /* WeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D9772060F4C100257DDB /* WeakScriptMessageDelegate.m */; };
 		C7613F23205CC48B002604A3 /* ClassSpaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7613F15205CC48B002604A3 /* ClassSpaceViewController.m */; };
 		C7613F24205CC48B002604A3 /* ClassSpaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7613F1A205CC48B002604A3 /* ClassSpaceModel.m */; };
 		C7613F25205CC48B002604A3 /* ClassSpaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7613F1B205CC48B002604A3 /* ClassSpaceManager.m */; };
@@ -245,6 +251,17 @@
 		C758D96020609CE600257DDB /* ClassComDetailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassComDetailManager.m; sourceTree = "<group>"; };
 		C758D96120609CE600257DDB /* ClassComDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassComDetailModel.h; sourceTree = "<group>"; };
 		C758D96220609CE600257DDB /* ClassComDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassComDetailModel.m; sourceTree = "<group>"; };
+		C758D9692060C66800257DDB /* CommentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentDetailViewController.h; sourceTree = "<group>"; };
+		C758D96A2060C66800257DDB /* CommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentDetailViewController.m; sourceTree = "<group>"; };
+		C758D96B2060C66800257DDB /* CommentDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentDetailViewController.xib; sourceTree = "<group>"; };
+		C758D96E2060D47A00257DDB /* CommentDetailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentDetailManager.h; sourceTree = "<group>"; };
+		C758D96F2060D47A00257DDB /* CommentDetailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentDetailManager.m; sourceTree = "<group>"; };
+		C758D9712060EE9100257DDB /* LLTableCellOptimization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLTableCellOptimization.h; sourceTree = "<group>"; };
+		C758D9722060EE9100257DDB /* LLTableCellOptimization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLTableCellOptimization.m; sourceTree = "<group>"; };
+		C758D9752060F4C100257DDB /* WeakScriptMessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakScriptMessageDelegate.h; sourceTree = "<group>"; };
+		C758D9762060F4C100257DDB /* MyWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWebView.m; sourceTree = "<group>"; };
+		C758D9772060F4C100257DDB /* WeakScriptMessageDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakScriptMessageDelegate.m; sourceTree = "<group>"; };
+		C758D9782060F4C100257DDB /* MyWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebView.h; sourceTree = "<group>"; };
 		C7613F15205CC48B002604A3 /* ClassSpaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSpaceViewController.m; sourceTree = "<group>"; };
 		C7613F16205CC48B002604A3 /* ClassSpaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSpaceViewController.h; sourceTree = "<group>"; };
 		C7613F18205CC48B002604A3 /* ClassSpaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSpaceManager.h; sourceTree = "<group>"; };
@@ -602,6 +619,8 @@
 			children = (
 				BE950ED7205B8793009F562B /* SMSManager.h */,
 				BE950ED8205B8793009F562B /* SMSManager.m */,
+				C758D9712060EE9100257DDB /* LLTableCellOptimization.h */,
+				C758D9722060EE9100257DDB /* LLTableCellOptimization.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -609,6 +628,7 @@
 		384A554B20521F20006D8C23 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C758D9742060F4C100257DDB /* MyWebView */,
 				C781F858205BC89E00BE37AD /* VisualEffectView */,
 				C781F83C205B528500BE37AD /* CommentStarView */,
 				C781F838205B528200BE37AD /* NavigationView */,
@@ -915,6 +935,7 @@
 			children = (
 				C758D92E205F848500257DDB /* ListTable */,
 				C758D92A205F848500257DDB /* DetailTable */,
+				C758D9652060C63100257DDB /* CommentDetail */,
 			);
 			path = ClassComment;
 			sourceTree = "<group>";
@@ -997,6 +1018,53 @@
 				C758D93C205F848500257DDB /* ClassCommentSectionView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C758D9652060C63100257DDB /* CommentDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C758D9662060C63100257DDB /* Controller */,
+				C758D9672060C63100257DDB /* Model */,
+				C758D9682060C63100257DDB /* View */,
+			);
+			path = CommentDetail;
+			sourceTree = "<group>";
+		};
+		C758D9662060C63100257DDB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C758D9692060C66800257DDB /* CommentDetailViewController.h */,
+				C758D96A2060C66800257DDB /* CommentDetailViewController.m */,
+				C758D96B2060C66800257DDB /* CommentDetailViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C758D9672060C63100257DDB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C758D96E2060D47A00257DDB /* CommentDetailManager.h */,
+				C758D96F2060D47A00257DDB /* CommentDetailManager.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C758D9682060C63100257DDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C758D9742060F4C100257DDB /* MyWebView */ = {
+			isa = PBXGroup;
+			children = (
+				C758D9752060F4C100257DDB /* WeakScriptMessageDelegate.h */,
+				C758D9772060F4C100257DDB /* WeakScriptMessageDelegate.m */,
+				C758D9782060F4C100257DDB /* MyWebView.h */,
+				C758D9762060F4C100257DDB /* MyWebView.m */,
+			);
+			path = MyWebView;
 			sourceTree = "<group>";
 		};
 		C7613F13205CC48B002604A3 /* ClassSpace */ = {
@@ -1470,6 +1538,7 @@
 				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
 				F49D7D55205D6F2A009D17EA /* MessageRemindTableViewCell.xib in Resources */,
 				C7613F27205CC48B002604A3 /* ClassSpaceTableViewCell.xib in Resources */,
+				C758D96D2060C66800257DDB /* CommentDetailViewController.xib in Resources */,
 				C758D940205F848500257DDB /* ClassCommentViewController.xib in Resources */,
 				C781F844205B581400BE37AD /* ClassInfoFootView.xib in Resources */,
 				38010DB2204FFB5E00E4511C /* ZhaoShengTableViewCell.xib in Resources */,
@@ -1561,6 +1630,7 @@
 				C781F83F205B529200BE37AD /* MYCommentStarView.m in Sources */,
 				BE950EE7205BECAF009F562B /* DataEditingViewController.m in Sources */,
 				BE950EDF205BE97E009F562B /* LLAlertView.m in Sources */,
+				C758D97A2060F4C100257DDB /* WeakScriptMessageDelegate.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
 				C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */,
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
@@ -1577,6 +1647,7 @@
 				C781F85F205BCD0100BE37AD /* ClassViewController.m in Sources */,
 				C71887FE205A6D7900333387 /* MYBannerImageView.m in Sources */,
 				C781F869205BE92E00BE37AD /* ClassViewModel.m in Sources */,
+				C758D9732060EE9100257DDB /* LLTableCellOptimization.m in Sources */,
 				C76169EF204F839200C94311 /* ActivityViewController.m in Sources */,
 				384A555B20521F20006D8C23 /* IndicatorView.m in Sources */,
 				F44A6B63205D0F07005DBF33 /* SuggestionViewController.m in Sources */,
@@ -1591,6 +1662,8 @@
 				C7613F26205CC48B002604A3 /* ClassSpaceHeadView.m in Sources */,
 				C7613F25205CC48B002604A3 /* ClassSpaceManager.m in Sources */,
 				384A555720521F20006D8C23 /* NSObject+InitData.m in Sources */,
+				C758D9792060F4C100257DDB /* MyWebView.m in Sources */,
+				C758D96C2060C66800257DDB /* CommentDetailViewController.m in Sources */,
 				C781F842205B580A00BE37AD /* ClassInfoFootView.m in Sources */,
 				BE950ECB205B8634009F562B /* MYAutoScaleView.m in Sources */,
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
@@ -1606,6 +1679,7 @@
 				C7188811205A91B100333387 /* ClassInfoModel.m in Sources */,
 				BE950ED9205B8793009F562B /* SMSManager.m in Sources */,
 				BE950ED2205B8728009F562B /* LoginInterfaceViewController.m in Sources */,
+				C758D9702060D47A00257DDB /* CommentDetailManager.m in Sources */,
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
 				F40A8FF9205E1A4E0087814A /* MyMessageCenterViewController.m in Sources */,

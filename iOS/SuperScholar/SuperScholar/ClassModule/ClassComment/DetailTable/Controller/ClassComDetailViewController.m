@@ -7,6 +7,7 @@
 //
 
 #import "ClassComDetailViewController.h"
+#import "CommentDetailViewController.h"         // 评论详情
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"             // 消息主题cell
 #import "ClassComDetailTableViewCell.h"         // 回复cell
@@ -63,7 +64,8 @@
     self.constraint.constant = self.navigationBar.bottom;
     self.table.tableFooterView = [UIView new];
     self.table.separatorStyle = NO;
-    self.table.mj_footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    self.table.showsVerticalScrollIndicator = NO;
+//    self.table.mj_footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 
@@ -156,6 +158,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    CommentDetailViewController *ctrl = [CommentDetailViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 
