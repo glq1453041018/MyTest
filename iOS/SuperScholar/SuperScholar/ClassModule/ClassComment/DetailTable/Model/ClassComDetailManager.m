@@ -81,11 +81,11 @@
         itemModel.moreNum = getRandomNumberFromAtoB(1, 20);
         itemModel.more = YES;
         itemModel.cellHeight = cellDetail.commentLabel.y + itemModel.commentLabelHeight + 10;
-        itemModel.cellHeight += itemModel.more?cellDetail.moreLabel.viewHeight:0;   // 是否有更多
+        itemModel.cellHeight += itemModel.more?cellDetail.moreLabel.viewHeight+5:0;   // 是否有更多
         [items addObject:itemModel];
     }
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.75 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (responseBlock) {
             self.dataModel.mainModel = csm;
             self.dataModel.responses = items;
@@ -188,9 +188,9 @@
     
     // frame
     cell.commentLabel.viewHeight = ccim.commentLabelHeight;
-    cell.moreLabel.y = cell.commentLabel.bottom;
+    cell.moreLabel.y = cell.commentLabel.bottom + 5;
     cell.moreLabel.hidden = !ccim.more;
-    cell.rowView.y = ccim.cellHeight-1;
+    cell.rowView.y = ccim.cellHeight-0.5;
 }
 
 

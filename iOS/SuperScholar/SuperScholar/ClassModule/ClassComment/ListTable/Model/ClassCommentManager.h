@@ -12,6 +12,7 @@
 #import "PhotoBrowser.h"
 // !!!: 数据类
 #import "ClassSpaceModel.h"
+#import "LLTableCellOptimization.h"
 
 
 @interface ClassCommentManager : NSObject

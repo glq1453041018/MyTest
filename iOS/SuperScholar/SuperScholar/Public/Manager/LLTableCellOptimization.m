@@ -43,8 +43,10 @@
             NSInteger endIndex = MIN(totalCount, (currentPage+1)*pageSize);
             NSRange range = NSMakeRange(startIndex, endIndex-startIndex);
             DLog(@"添加%@",NSStringFromRange(range));
+            block_a(range);
         }
     }
+    
 }
 
 @end

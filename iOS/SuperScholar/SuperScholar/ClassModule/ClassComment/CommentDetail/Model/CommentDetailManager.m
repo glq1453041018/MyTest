@@ -66,7 +66,7 @@
         }
     }
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.75 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (responseBlock) {
             self.datas = items;
             responseBlock(YES,nil);
@@ -99,12 +99,11 @@
     cell.userNameLabel.text = ccim.userName;
     cell.dateLabel.text = ccim.date;
     cell.commentLabel.text = ccim.comment;
-    cell.rowView.backgroundColor = [UIColor lightGrayColor];
     
     // frame
     cell.commentLabel.viewHeight = ccim.commentLabelHeight;
     cell.moreLabel.hidden = YES;
-    cell.rowView.y = ccim.cellHeight-1;
+    cell.rowView.y = ccim.cellHeight-0.5;
 }
 
 
