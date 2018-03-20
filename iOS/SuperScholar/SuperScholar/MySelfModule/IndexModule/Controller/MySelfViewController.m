@@ -50,7 +50,8 @@
     self.navigationBar.hidden = isLogin;//导航栏显隐
     self.didLoginView.hidden = !isLogin;//已登录视图显隐
     self.titleButtonsBackView.hidden = !isLogin;//评论、收藏、历史背景视图显隐
-    self.tabelHeaderView.viewHeight =  self.topBackView.viewHeight + (isLogin ?  70 : 0); //评论、收藏、历史等功能显隐
+    self.titleButtonsBackView.heightConstraint.constant = isLogin ? 70 : 0;//评论、收藏、历史背景视图显隐
+    self.tabelHeaderView.viewHeight =  IEW_WIDTH * 483 / 1024.0 + (isLogin ?  70 : 0);
     self.tableView.tableHeaderView = self.tabelHeaderView;
     
     if(isLogin){//登录状态
