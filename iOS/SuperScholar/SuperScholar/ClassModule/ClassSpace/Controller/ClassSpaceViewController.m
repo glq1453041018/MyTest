@@ -45,6 +45,12 @@
         self.data = resArray.mutableCopy;
         [self.table reloadData];
     }];
+    
+    NSString *iconUrlString = [TESTDATA randomUrlString];
+    NSString *detailString = [TESTDATA randomContent];
+    [self.headView.iconImageView sd_setImageWithURL:[NSURL URLWithString:iconUrlString] placeholderImage:kPlaceholderImage];
+    [self.headView.detailLabel setText:detailString];
+    
 }
 -(void)loadMoreData{
     [ClassSpaceManager requestDataResponse:^(NSArray *resArray, id error) {
@@ -85,7 +91,6 @@
 -(ClassSpaceHeadView *)headView{
     if (_headView==nil) {
         _headView = [[NSBundle mainBundle] loadNibNamed:@"ClassSpaceHeadView" owner:nil options:nil].lastObject;
-        [_headView adjustFrame];
         [_headView.clickBtn addTarget:self action:@selector(clickBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _headView;

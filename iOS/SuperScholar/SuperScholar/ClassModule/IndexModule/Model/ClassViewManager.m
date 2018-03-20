@@ -13,7 +13,10 @@
 // !!!: 获取数据
 +(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock{
     NSArray *titles = @[@"AI学堂-机器学习",@"大数据基础篇",@"算法分析",@"人工智能-AlphaGo",@"Python-爬虫进阶"];
-    NSArray *icons = @[@"0",@"1",@"2",@"3",@"4"];
+    NSMutableArray *icons = [NSMutableArray array];
+    for (int i=0; i<titles.count; i++) {
+        [icons addObject:[TESTDATA randomUrlString]];
+    }
     NSMutableArray *resArray = [NSMutableArray array];
     for (int i=0; i<titles.count; i++) {
         ClassViewModel *cvm = [ClassViewModel new];
@@ -25,5 +28,13 @@
         responseBlock(resArray,nil);
     }
 }
+
+
++(void)loadCell:(ClassViewCollectionViewCell *)cell model:(ClassViewModel *)model{
+    cell.titleLabel.text = model.title;
+    [cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:kPlaceholderImage];
+}
+
+
 
 @end

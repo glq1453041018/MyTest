@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ClassViewCollectionViewCell.h"
 #import "ClassViewModel.h"
 
 @interface ClassViewManager : NSObject
 
 // !!!: 获取数据
 +(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock;
+
++(void)loadCell:(ClassViewCollectionViewCell*)cell model:(ClassViewModel*)model;
 
 @end

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ClassSpaceHeadView : UIView
-@property (weak, nonatomic) IBOutlet UIButton *clickBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *clickBtn;
 @end
