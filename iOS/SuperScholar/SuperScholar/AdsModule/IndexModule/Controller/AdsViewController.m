@@ -9,7 +9,7 @@
 #import "AdsViewController.h"
 #import "SearchIndexViewController.h"
 #import "AddressViewController.h"
-#import "AdressDetailViewController.h"
+#import "AdsDetailViewController.h"
 
 #import "AdsCollectionViewCell.h"
 
@@ -258,7 +258,7 @@
 {
 
 
-    AdressDetailViewController *next = [[AdressDetailViewController alloc]initWithNibName:@"AdressDetailViewController" bundle:nil];
+    AdsDetailViewController *next = [[AdsDetailViewController alloc]initWithNibName:@"AdsDetailViewController" bundle:nil];
     next.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:next animated:YES];
 }

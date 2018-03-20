@@ -6,14 +6,14 @@
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-#import "AdressDetailViewController.h"
+#import "AdsDetailViewController.h"
 
 #import "MYBannerScrollView.h"
 #import "ZhaoShengTableViewCell.h"
 
 #import "PhotoBrowser.h"
 
-@interface AdressDetailViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate>
+@interface AdsDetailViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,assign) NSInteger page;
 @property (nonatomic,strong)NSMutableArray *dataArray;
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation AdressDetailViewController
+@implementation AdsDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
