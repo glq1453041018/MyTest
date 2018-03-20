@@ -22,6 +22,9 @@
     
     self.moreLabel.layer.cornerRadius = 2;
     self.moreLabel.layer.masksToBounds = YES;
+    self.moreLabel.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    self.rowView.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.5];
 }
 
 

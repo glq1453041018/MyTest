@@ -52,7 +52,7 @@
         csm.cellHeight = cell.contentLabel.y+csm.contentLabelHeight+csm.mediaView.viewHeight+cell.bottomView.viewHeight;
         [cells addObject:csm];
     }
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.75 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (responseBlock) {
             responseBlock(cells,nil);
         }
@@ -135,38 +135,22 @@
     cell.contentLabel.attributedText = csm.contentAttring;
     cell.starView.scorePercent = MIN(csm.starNum, 5.0) / 5.0;
     
-    NSInteger totalPage = data.count/pageSize;
-    NSInteger currentPage = index/pageSize;
-    BOOL needOperate = NO;
-    if (index % pageSize==0) {
-        needOperate = YES;
-    }
-    if (needOperate) {  // 需要进行操作
-        if (currentPage>=2) {   // 删除当前页的 前2和后2页的数据，并创建当前页
-            // 删除 -2 页数据
-            for (NSInteger i=(currentPage-2)*pageSize; i<(currentPage-1)*pageSize; i++) {
-                ClassSpaceModel *csmTmp = data[i];
-                [ClassCommentManager removePicsWithModel:csmTmp];
-            }
-            if (currentPage<=totalPage-2) {
-                // 删除 +2 页数据
-                for (NSInteger j=(currentPage+1)*pageSize; j<(currentPage+2)*pageSize; j++) {
-                    ClassSpaceModel *csmTmp = data[j];
-                    [ClassCommentManager removePicsWithModel:csmTmp];
-                }
-            }
-        }
-    }
     
-    // 创建
-    for (NSInteger i=MAX((currentPage-1)*pageSize, 0); i<MIN(data.count, (currentPage+1)*pageSize); i++) {
-        ClassSpaceModel *csmTmp = data[i];
-        if (csmTmp.mediaView.subviews.count==0) {
-            if (csmTmp.pics.count) {
-            }
-            [ClassCommentManager addPicsWithModel:csmTmp];
+    [LLTableCellOptimization handleTableData:data.count currentIndex:index pageSize:pageSize deleteRange:^(NSRange range) {
+        for (NSInteger i=range.location; i<range.location+range.length; i++) {
+            ClassSpaceModel *csmTmp = data[i];
+            [ClassCommentManager removePicsWithModel:csmTmp];
         }
-    }
+    } addRange:^(NSRange range) {
+        for (NSInteger i=range.location; i<range.location+range.length; i++) {
+            ClassSpaceModel *csmTmp = data[i];
+            if (csmTmp.mediaView.subviews.count==0) {
+                if (csmTmp.pics.count) {
+                }
+                [ClassCommentManager addPicsWithModel:csmTmp];
+            }
+        }
+    }];
     
     for (UIView* viewItem in cell.mediaView.subviews) {
         [viewItem removeFromSuperview];
