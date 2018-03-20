@@ -31,6 +31,10 @@
 		384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384A556F2052674F006D8C23 /* SchoolTableViewCell.xib */; };
 		386924B5205FB1FB0093B48E /* AdsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386924B3205FB1FB0093B48E /* AdsDetailViewController.m */; };
 		386924B6205FB1FB0093B48E /* AdsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386924B4205FB1FB0093B48E /* AdsDetailViewController.xib */; };
+		3890404D2060CED6007BA074 /* AdsDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3890404B2060CED6007BA074 /* AdsDetailTableViewCell.m */; };
+		3890404E2060CED6007BA074 /* AdsDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3890404C2060CED6007BA074 /* AdsDetailTableViewCell.xib */; };
+		389040522060ECD8007BA074 /* AdsWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 389040502060ECD8007BA074 /* AdsWebViewViewController.m */; };
+		389040532060ECD8007BA074 /* AdsWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389040512060ECD8007BA074 /* AdsWebViewViewController.xib */; };
 		BE243E6D205F780F008781EB /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE243E6C205F780F008781EB /* city.plist */; };
 		BE243E73205FA08A008781EB /* MYCitySelectPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BE243E72205FA08A008781EB /* MYCitySelectPicker.m */; };
 		BE243E76205FBDC3008781EB /* MYInfoInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE243E75205FBDC3008781EB /* MYInfoInputView.m */; };
@@ -163,6 +167,12 @@
 		386924B2205FB1FB0093B48E /* AdsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsDetailViewController.h; sourceTree = "<group>"; };
 		386924B3205FB1FB0093B48E /* AdsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsDetailViewController.m; sourceTree = "<group>"; };
 		386924B4205FB1FB0093B48E /* AdsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsDetailViewController.xib; sourceTree = "<group>"; };
+		3890404A2060CED6007BA074 /* AdsDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsDetailTableViewCell.h; sourceTree = "<group>"; };
+		3890404B2060CED6007BA074 /* AdsDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsDetailTableViewCell.m; sourceTree = "<group>"; };
+		3890404C2060CED6007BA074 /* AdsDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsDetailTableViewCell.xib; sourceTree = "<group>"; };
+		3890404F2060ECD8007BA074 /* AdsWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsWebViewViewController.h; sourceTree = "<group>"; };
+		389040502060ECD8007BA074 /* AdsWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsWebViewViewController.m; sourceTree = "<group>"; };
+		389040512060ECD8007BA074 /* AdsWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsWebViewViewController.xib; sourceTree = "<group>"; };
 		AA3BC876F4E559385FBF2362 /* Pods-SuperScholar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperScholar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE243E6C205F780F008781EB /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
@@ -339,6 +349,9 @@
 				386924B2205FB1FB0093B48E /* AdsDetailViewController.h */,
 				386924B3205FB1FB0093B48E /* AdsDetailViewController.m */,
 				386924B4205FB1FB0093B48E /* AdsDetailViewController.xib */,
+				3890404F2060ECD8007BA074 /* AdsWebViewViewController.h */,
+				389040502060ECD8007BA074 /* AdsWebViewViewController.m */,
+				389040512060ECD8007BA074 /* AdsWebViewViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -356,6 +369,9 @@
 				38010D8C204FD6E500E4511C /* AdsCollectionViewCell.h */,
 				38010D8D204FD6E500E4511C /* AdsCollectionViewCell.m */,
 				38010D8E204FD6E500E4511C /* AdsCollectionViewCell.xib */,
+				3890404A2060CED6007BA074 /* AdsDetailTableViewCell.h */,
+				3890404B2060CED6007BA074 /* AdsDetailTableViewCell.m */,
+				3890404C2060CED6007BA074 /* AdsDetailTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1431,6 +1447,7 @@
 				BE950EE8205BECAF009F562B /* DataEditingViewController.xib in Resources */,
 				384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */,
 				BE950EDE205BE97E009F562B /* LLAlertView.bundle in Resources */,
+				389040532060ECD8007BA074 /* AdsWebViewViewController.xib in Resources */,
 				C758D94B205F8C3700257DDB /* ClassComDetailViewController.xib in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
 				C718880E205A894900333387 /* ClassInfoTableViewCell.xib in Resources */,
@@ -1461,6 +1478,7 @@
 				C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */,
 				C781F860205BCD0100BE37AD /* ClassViewController.xib in Resources */,
 				F44A6B64205D0F07005DBF33 /* SuggestionViewController.xib in Resources */,
+				3890404E2060CED6007BA074 /* AdsDetailTableViewCell.xib in Resources */,
 				C781F84A205B703900BE37AD /* ClassInfoTitleItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1577,6 +1595,7 @@
 				BE950ECB205B8634009F562B /* MYAutoScaleView.m in Sources */,
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
 				F49D7D4A205D5E90009D17EA /* MessageRemindViewController.m in Sources */,
+				3890404D2060CED6007BA074 /* AdsDetailTableViewCell.m in Sources */,
 				C781F85B205BC89E00BE37AD /* MYVisualEffectView.m in Sources */,
 				BE243E76205FBDC3008781EB /* MYInfoInputView.m in Sources */,
 				C71887F2205A5C1400333387 /* ClassInfoViewController.m in Sources */,
@@ -1595,6 +1614,7 @@
 				C758D93F205F848500257DDB /* ClassCommentViewController.m in Sources */,
 				384A556620522095006D8C23 /* SearchIndexViewController.m in Sources */,
 				C7188804205A6F4500333387 /* NSArray+ExtraMethod.m in Sources */,
+				389040522060ECD8007BA074 /* AdsWebViewViewController.m in Sources */,
 				C781F863205BCEC800BE37AD /* UIImage+ImageEffects.m in Sources */,
 				C781F875205CA79E00BE37AD /* AddressViewManager.m in Sources */,
 				C718880D205A894900333387 /* ClassInfoTableViewCell.m in Sources */,
