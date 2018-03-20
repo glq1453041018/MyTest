@@ -9,6 +9,8 @@
 #import "AdsViewController.h"
 #import "SearchIndexViewController.h"
 #import "AddressViewController.h"
+#import "AdressDetailViewController.h"
+
 #import "AdsCollectionViewCell.h"
 
 @interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate>
@@ -256,6 +258,9 @@
 {
 
 
+    AdressDetailViewController *next = [[AdressDetailViewController alloc]initWithNibName:@"AdressDetailViewController" bundle:nil];
+    next.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:next animated:YES];
 }
 
 #pragma mark - <************************** UISearchBar代理 **************************>

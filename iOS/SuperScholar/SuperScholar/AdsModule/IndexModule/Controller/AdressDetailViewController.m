@@ -1,44 +1,62 @@
 //
-//  SchoolViewController.m
+//  AdressDetailViewController.m
 //  SuperScholar
 //
-//  Created by guolq on 2018/3/9.
+//  Created by guolq on 2018/3/19.
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-#import "SchoolViewController.h"
-#import "SchoolTableViewCell.h"
-#import "ClassInfoViewController.h"
-@interface SchoolViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "AdressDetailViewController.h"
+
+#import "MYBannerScrollView.h"
+#import "ZhaoShengTableViewCell.h"
+
+#import "PhotoBrowser.h"
+
+@interface AdressDetailViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,assign) NSInteger page;
 @property (nonatomic,strong)NSMutableArray *dataArray;
+@property (strong, nonatomic) IBOutlet MYBannerScrollView *tableHeadView;
+@property (strong, nonatomic) IBOutlet UIView *tablefootView;
+
+
 
 @end
 
-@implementation SchoolViewController
+@implementation AdressDetailViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // 初始化视图
     [self initUI];
-    [self creatTableView];
+
     
     
 }
-
+#pragma mark - <************************** navigationDelaGate **************************>
+// !!!: 导航栏
+-(void)navigationViewLeftClickEvent{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark - <************************** 配置视图 **************************>
 // !!!: 配置视图
 -(void)initUI{
+    [self creatTableView];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    // 导航栏
+    [self.navigationBar setTitle:nil leftImage:kGoBackImageString rightImage:@""];
+    self.navigationBar.backgroundColor = [UIColor clearColor];
+    self.isNeedGoBack = YES;
+
 }
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
 
 -(void)creatTableView{
-    
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0 , IEW_WIDTH, IEW_HEGHT-kNavigationbarHeight-kscrollerbarHeight) style:UITableViewStylePlain];
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0 , IEW_WIDTH, IEW_HEGHT) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     //    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
@@ -49,16 +67,45 @@
     }
     [self.tableView setSeparatorColor:SeparatorLineColor];
     self.tableView.backgroundColor=[UIColor redColor];
-    MJDIYHeader *header = [MJDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(RefreshNewData)];
-    self.tableView.mj_header = header;
+//    MJDIYHeader *header = [MJDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(RefreshNewData)];
+//    self.tableView.mj_header = header;
     
     MJDIYAutoFooter *footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     // 设置尾部
     self.tableView.mj_footer = footer;
     [self.tableView.mj_footer setHidden:YES];
+    [self creatScrollerView];
     self.tableView.tableFooterView = [[UIView alloc]init];
     [self.view addSubview:self.tableView];
-    
+    DLog(@"%lf",IEW_HEGHT-44);
+    [self.tablefootView adjustFrame];
+    self.tablefootView.frame = CGRectMake(0, IEW_HEGHT-self.tablefootView.frame.size.height, self.tablefootView.frame.size.width, self.tablefootView.frame.size.height);
+    [self.view addSubview:self.tablefootView];
+}
+-(void)creatScrollerView{
+    [self.tableHeadView adjustFrame];
+
+    NSArray *picsUrl = @[
+                         @"http://pic33.photophoto.cn/20141023/0017030062939942_b.jpg",
+                         @"http://pic14.nipic.com/20110427/5006708_200927797000_2.jpg",
+                         @"http://pic23.nipic.com/20120803/9171548_144243306196_2.jpg",
+                         @"http://pic39.nipic.com/20140311/8821914_214422866000_2.jpg",
+                         @"http://pic7.nipic.com/20100609/3143623_160732828380_2.jpg",
+                         @"http://pic9.photophoto.cn/20081128/0020033015544930_b.jpg",
+                         @"http://pic2.16pic.com/00/35/74/16pic_3574684_b.jpg",
+                         @"http://pic42.nipic.com/20140605/9081536_142458626145_2.jpg",
+                         @"http://pic35.photophoto.cn/20150626/0017029557111337_b.jpg"
+                         ];
+    [self.tableHeadView loadImages:picsUrl estimateSize:CGSizeMake(self.tableHeadView.frame.size.width , self.tableHeadView.frame.size.height)];
+    self.tableHeadView.location = locationCenter;
+    self.tableHeadView.backgroundColor = [UIColor cyanColor];
+    self.tableHeadView.useScaleEffect = YES;
+    self.tableHeadView.needBgView = YES;
+    self.tableHeadView.useVerticalParallaxEffect = YES;
+
+ 
+    self.tableHeadView.delegate = self;
+    self.tableView.tableHeaderView = self.tableHeadView;
 }
 -(NSMutableArray *)dataArray{
     if (_dataArray==nil) {
@@ -186,18 +233,22 @@
 //    return cell;
 //}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-        return 120*MAIN_SPWPW;
+    if (indexPath.row<10) {
+        return 134*MAIN_SPWPW;}
+    else{
+        return 134*MAIN_SPWPW;
     }
-
+    
+    
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-        static NSString *cellId = @"schooolcell";
-        SchoolTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (indexPath.row<10) {
+        static NSString *cellId = @"zhaoshengcell";
+        ZhaoShengTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (cell == nil) {
-            NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"SchoolTableViewCell" owner:self options:nil];
+            NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"ZhaoShengTableViewCell" owner:self options:nil];
             cell = [nibs objectAtIndex:0];
             [cell adjustFrame];
             cell.headImage.layer.cornerRadius = 4;
@@ -224,15 +275,61 @@
         cell.contentLable.lineBreakMode = NSLineBreakByTruncatingTail;
         
         
-    return cell;
+        return cell;
+    }else{
+        static NSString *cellId = @"zhaoshengcell2";
+        ZhaoShengTableViewCell_NOImage *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        if (cell == nil) {
+            NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"ZhaoShengTableViewCell" owner:self options:nil];
+            cell = [nibs objectAtIndex:1];
+            [cell adjustFrame];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+        }
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
+        
+        NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:@"新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教婴早教莆田教育婴早教莆田教育莆田教育中心新爱婴早教莆田教育中心"];
+        
+        //    if (fenxianTip.length>5) {
+        [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
+        //设置文字颜色
+        [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
+        //设置文字大小
+        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
+        
+        //    }
+        
+        //赋值
+        cell.contentLable.attributedText = attributStr;
+        cell.contentLable.lineBreakMode = NSLineBreakByTruncatingTail;
+        
+        
+        return cell;
+    }
+    
     
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    ClassInfoViewController *ctrl = [ClassInfoViewController new];
-    [self.navigationController pushViewController:ctrl animated:YES];
+    
 }
+#pragma mark - <************************** MYBannerScrollView 代理 **************************>
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.tableHeadView scrollViewDidScroll:scrollView];
+}
+
+// !!!: 滚动视图的代理事件
+-(void)bannerScrollView:(MYBannerScrollView *)bannerScrollView didClickScrollView:(NSInteger)pageIndex{
+    [PhotoBrowser showURLImages:bannerScrollView.imagePaths placeholderImage:[UIImage imageNamed:@"zhanweifu"] selectedIndex:pageIndex];
+}
+
+//// !!!: 标题视图的代理事件
+//-(void)classInfoTableViewCell_TitleClickEvent:(NSInteger)index data:(ClassInfoModel *)model{
+//    DLog(@"点击了:%@",model.key);
+//    
+//}
 
 #pragma mark - <************************** 点击事件 **************************>
 
@@ -251,7 +348,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 /*
 #pragma mark - Navigation
