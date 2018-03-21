@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger , MYPageControlLocation) {
+typedef NS_ENUM(NSInteger , MYPageControlLocation) {//分页控件位置
     locationCenter,
     locationLeft,
     locationRight
 };
 
-typedef NS_ENUM(NSInteger , MYPageControlStyle) {
+typedef NS_ENUM(NSInteger , MYPageControlStyle) {//分页控件样式
     MYPageControlStyleDefault,//小圆点样式
     MYPageControlStyleLabel,//文本样式1/5
 };
