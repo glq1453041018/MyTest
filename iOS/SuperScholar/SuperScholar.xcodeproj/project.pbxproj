@@ -15,6 +15,7 @@
 		38010DAD204FFB3500E4511C /* ZhaoShengViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38010DAB204FFB3500E4511C /* ZhaoShengViewController.xib */; };
 		38010DB1204FFB5E00E4511C /* ZhaoShengTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010DAF204FFB5E00E4511C /* ZhaoShengTableViewCell.m */; };
 		38010DB2204FFB5E00E4511C /* ZhaoShengTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38010DB0204FFB5E00E4511C /* ZhaoShengTableViewCell.xib */; };
+		3831C91020626768003CC26F /* myTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3831C90F20626768003CC26F /* myTableView.m */; };
 		384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A553C20521F20006D8C23 /* NSDictionary+Utility.m */; };
 		384A555720521F20006D8C23 /* NSObject+InitData.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A553E20521F20006D8C23 /* NSObject+InitData.m */; };
 		384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A554020521F20006D8C23 /* UIView+AdjustFrame.m */; };
@@ -144,6 +145,8 @@
 		38010DAE204FFB5E00E4511C /* ZhaoShengTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhaoShengTableViewCell.h; sourceTree = "<group>"; };
 		38010DAF204FFB5E00E4511C /* ZhaoShengTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhaoShengTableViewCell.m; sourceTree = "<group>"; };
 		38010DB0204FFB5E00E4511C /* ZhaoShengTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZhaoShengTableViewCell.xib; sourceTree = "<group>"; };
+		3831C90E20626768003CC26F /* myTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTableView.h; sourceTree = "<group>"; };
+		3831C90F20626768003CC26F /* myTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myTableView.m; sourceTree = "<group>"; };
 		384A553B20521F20006D8C23 /* NSDictionary+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Utility.h"; sourceTree = "<group>"; };
 		384A553C20521F20006D8C23 /* NSDictionary+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Utility.m"; sourceTree = "<group>"; };
 		384A553D20521F20006D8C23 /* NSObject+InitData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+InitData.h"; sourceTree = "<group>"; };
@@ -365,6 +368,8 @@
 		38010D73204FBFBC00E4511C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3831C90E20626768003CC26F /* myTableView.h */,
+				3831C90F20626768003CC26F /* myTableView.m */,
 				38010D74204FBFBC00E4511C /* AdsViewController.h */,
 				38010D75204FBFBC00E4511C /* AdsViewController.m */,
 				38010D76204FBFBC00E4511C /* AdsViewController.xib */,
@@ -1691,6 +1696,7 @@
 				BE950ED2205B8728009F562B /* LoginInterfaceViewController.m in Sources */,
 				C758D9702060D47A00257DDB /* CommentDetailManager.m in Sources */,
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
+				3831C91020626768003CC26F /* myTableView.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
 				F40A8FF9205E1A4E0087814A /* MyMessageCenterViewController.m in Sources */,
 				384A556B205266D8006D8C23 /* SchoolViewController.m in Sources */,

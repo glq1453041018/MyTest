@@ -13,7 +13,7 @@
 
 #import "AdsCollectionViewCell.h"
 
-@interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate>
+@interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate,UIScrollViewDelegate>
 @property (nonatomic,strong) UICollectionView *CollectionView;
 @property (strong ,nonatomic) UIView *leftView;
 @property (copy ,nonatomic) NSString *address;

@@ -14,8 +14,12 @@
 #import "AdsDetailTableViewCell.h"
 
 #import "PhotoBrowser.h"
+#import <WebKit/WebKit.h>
 
-@interface AdsDetailViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate>
+@interface AdsDetailViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate,WKNavigationDelegate>
+{
+    float weHeight;
+}
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UIImageView *centerImage;
 @property (nonatomic,assign) NSInteger page;
@@ -23,6 +27,10 @@
 @property (strong, nonatomic) IBOutlet MYBannerScrollView *tableHeadView;
 @property (strong, nonatomic) IBOutlet UIView *tablefootView;
 
+@property(strong,nonatomic)WKWebView *wkWebView;
+@property(assign,nonatomic)BOOL HaveMusic;
+
+@property(strong,nonatomic)AdsDetailTableViewCell_footView *footView;
 
 
 @end
@@ -31,12 +39,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    weHeight = IEW_HEGHT;
+    self.HaveMusic = YES;
+    [self.wkWebView addObserver:self forKeyPath:@"scrollView.contentSize" options:NSKeyValueObservingOptionNew context:@"DJWebKitContext"];
     // 初始化视图
     [self initUI];
+    
+    
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if (object == self.wkWebView && [keyPath isEqual:@"scrollView.contentSize"]&&weHeight!=self.wkWebView.scrollView.contentSize.height) {
+        // we are here because the contentSize of the WebView's scrollview changed.
 
-    
-    
+         weHeight = self.wkWebView.scrollView.contentSize.height;
+        CGRect frame = self.wkWebView.frame;
+        frame.size.height = weHeight;
+        self.wkWebView.frame = frame;
+        DLog(@"webview ====== %lf,ro ===== %lf",weHeight,self.wkWebView.scrollView.contentOffset.y);
+        [self.tableView reloadData];
+    }
 }
 #pragma mark - <************************** navigationDelaGate **************************>
 // !!!: 导航栏
@@ -49,18 +74,39 @@
     [self creatTableView];
     self.view.backgroundColor = [UIColor whiteColor];
     // 导航栏
-    
-    self.centerImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [self.centerImage sd_setImageWithURL:[NSURL URLWithString:@"http://pic33.photophoto.cn/20141023/0017030062939942_b.jpg"] placeholderImage:[UIImage imageNamed:@""]];
-    [self.navigationBar setTitle:@"" leftImage:kGoBackImageString rightImage:@""];
-//    [self.navigationBar setCenterView:self.centerImage leftView:kGoBackImageString rightView:nil];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+    [view addSubview:self.navigationBar.letfBtn];
+    self.navigationBar.letfBtn.frame = CGRectMake(0, 0, 15, 44);
+    [self.navigationBar.letfBtn setImage:[UIImage imageNamed:kGoBackImageString] forState:UIControlStateNormal];
+    [self.navigationBar setCenterView:self.centerImage leftView:view rightView:nil];
     self.navigationBar.backgroundColor = [UIColor clearColor];
-    self.isNeedGoBack = YES;
+//    self.isNeedGoBack = YES;
 
 }
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
 
+-(UIImageView *)centerImage{
+    if (_centerImage == nil) {
+        _centerImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 2, 35, 35)];
+        [_centerImage sd_setImageWithURL:[NSURL URLWithString:[TESTDATA randomUrlString]] placeholderImage:[UIImage imageNamed:@""]];
+        _centerImage.layer.cornerRadius = 3;
+        _centerImage.clipsToBounds = YES;
+        _centerImage.alpha = 0;
+    }
+    return _centerImage;
+}
+-(WKWebView *)wkWebView{
+    if (!_wkWebView) {
+        //        _wkWebView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 100, MAIN_WIDTH, MAIN_HEIGHT-kNavigationbarHeight-100)];
+        _wkWebView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT)];
+        _wkWebView.navigationDelegate = self;
+        _wkWebView.scrollView.showsVerticalScrollIndicator = NO;
+        _wkWebView.userInteractionEnabled = NO;
+        _wkWebView.scrollView.scrollEnabled = NO;
+    }
+    return _wkWebView;
+}
 -(void)creatTableView{
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0 , IEW_WIDTH, IEW_HEGHT-44) style:UITableViewStyleGrouped];
@@ -115,6 +161,20 @@
     self.tableHeadView.delegate = self;
     self.tableView.tableHeaderView = self.tableHeadView;
 }
+
+-(AdsDetailTableViewCell_footView *)footView{
+    if (_footView==nil) {
+        NSArray *cells = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([AdsDetailTableViewCell class]) owner:nil options:nil];
+        for (id cellItem in cells) {
+            if ([cellItem isKindOfClass:[AdsDetailTableViewCell_footView class]]) {
+                _footView = cellItem;
+                break;
+            }
+        }
+    }
+    return _footView;
+}
+
 -(NSMutableArray *)dataArray{
     if (_dataArray==nil) {
         _dataArray = [NSMutableArray array];
@@ -221,7 +281,9 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if (section == 2) {
         return CGFLOAT_MIN;
-    }else{
+    }else if (section == 1){
+        return 40;
+    } else{
         return 10;
     }
 
@@ -229,7 +291,10 @@
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     if (section == 2) {
          return [[UIView alloc]init];
-    }else{
+    }else if (section == 1){
+
+        return self.footView;
+    } else{
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, IEW_WIDTH, 10)];
         view.backgroundColor = TableBackGroundColor;
         return view;
@@ -247,7 +312,7 @@
         }
         
     }else{
-        return IEW_HEGHT;
+        return weHeight;
     }
     
     
@@ -337,15 +402,12 @@
         static NSString *cellId = @"Adsdetail_webView";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT)];
-            AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
-            webview.urlString = @"https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%E9%A2%9C%E8%89%B2&oq=podfile.lock&rsv_pq=d4e26e5e00017958&rsv_t=dd1bkgpFm6Zi3rX473AXC%2FBFcQJJOiOHhX1R63Zp4Arqw%2BPiJ09kKy0lcSk&rqlang=cn&rsv_enter=1&inputT=856&rsv_sug3=6&rsv_sug1=5&rsv_sug7=100&bs=podfile.lock";
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
 
-            [cell addSubview:webview.view];
-            [self addChildViewController:webview];
+            [cell.contentView addSubview:self.wkWebView];
+            [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://u4915226.viewer.maka.im/pcviewer/1WXHYXUH"]]];
         }
         return cell;
-//          return [[UITableViewCell alloc]init];
     }
     
     
@@ -353,26 +415,49 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
-    webview.urlString = @"https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%E9%A2%9C%E8%89%B2&oq=podfile.lock&rsv_pq=d4e26e5e00017958&rsv_t=dd1bkgpFm6Zi3rX473AXC%2FBFcQJJOiOHhX1R63Zp4Arqw%2BPiJ09kKy0lcSk&rqlang=cn&rsv_enter=1&inputT=856&rsv_sug3=6&rsv_sug1=5&rsv_sug7=100&bs=podfile.lock";
-    [self.navigationController pushViewController:webview animated:YES];
+    webview.urlString = @"http://u4915226.viewer.maka.im/pcviewer/1WXHYXUH";
+    [self presentViewController:webview animated:YES completion:^{
+        
+    }];
+//    [self.navigationController pushViewController:webview animated:YES];
     
 }
-#pragma mark - <************************** MYBannerScrollView 代理 **************************>
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    DLog(@"%lf",scrollView.contentOffset.y);
-    if(scrollView.contentOffset.y>150){
-        [self.navigationBar setTitle:@"详情页" leftImage:kGoBackImageString rightText:nil];
+    
+    
+    // 判断webView所在的cell是否可见，如果可见就layout
+    NSArray *cells = self.tableView.visibleCells;
+    for (UITableViewCell *cell in cells) {
+        NSIndexPath *path = [self.tableView indexPathForCell:cell];
+        if (path.section==2) {
+            [self.wkWebView setNeedsLayout];
+        }
         
-    }else{
-       [self.navigationBar setTitle:@" " leftImage:kGoBackImageString rightText:nil];
     }
+    CGRect rect = [self.tableView rectForFooterInSection:2];
+    NSLog(@"%lf %lf  %lf",scrollView.contentOffset.y,rect.origin.y,IEW_HEGHT);
+    if (scrollView.contentOffset.y>rect.origin.y-IEW_HEGHT+64+44+10) {
+        if (self.HaveMusic) {
+            AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
+            webview.urlString = @"http://u4915226.viewer.maka.im/pcviewer/1WXHYXUH";
+            [self presentViewController:webview animated:YES completion:^{
+                
+            }];
+        }
+    }
+
+    
     CGFloat minAlphaOffset = 0;
     CGFloat maxAlphaOffset = 150;
     CGFloat offset = scrollView.contentOffset.y;
     CGFloat alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
     self.navigationBar.backgroundColor = RGBColor(116, 208, 198, alpha);
+//    self.navigationBar.backgroundColor = RGBColor(247, 247, 247, alpha);
+    self.centerImage.alpha = alpha;
     [self.tableHeadView scrollViewDidScroll:scrollView];
+    
 }
+#pragma mark - <************************** MYBannerScrollView 代理 **************************>
 
 // !!!: 滚动视图的代理事件
 -(void)bannerScrollView:(MYBannerScrollView *)bannerScrollView didClickScrollView:(NSInteger)pageIndex{
@@ -384,18 +469,45 @@
 //    DLog(@"点击了:%@",model.key);
 //    
 //}
-
+#pragma mark - <************************** WKwebView代理 **************************>
+///  页面开始加载
+-(void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+    [self.loadingView startAnimating];
+    
+}
+///  页面加载完成之后调用
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    [self.loadingView stopAnimating];
+}
+/// 页面加载失败时调用
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation{
+        NSLog(@"加载失败");
+}
 #pragma mark - <************************** 点击事件 **************************>
 
 
 
 #pragma mark - <************************** 其他方法 **************************>
-
-
+//-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+////    if (![NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
+////        return NO;
+////    }
+//    return YES;
+//}
+//-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+//    if (![NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
+//        return NO;
+//    }
+//    return YES;
+//}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    return YES;
+}
 
 
 #pragma mark - <************************** 检测释放 **************************>
 - (void)dealloc{
+    [self.wkWebView removeObserver:self forKeyPath:@"scrollView.contentSize" context:@"DJWebKitContext"];
     DLog(@"%@释放掉",[self class]);
 }
 - (void)didReceiveMemoryWarning {
