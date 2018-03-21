@@ -12,7 +12,7 @@
 
 #import "CommentDetailManager.h"                // 数据管理类
 
-@interface CommentDetailViewController ()
+@interface CommentDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 // !!!: 视图类
 @property (weak, nonatomic) IBOutlet UITableView *table;
 // !!!: 数据
@@ -98,6 +98,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassComDetailTableViewCell" owner:self options:nil] firstObject];
         cell.selectionStyle = NO;
     }
+    cell.rowView.hidden = YES;
     ClassComItemModel *ccim = nil;
     if (indexPath.section==0) {
         ccim = self.manager.mainModel;
@@ -106,11 +107,20 @@
     else{
         ccim = self.manager.datas[indexPath.row];
         cell.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        if (indexPath.row!=self.manager.datas.count-1) {
+            cell.rowView.hidden = NO;
+        }
     }
     [self.manager loadCell:cell model:ccim];
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section==1) {
+        return AdaptedWidthValue(30);
+    }
+    return 0.01;
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         return self.manager.mainModel.cellHeight;
@@ -120,7 +130,22 @@
         return ccim.cellHeight;
     }
 }
-
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section==0||self.manager.datas==0) {
+        return nil;
+    }
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, AdaptedWidthValue(30))];
+    view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, kScreenWidth-10*2, AdaptedWidthValue(30))];
+    label.textColor = KColorTheme;
+    label.font = [UIFont systemFontOfSize:FontSize_12];
+    label.text = @"全部评论";
+    [view addSubview:label];
+    UIView *rowView = [[UIView alloc] initWithFrame:CGRectMake(10, label.bottom-0.5, kScreenWidth, 0.5)];
+    rowView.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.5];
+    [view addSubview:rowView];
+    return view;
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }

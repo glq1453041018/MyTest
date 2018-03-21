@@ -13,6 +13,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self adjustFrame];
+    
+    self.headerBtn.layer.masksToBounds = YES;
+    self.headerBtn.layer.cornerRadius = self.headerBtn.viewHeight/2.0;
 }
 
 @end

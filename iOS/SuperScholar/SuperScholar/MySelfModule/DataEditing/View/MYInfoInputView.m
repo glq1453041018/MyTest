@@ -156,6 +156,14 @@ static int view_height = 154;
     }
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if([text isEqualToString:@"\n"] ){
+        [self onClickCommitBtn:nil];
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark 事件处理
 - (IBAction)onClickCommitBtn:(UIButton *)sender {
 // !!!: 点击确定按钮
