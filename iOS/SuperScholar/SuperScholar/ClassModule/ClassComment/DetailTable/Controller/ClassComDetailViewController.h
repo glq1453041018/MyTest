@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface ClassComDetailViewController : UIViewController
+
+@property (assign ,nonatomic) MessageType messageType;      // 信息类型
 
 @end

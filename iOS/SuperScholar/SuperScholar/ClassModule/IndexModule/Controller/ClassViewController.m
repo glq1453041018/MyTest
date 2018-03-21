@@ -110,7 +110,10 @@
 
 
 - (BOOL)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)sourceIndexPath canMoveToIndexPath:(NSIndexPath *)destinationIndexPath {
-    return YES;
+    if (iOS9Later) {
+        return YES;
+    }
+    return NO;
 }
 //当移动结束的时候会调用这个方法。
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath {

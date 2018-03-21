@@ -8,18 +8,21 @@
 
 // !!!: 控制器类
 #import "ClassSpaceViewController.h"
+#import "SpeechViewController.h"                // 发表
 #import "ClassInfoViewController.h"             // 班级信息
 #import "ClassComDetailViewController.h"        // 班级评论列表
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"
 #import "ClassSpaceHeadView.h"
+#import "LLListPickView.h"                      // 弹窗列表视图
 // !!!: 管理类
 #import "ClassSpaceManager.h"
 
-@interface ClassSapceViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ClassSapceViewController ()<UITableViewDelegate,UITableViewDataSource,LLListPickViewDelegate>
 // !!!: 视图类
 @property (strong ,nonatomic) UITableView *table;
 @property (strong ,nonatomic) ClassSpaceHeadView *headView;
+@property (strong ,nonatomic) LLListPickView *pickView;
 // !!!: 数据类
 @property (strong ,nonatomic) NSMutableArray *data;
 @property (strong ,nonatomic) ClassSpaceManager *manager;
@@ -67,7 +70,7 @@
 -(void)initUI{
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     // 导航栏
-    [self.navigationBar setTitle:self.title?self.title:@"班级动态" leftImage:kGoBackImageString rightText:@"发布"];
+    [self.navigationBar setTitle:self.title?self.title:@"班级动态" leftImage:kGoBackImageString rightImage:@"camera"];
     self.isNeedGoBack = YES;
     
     self.table.tableHeaderView = self.headView;
@@ -96,6 +99,14 @@
     return _headView;
 }
 
+-(LLListPickView *)pickView{
+    if (_pickView==nil) {
+        _pickView = [LLListPickView new];
+        _pickView.delegate = self;
+    }
+    return _pickView;
+}
+
 -(NSMutableArray *)data{
     if (_data==nil) {
         _data = [NSMutableArray array];
@@ -116,7 +127,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)navigationViewRightClickEvent{
-    
+    [self.pickView showItems:@[@"拍照",@"录像",@"去相册选择"]];
 }
 
 // !!!: 列表的代理方法
@@ -150,10 +161,17 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     ClassComDetailViewController *ctrl = [ClassComDetailViewController new];
+    ctrl.messageType = MessageTypeDefault;
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 
+// !!!: LLListPickView代理事件
+-(void)lllistPickViewItemSelected:(NSInteger)index{
+    SpeechViewController *ctrl = [SpeechViewController new];
+    [self presentViewController:ctrl animated:NO completion:nil];
+    [ctrl lllistPickViewItemSelected:index];
+}
 
 #pragma mark - <************************** 点击事件 **************************>
 // !!!: 头部点击事件

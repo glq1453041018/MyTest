@@ -124,6 +124,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     ClassComDetailViewController *ctrl = [ClassComDetailViewController new];
+    ctrl.messageType = MessageTypeComment;
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 

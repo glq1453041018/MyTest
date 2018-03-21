@@ -104,6 +104,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
             cell.selectionStyle = NO;
         }
+        cell.starView.hidden = !self.messageType;       // 星星默认是隐藏的
         [self.manager loadCell:cell];
         return cell;
     }
