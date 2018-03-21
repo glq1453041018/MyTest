@@ -8,7 +8,7 @@
 
 #import "ActivityViewController.h"
 #import "MYSegmentController.h"
-#import "MessageRemindViewController.h"
+#import "ActivitySubViewController.h"
 
 @interface ActivityViewController ()
 @property (strong, nonatomic) MYSegmentController *segmentController;
@@ -52,18 +52,21 @@
 
 - (void)configSegmentController{
     NSMutableArray *vc_array = [NSMutableArray array];
-    MessageRemindViewController *comment = [MessageRemindViewController new];
-    comment.title = @"精彩演出";
-    comment.listType = MessageRemindListTypeComment;
-    MessageRemindViewController *collection = [MessageRemindViewController new];
-    collection.title = @"活动预告";
-    collection.listType = MessageRemindListTypeCollection;
-    MessageRemindViewController *history = [MessageRemindViewController new];
-    history.title = @"优秀文章";
-    history.listType = MessageRemindListTypeHistory;
-    [vc_array addObject:comment];
-    [vc_array addObject:collection];
-    [vc_array addObject:history];
+    ActivitySubViewController *show = [ActivitySubViewController new];
+    show.listType = ActivityListTypeActivityShow;
+    show.title = @"精彩演出";
+    show.hidesBottomBarWhenPushed = YES;
+    ActivitySubViewController *activityPre = [ActivitySubViewController new];
+    activityPre.listType = ActivityListTypeActivityPre;
+    activityPre.title = @"活动预告";
+    activityPre.hidesBottomBarWhenPushed = YES;
+    ActivitySubViewController *article = [ActivitySubViewController new];
+    article.listType = ActivityListTypeGoodArticle;
+    article.title = @"优秀文章";
+    article.hidesBottomBarWhenPushed = YES;
+    [vc_array addObject:show];
+    [vc_array addObject:activityPre];
+    [vc_array addObject:article];
     
     NSArray *titles = @[@"精彩演出", @"活动预告", @"优秀文章"];
     
