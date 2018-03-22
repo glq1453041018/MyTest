@@ -89,10 +89,10 @@
     
     UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, 44)];
     [rightView addSubview:self.navigationBar.rightBtn];
-    self.navigationBar.rightBtn.frame = CGRectMake(0, 0, 44, 44);
+    self.navigationBar.rightBtn.frame = CGRectMake(40, 0, 20, 44);
     [self.navigationBar.rightBtn setImage:[UIImage imageNamed:ShareImage] forState:UIControlStateNormal];
     
-    [self.navigationBar setCenterView:self.centerImage leftView:view rightView:self.navigationBar.rightBtn];
+    [self.navigationBar setCenterView:self.centerImage leftView:view rightView:rightView];
     self.navigationBar.backgroundColor = [UIColor clearColor];
     self.isNeedGoBack = YES;
 
