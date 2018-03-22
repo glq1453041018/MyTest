@@ -80,7 +80,7 @@
     [self.navigationBar.letfBtn setImage:[UIImage imageNamed:kGoBackImageString] forState:UIControlStateNormal];
     [self.navigationBar setCenterView:self.centerImage leftView:view rightView:nil];
     self.navigationBar.backgroundColor = [UIColor clearColor];
-//    self.isNeedGoBack = YES;
+    self.isNeedGoBack = YES;
 
 }
 
@@ -119,7 +119,7 @@
         
     }
     [self.tableView setSeparatorColor:SeparatorLineColor];
-    self.tableView.backgroundColor=[UIColor redColor];
+    self.tableView.backgroundColor = TableBackGroundColor;
 //    MJDIYHeader *header = [MJDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(RefreshNewData)];
 //    self.tableView.mj_header = header;
     
@@ -138,21 +138,16 @@
 -(void)creatScrollerView{
     [self.tableHeadView adjustFrame];
 
-    NSArray *picsUrl = @[
-                         @"http://pic33.photophoto.cn/20141023/0017030062939942_b.jpg",
-                         @"http://pic14.nipic.com/20110427/5006708_200927797000_2.jpg",
-                         @"http://pic23.nipic.com/20120803/9171548_144243306196_2.jpg",
-                         @"http://pic39.nipic.com/20140311/8821914_214422866000_2.jpg",
-                         @"http://pic7.nipic.com/20100609/3143623_160732828380_2.jpg",
-                         @"http://pic9.photophoto.cn/20081128/0020033015544930_b.jpg",
-                         @"http://pic2.16pic.com/00/35/74/16pic_3574684_b.jpg",
-                         @"http://pic42.nipic.com/20140605/9081536_142458626145_2.jpg",
-                         @"http://pic35.photophoto.cn/20150626/0017029557111337_b.jpg"
-                         ];
-    [self.tableHeadView loadImages:picsUrl estimateSize:CGSizeMake(self.tableHeadView.frame.size.width , self.tableHeadView.frame.size.height)];
+    NSMutableArray *pics = [NSMutableArray array];
+    for (int i=0; i<6; i++) {
+        [pics addObject:[TESTDATA randomUrlString]];
+    }
+    
+    [self.tableHeadView loadImages:pics estimateSize:CGSizeMake(self.tableHeadView.frame.size.width , self.tableHeadView.frame.size.height)];
     self.tableHeadView.location = locationCenter;
+    self.tableHeadView.failImage = kPlaceholderImage;
 //    self.tableHeadView.style = MYPageControlStyleLabel;
-    self.tableHeadView.backgroundColor = [UIColor cyanColor];
+//    self.tableHeadView.backgroundColor = [UIColor cyanColor];
     self.tableHeadView.useScaleEffect = YES;
     self.tableHeadView.needBgView = YES;
     self.tableHeadView.useVerticalParallaxEffect = YES;
@@ -435,7 +430,7 @@
         
     }
     CGRect rect = [self.tableView rectForFooterInSection:2];
-    NSLog(@"%lf %lf  %lf",scrollView.contentOffset.y,rect.origin.y,IEW_HEGHT);
+//    NSLog(@"%lf %lf  %lf",scrollView.contentOffset.y,rect.origin.y,IEW_HEGHT);
     if (scrollView.contentOffset.y>rect.origin.y-IEW_HEGHT+64+44+10) {
         if (self.HaveMusic) {
             AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
@@ -488,21 +483,6 @@
 
 
 #pragma mark - <************************** 其他方法 **************************>
-//-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-////    if (![NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
-////        return NO;
-////    }
-//    return YES;
-//}
-//-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-//    if (![NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
-//        return NO;
-//    }
-//    return YES;
-//}
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    return YES;
-}
 
 
 #pragma mark - <************************** 检测释放 **************************>
