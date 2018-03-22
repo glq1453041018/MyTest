@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SuperScholar/AdsModule/IndexModule/Controller/AdsDetailViewController.m"
-            timestampString = "543375498.124989"
+            timestampString = "543381732.605997"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "476"
-            endingLineNumber = "476"
-            landmarkName = "-webView:didFinishNavigation:"
-            landmarkType = "7">
+            startingLineNumber = "486"
+            endingLineNumber = "486"
+            landmarkName = "@implementation AdsDetailViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

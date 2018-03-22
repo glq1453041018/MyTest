@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-//typedef enum <#name#>
+
 @interface AdsDetailViewController : UIViewController
-//@property(strong,nonatomic)NSInteger
+@property(assign,nonatomic)ReCruitType type;//招聘信息属于班级还是学校
+
 @end

@@ -265,6 +265,11 @@
 
     AdsDetailViewController *next = [[AdsDetailViewController alloc]initWithNibName:@"AdsDetailViewController" bundle:nil];
     next.hidesBottomBarWhenPushed=YES;
+    if(indexPath.section%2==0){
+        next.type = ReCruitTypeSchool;
+    }else{
+        next.type = ReCruitTypeClass;
+    }
     [self.navigationController pushViewController:next animated:YES];
 }
 
