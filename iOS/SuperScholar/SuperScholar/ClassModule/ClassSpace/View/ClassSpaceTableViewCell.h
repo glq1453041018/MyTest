@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MYCommentStarView.h"
 
+@protocol ClassSpaceTableViewCellDelegate;
 @interface ClassSpaceTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *headerBtn;
@@ -24,10 +25,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
 
+@property (nonatomic,weak) id <ClassSpaceTableViewCellDelegate> delegate;
+
 @end
 
 
 
+@protocol ClassSpaceTableViewCellDelegate <NSObject>
+@optional
+-(void)classSpaceTableViewCellClickEvent:(ClassCellClickEvent)event;
+@end
 
 
 

@@ -89,6 +89,13 @@ typedef NS_ENUM(NSInteger , MessageType) {
     MessageTypeComment              // 评价信息类型 
 };
 
+// !!!: 班级信息cell点击类型
+typedef NS_ENUM(NSInteger , ClassCellClickEvent) {
+    ClassCellHeadClickEvent,        // 头像
+    ClassCellLikeClickEvent,        // 点赞
+    ClassCellCommentClickEvent      // 评论
+};
+
 // !!!: 招聘类型，班级还是学校级别
 typedef NS_ENUM(NSInteger , ReCruitType) {
     ReCruitTypeClass,               // 班级类型
