@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SuperScholar/AdsModule/IndexModule/Controller/AdsDetailViewController.m"
-            timestampString = "543388508.06299"
+            timestampString = "543392460.691496"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "487"
-            endingLineNumber = "487"
+            startingLineNumber = "493"
+            endingLineNumber = "493"
             landmarkName = "@implementation AdsDetailViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SuperScholar/AdsModule/IndexModule/Controller/AdsDetailViewController.m"
-            timestampString = "543388683.8467259"
+            timestampString = "543392460.691496"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "-creatTableView"
             landmarkType = "7">
          </BreakpointContent>

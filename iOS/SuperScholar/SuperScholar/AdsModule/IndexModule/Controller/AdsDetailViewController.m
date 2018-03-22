@@ -15,6 +15,7 @@
 #import "AdsDetailTableViewCell.h"
 
 #import "PhotoBrowser.h"
+#import "UIButton+Positon.h"
 #import <WebKit/WebKit.h>
 
 @interface AdsDetailViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate,WKNavigationDelegate>
@@ -27,6 +28,8 @@
 @property (nonatomic,strong)NSMutableArray *dataArray;
 @property (strong, nonatomic) IBOutlet MYBannerScrollView *tableHeadView;
 @property (strong, nonatomic) IBOutlet UIView *tablefootView;
+@property (weak, nonatomic) IBOutlet UIButton *contectBtn;
+@property (weak, nonatomic) IBOutlet UIButton *shoucangBtn;
 @property (weak, nonatomic) IBOutlet UIButton *SchoolBtn;
 - (IBAction)SchoolClick:(UIButton *)sender;
 
@@ -140,6 +143,9 @@
     DLog(@"%lf",IEW_HEGHT-44);
     [self.tablefootView adjustFrame];
     self.tablefootView.frame = CGRectMake(0, IEW_HEGHT-self.tablefootView.frame.size.height, self.tablefootView.frame.size.width, self.tablefootView.frame.size.height);
+    
+    [self.contectBtn setImagePosition:ZXImagePositionTop spacing:1];
+    [self.shoucangBtn setImagePosition:ZXImagePositionTop spacing:1];
     if (self.type == ReCruitTypeSchool) {
         [self.SchoolBtn setTitle:@"了解学校" forState:UIControlStateNormal];
     }else{
