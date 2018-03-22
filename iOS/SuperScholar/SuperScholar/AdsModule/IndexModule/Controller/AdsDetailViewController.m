@@ -426,7 +426,7 @@
 
             [cell.contentView addSubview:self.wkWebView];
 //            self.loadingView.center = cell.center;
-            [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jianshu.com/p/4ac617c9493b"]]];
+            [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s/kmQq7UWrFqANpArdvDcIkg"]]];
         }
         return cell;
     }
