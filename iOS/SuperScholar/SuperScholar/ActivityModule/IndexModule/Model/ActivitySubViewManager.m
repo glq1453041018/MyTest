@@ -18,7 +18,7 @@
     return _data;
 }
 - (void)requestFromServer:(BOOL)isReset withCompletion:(void(^)(BOOL isLastData, NSError *error))completion{
-    self.page = isReset ? 1 : ++self.page;
+    self.page = isReset ? 1 : isReset;
 
     //模拟请求
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -32,6 +32,8 @@
             [arr addObject:model];
         }
         
+        //如果有请求回来数据
+        ++self.page;
         self.data = [arr mutableCopy];
         completion(arc4random() % 4 == 1 ? YES : NO, nil);
     });

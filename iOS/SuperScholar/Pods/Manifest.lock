@@ -25,6 +25,7 @@ PODS:
   - MJRefresh (3.1.15.3)
   - MOBFoundation (3.1.2)
   - MYAutoLayout (1.0.0)
+  - OpenShare (0.0.1)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - FMDB (~> 2.6.2)
   - MJRefresh (~> 3.1.12)
   - MYAutoLayout (~> 1.0.0)
+  - OpenShare (~> 0.0.1)
   - SDWebImage (~> 4.0.0-beta2)
   - SMSSDK (~> 3.0.1)
   - SVProgressHUD-0.8.1 (~> 0.8)
@@ -54,11 +56,12 @@ SPEC CHECKSUMS:
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   MOBFoundation: 5c7cd437320b5252ebe0ca20283cc1ffe66f7669
   MYAutoLayout: 53c79ab80864f9c8ce3217d1fcc95168b91f80bf
+  OpenShare: a560580dbb729d5c0c3cc1ee84cd6aa4a07e94c6
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SMSSDK: a811c8ea6e89393097037b7cf6493248a40e50f0
   SVProgressHUD-0.8.1: ee9e6e58b5b5ffaf3f1a62c2dc409763470df143
   TZImagePickerController: 9bf89512bb6de53e87897f2e17e607c126a199d6
 
-PODFILE CHECKSUM: 30b26d7d3012c721c35a7b7d2cc541e0b015daac
+PODFILE CHECKSUM: 914b752008ad2a2409487fd33788820044563468
 
 COCOAPODS: 1.4.0

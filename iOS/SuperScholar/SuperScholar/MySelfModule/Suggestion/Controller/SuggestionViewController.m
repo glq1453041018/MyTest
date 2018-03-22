@@ -7,6 +7,7 @@
 //
 
 #import "SuggestionViewController.h"
+#import "ShareManager.h"
 #import <SVProgressHUD.h>
 
 @interface SuggestionViewController ()<UITextViewDelegate, UITextFieldDelegate>
@@ -56,7 +57,13 @@
 #pragma mark NavigationBarDelegate
 // !!!: 返回
 -(void)navigationViewLeftClickEvent{
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
+//    [ShareManager shareToWeChatToFriend:@"dfsaf" withCompletion:^(OSMessage *message, NSError *error) {
+//        DLog(@"%@", error);
+//    }];
+    [ShareManager shareToWeChatToSpace:@"fdasf" withCompletion:^(OSMessage *message, NSError *error) {
+            DLog(@"%@", error);
+    }];
 }
 
 #pragma mark UITextViewDelegate
