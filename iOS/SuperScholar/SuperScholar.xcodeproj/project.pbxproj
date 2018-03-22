@@ -99,6 +99,8 @@
 		C758D9732060EE9100257DDB /* LLTableCellOptimization.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D9722060EE9100257DDB /* LLTableCellOptimization.m */; };
 		C758D9792060F4C100257DDB /* MyWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D9762060F4C100257DDB /* MyWebView.m */; };
 		C758D97A2060F4C100257DDB /* WeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D9772060F4C100257DDB /* WeakScriptMessageDelegate.m */; };
+		C75E03B22063484F00EC0AF5 /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C75E03B02063484F00EC0AF5 /* CommentView.m */; };
+		C75E03B32063484F00EC0AF5 /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C75E03B12063484F00EC0AF5 /* CommentView.xib */; };
 		C7613F23205CC48B002604A3 /* ClassSpaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7613F15205CC48B002604A3 /* ClassSpaceViewController.m */; };
 		C7613F24205CC48B002604A3 /* ClassSpaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7613F1A205CC48B002604A3 /* ClassSpaceModel.m */; };
 		C7613F25205CC48B002604A3 /* ClassSpaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7613F1B205CC48B002604A3 /* ClassSpaceManager.m */; };
@@ -304,6 +306,9 @@
 		C758D9762060F4C100257DDB /* MyWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWebView.m; sourceTree = "<group>"; };
 		C758D9772060F4C100257DDB /* WeakScriptMessageDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakScriptMessageDelegate.m; sourceTree = "<group>"; };
 		C758D9782060F4C100257DDB /* MyWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebView.h; sourceTree = "<group>"; };
+		C75E03AF2063484F00EC0AF5 /* CommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
+		C75E03B02063484F00EC0AF5 /* CommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentView.m; sourceTree = "<group>"; };
+		C75E03B12063484F00EC0AF5 /* CommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
 		C7613F15205CC48B002604A3 /* ClassSpaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSpaceViewController.m; sourceTree = "<group>"; };
 		C7613F16205CC48B002604A3 /* ClassSpaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSpaceViewController.h; sourceTree = "<group>"; };
 		C7613F18205CC48B002604A3 /* ClassSpaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSpaceManager.h; sourceTree = "<group>"; };
@@ -674,6 +679,7 @@
 		384A554B20521F20006D8C23 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C75E03AE2063484A00EC0AF5 /* CommentView */,
 				C750B22D2061EF1F00DAD5CD /* LLListPickView */,
 				C758D9742060F4C100257DDB /* MyWebView */,
 				C781F858205BC89E00BE37AD /* VisualEffectView */,
@@ -1205,6 +1211,16 @@
 			path = MyWebView;
 			sourceTree = "<group>";
 		};
+		C75E03AE2063484A00EC0AF5 /* CommentView */ = {
+			isa = PBXGroup;
+			children = (
+				C75E03AF2063484F00EC0AF5 /* CommentView.h */,
+				C75E03B02063484F00EC0AF5 /* CommentView.m */,
+				C75E03B12063484F00EC0AF5 /* CommentView.xib */,
+			);
+			path = CommentView;
+			sourceTree = "<group>";
+		};
 		C7613F13205CC48B002604A3 /* ClassSpace */ = {
 			isa = PBXGroup;
 			children = (
@@ -1686,6 +1702,7 @@
 				C781F860205BCD0100BE37AD /* ClassViewController.xib in Resources */,
 				F44A6B64205D0F07005DBF33 /* SuggestionViewController.xib in Resources */,
 				3890404E2060CED6007BA074 /* AdsDetailTableViewCell.xib in Resources */,
+				C75E03B32063484F00EC0AF5 /* CommentView.xib in Resources */,
 				C781F84A205B703900BE37AD /* ClassInfoTitleItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1761,6 +1778,7 @@
 				384A555D20521F20006D8C23 /* MJDIYAutoFooter.m in Sources */,
 				C758D95D20609CD000257DDB /* ClassComDetailTableViewCell.m in Sources */,
 				BED0DF3F205C084F00276785 /* DataEditTableViewCell.m in Sources */,
+				C75E03B22063484F00EC0AF5 /* CommentView.m in Sources */,
 				C7188807205A713700333387 /* ClassInfoHeadView.m in Sources */,
 				C750B23D2062162E00DAD5CD /* TZTestCell.m in Sources */,
 				C7613F28205CC48B002604A3 /* ClassSpaceTableViewCell.m in Sources */,
