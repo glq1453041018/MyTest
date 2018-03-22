@@ -7,8 +7,18 @@
 //
 
 #import "ClassEnvironmentViewController.h"
+// !!!: 视图类
+#import "CustomCollectionViewCell.h"
+#import "PhotoBrowser.h"
+// !!!: 数据类
+#import "ClassEnvironmentManager.h"
+#import "CutomCollectionViewLayout.h"
 
-@interface ClassEnvironmentViewController ()
+@interface ClassEnvironmentViewController ()<CutomCollectionViewLayoutDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
+@property (weak, nonatomic) IBOutlet CutomCollectionViewLayout *layout;
+@property (copy ,nonatomic) NSArray *imageArray;
 
 @end
 
@@ -27,7 +37,10 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    
+    [ClassEnvironmentManager requestDataResponse:^(NSArray *resArray, id error) {
+        self.imageArray = resArray;
+        [self.collectionView reloadData];
+    }];
 }
 
 
@@ -39,11 +52,16 @@
     [self.navigationBar setTitle:self.title.length?self.title:@"环境" leftImage:kGoBackImageString rightImage:@""];
     self.isNeedGoBack = YES;
     
+    self.layout.delegate = self;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    [self.collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"CustomCollectionViewCell"];
+    [self.view addSubview:self.collectionView];
 }
 
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
-
 
 
 
@@ -52,9 +70,29 @@
 -(void)navigationViewLeftClickEvent{
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-
-
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.imageArray.count;
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomCollectionViewCell" forIndexPath:indexPath];
+    ClassEnvironmentModel *cem = self.imageArray[indexPath.item];
+    [cell.imageview sd_setImageWithURL:[NSURL URLWithString:cem.picUrl] placeholderImage:kPlaceholderImage];
+    cell.imageview.frame = cell.bounds;
+    return cell;
+}
+-(CGSize)itemSizeForCollectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath{
+    ClassEnvironmentModel *cem = self.imageArray[indexPath.item];
+    CGFloat width = self.view.frame.size.width;
+    CGFloat realItemWidth = (width-10*2-10)/2;
+    return CGSizeMake(realItemWidth,cem.size.height/cem.size.width*realItemWidth);
+}
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableArray* images = [NSMutableArray array];
+    for (ClassEnvironmentModel *model in self.imageArray) {
+        [images addObject:model.picUrl];
+    }
+    [PhotoBrowser showURLImages:images placeholderImage:kPlaceholderImage selectedIndex:indexPath.row];
+}
 
 
 #pragma mark - <************************** 点击事件 **************************>

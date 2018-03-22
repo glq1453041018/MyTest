@@ -1,12 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassEnvironmentViewController">
             <connections>
+                <outlet property="collectionView" destination="GKn-vd-GV2" id="wk0-rQ-FeA"/>
+                <outlet property="constraint" destination="5df-1k-0Fb" id="Fhv-aV-SEx"/>
+                <outlet property="layout" destination="obH-u8-Sdh" id="dcc-Wo-WJv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +21,24 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="GKn-vd-GV2">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewLayout key="collectionViewLayout" id="obH-u8-Sdh" customClass="CutomCollectionViewLayout"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ZvD-Aq-NqQ"/>
+                        <outlet property="delegate" destination="-1" id="1uI-ja-Sva"/>
+                    </connections>
+                </collectionView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="GKn-vd-GV2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="5df-1k-0Fb"/>
+                <constraint firstAttribute="trailing" secondItem="GKn-vd-GV2" secondAttribute="trailing" id="Lwi-hr-lUf"/>
+                <constraint firstAttribute="bottom" secondItem="GKn-vd-GV2" secondAttribute="bottom" id="PcD-jm-oZS"/>
+                <constraint firstItem="GKn-vd-GV2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mk5-jX-1rh"/>
+            </constraints>
         </view>
     </objects>
 </document>

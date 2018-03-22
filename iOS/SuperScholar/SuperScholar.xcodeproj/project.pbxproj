@@ -61,7 +61,6 @@
 		BED0DF3F205C084F00276785 /* DataEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0DF3D205C084F00276785 /* DataEditTableViewCell.m */; };
 		BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED0DF3E205C084F00276785 /* DataEditTableViewCell.xib */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
-		C71887EB205A385000333387 /* PhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887EA205A385000333387 /* PhotoBrowser.m */; };
 		C71887F2205A5C1400333387 /* ClassInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887F1205A5C1400333387 /* ClassInfoViewController.m */; };
 		C71887FD205A6D7900333387 /* MYBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887F8205A6D7900333387 /* MYBannerScrollView.m */; };
 		C71887FE205A6D7900333387 /* MYBannerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887F9205A6D7900333387 /* MYBannerImageView.m */; };
@@ -133,6 +132,11 @@
 		C781F875205CA79E00BE37AD /* AddressViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F874205CA79E00BE37AD /* AddressViewManager.m */; };
 		C7F2C01A206383DD00C34D2D /* ClassEnvironmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C018206383DD00C34D2D /* ClassEnvironmentViewController.m */; };
 		C7F2C01B206383DD00C34D2D /* ClassEnvironmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F2C019206383DD00C34D2D /* ClassEnvironmentViewController.xib */; };
+		C7F2C01E206395BC00C34D2D /* CutomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C01D206395BC00C34D2D /* CutomCollectionViewLayout.m */; };
+		C7F2C0212063965900C34D2D /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C0202063965900C34D2D /* CustomCollectionViewCell.m */; };
+		C7F2C0242063979E00C34D2D /* ClassEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C0232063979E00C34D2D /* ClassEnvironmentManager.m */; };
+		C7F2C027206397C000C34D2D /* ClassEnvironmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C026206397C000C34D2D /* ClassEnvironmentModel.m */; };
+		C7F2C02A2063B4FB00C34D2D /* PhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C0292063B4FB00C34D2D /* PhotoBrowser.m */; };
 		D31B768E2061345D000AA637 /* testData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D31B768D2061345D000AA637 /* testData.plist */; };
 		D31B76912061379D000AA637 /* TESTDATA.m in Sources */ = {isa = PBXBuildFile; fileRef = D31B76902061379D000AA637 /* TESTDATA.m */; };
 		F40A8FF1205E170D0087814A /* timg.png in Resources */ = {isa = PBXBuildFile; fileRef = F40A8FF0205E170D0087814A /* timg.png */; };
@@ -243,8 +247,6 @@
 		BED0DF3C205C084F00276785 /* DataEditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEditTableViewCell.h; sourceTree = "<group>"; };
 		BED0DF3D205C084F00276785 /* DataEditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEditTableViewCell.m; sourceTree = "<group>"; };
 		BED0DF3E205C084F00276785 /* DataEditTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataEditTableViewCell.xib; sourceTree = "<group>"; };
-		C71887E9205A385000333387 /* PhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrowser.h; sourceTree = "<group>"; };
-		C71887EA205A385000333387 /* PhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowser.m; sourceTree = "<group>"; };
 		C71887F0205A5C1400333387 /* ClassInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoViewController.h; sourceTree = "<group>"; };
 		C71887F1205A5C1400333387 /* ClassInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoViewController.m; sourceTree = "<group>"; };
 		C71887F8205A6D7900333387 /* MYBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYBannerScrollView.m; sourceTree = "<group>"; };
@@ -366,6 +368,16 @@
 		C7F2C017206383DD00C34D2D /* ClassEnvironmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassEnvironmentViewController.h; sourceTree = "<group>"; };
 		C7F2C018206383DD00C34D2D /* ClassEnvironmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassEnvironmentViewController.m; sourceTree = "<group>"; };
 		C7F2C019206383DD00C34D2D /* ClassEnvironmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassEnvironmentViewController.xib; sourceTree = "<group>"; };
+		C7F2C01C206395BC00C34D2D /* CutomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CutomCollectionViewLayout.h; sourceTree = "<group>"; };
+		C7F2C01D206395BC00C34D2D /* CutomCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CutomCollectionViewLayout.m; sourceTree = "<group>"; };
+		C7F2C01F2063965900C34D2D /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		C7F2C0202063965900C34D2D /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		C7F2C0222063979E00C34D2D /* ClassEnvironmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassEnvironmentManager.h; sourceTree = "<group>"; };
+		C7F2C0232063979E00C34D2D /* ClassEnvironmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassEnvironmentManager.m; sourceTree = "<group>"; };
+		C7F2C025206397C000C34D2D /* ClassEnvironmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassEnvironmentModel.h; sourceTree = "<group>"; };
+		C7F2C026206397C000C34D2D /* ClassEnvironmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassEnvironmentModel.m; sourceTree = "<group>"; };
+		C7F2C0282063B4FB00C34D2D /* PhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrowser.h; sourceTree = "<group>"; };
+		C7F2C0292063B4FB00C34D2D /* PhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowser.m; sourceTree = "<group>"; };
 		D31B768D2061345D000AA637 /* testData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testData.plist; sourceTree = "<group>"; };
 		D31B768F2061379D000AA637 /* TESTDATA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TESTDATA.h; sourceTree = "<group>"; };
 		D31B76902061379D000AA637 /* TESTDATA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TESTDATA.m; sourceTree = "<group>"; };
@@ -909,8 +921,8 @@
 		C71887E8205A384900333387 /* PhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				C71887E9205A385000333387 /* PhotoBrowser.h */,
-				C71887EA205A385000333387 /* PhotoBrowser.m */,
+				C7F2C0282063B4FB00C34D2D /* PhotoBrowser.h */,
+				C7F2C0292063B4FB00C34D2D /* PhotoBrowser.m */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -1499,6 +1511,12 @@
 		C7F2C015206383B700C34D2D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C7F2C01C206395BC00C34D2D /* CutomCollectionViewLayout.h */,
+				C7F2C01D206395BC00C34D2D /* CutomCollectionViewLayout.m */,
+				C7F2C0222063979E00C34D2D /* ClassEnvironmentManager.h */,
+				C7F2C0232063979E00C34D2D /* ClassEnvironmentManager.m */,
+				C7F2C025206397C000C34D2D /* ClassEnvironmentModel.h */,
+				C7F2C026206397C000C34D2D /* ClassEnvironmentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1506,6 +1524,8 @@
 		C7F2C016206383B700C34D2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C7F2C01F2063965900C34D2D /* CustomCollectionViewCell.h */,
+				C7F2C0202063965900C34D2D /* CustomCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1832,6 +1852,7 @@
 				BE88705620621A330022907D /* ActivityViewController.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
 				C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */,
+				C7F2C01E206395BC00C34D2D /* CutomCollectionViewLayout.m in Sources */,
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
 				C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */,
 				C758D941205F848500257DDB /* ClassCommentManager.m in Sources */,
@@ -1852,15 +1873,16 @@
 				F49D7D54205D6F2A009D17EA /* MessageRemindTableViewCell.m in Sources */,
 				BE950EC7205B8634009F562B /* MySelfViewController.m in Sources */,
 				384A555E20521F20006D8C23 /* MJDIYHeader.m in Sources */,
-				C71887EB205A385000333387 /* PhotoBrowser.m in Sources */,
 				384A55702052674F006D8C23 /* SchoolTableViewCell.m in Sources */,
 				38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */,
 				C781F871205BFFE000BE37AD /* AddressViewController.m in Sources */,
 				C781F866205BE91900BE37AD /* ClassViewManager.m in Sources */,
 				C7613F26205CC48B002604A3 /* ClassSpaceHeadView.m in Sources */,
+				C7F2C0242063979E00C34D2D /* ClassEnvironmentManager.m in Sources */,
 				C7613F25205CC48B002604A3 /* ClassSpaceManager.m in Sources */,
 				384A555720521F20006D8C23 /* NSObject+InitData.m in Sources */,
 				C758D9792060F4C100257DDB /* MyWebView.m in Sources */,
+				C7F2C02A2063B4FB00C34D2D /* PhotoBrowser.m in Sources */,
 				BE88705F20621A7C0022907D /* ActivitySubViewManager.m in Sources */,
 				C758D96C2060C66800257DDB /* CommentDetailViewController.m in Sources */,
 				D31B76912061379D000AA637 /* TESTDATA.m in Sources */,
@@ -1883,6 +1905,7 @@
 				384A556220521F2E006D8C23 /* MYSegmentController.m in Sources */,
 				C7188811205A91B100333387 /* ClassInfoModel.m in Sources */,
 				BE950ED9205B8793009F562B /* SMSManager.m in Sources */,
+				C7F2C0212063965900C34D2D /* CustomCollectionViewCell.m in Sources */,
 				BE950ED2205B8728009F562B /* LoginInterfaceViewController.m in Sources */,
 				C758D9702060D47A00257DDB /* CommentDetailManager.m in Sources */,
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
@@ -1890,6 +1913,7 @@
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
 				F40A8FF9205E1A4E0087814A /* MyMessageCenterViewController.m in Sources */,
 				C7F2C01A206383DD00C34D2D /* ClassEnvironmentViewController.m in Sources */,
+				C7F2C027206397C000C34D2D /* ClassEnvironmentModel.m in Sources */,
 				384A556B205266D8006D8C23 /* SchoolViewController.m in Sources */,
 				38010DAC204FFB3500E4511C /* ZhaoShengViewController.m in Sources */,
 				C758D93F205F848500257DDB /* ClassCommentViewController.m in Sources */,

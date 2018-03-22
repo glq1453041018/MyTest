@@ -22,6 +22,8 @@
 #define kNoselectColor HexColor(0x8a8a8a)
 // 橙色
 #define kDarkOrangeColor HexColor(0xFF8C00)
+// 深青色
+#define kDarkCyanColor HexColor(0x008B8B)
 // 错误颜色
 #define kErrorRedColor HexColor(0xFF5e5e)
 
@@ -45,6 +47,7 @@
 #define FontSize_colordarkgray HexColor(0x666666)
 #define FontSize_colorlightlightgray HexColor(0x888888)
 #define FontSize_colorlightgray HexColor(0x999999)
+
 
 //行间距
 #define LineSpace 6.0

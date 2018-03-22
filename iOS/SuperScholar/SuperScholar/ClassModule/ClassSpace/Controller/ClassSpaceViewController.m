@@ -71,6 +71,7 @@
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     // 导航栏
     [self.navigationBar setTitle:self.title?self.title:@"班级动态" leftImage:kGoBackImageString rightImage:@"camera"];
+    [self.navigationBar.rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 5)];
     self.isNeedGoBack = YES;
     
     self.table.tableHeaderView = self.headView;

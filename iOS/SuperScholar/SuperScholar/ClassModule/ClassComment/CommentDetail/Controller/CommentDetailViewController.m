@@ -59,6 +59,7 @@
     [self.navigationBar setTitle:self.title?self.title:@"班级评价" leftImage:kGoBackImageString rightText:nil];
     self.isNeedGoBack = YES;
     
+    
     self.constraint.constant = self.navigationBar.bottom;
     self.table.tableFooterView = [UIView new];
     self.table.separatorStyle = NO;
@@ -149,7 +150,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, AdaptedWidthValue(30))];
     view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, kScreenWidth-10*2, AdaptedWidthValue(30))];
-    label.textColor = KColorTheme;
+    label.textColor = kDarkCyanColor;
     label.font = [UIFont systemFontOfSize:FontSize_12];
     label.text = @"全部评论";
     [view addSubview:label];
@@ -181,7 +182,6 @@
 
 
 #pragma mark - <************************** 其他方法 **************************>
-
 
 
 

@@ -52,7 +52,7 @@
     // 监听键盘事件
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
 }
 
@@ -68,8 +68,10 @@
     if (_bgView==nil) {
         _bgView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.viewWidth, 0)];
         [_bgView addTarget:self action:@selector(hideView) forControlEvents:UIControlEventTouchUpInside];
-//        _bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.15];
+        _bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
         _bgView.alpha = 0;
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleNavigationTransition:)];
+        [_bgView addGestureRecognizer:pan];
     }
     return _bgView;
 }
@@ -179,6 +181,25 @@
     [self changeTextViewStyle:self.commentTV];
 }
 
+-(void)keyboardDidHide:(NSNotification*)notification{
+    [self closeKeyboard];
+}
+
+-(void)closeKeyboard{
+    self.y = originY;
+    self.viewHeight = originHeight;
+    self.commentTV.viewHeight = originHeight_TV;
+    self.commentTV.centerY = self.viewHeight/2.0;
+    self.senderBtn.centerY = self.viewHeight/2.0;
+    self.tipLabel.centerY = self.viewHeight/2.0;
+    [self hideSenderBtn];
+    self.bgView.y = 0;
+    self.bgView.viewHeight = 0;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.bgView.alpha = 0;
+    }];
+}
+
 // !!!: 键盘隐藏
 // !!!: 收起键盘事件
 -(void)hideView{
@@ -268,6 +289,14 @@
     }
     return NO;
 }
+
+
+-(void)handleNavigationTransition:(UIPanGestureRecognizer *)pag{
+    [self.commentTV resignFirstResponder];
+    [self closeKeyboard];
+}
+
+
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];

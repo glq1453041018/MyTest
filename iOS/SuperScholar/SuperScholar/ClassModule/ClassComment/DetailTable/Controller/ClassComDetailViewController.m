@@ -127,6 +127,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassComDetailTableViewCell" owner:self options:nil] firstObject];
             cell.selectionStyle = NO;
         }
+        cell.rowView.hidden = indexPath.row==self.manager.dataModel.responses.count-1;
         [self.manager loadResponseCell:cell index:indexPath.row];
         return cell;
     }
@@ -160,7 +161,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, AdaptedWidthValue(30))];
     view.backgroundColor = [UIColor whiteColor];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, kScreenWidth-10*2, AdaptedWidthValue(30))];
-    label.textColor = KColorTheme;
+    label.textColor = kDarkCyanColor;
     label.font = [UIFont systemFontOfSize:FontSize_12];
     label.text = @"最新评论";
     [view addSubview:label];
