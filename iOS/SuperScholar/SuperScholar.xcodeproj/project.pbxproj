@@ -36,6 +36,7 @@
 		3890404E2060CED6007BA074 /* AdsDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3890404C2060CED6007BA074 /* AdsDetailTableViewCell.xib */; };
 		389040522060ECD8007BA074 /* AdsWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 389040502060ECD8007BA074 /* AdsWebViewViewController.m */; };
 		389040532060ECD8007BA074 /* AdsWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389040512060ECD8007BA074 /* AdsWebViewViewController.xib */; };
+		38B0043A20637FCD002459B3 /* UIButton+Positon.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B0043920637FCD002459B3 /* UIButton+Positon.m */; };
 		BE243E6D205F780F008781EB /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE243E6C205F780F008781EB /* city.plist */; };
 		BE243E73205FA08A008781EB /* MYCitySelectPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BE243E72205FA08A008781EB /* MYCitySelectPicker.m */; };
 		BE243E76205FBDC3008781EB /* MYInfoInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE243E75205FBDC3008781EB /* MYInfoInputView.m */; };
@@ -203,6 +204,8 @@
 		3890404F2060ECD8007BA074 /* AdsWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsWebViewViewController.h; sourceTree = "<group>"; };
 		389040502060ECD8007BA074 /* AdsWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsWebViewViewController.m; sourceTree = "<group>"; };
 		389040512060ECD8007BA074 /* AdsWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsWebViewViewController.xib; sourceTree = "<group>"; };
+		38B0043820637FCD002459B3 /* UIButton+Positon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Positon.h"; sourceTree = "<group>"; };
+		38B0043920637FCD002459B3 /* UIButton+Positon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Positon.m"; sourceTree = "<group>"; };
 		AA3BC876F4E559385FBF2362 /* Pods-SuperScholar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperScholar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE243E6C205F780F008781EB /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
@@ -657,6 +660,8 @@
 				384A554020521F20006D8C23 /* UIView+AdjustFrame.m */,
 				384A554320521F20006D8C23 /* UIViewController+Based.h */,
 				384A554420521F20006D8C23 /* UIViewController+Based.m */,
+				38B0043820637FCD002459B3 /* UIButton+Positon.h */,
+				38B0043920637FCD002459B3 /* UIButton+Positon.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1890,6 +1895,7 @@
 				C781F842205B580A00BE37AD /* ClassInfoFootView.m in Sources */,
 				BE950ECB205B8634009F562B /* MYAutoScaleView.m in Sources */,
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
+				38B0043A20637FCD002459B3 /* UIButton+Positon.m in Sources */,
 				F49D7D4A205D5E90009D17EA /* MessageRemindViewController.m in Sources */,
 				BE88705B20621A640022907D /* ActivitySubViewController.m in Sources */,
 				3890404D2060CED6007BA074 /* AdsDetailTableViewCell.m in Sources */,

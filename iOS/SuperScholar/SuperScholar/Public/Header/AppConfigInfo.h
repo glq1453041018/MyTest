@@ -54,6 +54,8 @@
 
 // 返回按钮
 #define kGoBackImageString @"public_left"
+//分享按钮
+#define ShareImage @"shareImage"
 
 // 默认的头像占位符
 #define kPlaceholderHeadImage [UIImage imageNamed:@"bgImage"]

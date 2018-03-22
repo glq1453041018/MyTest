@@ -35,11 +35,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
 }
-
+-(void)navigationViewLeftClickEvent{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark - <*********************** 初始化控件/数据 **********************>
 
 -(void)creatTableView{
     if (self.IsNeedNavigationBar) {
+        self.isNeedGoBack = YES;
         [self.navigationBar setTitle:self.title.length?self.title:@"招生启示" leftImage: kGoBackImageString rightText:nil];
         self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,kNavigationbarHeight , IEW_WIDTH, IEW_HEGHT-kNavigationbarHeight) style:UITableViewStylePlain];
     }else{

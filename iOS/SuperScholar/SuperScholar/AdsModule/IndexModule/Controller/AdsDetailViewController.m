@@ -15,6 +15,7 @@
 #import "AdsDetailTableViewCell.h"
 
 #import "PhotoBrowser.h"
+#import "UIButton+Positon.h"
 #import <WebKit/WebKit.h>
 
 @interface AdsDetailViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate,WKNavigationDelegate>
@@ -27,6 +28,8 @@
 @property (nonatomic,strong)NSMutableArray *dataArray;
 @property (strong, nonatomic) IBOutlet MYBannerScrollView *tableHeadView;
 @property (strong, nonatomic) IBOutlet UIView *tablefootView;
+@property (weak, nonatomic) IBOutlet UIButton *contectBtn;
+@property (weak, nonatomic) IBOutlet UIButton *shoucangBtn;
 @property (weak, nonatomic) IBOutlet UIButton *SchoolBtn;
 - (IBAction)SchoolClick:(UIButton *)sender;
 
@@ -83,7 +86,13 @@
     [view addSubview:self.navigationBar.letfBtn];
     self.navigationBar.letfBtn.frame = CGRectMake(0, 0, 15, 44);
     [self.navigationBar.letfBtn setImage:[UIImage imageNamed:kGoBackImageString] forState:UIControlStateNormal];
-    [self.navigationBar setCenterView:self.centerImage leftView:view rightView:nil];
+    
+    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, 44)];
+    [rightView addSubview:self.navigationBar.rightBtn];
+    self.navigationBar.rightBtn.frame = CGRectMake(40, 0, 20, 44);
+    [self.navigationBar.rightBtn setImage:[UIImage imageNamed:ShareImage] forState:UIControlStateNormal];
+    
+    [self.navigationBar setCenterView:self.centerImage leftView:view rightView:rightView];
     self.navigationBar.backgroundColor = [UIColor clearColor];
     self.isNeedGoBack = YES;
 
@@ -140,6 +149,9 @@
     DLog(@"%lf",IEW_HEGHT-44);
     [self.tablefootView adjustFrame];
     self.tablefootView.frame = CGRectMake(0, IEW_HEGHT-self.tablefootView.frame.size.height, self.tablefootView.frame.size.width, self.tablefootView.frame.size.height);
+    
+    [self.contectBtn setImagePosition:ZXImagePositionTop spacing:1];
+    [self.shoucangBtn setImagePosition:ZXImagePositionTop spacing:1];
     if (self.type == ReCruitTypeSchool) {
         [self.SchoolBtn setTitle:@"了解学校" forState:UIControlStateNormal];
     }else{
@@ -420,7 +432,7 @@
 
             [cell.contentView addSubview:self.wkWebView];
 //            self.loadingView.center = cell.center;
-            [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jianshu.com/p/4ac617c9493b"]]];
+            [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s/kmQq7UWrFqANpArdvDcIkg"]]];
         }
         return cell;
     }
@@ -429,11 +441,11 @@
     return [[UITableViewCell alloc]init];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
-    webview.urlString = @"http://u4915226.viewer.maka.im/pcviewer/1WXHYXUH";
-    [self presentViewController:webview animated:YES completion:^{
-        
-    }];
+//    AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
+//    webview.urlString = @"http://u4915226.viewer.maka.im/pcviewer/1WXHYXUH";
+//    [self presentViewController:webview animated:YES completion:^{
+//        
+//    }];
 //    [self.navigationController pushViewController:webview animated:YES];
     
 }
