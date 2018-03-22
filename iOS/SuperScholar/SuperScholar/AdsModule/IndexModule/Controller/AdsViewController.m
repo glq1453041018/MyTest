@@ -10,7 +10,7 @@
 #import "SearchIndexViewController.h"
 #import "AddressViewController.h"
 #import "AdsDetailViewController.h"
-//#import "ZhaoShengViewController.h"
+#import "ZhaoShengViewController.h"
 
 #import "AdsCollectionViewCell.h"
 
@@ -262,16 +262,16 @@
 #pragma mark --UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//   ZhaoShengViewController *next = [[ZhaoShengViewController alloc]initWithNibName:@"ZhaoShengViewController" bundle:nil];
-//    next.IsNeedNavigationBar = YES;
+   ZhaoShengViewController *next = [[ZhaoShengViewController alloc]initWithNibName:@"ZhaoShengViewController" bundle:nil];
+    next.IsNeedNavigationBar = YES;
     
-    AdsDetailViewController *next = [[AdsDetailViewController alloc]initWithNibName:@"AdsDetailViewController" bundle:nil];
-    next.hidesBottomBarWhenPushed=YES;
-    if(indexPath.row%2==0){
-        next.type = ReCruitTypeSchool;
-    }else{
-        next.type = ReCruitTypeClass;
-    }
+//    AdsDetailViewController *next = [[AdsDetailViewController alloc]initWithNibName:@"AdsDetailViewController" bundle:nil];
+//    next.hidesBottomBarWhenPushed=YES;
+//    if(indexPath.row%2==0){
+//        next.type = ReCruitTypeSchool;
+//    }else{
+//        next.type = ReCruitTypeClass;
+//    }
     [self.navigationController pushViewController:next animated:YES];
 }
 
