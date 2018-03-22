@@ -17,8 +17,15 @@ typedef enum : NSUInteger {
     OSMultimediaTypeVideo,
     OSMultimediaTypeApp,
     OSMultimediaTypeFile,
+    OSMultimediaTypeMiniApp,
     OSMultimediaTypeUndefined
 } OSMultimediaType;
+
+typedef enum : NSUInteger {
+    OSMINIAppRelease,
+    OSMINIAppTest,
+    OSMINIAppPreview
+} OSMINIAppType;
 /**
  *  OSMessage保存分享消息数据。
  */
@@ -26,13 +33,19 @@ typedef enum : NSUInteger {
 @property NSString* title;
 @property NSString* desc;
 @property NSString* link;
-@property NSData* image;
-@property NSData* thumbnail;
+@property UIImage *image;
+@property UIImage *thumbnail;
 @property OSMultimediaType multimediaType;
 //for 微信
 @property NSString* extInfo;
 @property NSString* mediaDataUrl;
 @property NSString* fileExt;
+@property (nonatomic, strong) NSData *file;   /// 微信分享gif/文件
+//for 微信小程序
+@property NSString* path;
+@property BOOL withShareTicket;
+@property OSMINIAppType miniAppType;
+
 /**
  *  判断emptyValueForKeys的value都是空的，notEmptyValueForKeys的value都不是空的。
  *
@@ -61,6 +74,14 @@ typedef enum : NSUInteger {
     OSPboardEncodingPropertyListSerialization,
 } OSPboardEncoding;
 @interface OpenShare : NSObject
+
+
++ (OpenShare *)shared;
+
+@property (nonatomic, copy) authSuccess authSuccess;
+@property (nonatomic, copy) authFail authFail;
+
+- (void)addWebViewByURL:(NSURL *)URL;
 
 /**
  *  设置平台的key
@@ -136,6 +157,9 @@ typedef enum : NSUInteger {
 
 +(paySuccess)paySuccessCallback;
 +(payFail)payFailCallback;
+
++ (NSData *)dataWithImage:(UIImage *)image;
++ (NSData *)dataWithImage:(UIImage *)image scale:(CGSize)size;
 
 @end
 

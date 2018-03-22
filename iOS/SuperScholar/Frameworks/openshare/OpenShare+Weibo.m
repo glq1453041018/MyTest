@@ -9,13 +9,23 @@
 #import "OpenShare+Weibo.h"
 
 @implementation OpenShare (Weibo)
+
 static NSString *schema=@"Weibo";
-+(void)connectWeiboWithAppKey:(NSString *)appKey{
+
++(void)connectWeiboWithAppKey:(NSString *)appKey {
     [self set:schema Keys:@{@"appKey":appKey}];
 }
+
++(void)connectWeiboWithAppKey:(NSString *)appKey appSecret:(NSString *)appSecret redirectURI:(NSString *)redirectURI {
+    [self set:schema Keys:@{@"appKey":appKey,
+                            @"appSecret":appSecret,
+                            @"redirectURI":redirectURI}];
+}
+
 +(BOOL)isWeiboInstalled{
     return [self canOpen:@"weibosdk://request"];
 }
+
 +(void)shareToWeibo:(OSMessage*)msg Success:(shareSuccess)success Fail:(shareFail)fail{
     if (![self beginShare:schema Message:msg Success:success Fail:fail]) {
         return;
@@ -32,7 +42,7 @@ static NSString *schema=@"Weibo";
         message=@{
                   @"__class" : @"WBMessageObject",
                   @"imageObject":@{
-                          @"imageData":msg.image
+                          @"imageData":[self dataWithImage:msg.image]
                           },
                   @"text" : msg.title
                   };
@@ -45,7 +55,7 @@ static NSString *schema=@"Weibo";
                           @"__class" : @"WBWebpageObject",
                           @"description": msg.desc?:msg.title,
                           @"objectID" : @"identifier1",
-                          @"thumbnailData":msg.thumbnail?:msg.image,
+                          @"thumbnailData":msg.thumbnail ? [self dataWithImage:msg.thumbnail] : [self dataWithImage:msg.image  scale:CGSizeMake(100, 100)],
                           @"title": msg.title,
                           @"webpageUrl":msg.link
                           }
@@ -71,6 +81,15 @@ static NSString *schema=@"Weibo";
     if (![self beginAuth:schema Success:success Fail:fail]) {
         return;
     }
+    
+    if (![self isWeiboInstalled]) {
+        NSString *oauthURL = [NSString stringWithFormat:@"https://open.weibo.cn/oauth2/authorize?client_id=%@&response_type=code&redirect_uri=%@&scope=all", [OpenShare keyFor:@"Weibo"][@"appKey"], [OpenShare keyFor:@"Weibo"][@"redirectURI"]];
+        [OpenShare shared].authSuccess = success;
+        [OpenShare shared].authFail = fail;
+        [[OpenShare shared] addWebViewByURL:[NSURL URLWithString:oauthURL]];
+        return;
+    }
+    
     NSString *uuid=[[NSUUID UUID] UUIDString];
     NSArray *authData=@[
                         @{@"transferObject":[NSKeyedArchiver archivedDataWithRootObject:@{
@@ -103,7 +122,7 @@ static NSString *schema=@"Weibo";
         NSMutableDictionary *ret=[NSMutableDictionary dictionaryWithCapacity:items.count];
         for (NSDictionary *item in items) {
             for (NSString *k in item) {
-                ret[k]=[k isEqualToString:@"sdkVersion"]?item[k]:[NSKeyedUnarchiver unarchiveObjectWithData:item[k]];
+                ret[k]=[k isEqualToString:@"transferObject"]?[NSKeyedUnarchiver unarchiveObjectWithData:item[k]]:item[k];
             }
         }
         NSDictionary *transferObject=ret[@"transferObject"];

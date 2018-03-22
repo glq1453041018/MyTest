@@ -7,42 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <OpenShare/OpenShare+Weixin.h>
-#import <OpenShare/OpenShare+QQ.h>
+#import  "OpenShare+Weixin.h"
+#import "OpenShare+QQ.h"
+
+typedef NS_ENUM(NSUInteger, SharePlatform) {
+    SharePlatformQQ,//qq
+    SharePlatformQZone,//qq空间
+    SharePlatformWeChat,//微信
+    SharePlatformWeChatTimeline//微信朋友圈
+};
 
 @interface ShareManager : NSObject
 + (void)applicationDidFinishLaunching;
 + (BOOL)applicationOpenURL:(NSURL *)url;
 
 /**
- 分享qq朋友
+ 分享
 
- @param msgs 待分享消息
- @param completion 分享消息回调
+ @param plateform 平台：qq、qzone、wechat、wechattimeline
+ @param title 标题
+ @param body 内容
+ @param link 链接
+ @param completion 结束回调
  */
-+ (void)shareToQQToFriend:(NSString *)msgs withCompletion:(void(^)(OSMessage *message, NSError *error))completion;
-
-/**
- 分享qq空间
-
- @param msgs 待分享消息
- @param completion 分享消息回调
- */
-+ (void)shareToQQToSpace:(NSString *)msgs withCompletion:(void(^)(OSMessage *message, NSError *error))completion;
-
-/**
- 分享微信朋友
- 
- @param msgs 待分享消息
- @param completion 分享消息回调
- */
-+ (void)shareToWeChatToFriend:(NSString *)msgs withCompletion:(void(^)(OSMessage *message, NSError *error))completion;
-
-/**
- 分享微信朋友圈
-
- @param msgs 待分享消息
- @param completion 分享消息回调
- */
-+ (void)shareToWeChatToSpace:(NSString *)msgs withCompletion:(void (^)(OSMessage *message, NSError *error))completion;
++ (void)shareToPlatform:(SharePlatform)plateform link:(NSString *)link title:(NSString *)title body:(NSString *)body withCompletion:(void (^)(OSMessage *message, NSError *body))completion;
 @end
