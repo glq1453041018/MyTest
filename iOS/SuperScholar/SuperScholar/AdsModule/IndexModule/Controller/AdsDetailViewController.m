@@ -8,6 +8,7 @@
 
 #import "AdsDetailViewController.h"
 #import "AdsWebViewViewController.h"
+#import "ClassInfoViewController.h"
 
 #import "MYBannerScrollView.h"
 #import "ZhaoShengTableViewCell.h"
@@ -140,9 +141,9 @@
     [self.tablefootView adjustFrame];
     self.tablefootView.frame = CGRectMake(0, IEW_HEGHT-self.tablefootView.frame.size.height, self.tablefootView.frame.size.width, self.tablefootView.frame.size.height);
     if (self.type == ReCruitTypeSchool) {
-        self.SchoolBtn.titleLabel.text = @"进入班级";
+        [self.SchoolBtn setTitle:@"了解学校" forState:UIControlStateNormal];
     }else{
-        self.SchoolBtn.titleLabel.text = @"进入学校";
+         [self.SchoolBtn setTitle:@"了解班级" forState:UIControlStateNormal];
     }
     [self.view addSubview:self.tablefootView];
 }
@@ -500,9 +501,11 @@
 #pragma mark - <************************** 点击事件 **************************>
 - (IBAction)SchoolClick:(UIButton *)sender {
     if (self.type == ReCruitTypeSchool) {
-        
+        ClassInfoViewController *ctrl = [ClassInfoViewController new];
+        [self.navigationController pushViewController:ctrl animated:YES];
     }else{
-    
+        ClassInfoViewController *ctrl = [ClassInfoViewController new];
+        [self.navigationController pushViewController:ctrl animated:YES];
     }
 }
 
