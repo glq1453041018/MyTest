@@ -95,6 +95,7 @@ typedef NS_ENUM(NSInteger , ReCruitType) {
 #pragma mark - <************************** 模块code **************************>
 static NSString* ZhaoShengQiShiCode                  = @"zsqs";          // 招生启示
 static NSString* ZuiXinDongTaiCode                   = @"zxdt";          // 最新动态
+static NSString* BanJiHuanJingCode                   = @"bjhj";          // 班级环境
 static NSString* XueXiaoHuanJingCode                 = @"xxhj";          // 学校环境
 static NSString* JingCaiHuoDongCode                  = @"jchd";          // 精彩活动
 
