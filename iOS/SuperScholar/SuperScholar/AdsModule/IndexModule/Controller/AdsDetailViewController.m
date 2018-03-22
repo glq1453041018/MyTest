@@ -86,7 +86,13 @@
     [view addSubview:self.navigationBar.letfBtn];
     self.navigationBar.letfBtn.frame = CGRectMake(0, 0, 15, 44);
     [self.navigationBar.letfBtn setImage:[UIImage imageNamed:kGoBackImageString] forState:UIControlStateNormal];
-    [self.navigationBar setCenterView:self.centerImage leftView:view rightView:nil];
+    
+    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, 44)];
+    [rightView addSubview:self.navigationBar.rightBtn];
+    self.navigationBar.rightBtn.frame = CGRectMake(0, 0, 44, 44);
+    [self.navigationBar.rightBtn setImage:[UIImage imageNamed:ShareImage] forState:UIControlStateNormal];
+    
+    [self.navigationBar setCenterView:self.centerImage leftView:view rightView:self.navigationBar.rightBtn];
     self.navigationBar.backgroundColor = [UIColor clearColor];
     self.isNeedGoBack = YES;
 
@@ -435,11 +441,11 @@
     return [[UITableViewCell alloc]init];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
-    webview.urlString = @"http://u4915226.viewer.maka.im/pcviewer/1WXHYXUH";
-    [self presentViewController:webview animated:YES completion:^{
-        
-    }];
+//    AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
+//    webview.urlString = @"http://u4915226.viewer.maka.im/pcviewer/1WXHYXUH";
+//    [self presentViewController:webview animated:YES completion:^{
+//        
+//    }];
 //    [self.navigationController pushViewController:webview animated:YES];
     
 }
