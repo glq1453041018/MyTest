@@ -1645,40 +1645,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F40A8FF2205E1A310087814A /* MyMessageCenter */ = {
-			isa = PBXGroup;
-			children = (
-				F40A8FF3205E1A310087814A /* Controller */,
-				F40A8FF4205E1A310087814A /* Model */,
-				F40A8FF5205E1A310087814A /* View */,
-			);
-			path = MyMessageCenter;
-			sourceTree = "<group>";
-		};
-		F40A8FF3205E1A310087814A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F40A8FF6205E1A4E0087814A /* MyMessageCenterViewController.h */,
-				F40A8FF7205E1A4E0087814A /* MyMessageCenterViewController.m */,
-				F40A8FF8205E1A4E0087814A /* MyMessageCenterViewController.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		F40A8FF4205E1A310087814A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		F40A8FF5205E1A310087814A /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		F40AF34B205F5BB300991CC9 /* MYTipsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2039,7 +2005,6 @@
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
 				3831C91020626768003CC26F /* myTableView.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
-				F40A8FF9205E1A4E0087814A /* MyMessageCenterViewController.m in Sources */,
 				C7F2C01A206383DD00C34D2D /* ClassEnvironmentViewController.m in Sources */,
 				C7F2C027206397C000C34D2D /* ClassEnvironmentModel.m in Sources */,
 				384A556B205266D8006D8C23 /* SchoolViewController.m in Sources */,

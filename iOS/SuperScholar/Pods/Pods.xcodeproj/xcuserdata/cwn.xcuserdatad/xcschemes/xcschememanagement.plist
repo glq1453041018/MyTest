@@ -32,6 +32,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>OpenShare.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>Pods-SuperScholar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -86,7 +91,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>76679D75C59D11216C0D43493DF649EF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7CF1947D9947C2EB8ECBEBB53FAF7A81</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81579851835B4E394AF9B940AC330B08</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -106,7 +121,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A7C047146E44675467EF040AC0EDF981</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B5E289E0A32AE19BC4BE45CA79E10436</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BE75D9D62F2E3A9E97A339598E81E533</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DEF28B95D2DB6C5E9888E0A71AF1B8EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

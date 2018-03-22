@@ -26,6 +26,7 @@
     
     [AddressViewManager configMap];
     
+    [ShareManager applicationDidFinishLaunching];
     
     [[UITextView appearance] setTintColor:KColorTheme];
     [[UITextField appearance] setTintColor:KColorTheme];
