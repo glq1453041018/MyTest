@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "ShareManager.h"
 #import "AddressViewManager.h"
 #import "MainTabBarViewController.h"
-#import "ShareManager.h"
 
 @interface AppDelegate ()
 
@@ -25,7 +25,11 @@
     [self.window makeKeyAndVisible];
     
     [AddressViewManager configMap];
-    [ShareManager applicationDidFinishLaunching];
+    
+    
+    [[UITextView appearance] setTintColor:KColorTheme];
+    [[UITextField appearance] setTintColor:KColorTheme];
+    
     return YES;
 }
 
