@@ -5,15 +5,16 @@
 //  Created by 骆亮 on 2018/3/15.
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
-
+// !!!: 控制器类
 #import "ClassInfoViewController.h"
 #import "ClassCommentViewController.h"
-
+#import "ZhaoShengViewController.h"         // 招生启示
+// !!!: 视图类
 #import "ClassInfoHeadView.h"
 #import "ClassInfoTableViewCell.h"
 #import "ClassInfoFootView.h"
 #import "PhotoBrowser.h"
-
+// !!!: 数据类
 #import "ClassInfoModel.h"
 #import "ClassInfoManager.h"
 
@@ -234,12 +235,26 @@
 
 // !!!: 滚动视图的代理事件
 -(void)bannerScrollView:(MYBannerScrollView *)bannerScrollView didClickScrollView:(NSInteger)pageIndex{
-    [PhotoBrowser showURLImages:bannerScrollView.imagePaths placeholderImage:[UIImage imageNamed:@"zhanweifu"] selectedIndex:pageIndex];
+    [PhotoBrowser showURLImages:bannerScrollView.imagePaths placeholderImage:kPlaceholderImage selectedIndex:pageIndex];
 }
 
 // !!!: 标题视图的代理事件
 -(void)classInfoManagerTitleClickEvent:(NSInteger)index data:(ClassInfoModel *)model{
-    DLog(@"点击了:%@",model.key);
+    DLog(@"点击了:%@:%@",model.code,model.key);
+    if ([model.code isEqualToString:ZhaoShengQiShiCode]) {          // 招生启示
+        ZhaoShengViewController *ctrl = [ZhaoShengViewController new];
+        next.IsNeedNavigationBar = YES;
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
+    else if ([model.code isEqualToString:ZuiXinDongTaiCode]){       // 最新动态
+        
+    }
+    else if ([model.code isEqualToString:XueXiaoHuanJingCode]){     // 学校环境
+        
+    }
+    else if ([model.code isEqualToString:JingCaiHuoDongCode]){      // 精彩活动
+        
+    }
 }
 
 

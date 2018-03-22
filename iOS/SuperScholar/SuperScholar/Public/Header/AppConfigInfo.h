@@ -71,6 +71,12 @@ static NSString *UserId_NSUserDefaults = @"userid";
 
 
 
+
+
+
+
+
+
 #pragma mark - <************************** 枚举类型 **************************>
 // !!!: 班级类型
 typedef NS_ENUM(NSInteger , MessageType) {
@@ -80,9 +86,23 @@ typedef NS_ENUM(NSInteger , MessageType) {
 
 // !!!: 招聘类型，班级还是学校级别
 typedef NS_ENUM(NSInteger , ReCruitType) {
-    ReCruitTypeClass,             // 班级类型
-    ReCruitTypeSchool              // 学校类型
+    ReCruitTypeClass,               // 班级类型
+    ReCruitTypeSchool               // 学校类型
 };
+
+
+
+#pragma mark - <************************** 模块code **************************>
+static NSString* ZhaoShengQiShiCode                  = @"zsqs";          // 招生启示
+static NSString* ZuiXinDongTaiCode                   = @"zxdt";          // 最新动态
+static NSString* XueXiaoHuanJingCode                 = @"xxhj";          // 学校环境
+static NSString* JingCaiHuoDongCode                  = @"jchd";          // 精彩活动
+
+
+
+
+
+
 
 
 #pragma mark - <************************** 三方平台配置信息 **************************>

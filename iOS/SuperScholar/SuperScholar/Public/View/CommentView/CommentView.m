@@ -68,7 +68,8 @@
     if (_bgView==nil) {
         _bgView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.viewWidth, 0)];
         [_bgView addTarget:self action:@selector(hideView) forControlEvents:UIControlEventTouchUpInside];
-//        _bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+//        _bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.15];
+        _bgView.alpha = 0;
     }
     return _bgView;
 }
@@ -169,6 +170,9 @@
     Y = self.y;
     self.bgView.y = -kScreenHeight;
     self.bgView.viewHeight = kScreenHeight;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.bgView.alpha = 1;
+    }];
     self.senderBtn.alpha = 1;
     [self showSenderBtn];
 //    [UIView commitAnimations];
@@ -194,6 +198,9 @@
     [self hideSenderBtn];
     self.bgView.y = 0;
     self.bgView.viewHeight = 0;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.bgView.alpha = 0;
+    }];
     [UIView commitAnimations];
 }
 

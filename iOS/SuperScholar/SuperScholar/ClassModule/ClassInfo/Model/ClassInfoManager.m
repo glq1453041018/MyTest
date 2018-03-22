@@ -16,6 +16,7 @@
         ClassInfoModel *cim = [ClassInfoModel new];
         cim.key = @[@"招生启示",@"最新动态",@"学校环境",@"精彩活动"][i];
         cim.value = @[@"12",@"23",@"25",@"32"][i];
+        cim.code = @[ZhaoShengQiShiCode,ZuiXinDongTaiCode,XueXiaoHuanJingCode,JingCaiHuoDongCode][i];
         cim.cellHeight = AdaptedWidthValue(60);
         [titles addObject:cim];
     }
