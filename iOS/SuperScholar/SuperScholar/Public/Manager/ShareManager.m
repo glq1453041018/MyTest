@@ -36,6 +36,12 @@
     }];
 }
 + (void)shareToQQToSpace:(NSString *)msgs withCompletion:(void (^)(OSMessage *, NSError *))completion{
+    [OpenShare QQAuth:@"get_user_info" Success:^(NSDictionary *message) {
+//        ULog(@"QQ登录成功\n%@",message);
+    } Fail:^(NSDictionary *message, NSError *error) {
+//        ULog(@"QQ登录失败\n%@\n%@",error,message);
+    }];
+
     OSMessage *msg=[[OSMessage alloc] init];
     msg.title=msgs;
     [OpenShare shareToQQZone:msg Success:^(OSMessage *message) {
