@@ -7,6 +7,8 @@
 //
 
 #import "ZhaoShengViewController.h"
+#import "AdsDetailViewController.h"
+
 #import "ZhaoShengTableViewCell.h"
 @interface ZhaoShengViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
@@ -37,8 +39,13 @@
 #pragma mark - <*********************** 初始化控件/数据 **********************>
 
 -(void)creatTableView{
-    
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0 , IEW_WIDTH, IEW_HEGHT-kNavigationbarHeight-kscrollerbarHeight) style:UITableViewStylePlain];
+    if (self.IsNeedNavigationBar) {
+        [self.navigationBar setTitle:self.title.length?self.title:@"招生启示" leftImage: kGoBackImageString rightText:nil];
+        self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,kNavigationbarHeight , IEW_WIDTH, IEW_HEGHT-kNavigationbarHeight) style:UITableViewStylePlain];
+    }else{
+        self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0 , IEW_WIDTH, IEW_HEGHT-kNavigationbarHeight-kscrollerbarHeight) style:UITableViewStylePlain];
+    }
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     //    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
@@ -265,7 +272,14 @@
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    AdsDetailViewController *next = [[AdsDetailViewController alloc]initWithNibName:@"AdsDetailViewController" bundle:nil];
+    next.hidesBottomBarWhenPushed=YES;
+    if(indexPath.row%2==0){
+        next.type = ReCruitTypeSchool;
+    }else{
+        next.type = ReCruitTypeClass;
+    }
+    [self.navigationController pushViewController:next animated:YES];
     
 }
 

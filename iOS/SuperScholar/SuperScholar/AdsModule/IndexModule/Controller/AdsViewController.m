@@ -10,6 +10,7 @@
 #import "SearchIndexViewController.h"
 #import "AddressViewController.h"
 #import "AdsDetailViewController.h"
+//#import "ZhaoShengViewController.h"
 
 #import "AdsCollectionViewCell.h"
 
@@ -219,7 +220,7 @@
     
     static NSString *cellId = @"adscell";
     AdsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    if(indexPath.section%2==0){
+    if(indexPath.row%2==0){
         cell.titleLable.text = @"这是一篇以学校为主体的招聘信息，详情页里面的内容也应该以学校为主体";
     }else{
        cell.titleLable.text = @"这是一篇以班级为主体的招聘信息，详情页里面的内容也应该以班级为主体";
@@ -261,11 +262,12 @@
 #pragma mark --UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
-
+//   ZhaoShengViewController *next = [[ZhaoShengViewController alloc]initWithNibName:@"ZhaoShengViewController" bundle:nil];
+//    next.IsNeedNavigationBar = YES;
+    
     AdsDetailViewController *next = [[AdsDetailViewController alloc]initWithNibName:@"AdsDetailViewController" bundle:nil];
     next.hidesBottomBarWhenPushed=YES;
-    if(indexPath.section%2==0){
+    if(indexPath.row%2==0){
         next.type = ReCruitTypeSchool;
     }else{
         next.type = ReCruitTypeClass;
