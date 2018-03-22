@@ -8,61 +8,55 @@
 
 #import "AdsWebViewViewController.h"
 #import <WebKit/WebKit.h>
-@interface AdsWebViewViewController ()<WKNavigationDelegate>
+@interface AdsWebViewViewController ()<WKNavigationDelegate,UIScrollViewDelegate>
 {
     float weHeight;
     BOOL isfinished;
 }
 @property(strong,nonatomic)WKWebView *wkWebView;
+@property (nonatomic, assign) BOOL canScroll;
 @end
 
 @implementation AdsWebViewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    //增加观测者,播放状态切换时处理
+//    [self.wkWebView addObserver:self forKeyPath:@"scrollView.contentSize" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:@"DJWebKitContext"];
     // 初始化视图
+
     [self initUI];
 }
 
--(void)viewDidLayoutSubviews{
-    [super viewDidLayoutSubviews];
-    [self.loadingView startAnimating];
-}
 
 #pragma mark - <************************** 配置视图 **************************>
 // !!!: 配置视图
 -(void)initUI{
     self.view.backgroundColor = [UIColor whiteColor];
-//        DLog(@"%lf,%lf",self.view.viewWidth,self.view.viewHeight);
-    self.view.frame = CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT);
-//        DLog(@"%lf,%lf",self.view.viewWidth,self.view.viewHeight);
-//    [self.navigationBar setTitle:@"详情" leftBtnImage:@"zhiboLeft" rightBtnImage:@""];
+
 //    self.isNeedGoBack = YES;
-// [self.loadingView startAnimating];
+
     [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
     [self.view addSubview:self.wkWebView];
-    DLog(@"%lf,%lf",self.view.viewWidth,self.view.viewHeight);
-//    self.loadingView.center = CGPointMake(100, 100);
-    [self.loadingView cwn_reMakeConstraints:^(UIView *maker) {
-        maker.centerXtoSuper(0).centerYtoSuper(0).width(maker.viewWidth).height(maker.viewHeight);
-    }];
-
+    [self.navigationBar setTitle:nil leftImage:kGoBackImageString rightText:nil];
+    self.navigationBar.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark - <*********************** navigationViewLeftDelegate **********************>
--(void)navigationViewLeftDlegate
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
+-(void)navigationViewLeftClickEvent{
+ [self dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - <*********************** 初始化控件/数据 **********************>
 -(WKWebView *)wkWebView{
     if (!_wkWebView) {
         //        _wkWebView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 100, MAIN_WIDTH, MAIN_HEIGHT-kNavigationbarHeight-100)];
         _wkWebView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT)];
         _wkWebView.navigationDelegate = self;
-        _wkWebView.scrollView.scrollEnabled = NO;
+        _wkWebView.scrollView.delegate = self;
+        _wkWebView.scrollView.showsVerticalScrollIndicator = NO;
+//        _wkWebView.scrollView.scrollEnabled = NO;
     }
     return _wkWebView;
 }
@@ -121,25 +115,26 @@
         [[NSFileManager defaultManager] removeItemAtPath:cookiesFolderPath error:&errors];
     }
 }
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
-{
-    if (object == self.wkWebView.scrollView && [keyPath isEqual:@"contentSize"]) {
-        // we are here because the contentSize of the WebView's scrollview changed.
-
-        weHeight = self.wkWebView.scrollView.contentSize.height;
-        CGRect frame = self.wkWebView.frame;
-        frame.size.height = weHeight;
-        self.wkWebView.frame = frame;
-        DLog(@"webview ====== %lf",weHeight);
-
-    }
-}
+//- (void)observeValueForKeyPath:(NSString *)keyPath
+//                      ofObject:(id)object
+//                        change:(NSDictionary *)change
+//                       context:(void *)context
+//{
+//    if (object == self.wkWebView && [keyPath isEqual:@"scrollView.contentSize"]) {
+//        // we are here because the contentSize of the WebView's scrollview changed.
+//
+//        weHeight = self.wkWebView.scrollView.contentSize.height;
+//        CGRect frame = self.wkWebView.frame;
+//        frame.size.height = weHeight;
+//        self.wkWebView.frame = frame;
+//        DLog(@"webview ====== %lf,ro ===== %lf",weHeight,self.wkWebView.scrollView.contentOffset.y);
+//
+//    }
+//}
 
 #pragma mark - <************************** 检测释放 **************************>
 - (void)dealloc{
+//    [self.wkWebView removeObserver:self forKeyPath:@"scrollView.contentSize" context:@"DJWebKitContext"];
     DLog(@"%@释放掉",[self class]);
     //    [self.wkWebView.scrollView removeObserver:self forKeyPath:@"contentSize" context:nil];
     

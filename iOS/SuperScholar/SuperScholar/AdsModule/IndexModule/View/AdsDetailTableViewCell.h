@@ -25,3 +25,6 @@
 @interface AdsDetailTableViewCell_adress : UITableViewCell
 
 @end
+@interface AdsDetailTableViewCell_footView : UITableViewCell
+
+@end

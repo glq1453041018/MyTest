@@ -39,5 +39,13 @@
 @implementation AdsDetailTableViewCell_adress
 
 
+@end
+@implementation AdsDetailTableViewCell_footView
+
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self adjustFrameOnlyWidth];
+}
 
 @end

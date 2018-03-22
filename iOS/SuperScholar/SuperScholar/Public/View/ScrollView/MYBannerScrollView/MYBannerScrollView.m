@@ -377,10 +377,12 @@
                     contentOffsetY = _estimateSize.height;
                 _topConsTraint.constant = contentOffsetY/1.8;
                 _pageControlBottom.constant = contentOffsetY/1.8;
-                if(contentOffsetY > CGRectGetHeight(_pageControl.bounds)/2 + 8)
-                    [_pageControl setHidden:YES];
-                else
-                    [_pageControl setHidden:NO];
+                if(self.style == MYPageControlStyleDefault){
+                    if(contentOffsetY > CGRectGetHeight(_pageControl.bounds)/2 + 8)
+                        [_pageControl setHidden:YES];
+                    else
+                        [_pageControl setHidden:NO];
+                }
             }
         }
     }
