@@ -242,9 +242,7 @@
 -(void)classInfoManagerTitleClickEvent:(NSInteger)index data:(ClassInfoModel *)model{
     DLog(@"点击了:%@:%@",model.code,model.key);
     if ([model.code isEqualToString:ZhaoShengQiShiCode]) {          // 招生启示
-        ZhaoShengViewController *ctrl = [ZhaoShengViewController new];
-        next.IsNeedNavigationBar = YES;
-        [self.navigationController pushViewController:ctrl animated:YES];
+        [self goToZhaoShengQiShiModule];
     }
     else if ([model.code isEqualToString:ZuiXinDongTaiCode]){       // 最新动态
         
@@ -277,8 +275,12 @@
 
 
 #pragma mark - <************************** 其他方法 **************************>
-
-
+// !!!: 跳转招生启示模块
+-(void)goToZhaoShengQiShiModule{
+    ZhaoShengViewController *ctrl = [ZhaoShengViewController new];
+    next.IsNeedNavigationBar = YES;
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
 
 
 #pragma mark - <************************** 检测释放 **************************>
