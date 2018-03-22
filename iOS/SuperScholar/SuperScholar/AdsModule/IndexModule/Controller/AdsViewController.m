@@ -219,6 +219,11 @@
     
     static NSString *cellId = @"adscell";
     AdsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    if(indexPath.section%2==0){
+        cell.titleLable.text = @"这是一篇以学校为主体的招聘信息，详情页里面的内容也应该以学校为主体";
+    }else{
+       cell.titleLable.text = @"这是一篇以班级为主体的招聘信息，详情页里面的内容也应该以班级为主体";
+    }
    
 //    cell.selected = indexPath.item == selectIndex;
 //    float cellwidth = [self.typeArray_height[indexPath.row] floatValue];

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//typedef enum <#name#>
 @interface AdsDetailViewController : UIViewController
-
+//@property(strong,nonatomic)NSInteger
 @end

@@ -66,7 +66,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.54117647059999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                    <state key="normal" title="进入班级"/>
+                    <state key="normal" title="了解学校"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.95834045906357357" green="0.95488057966916162" blue="0.93277569007285333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

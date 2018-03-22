@@ -400,7 +400,8 @@
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
 
             [cell.contentView addSubview:self.wkWebView];
-            [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://u4915226.viewer.maka.im/pcviewer/1WXHYXUH"]]];
+//            self.loadingView.center = cell.center;
+            [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jianshu.com/p/4ac617c9493b"]]];
         }
         return cell;
     }
