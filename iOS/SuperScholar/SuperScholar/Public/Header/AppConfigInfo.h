@@ -36,10 +36,10 @@
 #define kscrollerbarHeight 40
 
 //字体大小
-#define FontSize_16 16
 #define FontSize_12 12
 #define FontSize_13 13
 #define FontSize_14 14
+#define FontSize_16 16
 //字体颜色
 #define FontSize_colorgray HexColor(0x333333)
 #define FontSize_colordarkgray HexColor(0x666666)
@@ -51,11 +51,14 @@
 
 // 返回按钮
 #define kGoBackImageString @"public_left"
+//分享按钮
+#define ShareImage @"shareImage"
 
 // 默认的头像占位符
 #define kPlaceholderHeadImage [UIImage imageNamed:@"bgImage"]
 // 默认的图片占位符
 #define kPlaceholderImage [UIImage imageNamed:@"zhanweifu"]
+
 
 
 #pragma mark - <************************** 通知字段 **************************>
@@ -71,8 +74,17 @@ static NSString *UserId_NSUserDefaults = @"userid";
 
 
 #pragma mark - <************************** 枚举类型 **************************>
+// !!!: 班级类型
+typedef NS_ENUM(NSInteger , MessageType) {
+    MessageTypeDefault,             // 信息默认类型
+    MessageTypeComment              // 评价信息类型 
+};
 
-
+// !!!: 招聘类型，班级还是学校级别
+typedef NS_ENUM(NSInteger , ReCruitType) {
+    ReCruitTypeClass,             // 班级类型
+    ReCruitTypeSchool              // 学校类型
+};
 
 
 #pragma mark - <************************** 三方平台配置信息 **************************>

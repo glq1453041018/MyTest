@@ -8,21 +8,37 @@
 
 #import "AdsDetailViewController.h"
 #import "AdsWebViewViewController.h"
+#import "ClassInfoViewController.h"
 
 #import "MYBannerScrollView.h"
 #import "ZhaoShengTableViewCell.h"
 #import "AdsDetailTableViewCell.h"
 
 #import "PhotoBrowser.h"
+#import "UIButton+Positon.h"
+#import <WebKit/WebKit.h>
 
-@interface AdsDetailViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate>
+@interface AdsDetailViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate,WKNavigationDelegate>
+{
+    float weHeight;
+}
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UIImageView *centerImage;
 @property (nonatomic,assign) NSInteger page;
 @property (nonatomic,strong)NSMutableArray *dataArray;
 @property (strong, nonatomic) IBOutlet MYBannerScrollView *tableHeadView;
 @property (strong, nonatomic) IBOutlet UIView *tablefootView;
+@property (weak, nonatomic) IBOutlet UIButton *contectBtn;
+@property (weak, nonatomic) IBOutlet UIButton *shoucangBtn;
+@property (weak, nonatomic) IBOutlet UIButton *SchoolBtn;
+- (IBAction)SchoolClick:(UIButton *)sender;
 
+
+
+@property(strong,nonatomic)WKWebView *wkWebView;
+@property(assign,nonatomic)BOOL HaveMusic;
+
+@property(strong,nonatomic)AdsDetailTableViewCell_footView *footView;
 
 
 @end
@@ -31,12 +47,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    weHeight = IEW_HEGHT;
+    self.HaveMusic = YES;
+    [self.wkWebView addObserver:self forKeyPath:@"scrollView.contentSize" options:NSKeyValueObservingOptionNew context:@"DJWebKitContext"];
     // 初始化视图
     [self initUI];
+    
+    
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if (object == self.wkWebView && [keyPath isEqual:@"scrollView.contentSize"]&&weHeight!=self.wkWebView.scrollView.contentSize.height) {
+        // we are here because the contentSize of the WebView's scrollview changed.
 
-    
-    
+         weHeight = self.wkWebView.scrollView.contentSize.height;
+        CGRect frame = self.wkWebView.frame;
+        frame.size.height = weHeight;
+        self.wkWebView.frame = frame;
+        DLog(@"webview ====== %lf,ro ===== %lf",weHeight,self.wkWebView.scrollView.contentOffset.y);
+        [self.tableView reloadData];
+    }
 }
 #pragma mark - <************************** navigationDelaGate **************************>
 // !!!: 导航栏
@@ -49,11 +82,17 @@
     [self creatTableView];
     self.view.backgroundColor = [UIColor whiteColor];
     // 导航栏
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+    [view addSubview:self.navigationBar.letfBtn];
+    self.navigationBar.letfBtn.frame = CGRectMake(0, 0, 15, 44);
+    [self.navigationBar.letfBtn setImage:[UIImage imageNamed:kGoBackImageString] forState:UIControlStateNormal];
     
-    self.centerImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [self.centerImage sd_setImageWithURL:[NSURL URLWithString:@"http://pic33.photophoto.cn/20141023/0017030062939942_b.jpg"] placeholderImage:[UIImage imageNamed:@""]];
-    [self.navigationBar setTitle:@"" leftImage:kGoBackImageString rightImage:@""];
-//    [self.navigationBar setCenterView:self.centerImage leftView:kGoBackImageString rightView:nil];
+    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, 44)];
+    [rightView addSubview:self.navigationBar.rightBtn];
+    self.navigationBar.rightBtn.frame = CGRectMake(40, 0, 20, 44);
+    [self.navigationBar.rightBtn setImage:[UIImage imageNamed:ShareImage] forState:UIControlStateNormal];
+    
+    [self.navigationBar setCenterView:self.centerImage leftView:view rightView:rightView];
     self.navigationBar.backgroundColor = [UIColor clearColor];
     self.isNeedGoBack = YES;
 
@@ -61,6 +100,29 @@
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
 
+-(UIImageView *)centerImage{
+    if (_centerImage == nil) {
+        _centerImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 2, 35, 35)];
+        [_centerImage sd_setImageWithURL:[NSURL URLWithString:[TESTDATA randomUrlString]] placeholderImage:[UIImage imageNamed:@""]];
+        _centerImage.layer.cornerRadius = 3;
+        _centerImage.clipsToBounds = YES;
+        _centerImage.alpha = 0;
+    }
+    return _centerImage;
+}
+
+
+-(WKWebView *)wkWebView{
+    if (!_wkWebView) {
+        //        _wkWebView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 100, MAIN_WIDTH, MAIN_HEIGHT-kNavigationbarHeight-100)];
+        _wkWebView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT)];
+        _wkWebView.navigationDelegate = self;
+        _wkWebView.scrollView.showsVerticalScrollIndicator = NO;
+        _wkWebView.userInteractionEnabled = NO;
+        _wkWebView.scrollView.scrollEnabled = NO;
+    }
+    return _wkWebView;
+}
 -(void)creatTableView{
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0 , IEW_WIDTH, IEW_HEGHT-44) style:UITableViewStyleGrouped];
@@ -73,7 +135,7 @@
         
     }
     [self.tableView setSeparatorColor:SeparatorLineColor];
-    self.tableView.backgroundColor=[UIColor redColor];
+    self.tableView.backgroundColor = TableBackGroundColor;
 //    MJDIYHeader *header = [MJDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(RefreshNewData)];
 //    self.tableView.mj_header = header;
     
@@ -87,26 +149,29 @@
     DLog(@"%lf",IEW_HEGHT-44);
     [self.tablefootView adjustFrame];
     self.tablefootView.frame = CGRectMake(0, IEW_HEGHT-self.tablefootView.frame.size.height, self.tablefootView.frame.size.width, self.tablefootView.frame.size.height);
+    
+    [self.contectBtn setImagePosition:ZXImagePositionTop spacing:1];
+    [self.shoucangBtn setImagePosition:ZXImagePositionTop spacing:1];
+    if (self.type == ReCruitTypeSchool) {
+        [self.SchoolBtn setTitle:@"了解学校" forState:UIControlStateNormal];
+    }else{
+         [self.SchoolBtn setTitle:@"了解班级" forState:UIControlStateNormal];
+    }
     [self.view addSubview:self.tablefootView];
 }
 -(void)creatScrollerView{
     [self.tableHeadView adjustFrame];
 
-    NSArray *picsUrl = @[
-                         @"http://pic33.photophoto.cn/20141023/0017030062939942_b.jpg",
-                         @"http://pic14.nipic.com/20110427/5006708_200927797000_2.jpg",
-                         @"http://pic23.nipic.com/20120803/9171548_144243306196_2.jpg",
-                         @"http://pic39.nipic.com/20140311/8821914_214422866000_2.jpg",
-                         @"http://pic7.nipic.com/20100609/3143623_160732828380_2.jpg",
-                         @"http://pic9.photophoto.cn/20081128/0020033015544930_b.jpg",
-                         @"http://pic2.16pic.com/00/35/74/16pic_3574684_b.jpg",
-                         @"http://pic42.nipic.com/20140605/9081536_142458626145_2.jpg",
-                         @"http://pic35.photophoto.cn/20150626/0017029557111337_b.jpg"
-                         ];
-    [self.tableHeadView loadImages:picsUrl estimateSize:CGSizeMake(self.tableHeadView.frame.size.width , self.tableHeadView.frame.size.height)];
+    NSMutableArray *pics = [NSMutableArray array];
+    for (int i=0; i<6; i++) {
+        [pics addObject:[TESTDATA randomUrlString]];
+    }
+    
+    [self.tableHeadView loadImages:pics estimateSize:CGSizeMake(self.tableHeadView.frame.size.width , self.tableHeadView.frame.size.height)];
     self.tableHeadView.location = locationCenter;
+    self.tableHeadView.failImage = kPlaceholderImage;
 //    self.tableHeadView.style = MYPageControlStyleLabel;
-    self.tableHeadView.backgroundColor = [UIColor cyanColor];
+//    self.tableHeadView.backgroundColor = [UIColor cyanColor];
     self.tableHeadView.useScaleEffect = YES;
     self.tableHeadView.needBgView = YES;
     self.tableHeadView.useVerticalParallaxEffect = YES;
@@ -115,6 +180,20 @@
     self.tableHeadView.delegate = self;
     self.tableView.tableHeaderView = self.tableHeadView;
 }
+
+-(AdsDetailTableViewCell_footView *)footView{
+    if (_footView==nil) {
+        NSArray *cells = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([AdsDetailTableViewCell class]) owner:nil options:nil];
+        for (id cellItem in cells) {
+            if ([cellItem isKindOfClass:[AdsDetailTableViewCell_footView class]]) {
+                _footView = cellItem;
+                break;
+            }
+        }
+    }
+    return _footView;
+}
+
 -(NSMutableArray *)dataArray{
     if (_dataArray==nil) {
         _dataArray = [NSMutableArray array];
@@ -221,7 +300,9 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if (section == 2) {
         return CGFLOAT_MIN;
-    }else{
+    }else if (section == 1){
+        return 40;
+    } else{
         return 10;
     }
 
@@ -229,7 +310,10 @@
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     if (section == 2) {
          return [[UIView alloc]init];
-    }else{
+    }else if (section == 1){
+
+        return self.footView;
+    } else{
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, IEW_WIDTH, 10)];
         view.backgroundColor = TableBackGroundColor;
         return view;
@@ -247,7 +331,7 @@
         }
         
     }else{
-        return IEW_HEGHT;
+        return weHeight;
     }
     
     
@@ -272,6 +356,13 @@
             
             
         }
+
+        if (self.type == ReCruitTypeSchool) {
+            cell.titleLable.text = @"这是一篇以学校为主体的招聘信息，详情页里面的内容也应该以学校为主体";
+        }else{
+            cell.titleLable.text = @"这是一篇以班级为主体的招聘信息，详情页里面的内容也应该以班级为主体";
+        }
+        
         //        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         //        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
         //
@@ -337,42 +428,63 @@
         static NSString *cellId = @"Adsdetail_webView";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT)];
-            AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
-            webview.urlString = @"https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%E9%A2%9C%E8%89%B2&oq=podfile.lock&rsv_pq=d4e26e5e00017958&rsv_t=dd1bkgpFm6Zi3rX473AXC%2FBFcQJJOiOHhX1R63Zp4Arqw%2BPiJ09kKy0lcSk&rqlang=cn&rsv_enter=1&inputT=856&rsv_sug3=6&rsv_sug1=5&rsv_sug7=100&bs=podfile.lock";
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
 
-            [cell addSubview:webview.view];
-            [self addChildViewController:webview];
+            [cell.contentView addSubview:self.wkWebView];
+//            self.loadingView.center = cell.center;
+            [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s/kmQq7UWrFqANpArdvDcIkg"]]];
         }
         return cell;
-//          return [[UITableViewCell alloc]init];
     }
     
     
     return [[UITableViewCell alloc]init];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
-    webview.urlString = @"https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%E9%A2%9C%E8%89%B2&oq=podfile.lock&rsv_pq=d4e26e5e00017958&rsv_t=dd1bkgpFm6Zi3rX473AXC%2FBFcQJJOiOHhX1R63Zp4Arqw%2BPiJ09kKy0lcSk&rqlang=cn&rsv_enter=1&inputT=856&rsv_sug3=6&rsv_sug1=5&rsv_sug7=100&bs=podfile.lock";
-    [self.navigationController pushViewController:webview animated:YES];
+//    AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
+//    webview.urlString = @"http://u4915226.viewer.maka.im/pcviewer/1WXHYXUH";
+//    [self presentViewController:webview animated:YES completion:^{
+//        
+//    }];
+//    [self.navigationController pushViewController:webview animated:YES];
     
 }
-#pragma mark - <************************** MYBannerScrollView 代理 **************************>
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    DLog(@"%lf",scrollView.contentOffset.y);
-    if(scrollView.contentOffset.y>150){
-        [self.navigationBar setTitle:@"详情页" leftImage:kGoBackImageString rightText:nil];
+    
+    
+    // 判断webView所在的cell是否可见，如果可见就layout
+    NSArray *cells = self.tableView.visibleCells;
+    for (UITableViewCell *cell in cells) {
+        NSIndexPath *path = [self.tableView indexPathForCell:cell];
+        if (path.section==2) {
+            [self.wkWebView setNeedsLayout];
+        }
         
-    }else{
-       [self.navigationBar setTitle:@" " leftImage:kGoBackImageString rightText:nil];
     }
+    CGRect rect = [self.tableView rectForFooterInSection:2];
+//    NSLog(@"%lf %lf  %lf",scrollView.contentOffset.y,rect.origin.y,IEW_HEGHT);
+    if (scrollView.contentOffset.y>rect.origin.y-IEW_HEGHT+64+44+10) {
+        if (self.HaveMusic) {
+            AdsWebViewViewController *webview = [[AdsWebViewViewController alloc]initWithNibName:@"AdsWebViewViewController" bundle:nil];
+            webview.urlString = @"http://u4915226.viewer.maka.im/pcviewer/1WXHYXUH";
+            [self presentViewController:webview animated:YES completion:^{
+                
+            }];
+        }
+    }
+
+    
     CGFloat minAlphaOffset = 0;
     CGFloat maxAlphaOffset = 150;
     CGFloat offset = scrollView.contentOffset.y;
     CGFloat alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
     self.navigationBar.backgroundColor = RGBColor(116, 208, 198, alpha);
+//    self.navigationBar.backgroundColor = RGBColor(247, 247, 247, alpha);
+    self.centerImage.alpha = alpha;
     [self.tableHeadView scrollViewDidScroll:scrollView];
+    
 }
+#pragma mark - <************************** MYBannerScrollView 代理 **************************>
 
 // !!!: 滚动视图的代理事件
 -(void)bannerScrollView:(MYBannerScrollView *)bannerScrollView didClickScrollView:(NSInteger)pageIndex{
@@ -384,18 +496,38 @@
 //    DLog(@"点击了:%@",model.key);
 //    
 //}
-
+#pragma mark - <************************** WKwebView代理 **************************>
+///  页面开始加载
+-(void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+    [self.loadingView startAnimating];
+    
+}
+///  页面加载完成之后调用
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    [self.loadingView stopAnimating];
+}
+/// 页面加载失败时调用
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation{
+        NSLog(@"加载失败");
+}
 #pragma mark - <************************** 点击事件 **************************>
-
+- (IBAction)SchoolClick:(UIButton *)sender {
+    if (self.type == ReCruitTypeSchool) {
+        ClassInfoViewController *ctrl = [ClassInfoViewController new];
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }else{
+        ClassInfoViewController *ctrl = [ClassInfoViewController new];
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
+}
 
 
 #pragma mark - <************************** 其他方法 **************************>
 
 
-
-
 #pragma mark - <************************** 检测释放 **************************>
 - (void)dealloc{
+    [self.wkWebView removeObserver:self forKeyPath:@"scrollView.contentSize" context:@"DJWebKitContext"];
     DLog(@"%@释放掉",[self class]);
 }
 - (void)didReceiveMemoryWarning {

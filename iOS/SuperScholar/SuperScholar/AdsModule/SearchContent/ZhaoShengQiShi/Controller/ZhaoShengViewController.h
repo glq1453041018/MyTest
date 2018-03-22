@@ -10,4 +10,5 @@
 
 @interface ZhaoShengViewController : UIViewController
 
+@property (assign,nonatomic) BOOL IsNeedNavigationBar;
 @end

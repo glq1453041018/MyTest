@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AdsDetailViewController : UIViewController
+@property(assign,nonatomic)ReCruitType type;//招聘信息属于班级还是学校
 
 @end

@@ -30,7 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.frame = CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT);
-
   
         [self creatSearchBar];
 //    [self.navigationBar setTitle:@"搜索" leftImage:@"public_left" rightText:@""];
@@ -139,9 +138,7 @@
     //    [self.navigationController popViewControllerAnimated:YES];
 }
 // !!!: 返回代理
--(void)navigationViewLeftClickEvent{
-   [self.navigationController popViewControllerAnimated:YES];
-}
+
 #pragma mark - <************************** UIsearchBar代理 **************************>
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     [self.navigationController popViewControllerAnimated:YES];
