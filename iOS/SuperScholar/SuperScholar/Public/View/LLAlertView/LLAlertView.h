@@ -16,6 +16,7 @@ typedef void(^LLAlertViewBlock)(NSInteger index);
 
 @property (assign ,nonatomic) BOOL isShow;
 
+
 /**
  是否需要关闭按钮，默认不需要
  */

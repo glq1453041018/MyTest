@@ -36,10 +36,10 @@
 #define kscrollerbarHeight 40
 
 //字体大小
-#define FontSize_16 16
 #define FontSize_12 12
 #define FontSize_13 13
 #define FontSize_14 14
+#define FontSize_16 16
 //字体颜色
 #define FontSize_colorgray HexColor(0x333333)
 #define FontSize_colordarkgray HexColor(0x666666)
@@ -72,6 +72,11 @@ static NSString *UserId_NSUserDefaults = @"userid";
 
 
 #pragma mark - <************************** 枚举类型 **************************>
+// !!!: 班级类型
+typedef NS_ENUM(NSInteger , MessageType) {
+    MessageTypeDefault,             // 信息默认类型
+    MessageTypeComment              // 评价信息类型 
+};
 
 
 

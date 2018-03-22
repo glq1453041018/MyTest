@@ -13,7 +13,9 @@
 @property (strong ,nonatomic) CABasicAnimation *showHideAnimation;
 @property (strong ,nonatomic) CABasicAnimation *showHideAnimation_contentView;
 @property (strong ,nonatomic) UIButton *closeBtn;   // 关闭按钮
+
 @property (assign ,nonatomic) BOOL isShowing;
+
 @property (strong ,nonatomic) id object;
 @end
 
@@ -191,7 +193,7 @@
 #pragma mark - <************************** 私有方法 **************************>
 - (void)showBackground{
     self.showHideAnimation.fromValue = @(0);
-    self.showHideAnimation.toValue = @(0.7);
+    self.showHideAnimation.toValue = @(0.5);
     [self.backgroundView.layer addAnimation:self.showHideAnimation forKey:@"opacity"];
     
     self.showHideAnimation_contentView.fromValue = @(0.8);
@@ -201,7 +203,7 @@
 }
 
 - (void)hideBackgorund{
-    self.showHideAnimation.fromValue = @(0.7);
+    self.showHideAnimation.fromValue = @(0.5);
     self.showHideAnimation.toValue = @(0);
     [self.backgroundView.layer addAnimation:self.showHideAnimation forKey:@"opacity"];
     

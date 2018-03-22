@@ -25,6 +25,10 @@
     
     [AddressViewManager configMap];
     
+    
+    [[UITextView appearance] setTintColor:KColorTheme];
+    [[UITextField appearance] setTintColor:KColorTheme];
+    
     return YES;
 }
 

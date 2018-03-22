@@ -12,6 +12,10 @@
 
 +(NSString*)randomContent;
 
++(NSArray*)randomContents:(NSInteger)count;
+
 +(NSString*)randomUrlString;
+
++(NSArray*)randomUrls:(NSInteger)count;
 
 @end

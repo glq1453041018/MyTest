@@ -74,6 +74,12 @@
 
 #pragma mark - <************************** 其他 **************************>
 
+#define iOS7Later ([UIDevice currentDevice].systemVersion.floatValue >= 7.0f)
+#define iOS8Later ([UIDevice currentDevice].systemVersion.floatValue >= 8.0f)
+#define iOS9Later ([UIDevice currentDevice].systemVersion.floatValue >= 9.0f)
+#define iOS9_1Later ([UIDevice currentDevice].systemVersion.floatValue >= 9.1f)
+
+
 // 弱引用
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
 #define WeakObj(o) __weak typeof(o) weak##o = o
