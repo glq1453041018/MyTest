@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ShareManager.h"
 #import "AddressViewManager.h"
 #import "MainTabBarViewController.h"
 
@@ -30,6 +31,13 @@
     [[UITextField appearance] setTintColor:KColorTheme];
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    if([ShareManager applicationOpenURL:url]){
+        return YES;
+    }
+    return NO;
 }
 
 
