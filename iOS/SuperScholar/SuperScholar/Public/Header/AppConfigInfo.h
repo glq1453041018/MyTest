@@ -78,7 +78,11 @@ typedef NS_ENUM(NSInteger , MessageType) {
     MessageTypeComment              // 评价信息类型 
 };
 
-
+// !!!: 招聘类型，班级还是学校级别
+typedef NS_ENUM(NSInteger , ReCruitType) {
+    ReCruitTypeClass,             // 班级类型
+    ReCruitTypeSchool              // 学校类型
+};
 
 
 #pragma mark - <************************** 三方平台配置信息 **************************>

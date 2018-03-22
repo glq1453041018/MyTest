@@ -26,6 +26,10 @@
 @property (nonatomic,strong)NSMutableArray *dataArray;
 @property (strong, nonatomic) IBOutlet MYBannerScrollView *tableHeadView;
 @property (strong, nonatomic) IBOutlet UIView *tablefootView;
+@property (weak, nonatomic) IBOutlet UIButton *SchoolBtn;
+- (IBAction)SchoolClick:(UIButton *)sender;
+
+
 
 @property(strong,nonatomic)WKWebView *wkWebView;
 @property(assign,nonatomic)BOOL HaveMusic;
@@ -96,6 +100,8 @@
     }
     return _centerImage;
 }
+
+
 -(WKWebView *)wkWebView{
     if (!_wkWebView) {
         //        _wkWebView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 100, MAIN_WIDTH, MAIN_HEIGHT-kNavigationbarHeight-100)];
@@ -133,6 +139,11 @@
     DLog(@"%lf",IEW_HEGHT-44);
     [self.tablefootView adjustFrame];
     self.tablefootView.frame = CGRectMake(0, IEW_HEGHT-self.tablefootView.frame.size.height, self.tablefootView.frame.size.width, self.tablefootView.frame.size.height);
+    if (self.type == ReCruitTypeSchool) {
+        self.SchoolBtn.titleLabel.text = @"进入班级";
+    }else{
+        self.SchoolBtn.titleLabel.text = @"进入学校";
+    }
     [self.view addSubview:self.tablefootView];
 }
 -(void)creatScrollerView{
@@ -332,6 +343,13 @@
             
             
         }
+
+        if (self.type == ReCruitTypeSchool) {
+            cell.titleLable.text = @"这是一篇以学校为主体的招聘信息，详情页里面的内容也应该以学校为主体";
+        }else{
+            cell.titleLable.text = @"这是一篇以班级为主体的招聘信息，详情页里面的内容也应该以班级为主体";
+        }
+        
         //        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         //        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
         //
@@ -400,7 +418,8 @@
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
 
             [cell.contentView addSubview:self.wkWebView];
-            [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://u4915226.viewer.maka.im/pcviewer/1WXHYXUH"]]];
+//            self.loadingView.center = cell.center;
+            [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jianshu.com/p/4ac617c9493b"]]];
         }
         return cell;
     }
@@ -479,7 +498,13 @@
         NSLog(@"加载失败");
 }
 #pragma mark - <************************** 点击事件 **************************>
-
+- (IBAction)SchoolClick:(UIButton *)sender {
+    if (self.type == ReCruitTypeSchool) {
+        
+    }else{
+    
+    }
+}
 
 
 #pragma mark - <************************** 其他方法 **************************>
