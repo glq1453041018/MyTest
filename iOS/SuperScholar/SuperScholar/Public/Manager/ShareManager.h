@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, SharePlatform) {
  @param image 头像
  @param completion 结束回调
  */
-+ (void)shareToPlatform:(SharePlatform)plateform link:(NSString *)link title:(NSString *)title body:(NSString *)body image:(UIImage *)image withCompletion:(void (^)(OSMessage *message, NSError *error))completion;
++ (void)shareToPlatform:(SharePlatform)plateform title:(NSString *)title body:(NSString *)body  image:(UIImage *)image link:(NSString *)link withCompletion:(void (^)(OSMessage *message, NSError *error))completion;
 
 /**
  弹出分享视图并分享
@@ -42,5 +42,5 @@ typedef NS_ENUM(NSUInteger, SharePlatform) {
  @param image 头像
  @param completion 结束回调
  */
-+ (void)showShareViewWithlink:(NSString *)link title:(NSString *)title body:(NSString *)body image:(UIImage *)image withCompletion:(void (^)(OSMessage *message, NSError *error))completion;
++ (void)showShareViewWithTitle:(NSString *)title body:(NSString *)body image:(UIImage *)image link:(NSString *)link withCompletion:(void (^)(OSMessage *message, NSError *error))completion;
 @end
