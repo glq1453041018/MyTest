@@ -26,19 +26,19 @@
     return self;
 }
 
-//-(CGRect)imageRectForContentRect:(CGRect)contentRect{
-//    if(_imageBounds.size.width > 0){
-//        return _imageBounds;
-//    }
-//        return [super imageRectForContentRect:contentRect];
-//}
-//
-//-(CGRect)titleRectForContentRect:(CGRect)contentRect
-//{
-//    if(_titleBounds.size.width > 0){
-//        return self.titleBounds;
-//    }
-//    return [super titleRectForContentRect:contentRect];
-//}
+-(CGRect)imageRectForContentRect:(CGRect)contentRect{
+    if(_imageBounds.size.width > 0){
+        return _imageBounds;
+    }
+        return [super imageRectForContentRect:contentRect];
+}
+
+-(CGRect)titleRectForContentRect:(CGRect)contentRect
+{
+    if(_titleBounds.size.width > 0){
+        return self.titleBounds;
+    }
+    return [super titleRectForContentRect:contentRect];
+}
 
 @end

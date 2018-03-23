@@ -57,10 +57,7 @@
 #pragma mark NavigationBarDelegate
 // !!!: 返回
 -(void)navigationViewLeftClickEvent{
-//    [self.navigationController popViewControllerAnimated:YES];
-    [ShareManager shareToPlatform:SharePlatformQQ link:@"http://www.baidu.com" title:@"这是标题这是标题这是标题" body:@"这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容" image:[UIImage imageNamed:@"icon"] withCompletion:^(OSMessage *message, NSError *body) {
-        
-    }];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark UITextViewDelegate
