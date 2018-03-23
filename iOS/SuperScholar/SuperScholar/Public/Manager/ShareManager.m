@@ -24,14 +24,14 @@
     }
     return NO;
 }
-+ (void)shareToPlatform:(SharePlatform)plateform link:(NSString *)link title:(NSString *)title body:(NSString *)body withCompletion:(void (^)(OSMessage *, NSError *))completion{
++ (void)shareToPlatform:(SharePlatform)plateform link:(NSString *)link title:(NSString *)title body:(NSString *)body image:(UIImage *)image withCompletion:(void (^)(OSMessage *, NSError *))completion{
     OSMessage *msg=[[OSMessage alloc] init];
     msg.title=title ? title : @"";
     msg.desc = body ? body : @"";
     msg.link = link ? link : @"";
-    msg.image = kPlaceholderHeadImage;
+    msg.image = image ? image : kPlaceholderHeadImage;
     msg.multimediaType = OSMultimediaTypeUndefined;
-    msg.thumbnail = kPlaceholderImage;
+    msg.thumbnail = msg.image;
     
     switch (plateform) {
         case SharePlatformQQ:{

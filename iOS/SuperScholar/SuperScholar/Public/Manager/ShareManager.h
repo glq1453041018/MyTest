@@ -28,7 +28,8 @@ typedef NS_ENUM(NSUInteger, SharePlatform) {
  @param title 标题
  @param body 内容
  @param link 链接
+ @param image 头像
  @param completion 结束回调
  */
-+ (void)shareToPlatform:(SharePlatform)plateform link:(NSString *)link title:(NSString *)title body:(NSString *)body withCompletion:(void (^)(OSMessage *message, NSError *body))completion;
++ (void)shareToPlatform:(SharePlatform)plateform link:(NSString *)link title:(NSString *)title body:(NSString *)body image:(UIImage *)image withCompletion:(void (^)(OSMessage *message, NSError *error))completion;
 @end
