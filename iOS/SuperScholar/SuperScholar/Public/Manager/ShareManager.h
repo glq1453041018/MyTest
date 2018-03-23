@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, SharePlatform) {
 + (BOOL)applicationOpenURL:(NSURL *)url;
 
 /**
- 分享
+ 直接分享——图文链接
 
  @param plateform 平台：qq、qzone、wechat、wechattimeline
  @param title 标题
@@ -35,7 +35,16 @@ typedef NS_ENUM(NSUInteger, SharePlatform) {
 + (void)shareToPlatform:(SharePlatform)plateform title:(NSString *)title body:(NSString *)body  image:(UIImage *)image link:(NSString *)link withCompletion:(void (^)(OSMessage *message, NSError *error))completion;
 
 /**
- 弹出分享视图并分享
+ 直接分享——纯文本
+ 
+ @param plateform 平台：qq、qzone、wechat、wechattimeline
+ */
++ (void)shareToPlatform:(SharePlatform)plateform title:(NSString *)title withCompletion:(void (^)(OSMessage *message, NSError *error))completion;
+
+
+
+/**
+ 弹窗分享——图文链接
  
  @param title 标题
  @param body 内容
@@ -45,4 +54,11 @@ typedef NS_ENUM(NSUInteger, SharePlatform) {
  @note 只传title表示纯文本分享
  */
 + (void)showShareViewWithTitle:(NSString *)title body:(NSString *)body image:(UIImage *)image link:(NSString *)link withCompletion:(void (^)(OSMessage *message, NSError *error))completion;
+
+/**
+ 弹窗分享——纯文本
+ 
+ @param title 文本内容
+ */
++ (void)showShareViewWithTitle:(NSString *)title withCompletion:(void (^)(OSMessage *message, NSError *error))completion;
 @end

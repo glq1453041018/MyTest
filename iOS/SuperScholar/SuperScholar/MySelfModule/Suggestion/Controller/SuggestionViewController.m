@@ -57,7 +57,11 @@
 #pragma mark NavigationBarDelegate
 // !!!: 返回
 -(void)navigationViewLeftClickEvent{
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
+    
+    [ShareManager showShareViewWithTitle:@"【某某班级简介】，复制这条信息￥zXsp0KDWbbY￥后打开😊https://itunes.apple.com/cn/app/%E6%85%A7%E7%AD%96%E7%95%A5%E5%A4%A7%E9%98%B3%E7%BA%BF/id1314137172?mt=8😊" body:nil image:nil link:nil withCompletion:^(OSMessage *message, NSError *error) {
+        
+    }];
 }
 
 #pragma mark UITextViewDelegate

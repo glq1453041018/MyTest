@@ -73,6 +73,8 @@
 		BE950EE8205BECAF009F562B /* DataEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE950EE6205BECAF009F562B /* DataEditingViewController.xib */; };
 		BED0DF3F205C084F00276785 /* DataEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0DF3D205C084F00276785 /* DataEditTableViewCell.m */; };
 		BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED0DF3E205C084F00276785 /* DataEditTableViewCell.xib */; };
+		BEE1F5432064CF480040A0DF /* ActivityDetailWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE1F5412064CF480040A0DF /* ActivityDetailWebViewController.m */; };
+		BEE1F5442064CF480040A0DF /* ActivityDetailWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEE1F5422064CF480040A0DF /* ActivityDetailWebViewController.xib */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
 		C71887F2205A5C1400333387 /* ClassInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887F1205A5C1400333387 /* ClassInfoViewController.m */; };
 		C71887FD205A6D7900333387 /* MYBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887F8205A6D7900333387 /* MYBannerScrollView.m */; };
@@ -281,6 +283,9 @@
 		BED0DF3C205C084F00276785 /* DataEditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEditTableViewCell.h; sourceTree = "<group>"; };
 		BED0DF3D205C084F00276785 /* DataEditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEditTableViewCell.m; sourceTree = "<group>"; };
 		BED0DF3E205C084F00276785 /* DataEditTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataEditTableViewCell.xib; sourceTree = "<group>"; };
+		BEE1F5402064CF480040A0DF /* ActivityDetailWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailWebViewController.h; sourceTree = "<group>"; };
+		BEE1F5412064CF480040A0DF /* ActivityDetailWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailWebViewController.m; sourceTree = "<group>"; };
+		BEE1F5422064CF480040A0DF /* ActivityDetailWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityDetailWebViewController.xib; sourceTree = "<group>"; };
 		C71887F0205A5C1400333387 /* ClassInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoViewController.h; sourceTree = "<group>"; };
 		C71887F1205A5C1400333387 /* ClassInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoViewController.m; sourceTree = "<group>"; };
 		C71887F8205A6D7900333387 /* MYBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYBannerScrollView.m; sourceTree = "<group>"; };
@@ -1052,6 +1057,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BEE1F53F2064CF2A0040A0DF /* ActivityDetailWebController */ = {
+			isa = PBXGroup;
+			children = (
+				BEE1F5402064CF480040A0DF /* ActivityDetailWebViewController.h */,
+				BEE1F5412064CF480040A0DF /* ActivityDetailWebViewController.m */,
+				BEE1F5422064CF480040A0DF /* ActivityDetailWebViewController.xib */,
+			);
+			name = ActivityDetailWebController;
+			path = Detail/ActivityDetailWebController;
+			sourceTree = "<group>";
+		};
 		C71887E8205A384900333387 /* PhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1464,6 +1480,7 @@
 			isa = PBXGroup;
 			children = (
 				BE88704F20621A330022907D /* IndexModule */,
+				BEE1F53F2064CF2A0040A0DF /* ActivityDetailWebController */,
 			);
 			path = ActivityModule;
 			sourceTree = "<group>";
@@ -1843,6 +1860,7 @@
 			files = (
 				BE66924D2063465300111810 /* MyCommentTableViewCell.xib in Resources */,
 				C781F857205BC28600BE37AD /* ClassViewCollectionViewCell.xib in Resources */,
+				BEE1F5442064CF480040A0DF /* ActivityDetailWebViewController.xib in Resources */,
 				C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */,
 				38010D86204FBFBC00E4511C /* AdsViewController.xib in Resources */,
 				386924B6205FB1FB0093B48E /* AdsDetailViewController.xib in Resources */,
@@ -1967,6 +1985,7 @@
 				C758D96420609CE600257DDB /* ClassComDetailModel.m in Sources */,
 				384A555D20521F20006D8C23 /* MJDIYAutoFooter.m in Sources */,
 				C758D95D20609CD000257DDB /* ClassComDetailTableViewCell.m in Sources */,
+				BEE1F5432064CF480040A0DF /* ActivityDetailWebViewController.m in Sources */,
 				BED0DF3F205C084F00276785 /* DataEditTableViewCell.m in Sources */,
 				C75E03B22063484F00EC0AF5 /* CommentView.m in Sources */,
 				C7188807205A713700333387 /* ClassInfoHeadView.m in Sources */,

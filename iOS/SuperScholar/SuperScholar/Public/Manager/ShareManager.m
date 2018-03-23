@@ -24,6 +24,8 @@ static const CGFloat kShareViewHeight = 218;
 @property (copy, nonatomic) void (^completion)(OSMessage *, NSError *);
 @end
 @implementation ShareManager
+
+// !!!: 连接第三方分享平台
 + (void)applicationDidFinishLaunching{
     //全局注册appId，别忘了#import "OpenShareHeader.h"
     [OpenShare connectQQWithAppId:@"1103194207"];
@@ -31,12 +33,16 @@ static const CGFloat kShareViewHeight = 218;
     [OpenShare connectWeixinWithAppId:@"wxd930ea5d5a258f4f" miniAppId:@"gh_d43f693ca31f"];
     [OpenShare connectRenrenWithAppId:@"228525" AndAppKey:@"1dd8cba4215d4d4ab96a49d3058c1d7f"];
 }
+
+// !!!: 处理openurl
 + (BOOL)applicationOpenURL:(NSURL *)url{
     if([OpenShare handleOpenURL:url]){
         return YES;
     }
     return NO;
 }
+
+// !!!: 直接分享——图文链接
 + (void)shareToPlatform:(SharePlatform)plateform title:(NSString *)title body:(NSString *)body  image:(UIImage *)image link:(NSString *)link withCompletion:(void (^)(OSMessage *message, NSError *error))completion{
     OSMessage *msg=[[OSMessage alloc] init];
     
@@ -96,7 +102,12 @@ static const CGFloat kShareViewHeight = 218;
             break;
     }
 }
+// !!!: 直接分享——纯文本
++ (void)shareToPlatform:(SharePlatform)plateform title:(NSString *)title withCompletion:(void (^)(OSMessage *, NSError *))completion{
+    [self shareToPlatform:plateform title:title body:nil image:nil link:nil withCompletion:completion];
+}
 
+// !!!: 弹窗分享——图文链接
 + (void)showShareViewWithTitle:(NSString *)title body:(NSString *)body image:(UIImage *)image link:(NSString *)link withCompletion:(void (^)(OSMessage *, NSError *))completion{
     UIWindow *window = [[UIApplication sharedApplication].delegate window];
     
@@ -191,6 +202,10 @@ static const CGFloat kShareViewHeight = 218;
     [UIView animateWithDuration:0.33 animations:^{
         manager.backWhiteView.viewOrigin = CGPointMake(0, CGRectGetMaxY(window.frame) - kShareViewHeight);
     } completion:nil];
+}
+// !!!: 弹窗分享——纯文本
++(void)showShareViewWithTitle:(NSString *)title withCompletion:(void (^)(OSMessage *, NSError *))completion{
+    [self showShareViewWithTitle:title body:nil image:nil link:nil withCompletion:completion];
 }
 
 
