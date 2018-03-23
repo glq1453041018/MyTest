@@ -76,9 +76,7 @@
 #pragma mark - <************************** 代理方法 **************************>
 
 -(void)navigationViewRightClickEvent{
-    [ShareManager shareToQQToSpace:@"ddjfjsdl" withCompletion:^(OSMessage *message, NSError *error) {
-        
-    }];
+    
 }
 
 // !!!: UICollectionView代理方法

@@ -173,8 +173,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    CommentDetailViewController *ctrl = [CommentDetailViewController new];
-    [self.navigationController pushViewController:ctrl animated:YES];
+    if (indexPath.section==1) {
+        CommentDetailViewController *ctrl = [CommentDetailViewController new];
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
 }
 
 
