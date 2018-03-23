@@ -182,7 +182,7 @@ static const CGFloat kShareViewHeight = 218;
     [manager.backWhiteView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if([obj isKindOfClass:[MYImageButton class]]){
             obj.viewOrigin = CGPointMake(obj.viewOrigin.x, obj.viewOrigin.y + obj.superview.viewHeight);
-            [UIView animateWithDuration:0.66 delay:idx * 0.08 usingSpringWithDamping:0.6 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [UIView animateWithDuration:0.66 delay:0.1 + idx * 0.08 usingSpringWithDamping:0.6 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 obj.viewOrigin = CGPointMake(obj.viewOrigin.x, obj.viewOrigin.y - obj.superview.viewHeight);
             } completion:nil];
         }
