@@ -44,6 +44,7 @@
                 <constraint firstAttribute="trailing" secondItem="60X-Mw-cIM" secondAttribute="trailing" id="nqJ-Ap-Pyy"/>
                 <constraint firstAttribute="bottom" secondItem="60X-Mw-cIM" secondAttribute="bottom" constant="49" id="oj7-Pk-uBE"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>

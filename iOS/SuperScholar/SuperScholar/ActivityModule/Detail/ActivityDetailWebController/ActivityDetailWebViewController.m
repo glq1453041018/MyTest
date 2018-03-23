@@ -1,12 +1,12 @@
 //
-//  ClassComDetailViewController.m
+//  ActivityDetailWebViewController.m
 //  SuperScholar
 //
-//  Created by 骆亮 on 2018/3/19.
+//  Created by 伟南 陈 on 2018/3/23.
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-#import "ClassComDetailViewController.h"
+#import "ActivityDetailWebViewController.h"
 #import "CommentDetailViewController.h"         // 评论详情
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"             // 消息主题cell
@@ -15,7 +15,7 @@
 // !!!: 数据
 #import "ClassComDetailManager.h"
 
-@interface ClassComDetailViewController ()<UITableViewDelegate,UITableViewDataSource,CommentViewDelegate>
+@interface ActivityDetailWebViewController ()<UITableViewDelegate,UITableViewDataSource,CommentViewDelegate, MyWebViewDelegate>
 // !!!: 视图类
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong ,nonatomic) CommentView *commentView;                 // 评论视图
@@ -23,10 +23,9 @@
 //@property (copy ,nonatomic) NSArray *data;
 @property (strong ,nonatomic) ClassComDetailManager *manager;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
-
 @end
 
-@implementation ClassComDetailViewController
+@implementation ActivityDetailWebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,9 +66,15 @@
     self.table.tableFooterView = [UIView new];
     self.table.separatorStyle = NO;
     self.table.showsVerticalScrollIndicator = NO;
-//    self.table.mj_footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    //    self.table.mj_footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     
     [self.view addSubview:self.commentView];
+    
+    self.webView.frame = CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT - kNavigationbarHeight);
+    self.webView.needLoading = NO;
+    self.webView.delegate = self;
+    [self.webView loadUrlString:@"https://www.jianshu.com/p/99627f3e58dd"];
+    self.table.tableHeaderView = self.webView;
 }
 
 
@@ -116,7 +121,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
             cell.selectionStyle = NO;
         }
-        cell.starView.hidden = !self.messageType;       // 星星默认是隐藏的
+        cell.starView.hidden =YES;
         [self.manager loadCell:cell];
         return cell;
     }
@@ -173,10 +178,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    if (indexPath.section==1) {
-        CommentDetailViewController *ctrl = [CommentDetailViewController new];
-        [self.navigationController pushViewController:ctrl animated:YES];
-    }
+    CommentDetailViewController *ctrl = [CommentDetailViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 
@@ -186,6 +189,22 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         completeBlock(YES);
     });
+}
+
+
+// !!!: MyWebView代理
+- (void)didStartWebView:(MyWebView *)webView{
+    [self.loadingView startAnimating];
+}
+- (void)didFinishWebView:(MyWebView *)webView{
+    if(webView.webView.scrollView.contentSize.height > 0){
+        self.webView.viewHeight = webView.webView.scrollView.contentSize.height;
+        self.table.tableHeaderView = self.webView;
+    }
+    [self.loadingView stopAnimating];
+}
+- (void)didFailWebView:(MyWebView *)webView{
+    [self.loadingView stopAnimating];
 }
 
 
@@ -209,14 +228,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

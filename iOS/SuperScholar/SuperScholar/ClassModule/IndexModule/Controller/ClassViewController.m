@@ -13,6 +13,7 @@
 #import "ClassViewCollectionViewCell.h"
 
 #import "ClassViewManager.h"
+#import "ShareManager.h"
 
 @interface ClassViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -39,7 +40,13 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
+    [self.loadingView startAnimating];
     [ClassViewManager requestDataResponse:^(NSArray *resArray, id error) {
+        [self.loadingView stopAnimating];
+        if (resArray.count==0) {
+            [self.collectionView showEmptyViewWithImage:@"team" tip:@"怎么能没有组织？" btnTitle:@"寻找组织" action:@selector(searchClass) target:self];
+            return ;
+        }
         self.data = resArray.mutableCopy;
         [self.collectionView reloadData];
     }];
@@ -51,7 +58,7 @@
 -(void)initUI{
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.navigationBar setTitle:@"班级列表" leftImage:nil rightText:nil];
+    [self.navigationBar setTitle:@"班级列表" leftImage:nil rightText:@"QQ"];
     
     self.constraint.constant = self.navigationBar.bottom;
     self.constraintBottom.constant = kTabBarHeight;
@@ -73,6 +80,12 @@
 }
 
 #pragma mark - <************************** 代理方法 **************************>
+
+-(void)navigationViewRightClickEvent{
+//    [ShareManager shareToPlatform:SharePlatformQQ link:@"www.baidu.com" title:[TESTDATA randomContent] body:[TESTDATA randomContent] image:kPlaceholderImage withCompletion:^(OSMessage *message, NSError *error) {
+//        
+//    }];
+}
 
 // !!!: UICollectionView代理方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -162,7 +175,10 @@
 
 
 #pragma mark - <************************** 其他方法 **************************>
-
+-(void)searchClass{
+    UITabBarController *ctrl = (UITabBarController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    ctrl.selectedIndex = 0;
+}
 
 
 

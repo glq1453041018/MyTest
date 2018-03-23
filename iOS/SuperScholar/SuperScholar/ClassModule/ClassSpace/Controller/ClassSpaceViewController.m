@@ -11,6 +11,7 @@
 #import "SpeechViewController.h"                // 发表
 #import "ClassInfoViewController.h"             // 班级信息
 #import "ClassComDetailViewController.h"        // 班级评论列表
+#import "PersonalInfoViewController.h"          // 个人信息中心
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"
 #import "ClassSpaceHeadView.h"
@@ -177,8 +178,26 @@
 
 // !!!: cell的代理事件
 -(void)classSpaceTableViewCellClickEvent:(ClassCellClickEvent)event{
-    NSString *tip = @[@"头像",@"赞",@"评论"][event];
-    [LLAlertView showSystemAlertViewClickBlock:nil message:tip buttonTitles:@"确定", nil];
+//    NSString *tip = @[@"头像",@"赞",@"评论"][event];
+    switch (event) {
+        case ClassCellHeadClickEvent:
+        {
+            [self goToPersionalModule];     // 跳转个人信息页面
+        }
+            break;
+        case ClassCellLikeClickEvent:
+        {
+            
+        }
+            break;
+        case ClassCellCommentClickEvent:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - <************************** 点击事件 **************************>
@@ -192,7 +211,11 @@
 
 
 #pragma mark - <************************** 其他方法 **************************>
-
+// !!!: 头像点击
+-(void)goToPersionalModule{
+    PersonalInfoViewController *ctrl = [PersonalInfoViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
 
 
 

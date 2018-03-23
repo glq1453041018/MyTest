@@ -55,14 +55,6 @@
 		BE6692A42063A57D00111810 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88704A2061EFDA0022907D /* JavaScriptCore.framework */; };
 		BE6692A52063A58800111810 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8870442061EFC20022907D /* libsqlite3.tbd */; };
 		BE6692A82063A5DF00111810 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6692A72063A5DF00111810 /* ShareManager.m */; };
-		BE88705620621A330022907D /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88705220621A330022907D /* ActivityViewController.m */; };
-		BE88705720621A330022907D /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE88705320621A330022907D /* ActivityViewController.xib */; };
-		BE88705B20621A640022907D /* ActivitySubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88705920621A640022907D /* ActivitySubViewController.m */; };
-		BE88705C20621A640022907D /* ActivitySubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE88705A20621A640022907D /* ActivitySubViewController.xib */; };
-		BE88705F20621A7C0022907D /* ActivitySubViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88705E20621A7C0022907D /* ActivitySubViewManager.m */; };
-		BE88706220621E280022907D /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88706120621E280022907D /* ActivityModel.m */; };
-		BE887066206248860022907D /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE887064206248860022907D /* ActivityTableViewCell.m */; };
-		BE887067206248860022907D /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE887065206248860022907D /* ActivityTableViewCell.xib */; };
 		BE950EC7205B8634009F562B /* MySelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950EBA205B8634009F562B /* MySelfViewController.m */; };
 		BE950EC8205B8634009F562B /* MySelfViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE950EBB205B8634009F562B /* MySelfViewController.xib */; };
 		BE950ECB205B8634009F562B /* MYAutoScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950EC6205B8634009F562B /* MYAutoScaleView.m */; };
@@ -76,6 +68,10 @@
 		BED0DF3F205C084F00276785 /* DataEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0DF3D205C084F00276785 /* DataEditTableViewCell.m */; };
 		BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED0DF3E205C084F00276785 /* DataEditTableViewCell.xib */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
+		C70A31E320649AE500D1139A /* LLNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = C70A31E220649AE500D1139A /* LLNoDataView.m */; };
+		C70A31EB2064C74400D1139A /* UICollectionView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C70A31EA2064C74400D1139A /* UICollectionView+Extension.m */; };
+		C70A31F32064F72C00D1139A /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C70A31F12064F72C00D1139A /* PersonalInfoViewController.m */; };
+		C70A31F42064F72C00D1139A /* PersonalInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70A31F22064F72C00D1139A /* PersonalInfoViewController.xib */; };
 		C71887F2205A5C1400333387 /* ClassInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887F1205A5C1400333387 /* ClassInfoViewController.m */; };
 		C71887FD205A6D7900333387 /* MYBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887F8205A6D7900333387 /* MYBannerScrollView.m */; };
 		C71887FE205A6D7900333387 /* MYBannerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C71887F9205A6D7900333387 /* MYBannerImageView.m */; };
@@ -145,6 +141,16 @@
 		C781F871205BFFE000BE37AD /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F86F205BFFE000BE37AD /* AddressViewController.m */; };
 		C781F872205BFFE000BE37AD /* AddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C781F870205BFFE000BE37AD /* AddressViewController.xib */; };
 		C781F875205CA79E00BE37AD /* AddressViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F874205CA79E00BE37AD /* AddressViewManager.m */; };
+		C7A27AF5206503DD00BCB8C0 /* ActivityDetailWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A27AE2206503DD00BCB8C0 /* ActivityDetailWebViewController.m */; };
+		C7A27AF6206503DD00BCB8C0 /* ActivityDetailWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A27AE3206503DD00BCB8C0 /* ActivityDetailWebViewController.xib */; };
+		C7A27AF7206503DD00BCB8C0 /* ActivitySubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A27AE8206503DD00BCB8C0 /* ActivitySubViewController.m */; };
+		C7A27AF8206503DD00BCB8C0 /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A27AE9206503DD00BCB8C0 /* ActivityViewController.xib */; };
+		C7A27AF9206503DD00BCB8C0 /* ActivitySubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A27AEA206503DD00BCB8C0 /* ActivitySubViewController.xib */; };
+		C7A27AFA206503DD00BCB8C0 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A27AEB206503DD00BCB8C0 /* ActivityViewController.m */; };
+		C7A27AFB206503DD00BCB8C0 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A27AEE206503DD00BCB8C0 /* ActivityModel.m */; };
+		C7A27AFC206503DD00BCB8C0 /* ActivitySubViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A27AEF206503DD00BCB8C0 /* ActivitySubViewManager.m */; };
+		C7A27AFD206503DD00BCB8C0 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A27AF2206503DD00BCB8C0 /* ActivityTableViewCell.m */; };
+		C7A27AFE206503DD00BCB8C0 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A27AF4206503DD00BCB8C0 /* ActivityTableViewCell.xib */; };
 		C7F2C01A206383DD00C34D2D /* ClassEnvironmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C018206383DD00C34D2D /* ClassEnvironmentViewController.m */; };
 		C7F2C01B206383DD00C34D2D /* ClassEnvironmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F2C019206383DD00C34D2D /* ClassEnvironmentViewController.xib */; };
 		C7F2C01E206395BC00C34D2D /* CutomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C01D206395BC00C34D2D /* CutomCollectionViewLayout.m */; };
@@ -254,19 +260,6 @@
 		BE8870462061EFCB0022907D /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		BE8870482061EFD40022907D /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		BE88704A2061EFDA0022907D /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		BE88705120621A330022907D /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
-		BE88705220621A330022907D /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
-		BE88705320621A330022907D /* ActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
-		BE88705820621A640022907D /* ActivitySubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySubViewController.h; sourceTree = "<group>"; };
-		BE88705920621A640022907D /* ActivitySubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitySubViewController.m; sourceTree = "<group>"; };
-		BE88705A20621A640022907D /* ActivitySubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivitySubViewController.xib; sourceTree = "<group>"; };
-		BE88705D20621A7C0022907D /* ActivitySubViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySubViewManager.h; sourceTree = "<group>"; };
-		BE88705E20621A7C0022907D /* ActivitySubViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitySubViewManager.m; sourceTree = "<group>"; };
-		BE88706020621E280022907D /* ActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityModel.h; sourceTree = "<group>"; };
-		BE88706120621E280022907D /* ActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityModel.m; sourceTree = "<group>"; };
-		BE887063206248860022907D /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
-		BE887064206248860022907D /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
-		BE887065206248860022907D /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
 		BE950EBA205B8634009F562B /* MySelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySelfViewController.m; sourceTree = "<group>"; };
 		BE950EBB205B8634009F562B /* MySelfViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySelfViewController.xib; sourceTree = "<group>"; };
 		BE950EC5205B8634009F562B /* MYAutoScaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYAutoScaleView.h; sourceTree = "<group>"; };
@@ -286,6 +279,13 @@
 		BED0DF3C205C084F00276785 /* DataEditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEditTableViewCell.h; sourceTree = "<group>"; };
 		BED0DF3D205C084F00276785 /* DataEditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEditTableViewCell.m; sourceTree = "<group>"; };
 		BED0DF3E205C084F00276785 /* DataEditTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataEditTableViewCell.xib; sourceTree = "<group>"; };
+		C70A31E120649AE500D1139A /* LLNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNoDataView.h; sourceTree = "<group>"; };
+		C70A31E220649AE500D1139A /* LLNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNoDataView.m; sourceTree = "<group>"; };
+		C70A31E92064C74400D1139A /* UICollectionView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Extension.h"; sourceTree = "<group>"; };
+		C70A31EA2064C74400D1139A /* UICollectionView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Extension.m"; sourceTree = "<group>"; };
+		C70A31F02064F72C00D1139A /* PersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoViewController.h; sourceTree = "<group>"; };
+		C70A31F12064F72C00D1139A /* PersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoViewController.m; sourceTree = "<group>"; };
+		C70A31F22064F72C00D1139A /* PersonalInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInfoViewController.xib; sourceTree = "<group>"; };
 		C71887F0205A5C1400333387 /* ClassInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoViewController.h; sourceTree = "<group>"; };
 		C71887F1205A5C1400333387 /* ClassInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoViewController.m; sourceTree = "<group>"; };
 		C71887F8205A6D7900333387 /* MYBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYBannerScrollView.m; sourceTree = "<group>"; };
@@ -404,6 +404,22 @@
 		C781F870205BFFE000BE37AD /* AddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressViewController.xib; sourceTree = "<group>"; };
 		C781F873205CA79E00BE37AD /* AddressViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewManager.h; sourceTree = "<group>"; };
 		C781F874205CA79E00BE37AD /* AddressViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewManager.m; sourceTree = "<group>"; };
+		C7A27AE1206503DD00BCB8C0 /* ActivityDetailWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailWebViewController.h; sourceTree = "<group>"; };
+		C7A27AE2206503DD00BCB8C0 /* ActivityDetailWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailWebViewController.m; sourceTree = "<group>"; };
+		C7A27AE3206503DD00BCB8C0 /* ActivityDetailWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityDetailWebViewController.xib; sourceTree = "<group>"; };
+		C7A27AE6206503DD00BCB8C0 /* ActivitySubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySubViewController.h; sourceTree = "<group>"; };
+		C7A27AE7206503DD00BCB8C0 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		C7A27AE8206503DD00BCB8C0 /* ActivitySubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitySubViewController.m; sourceTree = "<group>"; };
+		C7A27AE9206503DD00BCB8C0 /* ActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
+		C7A27AEA206503DD00BCB8C0 /* ActivitySubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivitySubViewController.xib; sourceTree = "<group>"; };
+		C7A27AEB206503DD00BCB8C0 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		C7A27AED206503DD00BCB8C0 /* ActivitySubViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySubViewManager.h; sourceTree = "<group>"; };
+		C7A27AEE206503DD00BCB8C0 /* ActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityModel.m; sourceTree = "<group>"; };
+		C7A27AEF206503DD00BCB8C0 /* ActivitySubViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitySubViewManager.m; sourceTree = "<group>"; };
+		C7A27AF0206503DD00BCB8C0 /* ActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityModel.h; sourceTree = "<group>"; };
+		C7A27AF2206503DD00BCB8C0 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
+		C7A27AF3206503DD00BCB8C0 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
+		C7A27AF4206503DD00BCB8C0 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
 		C7F2C017206383DD00C34D2D /* ClassEnvironmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassEnvironmentViewController.h; sourceTree = "<group>"; };
 		C7F2C018206383DD00C34D2D /* ClassEnvironmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassEnvironmentViewController.m; sourceTree = "<group>"; };
 		C7F2C019206383DD00C34D2D /* ClassEnvironmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassEnvironmentViewController.xib; sourceTree = "<group>"; };
@@ -716,6 +732,8 @@
 				384A554420521F20006D8C23 /* UIViewController+Based.m */,
 				38B0043820637FCD002459B3 /* UIButton+Positon.h */,
 				38B0043920637FCD002459B3 /* UIButton+Positon.m */,
+				C70A31E92064C74400D1139A /* UICollectionView+Extension.h */,
+				C70A31EA2064C74400D1139A /* UICollectionView+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -723,6 +741,7 @@
 		384A554520521F20006D8C23 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C70A31EC2064F70400D1139A /* PersonalInfo */,
 				F40AF34B205F5BB300991CC9 /* MYTipsViewController */,
 				384A555F20521F2E006D8C23 /* MYSegmentController */,
 			);
@@ -757,6 +776,7 @@
 		384A554B20521F20006D8C23 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C70A31E020649A4D00D1139A /* LLNoDataView */,
 				C75E03AE2063484A00EC0AF5 /* CommentView */,
 				C750B22D2061EF1F00DAD5CD /* LLListPickView */,
 				C758D9742060F4C100257DDB /* MyWebView */,
@@ -893,50 +913,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BE88704F20621A330022907D /* IndexModule */ = {
-			isa = PBXGroup;
-			children = (
-				BE88705020621A330022907D /* Controller */,
-				BE88705420621A330022907D /* Model */,
-				BE88705520621A330022907D /* View */,
-			);
-			path = IndexModule;
-			sourceTree = "<group>";
-		};
-		BE88705020621A330022907D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				BE88705120621A330022907D /* ActivityViewController.h */,
-				BE88705220621A330022907D /* ActivityViewController.m */,
-				BE88705320621A330022907D /* ActivityViewController.xib */,
-				BE88705820621A640022907D /* ActivitySubViewController.h */,
-				BE88705920621A640022907D /* ActivitySubViewController.m */,
-				BE88705A20621A640022907D /* ActivitySubViewController.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		BE88705420621A330022907D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BE88706020621E280022907D /* ActivityModel.h */,
-				BE88706120621E280022907D /* ActivityModel.m */,
-				BE88705D20621A7C0022907D /* ActivitySubViewManager.h */,
-				BE88705E20621A7C0022907D /* ActivitySubViewManager.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BE88705520621A330022907D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BE887063206248860022907D /* ActivityTableViewCell.h */,
-				BE887064206248860022907D /* ActivityTableViewCell.m */,
-				BE887065206248860022907D /* ActivityTableViewCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		BE950EB8205B8634009F562B /* IndexModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -1056,6 +1032,49 @@
 				BE243E74205FBDC3008781EB /* MYInfoInputView.h */,
 				BE243E75205FBDC3008781EB /* MYInfoInputView.m */,
 				BE243E77205FC0C6008781EB /* MYInfoInputView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C70A31E020649A4D00D1139A /* LLNoDataView */ = {
+			isa = PBXGroup;
+			children = (
+				C70A31E120649AE500D1139A /* LLNoDataView.h */,
+				C70A31E220649AE500D1139A /* LLNoDataView.m */,
+			);
+			path = LLNoDataView;
+			sourceTree = "<group>";
+		};
+		C70A31EC2064F70400D1139A /* PersonalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				C70A31ED2064F70400D1139A /* Controller */,
+				C70A31EE2064F70400D1139A /* Model */,
+				C70A31EF2064F70400D1139A /* View */,
+			);
+			path = PersonalInfo;
+			sourceTree = "<group>";
+		};
+		C70A31ED2064F70400D1139A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C70A31F02064F72C00D1139A /* PersonalInfoViewController.h */,
+				C70A31F12064F72C00D1139A /* PersonalInfoViewController.m */,
+				C70A31F22064F72C00D1139A /* PersonalInfoViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C70A31EE2064F70400D1139A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C70A31EF2064F70400D1139A /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1471,7 +1490,8 @@
 		C76169E2204F7F6E00C94311 /* ActivityModule */ = {
 			isa = PBXGroup;
 			children = (
-				BE88704F20621A330022907D /* IndexModule */,
+				C7A27AE4206503DD00BCB8C0 /* IndexModule */,
+				C7A27ADF206503DD00BCB8C0 /* Detail */,
 			);
 			path = ActivityModule;
 			sourceTree = "<group>";
@@ -1626,6 +1646,68 @@
 		C781F86D205BFFC100BE37AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C7A27ADF206503DD00BCB8C0 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				C7A27AE0206503DD00BCB8C0 /* ActivityDetailWebController */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		C7A27AE0206503DD00BCB8C0 /* ActivityDetailWebController */ = {
+			isa = PBXGroup;
+			children = (
+				C7A27AE1206503DD00BCB8C0 /* ActivityDetailWebViewController.h */,
+				C7A27AE2206503DD00BCB8C0 /* ActivityDetailWebViewController.m */,
+				C7A27AE3206503DD00BCB8C0 /* ActivityDetailWebViewController.xib */,
+			);
+			path = ActivityDetailWebController;
+			sourceTree = "<group>";
+		};
+		C7A27AE4206503DD00BCB8C0 /* IndexModule */ = {
+			isa = PBXGroup;
+			children = (
+				C7A27AE5206503DD00BCB8C0 /* Controller */,
+				C7A27AEC206503DD00BCB8C0 /* Model */,
+				C7A27AF1206503DD00BCB8C0 /* View */,
+			);
+			path = IndexModule;
+			sourceTree = "<group>";
+		};
+		C7A27AE5206503DD00BCB8C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C7A27AE6206503DD00BCB8C0 /* ActivitySubViewController.h */,
+				C7A27AE7206503DD00BCB8C0 /* ActivityViewController.h */,
+				C7A27AE8206503DD00BCB8C0 /* ActivitySubViewController.m */,
+				C7A27AE9206503DD00BCB8C0 /* ActivityViewController.xib */,
+				C7A27AEA206503DD00BCB8C0 /* ActivitySubViewController.xib */,
+				C7A27AEB206503DD00BCB8C0 /* ActivityViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C7A27AEC206503DD00BCB8C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7A27AED206503DD00BCB8C0 /* ActivitySubViewManager.h */,
+				C7A27AEE206503DD00BCB8C0 /* ActivityModel.m */,
+				C7A27AEF206503DD00BCB8C0 /* ActivitySubViewManager.m */,
+				C7A27AF0206503DD00BCB8C0 /* ActivityModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C7A27AF1206503DD00BCB8C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C7A27AF2206503DD00BCB8C0 /* ActivityTableViewCell.m */,
+				C7A27AF3206503DD00BCB8C0 /* ActivityTableViewCell.h */,
+				C7A27AF4206503DD00BCB8C0 /* ActivityTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1856,21 +1938,23 @@
 				386924B6205FB1FB0093B48E /* AdsDetailViewController.xib in Resources */,
 				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				C750B23A206209A100DAD5CD /* SpeechViewController.xib in Resources */,
+				C7A27AF6206503DD00BCB8C0 /* ActivityDetailWebViewController.xib in Resources */,
 				BE950ED3205B8728009F562B /* LoginInterfaceViewController.xib in Resources */,
 				BE950EE8205BECAF009F562B /* DataEditingViewController.xib in Resources */,
 				384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */,
 				BE950EDE205BE97E009F562B /* LLAlertView.bundle in Resources */,
 				BE66923C206338BE00111810 /* MyMessageCenterViewController.xib in Resources */,
 				389040532060ECD8007BA074 /* AdsWebViewViewController.xib in Resources */,
+				C7A27AFE206503DD00BCB8C0 /* ActivityTableViewCell.xib in Resources */,
 				C758D94B205F8C3700257DDB /* ClassComDetailViewController.xib in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
 				C718880E205A894900333387 /* ClassInfoTableViewCell.xib in Resources */,
+				C70A31F42064F72C00D1139A /* PersonalInfoViewController.xib in Resources */,
 				C7613F29205CC48B002604A3 /* ClassSpaceHeadView.xib in Resources */,
 				384A556C205266D8006D8C23 /* SchoolViewController.xib in Resources */,
 				BE243E78205FC0C6008781EB /* MYInfoInputView.xib in Resources */,
 				3832D60720649A860083C718 /* AdsTableViewCell.xib in Resources */,
 				F40A8FF1205E170D0087814A /* timg.png in Resources */,
-				BE887067206248860022907D /* ActivityTableViewCell.xib in Resources */,
 				C73DD5DB204E88E900C6437F /* Podfile in Resources */,
 				C781F872205BFFE000BE37AD /* AddressViewController.xib in Resources */,
 				38010D90204FD6E500E4511C /* AdsCollectionViewCell.xib in Resources */,
@@ -1880,9 +1964,10 @@
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
 				C758D945205F848500257DDB /* ClassCommentSectionView.xib in Resources */,
 				BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */,
-				BE88705720621A330022907D /* ActivityViewController.xib in Resources */,
 				C758D95E20609CD000257DDB /* ClassComDetailTableViewCell.xib in Resources */,
 				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
+				C7A27AF8206503DD00BCB8C0 /* ActivityViewController.xib in Resources */,
+				C7A27AF9206503DD00BCB8C0 /* ActivitySubViewController.xib in Resources */,
 				D31B768E2061345D000AA637 /* testData.plist in Resources */,
 				F49D7D55205D6F2A009D17EA /* MessageRemindTableViewCell.xib in Resources */,
 				C7613F27205CC48B002604A3 /* ClassSpaceTableViewCell.xib in Resources */,
@@ -1891,7 +1976,6 @@
 				C758D940205F848500257DDB /* ClassCommentViewController.xib in Resources */,
 				C781F844205B581400BE37AD /* ClassInfoFootView.xib in Resources */,
 				38010DB2204FFB5E00E4511C /* ZhaoShengTableViewCell.xib in Resources */,
-				BE88705C20621A640022907D /* ActivitySubViewController.xib in Resources */,
 				38010DAD204FFB3500E4511C /* ZhaoShengViewController.xib in Resources */,
 				F49D7D4B205D5E90009D17EA /* MessageRemindViewController.xib in Resources */,
 				C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */,
@@ -1976,7 +2060,9 @@
 				C758D96420609CE600257DDB /* ClassComDetailModel.m in Sources */,
 				384A555D20521F20006D8C23 /* MJDIYAutoFooter.m in Sources */,
 				C758D95D20609CD000257DDB /* ClassComDetailTableViewCell.m in Sources */,
+				C70A31E320649AE500D1139A /* LLNoDataView.m in Sources */,
 				BED0DF3F205C084F00276785 /* DataEditTableViewCell.m in Sources */,
+				C70A31EB2064C74400D1139A /* UICollectionView+Extension.m in Sources */,
 				C75E03B22063484F00EC0AF5 /* CommentView.m in Sources */,
 				C7188807205A713700333387 /* ClassInfoHeadView.m in Sources */,
 				C750B23D2062162E00DAD5CD /* TZTestCell.m in Sources */,
@@ -1988,17 +2074,18 @@
 				F4060B472063FE7F00C416A3 /* OpenShare.m in Sources */,
 				BE950EDF205BE97E009F562B /* LLAlertView.m in Sources */,
 				C758D97A2060F4C100257DDB /* WeakScriptMessageDelegate.m in Sources */,
-				BE88705620621A330022907D /* ActivityViewController.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
 				C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */,
 				C7F2C01E206395BC00C34D2D /* CutomCollectionViewLayout.m in Sources */,
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
+				C70A31F32064F72C00D1139A /* PersonalInfoViewController.m in Sources */,
 				C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */,
 				C758D941205F848500257DDB /* ClassCommentManager.m in Sources */,
 				C7188801205A6EE800333387 /* NSTimer+Addition.m in Sources */,
 				C7613F24205CC48B002604A3 /* ClassSpaceModel.m in Sources */,
 				C781F856205BC28600BE37AD /* ClassViewCollectionViewCell.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
+				C7A27AF7206503DD00BCB8C0 /* ActivitySubViewController.m in Sources */,
 				BE66924820633F3300111810 /* MYImageButton.m in Sources */,
 				C758D94A205F8C3700257DDB /* ClassComDetailViewController.m in Sources */,
 				38010DB1204FFB5E00E4511C /* ZhaoShengTableViewCell.m in Sources */,
@@ -2014,20 +2101,22 @@
 				F49D7D54205D6F2A009D17EA /* MessageRemindTableViewCell.m in Sources */,
 				BE950EC7205B8634009F562B /* MySelfViewController.m in Sources */,
 				384A555E20521F20006D8C23 /* MJDIYHeader.m in Sources */,
+				C7A27AFC206503DD00BCB8C0 /* ActivitySubViewManager.m in Sources */,
 				F4060B422063FE7F00C416A3 /* OpenShare+Alipay.m in Sources */,
 				384A55702052674F006D8C23 /* SchoolTableViewCell.m in Sources */,
 				38010D85204FBFBC00E4511C /* AdsViewController.m in Sources */,
 				C781F871205BFFE000BE37AD /* AddressViewController.m in Sources */,
 				BE6692A82063A5DF00111810 /* ShareManager.m in Sources */,
 				C781F866205BE91900BE37AD /* ClassViewManager.m in Sources */,
+				C7A27AF5206503DD00BCB8C0 /* ActivityDetailWebViewController.m in Sources */,
 				C7613F26205CC48B002604A3 /* ClassSpaceHeadView.m in Sources */,
 				C7F2C0242063979E00C34D2D /* ClassEnvironmentManager.m in Sources */,
 				C7613F25205CC48B002604A3 /* ClassSpaceManager.m in Sources */,
 				384A555720521F20006D8C23 /* NSObject+InitData.m in Sources */,
+				C7A27AFD206503DD00BCB8C0 /* ActivityTableViewCell.m in Sources */,
 				C758D9792060F4C100257DDB /* MyWebView.m in Sources */,
 				C7F2C02A2063B4FB00C34D2D /* PhotoBrowser.m in Sources */,
 				BE66923B206338BE00111810 /* MyMessageCenterViewController.m in Sources */,
-				BE88705F20621A7C0022907D /* ActivitySubViewManager.m in Sources */,
 				BE66924C2063465300111810 /* MyCommentTableViewCell.m in Sources */,
 				C758D96C2060C66800257DDB /* CommentDetailViewController.m in Sources */,
 				D31B76912061379D000AA637 /* TESTDATA.m in Sources */,
@@ -2037,13 +2126,11 @@
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
 				38B0043A20637FCD002459B3 /* UIButton+Positon.m in Sources */,
 				F49D7D4A205D5E90009D17EA /* MessageRemindViewController.m in Sources */,
-				BE88705B20621A640022907D /* ActivitySubViewController.m in Sources */,
 				3890404D2060CED6007BA074 /* AdsDetailTableViewCell.m in Sources */,
 				C781F85B205BC89E00BE37AD /* MYVisualEffectView.m in Sources */,
 				BE243E76205FBDC3008781EB /* MYInfoInputView.m in Sources */,
 				C71887F2205A5C1400333387 /* ClassInfoViewController.m in Sources */,
 				C750B240206217D000DAD5CD /* LxGridViewFlowLayout.m in Sources */,
-				BE88706220621E280022907D /* ActivityModel.m in Sources */,
 				C7613F23205CC48B002604A3 /* ClassSpaceViewController.m in Sources */,
 				C750B2352061F88100DAD5CD /* LLListPickView.m in Sources */,
 				C781F83B205B528200BE37AD /* LLNavigationView.m in Sources */,
@@ -2060,6 +2147,7 @@
 				C758D9702060D47A00257DDB /* CommentDetailManager.m in Sources */,
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
 				3831C91020626768003CC26F /* myTableView.m in Sources */,
+				C7A27AFA206503DD00BCB8C0 /* ActivityViewController.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
 				C7F2C01A206383DD00C34D2D /* ClassEnvironmentViewController.m in Sources */,
 				F4060B432063FE7F00C416A3 /* OpenShare+QQ.m in Sources */,
@@ -2073,7 +2161,7 @@
 				C781F863205BCEC800BE37AD /* UIImage+ImageEffects.m in Sources */,
 				C781F875205CA79E00BE37AD /* AddressViewManager.m in Sources */,
 				C718880D205A894900333387 /* ClassInfoTableViewCell.m in Sources */,
-				BE887066206248860022907D /* ActivityTableViewCell.m in Sources */,
+				C7A27AFB206503DD00BCB8C0 /* ActivityModel.m in Sources */,
 				C781F848205B702D00BE37AD /* ClassInfoTitleItemView.m in Sources */,
 				C71887FD205A6D7900333387 /* MYBannerScrollView.m in Sources */,
 				38010D8F204FD6E500E4511C /* AdsCollectionViewCell.m in Sources */,
