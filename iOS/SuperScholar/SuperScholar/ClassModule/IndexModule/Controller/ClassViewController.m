@@ -13,6 +13,7 @@
 #import "ClassViewCollectionViewCell.h"
 
 #import "ClassViewManager.h"
+#import "ShareManager.h"
 
 @interface ClassViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -51,7 +52,7 @@
 -(void)initUI{
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.navigationBar setTitle:@"班级列表" leftImage:nil rightText:nil];
+    [self.navigationBar setTitle:@"班级列表" leftImage:nil rightText:@"QQ"];
     
     self.constraint.constant = self.navigationBar.bottom;
     self.constraintBottom.constant = kTabBarHeight;
@@ -73,6 +74,12 @@
 }
 
 #pragma mark - <************************** 代理方法 **************************>
+
+-(void)navigationViewRightClickEvent{
+    [ShareManager shareToQQToSpace:@"ddjfjsdl" withCompletion:^(OSMessage *message, NSError *error) {
+        
+    }];
+}
 
 // !!!: UICollectionView代理方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
