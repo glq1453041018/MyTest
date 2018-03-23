@@ -30,6 +30,7 @@
     
     [[UITextView appearance] setTintColor:KColorTheme];
     [[UITextField appearance] setTintColor:KColorTheme];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     return YES;
 }
