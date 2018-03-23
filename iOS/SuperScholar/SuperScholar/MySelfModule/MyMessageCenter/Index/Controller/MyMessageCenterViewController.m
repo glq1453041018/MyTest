@@ -8,6 +8,7 @@
 
 #import "MyMessageCenterViewController.h"
 #import "MYSegmentController.h"
+#import "MyCMViewController.h"
 
 @interface MyMessageCenterViewController ()
 @property (strong, nonatomic) MYSegmentController *segmentController;
@@ -52,9 +53,8 @@
 
 - (void)configSegmentController{
     NSMutableArray *vc_array = [NSMutableArray array];
-    MessageRemindViewController *comment = [MessageRemindViewController new];
+    MyCMViewController *comment = [MyCMViewController new];
     comment.title = @"我的评论";
-    comment.listType = MessageRemindListTypeComment;
     MessageRemindViewController *collection = [MessageRemindViewController new];
     collection.title = @"我的收藏";
     collection.listType = MessageRemindListTypeCollection;

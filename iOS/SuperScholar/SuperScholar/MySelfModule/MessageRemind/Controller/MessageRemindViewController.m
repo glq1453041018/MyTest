@@ -7,6 +7,7 @@
 //
 
 #import "MessageRemindViewController.h"
+#import "ShareManager.h"
 #import "ZhaoShengTableViewCell.h"
 
 @interface MessageRemindViewController ()<UITableViewDelegate, UITableViewDataSource>

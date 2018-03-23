@@ -22,6 +22,8 @@
 #define kNoselectColor HexColor(0x8a8a8a)
 // 橙色
 #define kDarkOrangeColor HexColor(0xFF8C00)
+// 深青色
+#define kDarkCyanColor HexColor(0x008B8B)
 // 错误颜色
 #define kErrorRedColor HexColor(0xFF5e5e)
 
@@ -45,6 +47,7 @@
 #define FontSize_colordarkgray HexColor(0x666666)
 #define FontSize_colorlightlightgray HexColor(0x888888)
 #define FontSize_colorlightgray HexColor(0x999999)
+
 
 //行间距
 #define LineSpace 6.0
@@ -73,6 +76,12 @@ static NSString *UserId_NSUserDefaults = @"userid";
 
 
 
+
+
+
+
+
+
 #pragma mark - <************************** 枚举类型 **************************>
 // !!!: 班级类型
 typedef NS_ENUM(NSInteger , MessageType) {
@@ -80,11 +89,33 @@ typedef NS_ENUM(NSInteger , MessageType) {
     MessageTypeComment              // 评价信息类型 
 };
 
+// !!!: 班级信息cell点击类型
+typedef NS_ENUM(NSInteger , ClassCellClickEvent) {
+    ClassCellHeadClickEvent,        // 头像
+    ClassCellLikeClickEvent,        // 点赞
+    ClassCellCommentClickEvent      // 评论
+};
+
 // !!!: 招聘类型，班级还是学校级别
 typedef NS_ENUM(NSInteger , ReCruitType) {
-    ReCruitTypeClass,             // 班级类型
-    ReCruitTypeSchool              // 学校类型
+    ReCruitTypeClass,               // 班级类型
+    ReCruitTypeSchool               // 学校类型
 };
+
+
+
+#pragma mark - <************************** 模块code **************************>
+static NSString* ZhaoShengQiShiCode                  = @"zsqs";          // 招生启示
+static NSString* ZuiXinDongTaiCode                   = @"zxdt";          // 最新动态
+static NSString* BanJiHuanJingCode                   = @"bjhj";          // 班级环境
+static NSString* XueXiaoHuanJingCode                 = @"xxhj";          // 学校环境
+static NSString* JingCaiHuoDongCode                  = @"jchd";          // 精彩活动
+
+
+
+
+
+
 
 
 #pragma mark - <************************** 三方平台配置信息 **************************>

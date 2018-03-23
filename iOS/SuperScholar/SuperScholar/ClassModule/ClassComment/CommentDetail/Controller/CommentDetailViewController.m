@@ -9,12 +9,14 @@
 #import "CommentDetailViewController.h"
 
 #import "ClassComDetailTableViewCell.h"         // cell
+#import "CommentView.h"                         // 评论视图
 
 #import "CommentDetailManager.h"                // 数据管理类
 
-@interface CommentDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface CommentDetailViewController ()<UITableViewDelegate,UITableViewDataSource,CommentViewDelegate>
 // !!!: 视图类
 @property (weak, nonatomic) IBOutlet UITableView *table;
+@property (strong ,nonatomic) CommentView *commentView;                 // 评论视图
 // !!!: 数据
 @property (strong ,nonatomic) CommentDetailManager *manager;            // 数据管理
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
@@ -57,10 +59,13 @@
     [self.navigationBar setTitle:self.title?self.title:@"班级评价" leftImage:kGoBackImageString rightText:nil];
     self.isNeedGoBack = YES;
     
+    
     self.constraint.constant = self.navigationBar.bottom;
     self.table.tableFooterView = [UIView new];
     self.table.separatorStyle = NO;
 //    self.table.mj_footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
+    [self.view addSubview:self.commentView];
 }
 
 
@@ -72,6 +77,14 @@
     return _manager;
 }
 
+-(CommentView *)commentView{
+    if (_commentView==nil) {
+        _commentView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([CommentView class]) owner:nil options:nil].firstObject;
+        _commentView.delegate = self;
+        _commentView.y = kScreenHeight - _commentView.viewHeight;
+    }
+    return _commentView;
+}
 
 #pragma mark - <************************** 代理方法 **************************>
 // !!!: 导航栏
@@ -137,7 +150,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, AdaptedWidthValue(30))];
     view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, kScreenWidth-10*2, AdaptedWidthValue(30))];
-    label.textColor = KColorTheme;
+    label.textColor = kDarkCyanColor;
     label.font = [UIFont systemFontOfSize:FontSize_12];
     label.text = @"全部评论";
     [view addSubview:label];
@@ -152,13 +165,23 @@
 
 
 
+// !!!: 评论代理
+-(void)commentView:(CommentView *)commentView sendMessage:(NSString *)message complete:(void (^)(BOOL))completeBlock{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        completeBlock(YES);
+    });
+}
+
+
+
+
+
 #pragma mark - <************************** 点击事件 **************************>
 
 
 
 
 #pragma mark - <************************** 其他方法 **************************>
-
 
 
 

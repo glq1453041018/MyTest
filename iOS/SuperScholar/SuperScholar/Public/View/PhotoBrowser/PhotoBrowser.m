@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger , ImagesType) {
 @property (strong ,nonatomic) UICollectionView *collectionView;
 @property (strong ,nonatomic) UIView *bgView;   // 用来控制渐变而不改变父视图self
 @property (strong ,nonatomic) UIPageControl *pageControl;
+@property (strong ,nonatomic) UILabel *pageLabel;
 @property (strong ,nonatomic) UIButton *backBtn;
 @property (strong ,nonatomic) UIButton *saveBtn;
 @property (strong ,nonatomic) UIActivityIndicatorView *activityIndicator;
@@ -38,7 +39,11 @@ typedef NS_ENUM(NSInteger , ImagesType) {
     [photoBrowser addSubview:photoBrowser.bgView];
     [photoBrowser addSubview:photoBrowser.collectionView];
     if (images.count>1) {
-        [photoBrowser addSubview:photoBrowser.pageControl];
+        if (images.count<10) {
+            [photoBrowser addSubview:photoBrowser.pageControl];
+        }else{
+            [photoBrowser addSubview:photoBrowser.pageLabel];
+        }
     }
     [photoBrowser addSubview:photoBrowser.backBtn];
     if (type==Image_URL) {
@@ -61,6 +66,7 @@ typedef NS_ENUM(NSInteger , ImagesType) {
     // 设置位置
     [photoBrowser.collectionView setContentOffset:CGPointMake([UIScreen mainScreen].bounds.size.width*index, 0) animated:NO];
     photoBrowser.pageControl.currentPage = index;
+    photoBrowser.pageLabel.text = [NSString stringWithFormat:@"%ld / %ld",index+1,images.count];
 }
 
 
@@ -97,6 +103,7 @@ typedef NS_ENUM(NSInteger , ImagesType) {
         doubleTapGesture.numberOfTapsRequired = 2;
         doubleTapGesture.numberOfTouchesRequired = 1;
         [_collectionView addGestureRecognizer:doubleTapGesture];
+        //只有当doubleTapGesture识别失败的时候(即识别出这不是双击操作)，singleTapGesture才能开始识别
         [singleTapGesture requireGestureRecognizerToFail:doubleTapGesture];
     }
     return _collectionView;
@@ -119,11 +126,21 @@ typedef NS_ENUM(NSInteger , ImagesType) {
         //设置颜色
         _pageControl.pageIndicatorTintColor=[UIColor whiteColor];
         //设置当前页颜色
-        _pageControl.currentPageIndicatorTintColor=KColorTheme;
+        _pageControl.currentPageIndicatorTintColor=[UIColor cyanColor];
         _pageControl.numberOfPages=self.images.count;
         _pageControl.userInteractionEnabled=NO;
     }
     return _pageControl;
+}
+-(UILabel *)pageLabel{
+    if (_pageLabel==nil) {
+        _pageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
+        _pageLabel.center=CGPointMake(self.frame.size.width/2.0, self.frame.size.height-_pageLabel.bounds.size.height/2.0);
+        _pageLabel.textColor = [UIColor whiteColor];
+        _pageLabel.font = [UIFont systemFontOfSize:16];
+        _pageLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _pageLabel;
 }
 // !!!: 返回按钮
 -(UIButton *)backBtn{
@@ -190,6 +207,7 @@ typedef NS_ENUM(NSInteger , ImagesType) {
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scroll{
     NSInteger pageIndex = scroll.contentOffset.x/self.frame.size.width;
     self.pageControl.currentPage = pageIndex;
+    self.pageLabel.text = [NSString stringWithFormat:@"%ld / %ld",pageIndex+1,self.images.count];
 }
 
 // !!!: 手势代理
@@ -230,7 +248,12 @@ typedef NS_ENUM(NSInteger , ImagesType) {
     }
     [self.activityIndicator stopAnimating];
     self.saveBtn.alpha = 1;
-    [[[UIAlertView alloc] initWithTitle:@"提示" message:@"保存成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                    message:msg
+                                                   delegate:self
+                                          cancelButtonTitle:@"确定"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 // !!!: 手势处理
 - (void)handleSwipe:(UIPanGestureRecognizer *)swipe{

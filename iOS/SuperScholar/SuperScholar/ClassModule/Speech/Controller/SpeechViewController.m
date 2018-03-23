@@ -39,6 +39,7 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
 // !!!: 数据类
 @property (nonatomic, strong) NSMutableArray *selectedPhotos;
 @property (nonatomic, strong) NSMutableArray *selectedAssets;
+@property (copy ,nonatomic) NSString *contentString;    // 说说内容
 @property (assign ,nonatomic) BOOL lock;
 @end
 
@@ -72,6 +73,7 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     // 导航栏
     [self.navigationBar setTitle:self.title leftText:@"取消" rightText:@"发表"];
+    [self changeSenderBtnToUnEnable];
     
     [self.view addSubview:self.collectionView];
 }
@@ -191,10 +193,19 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
 // !!!: TextView的代理方法
 -(void)textViewDidChange:(UITextView *)textView{
     DLog(@"说说内容：%@",textView.text);
+    self.contentString = textView.text;
     if ([textView.text isEqualToString:@""]) {
         self.tipLabel.hidden = NO;
+        if (self.selectedPhotos.count==0) {
+            [self changeSenderBtnToUnEnable];
+        }else{
+            [self changeSenderBtnToEnable];
+        }
     }else{
         self.tipLabel.hidden = YES;
+        if ([self.contentString stringByReplacingOccurrencesOfString:@" " withString:@""].length!=0) {
+            [self changeSenderBtnToEnable];
+        }
     }
 }
 
@@ -473,9 +484,28 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
 // !!!: 刷新CollectionView
 -(void)reloadCollectionView{
     [self.collectionView reloadData];
+    // 发表按钮的样式
+    if (self.selectedPhotos.count==0&&self.contentString.length==0) {
+        [self changeSenderBtnToUnEnable];
+    }else{
+        [self changeSenderBtnToEnable];
+    }
+}
+
+// !!!: 改变发表按钮
+-(void)changeSenderBtnToUnEnable{
+    self.navigationBar.rightBtn.userInteractionEnabled = NO;
+    self.navigationBar.rightBtn.hidden = YES;
+}
+
+-(void)changeSenderBtnToEnable{
+    self.navigationBar.letfBtn.userInteractionEnabled = YES;
+    self.navigationBar.rightBtn.hidden = NO;
 }
 
 
+
+// !!!: 是否存在视频资源
 -(BOOL)existVideo{
     for (id asset in self.selectedAssets) {
         if ([asset isKindOfClass:[PHAsset class]]) {
@@ -494,6 +524,7 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
     return NO;
 }
 
+// !!!: 是否存在图片资源
 -(BOOL)existImage{
     for (id asset in self.selectedAssets) {
         if ([asset isKindOfClass:[PHAsset class]]) {

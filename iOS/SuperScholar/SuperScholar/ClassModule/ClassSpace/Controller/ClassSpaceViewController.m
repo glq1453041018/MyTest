@@ -18,7 +18,7 @@
 // !!!: 管理类
 #import "ClassSpaceManager.h"
 
-@interface ClassSapceViewController ()<UITableViewDelegate,UITableViewDataSource,LLListPickViewDelegate>
+@interface ClassSapceViewController ()<UITableViewDelegate,UITableViewDataSource,LLListPickViewDelegate,ClassSpaceTableViewCellDelegate>
 // !!!: 视图类
 @property (strong ,nonatomic) UITableView *table;
 @property (strong ,nonatomic) ClassSpaceHeadView *headView;
@@ -71,6 +71,7 @@
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     // 导航栏
     [self.navigationBar setTitle:self.title?self.title:@"班级动态" leftImage:kGoBackImageString rightImage:@"camera"];
+    [self.navigationBar.rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 5)];
     self.isNeedGoBack = YES;
     
     self.table.tableHeaderView = self.headView;
@@ -144,6 +145,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
         cell.selectionStyle = NO;
     }
+    cell.delegate = self;
     [self.manager loadData:self.data cell:cell index:indexPath.row pageSize:10];
     return cell;
 }
@@ -171,6 +173,12 @@
     SpeechViewController *ctrl = [SpeechViewController new];
     [self presentViewController:ctrl animated:NO completion:nil];
     [ctrl lllistPickViewItemSelected:index];
+}
+
+// !!!: cell的代理事件
+-(void)classSpaceTableViewCellClickEvent:(ClassCellClickEvent)event{
+    NSString *tip = @[@"头像",@"赞",@"评论"][event];
+    [LLAlertView showSystemAlertViewClickBlock:nil message:tip buttonTitles:@"确定", nil];
 }
 
 #pragma mark - <************************** 点击事件 **************************>
