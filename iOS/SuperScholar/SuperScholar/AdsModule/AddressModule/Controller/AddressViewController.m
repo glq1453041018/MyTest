@@ -27,7 +27,7 @@
 -(void)loadView{
     [super loadView];
     [self.addrManager locationCompletionBlock:^(AMapLocationReGeocode *regeocode, NSError *error) {
-    
+        
     }];
 }
 
