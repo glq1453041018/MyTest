@@ -19,6 +19,28 @@
 
 @implementation MyWebView
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    if(self = [super initWithCoder:aDecoder]){
+        self.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.webView];
+        [self insertSubview:self.progress aboveSubview:self.webView];
+        [self.webView addSubview:self.loading];
+        
+        [self.webView cwn_makeConstraints:^(UIView *maker) {
+            maker.leftToSuper(0).rightToSuper(0).topToSuper(0).bottomToSuper(0);
+        }];
+        
+        [self.progress cwn_makeConstraints:^(UIView *maker) {
+            maker.leftToSuper(0).rightToSuper(0).topToSuper(0).height(2);
+        }];
+        
+        self.needLoading = YES;
+        [self.loading cwn_makeConstraints:^(UIView *maker) {
+            maker.centerXtoSuper(0).centerYtoSuper(0);
+        }];
+    }
+    return self;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -141,7 +163,9 @@
         if (object == self.webView) {
             NSLog(@"%f",self.webView.estimatedProgress);
             [self.progress setProgress:self.webView.estimatedProgress animated:YES];
-            self.progress.hidden = self.progress.progress==1?YES:NO;
+            if(self.needLoading){
+                self.progress.hidden = self.progress.progress==1?YES:NO;
+            }
             self.progress.progress = self.progress.progress==1?0:self.progress.progress;
             if (self.progress.progress==1) {
                 [self.loading stopAnimating];

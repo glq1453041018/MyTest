@@ -7,8 +7,12 @@
 //
 
 #import "ActivitySubViewController.h"
+#import "ActivityDetailWebViewController.h"
+
+
 #import "ActivitySubViewManager.h"
 #import "NSArray+ExtraMethod.h"
+
 #import "ZhaoShengTableViewCell.h"
 #import "ActivityTableViewCell.h"
 
@@ -210,6 +214,15 @@
         return indexPath.row == 2 ? ShiPei(258) : ShiPei(134);
     }
     return ShiPei(134);
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row % 2 == 0){
+        ActivityDetailWebViewController *vc = [ActivityDetailWebViewController new];
+        vc.title = self.title;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - <************************** 点击事件 **************************>

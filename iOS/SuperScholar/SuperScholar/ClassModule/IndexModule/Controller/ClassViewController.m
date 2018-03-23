@@ -82,9 +82,9 @@
 #pragma mark - <************************** 代理方法 **************************>
 
 -(void)navigationViewRightClickEvent{
-    [ShareManager shareToPlatform:SharePlatformQQ link:@"www.baidu.com" title:[TESTDATA randomContent] body:[TESTDATA randomContent] image:kPlaceholderImage withCompletion:^(OSMessage *message, NSError *error) {
-        
-    }];
+//    [ShareManager shareToPlatform:SharePlatformQQ link:@"www.baidu.com" title:[TESTDATA randomContent] body:[TESTDATA randomContent] image:kPlaceholderImage withCompletion:^(OSMessage *message, NSError *error) {
+//        
+//    }];
 }
 
 // !!!: UICollectionView代理方法
