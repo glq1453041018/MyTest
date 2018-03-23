@@ -16,6 +16,8 @@
 		38010DB1204FFB5E00E4511C /* ZhaoShengTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38010DAF204FFB5E00E4511C /* ZhaoShengTableViewCell.m */; };
 		38010DB2204FFB5E00E4511C /* ZhaoShengTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38010DB0204FFB5E00E4511C /* ZhaoShengTableViewCell.xib */; };
 		3831C91020626768003CC26F /* myTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3831C90F20626768003CC26F /* myTableView.m */; };
+		3832D60620649A860083C718 /* AdsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3832D60420649A860083C718 /* AdsTableViewCell.m */; };
+		3832D60720649A860083C718 /* AdsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3832D60520649A860083C718 /* AdsTableViewCell.xib */; };
 		384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A553C20521F20006D8C23 /* NSDictionary+Utility.m */; };
 		384A555720521F20006D8C23 /* NSObject+InitData.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A553E20521F20006D8C23 /* NSObject+InitData.m */; };
 		384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A554020521F20006D8C23 /* UIView+AdjustFrame.m */; };
@@ -183,6 +185,9 @@
 		38010DB0204FFB5E00E4511C /* ZhaoShengTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZhaoShengTableViewCell.xib; sourceTree = "<group>"; };
 		3831C90E20626768003CC26F /* myTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTableView.h; sourceTree = "<group>"; };
 		3831C90F20626768003CC26F /* myTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myTableView.m; sourceTree = "<group>"; };
+		3832D60320649A860083C718 /* AdsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsTableViewCell.h; sourceTree = "<group>"; };
+		3832D60420649A860083C718 /* AdsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsTableViewCell.m; sourceTree = "<group>"; };
+		3832D60520649A860083C718 /* AdsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsTableViewCell.xib; sourceTree = "<group>"; };
 		384A553B20521F20006D8C23 /* NSDictionary+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Utility.h"; sourceTree = "<group>"; };
 		384A553C20521F20006D8C23 /* NSDictionary+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Utility.m"; sourceTree = "<group>"; };
 		384A553D20521F20006D8C23 /* NSObject+InitData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+InitData.h"; sourceTree = "<group>"; };
@@ -504,6 +509,9 @@
 				3890404A2060CED6007BA074 /* AdsDetailTableViewCell.h */,
 				3890404B2060CED6007BA074 /* AdsDetailTableViewCell.m */,
 				3890404C2060CED6007BA074 /* AdsDetailTableViewCell.xib */,
+				3832D60320649A860083C718 /* AdsTableViewCell.h */,
+				3832D60420649A860083C718 /* AdsTableViewCell.m */,
+				3832D60520649A860083C718 /* AdsTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1860,6 +1868,7 @@
 				C7613F29205CC48B002604A3 /* ClassSpaceHeadView.xib in Resources */,
 				384A556C205266D8006D8C23 /* SchoolViewController.xib in Resources */,
 				BE243E78205FC0C6008781EB /* MYInfoInputView.xib in Resources */,
+				3832D60720649A860083C718 /* AdsTableViewCell.xib in Resources */,
 				F40A8FF1205E170D0087814A /* timg.png in Resources */,
 				BE887067206248860022907D /* ActivityTableViewCell.xib in Resources */,
 				C73DD5DB204E88E900C6437F /* Podfile in Resources */,
@@ -2044,6 +2053,7 @@
 				BE950ED9205B8793009F562B /* SMSManager.m in Sources */,
 				C7F2C0212063965900C34D2D /* CustomCollectionViewCell.m in Sources */,
 				F4060B452063FE7F00C416A3 /* OpenShare+Weibo.m in Sources */,
+				3832D60620649A860083C718 /* AdsTableViewCell.m in Sources */,
 				F4060B462063FE7F00C416A3 /* OpenShare+Weixin.m in Sources */,
 				BE6692442063397400111810 /* MyCMViewController.m in Sources */,
 				BE950ED2205B8728009F562B /* LoginInterfaceViewController.m in Sources */,
