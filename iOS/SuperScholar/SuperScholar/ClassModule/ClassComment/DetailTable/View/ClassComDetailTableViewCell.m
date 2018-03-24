@@ -15,8 +15,9 @@
     [self adjustFrame];
     
     self.userNameLabel.textColor = FontSize_colorgray;
+    self.commentLabel.textColor = FontSize_colorgray;
     
-    self.moreLabel.textColor = KColorTheme;
+    self.moreLabel.textColor = kDarkCyanColor;
     self.iconImageView.layer.cornerRadius = self.iconImageView.viewHeight / 2.0;
     self.iconImageView.layer.masksToBounds = YES;
     

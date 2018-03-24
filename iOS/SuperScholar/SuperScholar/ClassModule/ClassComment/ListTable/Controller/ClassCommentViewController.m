@@ -8,16 +8,19 @@
 
 #import "ClassCommentViewController.h"
 #import "ClassComDetailViewController.h"        // 评论详情
+#import "SpeechViewController.h"                // 发表
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"             // cell
 #import "ClassCommentSectionView.h"
+#import "LLListPickView.h"                      // 弹窗列表视图
 // !!!: 管理类
 #import "ClassCommentManager.h"
 
-@interface ClassCommentViewController ()<UITableViewDelegate,UITableViewDataSource,ClassCommentSectionViewDelegate>
+@interface ClassCommentViewController ()<UITableViewDelegate,UITableViewDataSource,ClassCommentSectionViewDelegate,LLListPickViewDelegate>
 // !!!: 视图类
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong ,nonatomic) ClassCommentSectionView *sectionView;
+@property (strong ,nonatomic) LLListPickView *pickView;
 // !!!: 数据类
 @property (strong ,nonatomic) NSMutableArray *data;
 @property (strong ,nonatomic) ClassCommentManager *manager;
@@ -64,7 +67,7 @@
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     // 导航栏
-    [self.navigationBar setTitle:self.title?self.title:@"班级评价" leftImage:kGoBackImageString rightText:nil];
+    [self.navigationBar setTitle:self.title?self.title:@"班级评价" leftImage:kGoBackImageString rightImage:@"camera"];
     self.isNeedGoBack = YES;
     
     self.constraint.constant = self.navigationBar.bottom;
@@ -86,6 +89,14 @@
     return _sectionView;
 }
 
+-(LLListPickView *)pickView{
+    if (_pickView==nil) {
+        _pickView = [LLListPickView new];
+        _pickView.delegate = self;
+    }
+    return _pickView;
+}
+
 -(ClassCommentManager *)manager{
     if (_manager==nil) {
         _manager = [ClassCommentManager new];
@@ -99,6 +110,10 @@
 -(void)navigationViewLeftClickEvent{
     [self.navigationController popViewControllerAnimated:YES];
 }
+-(void)navigationViewRightClickEvent{
+    [self.pickView showItems:@[@"拍照",@"录像",@"去相册选择"]];
+}
+
 // !!!: 列表的代理方法
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -124,10 +139,17 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     ClassComDetailViewController *ctrl = [ClassComDetailViewController new];
+    ctrl.messageType = MessageTypeComment;
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 
+// !!!: LLListPickView代理事件
+-(void)lllistPickViewItemSelected:(NSInteger)index{
+    SpeechViewController *ctrl = [SpeechViewController new];
+    [self presentViewController:ctrl animated:NO completion:nil];
+    [ctrl lllistPickViewItemSelected:index];
+}
 
 #pragma mark - <************************** 点击事件 **************************>
 

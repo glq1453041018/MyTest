@@ -19,6 +19,28 @@
 
 @implementation MyWebView
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    if(self = [super initWithCoder:aDecoder]){
+        self.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.webView];
+        [self insertSubview:self.progress aboveSubview:self.webView];
+        [self.webView addSubview:self.loading];
+        
+        [self.webView cwn_makeConstraints:^(UIView *maker) {
+            maker.leftToSuper(0).rightToSuper(0).topToSuper(0).bottomToSuper(0);
+        }];
+        
+        [self.progress cwn_makeConstraints:^(UIView *maker) {
+            maker.leftToSuper(0).rightToSuper(0).topToSuper(0).height(2);
+        }];
+        
+        self.needLoading = YES;
+        [self.loading cwn_makeConstraints:^(UIView *maker) {
+            maker.centerXtoSuper(0).centerYtoSuper(0);
+        }];
+    }
+    return self;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -65,6 +87,7 @@
         [_webView goBack];
         [_webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
         [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
+        [_webView addObserver:self forKeyPath:@"scrollView.contentSize" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:@"mywebview"];
     }
     return _webView;
 }
@@ -141,7 +164,9 @@
         if (object == self.webView) {
             NSLog(@"%f",self.webView.estimatedProgress);
             [self.progress setProgress:self.webView.estimatedProgress animated:YES];
-            self.progress.hidden = self.progress.progress==1?YES:NO;
+            if(self.needLoading){
+                self.progress.hidden = self.progress.progress==1?YES:NO;
+            }
             self.progress.progress = self.progress.progress==1?0:self.progress.progress;
             if (self.progress.progress==1) {
                 [self.loading stopAnimating];
@@ -151,7 +176,16 @@
             [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
         }
     }
-    else
+    else if([keyPath isEqualToString:@"scrollView.contentSize"]){
+        CGSize pre = [change[@"old"] CGSizeValue];
+        CGSize now = [change[@"new"] CGSizeValue];
+        if(pre.width == now.width && pre.height == now.height)//没变化
+            return;
+        //contentsize有变化
+        if([self.delegate respondsToSelector:@selector(didFinishWebView:)]){
+            [self.delegate didFinishWebView:self];
+        }
+    }else
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
@@ -172,6 +206,7 @@
 -(void)dealloc{
     [self.webView removeObserver:self forKeyPath:@"title"];
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+    [self.webView removeObserver:self forKeyPath:@"scrollView.contentSize" context:@"mywebview"];
     [self deleteWebCache];
 }
 

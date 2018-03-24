@@ -10,8 +10,12 @@
 
 @interface TESTDATA : NSObject
 
-+(NSString*)randomContent;
++(NSString*)randomContent;                  // 随机一条内容
 
-+(NSString*)randomUrlString;
++(NSArray*)randomContents:(NSInteger)count; // 随机一组内容
+
++(NSString*)randomUrlString;                // 随机一张图片
+
++(NSArray*)randomUrls:(NSInteger)count;     // 随机一组图片
 
 @end

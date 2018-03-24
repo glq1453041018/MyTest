@@ -8,53 +8,41 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>MYAutoLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-SuperScholar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>SVProgressHUD-0.8.1.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>TZImagePickerController.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -69,16 +57,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42770A951824C32E030E11C2295E4564</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4F24652DEC15518EDB3697B46CA9C3C8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4F35557C2EE23BE8AD3FA29AB0164223</key>
 		<dict>
 			<key>primary</key>
@@ -89,12 +67,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64F1F1AEDF5E318B78AB06BC6409EC2C</key>
+		<key>76679D75C59D11216C0D43493DF649EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7CF1947D9947C2EB8ECBEBB53FAF7A81</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81579851835B4E394AF9B940AC330B08</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -114,12 +97,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE75D9D62F2E3A9E97A339598E81E533</key>
+		<key>A7C047146E44675467EF040AC0EDF981</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2701C390AAB0072FC206370E7BB959C</key>
+		<key>B5E289E0A32AE19BC4BE45CA79E10436</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DEF28B95D2DB6C5E9888E0A71AF1B8EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

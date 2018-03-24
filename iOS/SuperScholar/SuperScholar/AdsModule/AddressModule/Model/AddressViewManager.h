@@ -12,8 +12,9 @@
 
 @interface AddressViewManager : NSObject
 
-+(void)configMap;
++(instancetype)share;
 
+-(void)configMap;
 
 -(void)locationCompletionBlock:(void(^)(AMapLocationReGeocode *regeocode, NSError *error))block;
 

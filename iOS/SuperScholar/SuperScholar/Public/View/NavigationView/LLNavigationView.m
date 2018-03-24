@@ -85,7 +85,7 @@
         maxWidth = [leftText sizeWithAttributes:@{NSFontAttributeName:self.letfBtn.titleLabel.font}].width + 10;
         maxWidth = MIN(kScreenWidth/2.0, MAX(maxWidth, defaultWidth));
         [self.letfBtn cwn_reMakeConstraints:^(UIView *maker) {
-            maker.leftToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).width(maxWidth);
+            maker.leftToSuper(7).topToSuper(kStatusBarHeight).bottomToSuper(0).width(maxWidth);
         }];
     }
     // 右边
@@ -101,7 +101,7 @@
         maxWidth = MAX(maxWidth, defaultWidth);
         maxWidth = MIN(kScreenWidth/2.0, MAX(maxWidth, defaultWidth));
         [self.rightBtn cwn_reMakeConstraints:^(UIView *maker) {
-            maker.rightToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).width(maxWidth);
+            maker.rightToSuper(7).topToSuper(kStatusBarHeight).bottomToSuper(0).width(maxWidth);
         }];
     }
     // 中间文字

@@ -18,6 +18,7 @@
 @property (assign, nonatomic) NSInteger currentPageIndex;
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) UIPageControl *pageControl;
+@property (strong, nonatomic) UILabel *pageLabel;
 
 @property (strong, nonatomic) MYBannerImageView *leftImageView;
 @property (strong, nonatomic) MYBannerImageView *centerImageView;
@@ -69,6 +70,7 @@
 - (void)configUI{
     [self addSubview:self.scrollView];
     [self addSubview:self.pageControl];
+    [self addSubview:self.pageLabel];
     
     _topConsTraint = [NSLayoutConstraint constraintWithItem:_scrollView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:0];
     [self addConstraint:_topConsTraint];
@@ -80,6 +82,29 @@
     _pageControlBottom = [NSLayoutConstraint constraintWithItem:_pageControl attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
     [self addConstraint:_pageControlBottom];
     [_pageControl cwn_makeConstraints:^(UIView *maker) {
+        switch (weakself.location) {
+            case locationCenter:
+            {
+                maker.height(25).centerXtoSuper(5);
+            }
+                break;
+            case locationRight:
+            {
+                maker.height(25).rightToSuper(5);
+            }
+                break;
+            case locationLeft:
+            {
+                maker.height(25).leftToSuper(5);
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }];
+    
+    [self.pageLabel cwn_makeConstraints:^(UIView *maker) {
         switch (weakself.location) {
             case locationCenter:
             {
@@ -164,6 +189,34 @@
                 break;
         }
     }];
+    
+    [self.pageLabel cwn_reMakeConstraints:^(UIView *maker) {
+        switch (location) {
+            case locationCenter:
+            {
+                maker.height(25).centerXtoSuper(0).bottomToSuper(5);
+            }
+                break;
+            case locationRight:
+            {
+                maker.height(25).rightToSuper(20).bottomToSuper(5);
+            }
+                break;
+            case locationLeft:
+            {
+                maker.height(25).leftToSuper(20).bottomToSuper(5);
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }];
+}
+- (void)setStyle:(MYPageControlStyle)style{
+    _style = style;
+    self.pageLabel.hidden = NO;
+    self.pageControl.hidden = YES;
 }
 -(void)setNeedBgView:(BOOL)needBgView{
     _needBgView = needBgView;
@@ -204,7 +257,9 @@
     _imagePaths = imagePaths;
     if ([_imagePaths count] > 1) {//多张图情况
         _scrollView.scrollEnabled = YES;
-        [self.pageControl setHidden:NO];
+        [self.pageControl setHidden:self.style == MYPageControlStyleDefault ? NO : YES];
+        [self.pageLabel setHidden:self.style == MYPageControlStyleLabel ? NO : YES];
+        [self.pageLabel setText:[NSString stringWithFormat:@"%d/%ld", 1, [_imagePaths count]]];
         self.pageControl.numberOfPages = [_imagePaths count];
         self.pageControl.currentPage = 0;
         
@@ -221,7 +276,9 @@
     } else {//一张图情况
         _scrollView.scrollEnabled = NO;
         [self.pageControl setHidden:YES];
+        [self.pageLabel setHighlighted:YES];
         self.pageControl.numberOfPages = 0;
+        [self.pageLabel setText:@""];
         [_timer pauseTimer];
     }
     
@@ -286,6 +343,7 @@
         }
         
         self.pageControl.currentPage = self.currentPageIndex;
+        [self.pageLabel setText:[NSString stringWithFormat:@"%ld/%ld", self.currentPageIndex + 1, [self.imagePaths count]]];
         
         if (_useHorizontalParallaxEffect) {
             CGFloat contentOffsetX = scrollView.contentOffset.x;
@@ -319,10 +377,12 @@
                     contentOffsetY = _estimateSize.height;
                 _topConsTraint.constant = contentOffsetY/1.8;
                 _pageControlBottom.constant = contentOffsetY/1.8;
-                if(contentOffsetY > CGRectGetHeight(_pageControl.bounds)/2 + 8)
-                    [_pageControl setHidden:YES];
-                else
-                    [_pageControl setHidden:NO];
+                if(self.style == MYPageControlStyleDefault){
+                    if(contentOffsetY > CGRectGetHeight(_pageControl.bounds)/2 + 8)
+                        [_pageControl setHidden:YES];
+                    else
+                        [_pageControl setHidden:NO];
+                }
             }
         }
     }
@@ -360,6 +420,15 @@
         [_pageControl setHidden:YES];
     }
     return _pageControl;
+}
+
+- (UILabel *)pageLabel{
+    if(!_pageLabel){
+        _pageLabel = [UILabel new];
+        _pageLabel.font = [UIFont systemFontOfSize:12];
+        _pageLabel.textColor = [UIColor whiteColor];
+    }
+    return _pageLabel;
 }
 
 - (MYBannerImageView *)leftImageView{

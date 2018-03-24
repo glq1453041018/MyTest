@@ -7,6 +7,7 @@
 //
 
 #import "SuggestionViewController.h"
+#import "ShareManager.h"
 #import <SVProgressHUD.h>
 
 @interface SuggestionViewController ()<UITextViewDelegate, UITextFieldDelegate>

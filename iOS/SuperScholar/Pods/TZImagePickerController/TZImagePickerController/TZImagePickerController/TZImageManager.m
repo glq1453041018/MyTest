@@ -338,6 +338,9 @@ static dispatch_once_t onceToken;
                 return nil;
             }
         }
+        if (phAsset.duration>30) {      // !!!: 超过30秒
+            return nil;
+        }
         NSString *timeLength = type == TZAssetModelMediaTypeVideo ? [NSString stringWithFormat:@"%0.0f",phAsset.duration] : @"";
         timeLength = [self getNewTimeFromDurationSecond:timeLength.integerValue];
         model = [TZAssetModel modelWithAsset:asset type:type timeLength:timeLength];
@@ -349,6 +352,9 @@ static dispatch_once_t onceToken;
         /// Allow picking video
         if (type == TZAssetModelMediaTypeVideo) {
             NSTimeInterval duration = [[asset valueForProperty:ALAssetPropertyDuration] doubleValue];
+            if (duration>30) {      // !!!: 超过30秒
+                return nil;
+            }
             NSString *timeLength = [NSString stringWithFormat:@"%0.0f",duration];
             timeLength = [self getNewTimeFromDurationSecond:timeLength.integerValue];
             model = [TZAssetModel modelWithAsset:asset type:type timeLength:timeLength];

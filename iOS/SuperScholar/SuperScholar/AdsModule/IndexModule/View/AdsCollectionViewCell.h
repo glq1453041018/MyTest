@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AdsCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *titleLable;
 
 @end

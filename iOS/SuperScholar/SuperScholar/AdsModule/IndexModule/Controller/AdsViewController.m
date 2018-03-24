@@ -10,15 +10,22 @@
 #import "SearchIndexViewController.h"
 #import "AddressViewController.h"
 #import "AdsDetailViewController.h"
+//#import "ZhaoShengViewController.h"
 
 #import "AdsCollectionViewCell.h"
+#import "AdsTableViewCell.h"
 
-@interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate>
+#import "UIButton+Positon.h"
+
+@interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UICollectionView *CollectionView;
 @property (strong ,nonatomic) UIView *leftView;
 @property (copy ,nonatomic) NSString *address;
 @property (strong ,nonatomic) UISearchBar *searchBar;
 @property (strong ,nonatomic) UILabel *rightLabel;
+
+
+@property (nonatomic,strong) UITableView *tableView;
 @end
 
 @implementation AdsViewController
@@ -44,7 +51,8 @@
     self.searchBar.delegate = self;
     [self.navigationBar setCenterView:self.searchBar leftView:self.leftView rightView:self.rightLabel];
     
-    [self creatCollectionView];
+//    [self creatCollectionView];
+    [self creatTableView];
 }
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
@@ -129,6 +137,8 @@
     //注意，此处的ReuseIdentifier 必须和 cellForItemAtIndexPath 方法中 一致 均为 cellId
     [self.CollectionView registerNib:[UINib nibWithNibName:@"AdsCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"adscell"];
     
+    [self.CollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"UICollectionViewHeader"];
+    
     
     //4.设置代理
     self.CollectionView.delegate = self;
@@ -137,7 +147,33 @@
     
     [self.view addSubview:self.CollectionView];
 }
+-(void)creatTableView{
+ 
 
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,64 , IEW_WIDTH, IEW_HEGHT-kNavigationbarHeight-kscrollerbarHeight) style:UITableViewStylePlain];
+
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    //    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        
+    }
+    [self.tableView setSeparatorColor:SeparatorLineColor];
+    self.tableView.backgroundColor = TableBackGroundColor;
+    MJDIYHeader *header = [MJDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(RefreshNewData)];
+    self.tableView.mj_header = header;
+    
+    MJDIYAutoFooter *footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    // 设置尾部
+    self.tableView.mj_footer = footer;
+    [self.tableView.mj_footer setHidden:YES];
+    self.tableView.tableFooterView = [[UIView alloc]init];
+    [self.view addSubview:self.tableView];
+    
+}
 #pragma mark - <************************** 获取数据 **************************>
 //下拉
 -(void)RefreshNewData{
@@ -188,7 +224,225 @@
 }
 
 
+#pragma mark - <************************** tableView代理方法 **************************>
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 30;
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    static NSString *cellId = @"AdsIndexCell4";
+    AdsTableViewCell_Header *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    
+    if (cell==nil) {
+        NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"AdsTableViewCell" owner:nil options:nil];
+        for (id cellItem in cells) {
+            if ([cellItem isKindOfClass:AdsTableViewCell_Header.class]) {
+                cell = cellItem;
+                cell.selectionStyle = NO;
+                break;
+            }
+        }
+        [cell adjustFrame];
+        [cell.typeSelectBtn setImagePosition:ZXImagePositionRight spacing:3];
+        [cell.areaSelectBtn setImagePosition:ZXImagePositionRight spacing:3];
+        [cell.IntelligenceBtn setImagePosition:ZXImagePositionRight spacing:3];
+    }
+    return cell;
+}
+//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//    return 90*MAIN_WP;
+//}
+//-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+//    //广告
+//    static NSString *cellId = @"jingdiannewcell2";
+//    JingDianAnLiTableViewCellsecond *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+//    if (cell == nil) {
+//        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"JingDianAnLiTableViewCell" owner:self options:nil];
+//        cell = [nibs objectAtIndex:1];
+//        [cell adjustFrame];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//
+//    }
+//
+//    if (self.adImages.count > 0) {
+//        NSDictionary *dic = self.adImages[section%self.adImages.count];
+//        cell.AddImageBtn.tag = section;
+//        [cell.AddImageBtn addTarget:self action:@selector(AddImageClick:) forControlEvents:UIControlEventTouchUpInside];
+//
+//        BOOL isUnderReview = [MYMemoryDefaults standardUserDefaults].isUnderReview;//是否是审核期间，如果是，则不需要相关增值服务
+//        [cell.AddImageBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:isUnderReview?ImageYuMingUrl([dic objectForKeyNotNull:@"ShImgSrc"]): ImageYuMingUrl([dic objectForKeyNotNull:@"ImgSrc"])] forState:UIControlStateNormal];
+//
+//    }
+//    return cell;
+//}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row%3!=0) {
+        return 138*MAIN_SPWPW;
+    }else if (indexPath.row%4 == 0){
+             return 143*MAIN_SPWPW;
+    }else{
+        return 222*MAIN_SPWPW;
+    }
+    
+    
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row%3!=0) {
+        static NSString *cellId = @"AdsIndexCell";
+        AdsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+//        if (cell == nil) {
+//            NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"AdsTableViewCell" owner:self options:nil];
+//            cell = [nibs objectAtIndex:0];
+//            [cell adjustFrame];
+//            cell.headImage.layer.cornerRadius = 3;
+//            cell.headImage.clipsToBounds = YES;
+//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            if (cell==nil) {
+                NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"AdsTableViewCell" owner:nil options:nil];
+                for (id cellItem in cells) {
+                    if ([cellItem isKindOfClass:AdsTableViewCell.class]) {
+                        cell = cellItem;
+                        cell.selectionStyle = NO;
+                        break;
+                    }
+                }
+                [cell adjustFrame];
+            }
+    
+//        }
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
+        
+        NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:@"新爱婴早萌宝趣味运动会开始报名啦，一起运动吧，宝贝们对象：10-28个月的宝宝，免费抢报中名额仅限70组哦"];
+        
+        //    if (fenxianTip.length>5) {
+        [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
+        //设置文字颜色
+        [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
+        //设置文字大小
+        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
+        
+        //    }
+        
+        
+        
+        //赋值
+        cell.contentLable.attributedText = attributStr;
+        cell.contentLable.lineBreakMode = NSLineBreakByTruncatingTail;
+    
+        [cell.headImage sd_setImageWithURL:[NSURL URLWithString:[TESTDATA randomUrlString]] placeholderImage:kPlaceholderImage];
+        
+        return cell;
+    }else if (indexPath.row%4 == 0){
+        static NSString *cellId = @"AdsIndexCell3";
+        AdsTableViewCell_NoImage *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        
+        if (cell==nil) {
+            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"AdsTableViewCell" owner:nil options:nil];
+            for (id cellItem in cells) {
+                if ([cellItem isKindOfClass:AdsTableViewCell_NoImage.class]) {
+                    cell = cellItem;
+                    cell.selectionStyle = NO;
+                    break;
+                }
+            }
+            [cell adjustFrame];
+        }
+        
+        //        }
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
+        
+        NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:@"新爱婴早萌宝趣味运动会开始报名啦，一起运动吧，宝贝们对象：10-28个月的宝宝，免费抢报中名额仅限70组哦"];
+        
+        //    if (fenxianTip.length>5) {
+        [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
+        //设置文字颜色
+        [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
+        //设置文字大小
+        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
+        
+        //    }
+        
+        //赋值
+        cell.contentLable.attributedText = attributStr;
+        cell.contentLable.lineBreakMode = NSLineBreakByTruncatingTail;
+        
+
+        return cell;
+    }else{
+        static NSString *cellId = @"AdsIndexCell2";
+        AdsTableViewCell_moreImage *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+
+        if (cell==nil) {
+            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"AdsTableViewCell" owner:nil options:nil];
+            for (id cellItem in cells) {
+                if ([cellItem isKindOfClass:AdsTableViewCell_moreImage.class]) {
+                    cell = cellItem;
+                    cell.selectionStyle = NO;
+                    break;
+                }
+            }
+            [cell adjustFrame];
+        }
+        
+        //        }
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
+        
+        NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:@"新爱婴早萌宝趣味运动会开始报名啦，一起运动吧，宝贝们对象：10-28个月的宝宝，免费抢报中名额仅限70组哦"];
+        
+        //    if (fenxianTip.length>5) {
+        [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
+        //设置文字颜色
+        [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
+        //设置文字大小
+        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
+        
+        //    }
+        
+        //赋值
+        cell.contentLable.attributedText = attributStr;
+        cell.contentLable.lineBreakMode = NSLineBreakByTruncatingTail;
+        
+        [cell.headImage1 sd_setImageWithURL:[NSURL URLWithString:[TESTDATA randomUrlString]] placeholderImage:kPlaceholderImage];
+        [cell.headImage2 sd_setImageWithURL:[NSURL URLWithString:[TESTDATA randomUrlString]] placeholderImage:kPlaceholderImage];
+        [cell.headImage3 sd_setImageWithURL:[NSURL URLWithString:[TESTDATA randomUrlString]] placeholderImage:kPlaceholderImage];
+        
+        return cell;
+    }
+    
+    
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    AdsDetailViewController *next = [[AdsDetailViewController alloc]initWithNibName:@"AdsDetailViewController" bundle:nil];
+    next.hidesBottomBarWhenPushed=YES;
+    if(indexPath.row%2==0){
+        next.type = ReCruitTypeSchool;
+    }else{
+        next.type = ReCruitTypeClass;
+    }
+    [self.navigationController pushViewController:next animated:YES];
+    
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    CGFloat minAlphaOffset = 0;
+//    CGFloat maxAlphaOffset = 150;
+//    CGFloat offset = scrollView.contentOffset.y;
+//    CGFloat alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
+//    self.navigationBar.backgroundColor = RGBColor(116, 208, 198, alpha);
+//    //    self.navigationBar.backgroundColor = RGBColor(247, 247, 247, alpha);
+
+}
 
 #pragma mark - <************************** collectionView 代理方法 **************************>
 // !!!: 导航代理
@@ -219,6 +473,11 @@
     
     static NSString *cellId = @"adscell";
     AdsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    if(indexPath.row%2==0){
+        cell.titleLable.text = @"这是一篇以学校为主体的招聘信息，详情页里面的内容也应该以学校为主体";
+    }else{
+       cell.titleLable.text = @"这是一篇以班级为主体的招聘信息，详情页里面的内容也应该以班级为主体";
+    }
    
 //    cell.selected = indexPath.item == selectIndex;
 //    float cellwidth = [self.typeArray_height[indexPath.row] floatValue];
@@ -238,6 +497,17 @@
 //    UIEdgeInsets top = {10,15,10,15};
 //    return top;
 //}
+-(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    UICollectionReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                                            withReuseIdentifier:@"UICollectionViewHeader"
+                                                                                   forIndexPath:indexPath];
+    headView.backgroundColor = [UIColor redColor];
+    
+    return headView;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    return CGSizeMake(IEW_WIDTH, 40);
+}
 //设置单元格间的横向间距
 -(CGFloat )collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     return 10;
@@ -256,10 +526,16 @@
 #pragma mark --UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
-
+//   ZhaoShengViewController *next = [[ZhaoShengViewController alloc]initWithNibName:@"ZhaoShengViewController" bundle:nil];
+//    next.IsNeedNavigationBar = YES;
+    
     AdsDetailViewController *next = [[AdsDetailViewController alloc]initWithNibName:@"AdsDetailViewController" bundle:nil];
     next.hidesBottomBarWhenPushed=YES;
+    if(indexPath.row%2==0){
+        next.type = ReCruitTypeSchool;
+    }else{
+        next.type = ReCruitTypeClass;
+    }
     [self.navigationController pushViewController:next animated:YES];
 }
 

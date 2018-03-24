@@ -21,6 +21,7 @@
     }
     [self.scrollView loadImages:pics estimateSize:CGSizeMake([[UIScreen mainScreen]bounds].size.width , [[UIScreen mainScreen]bounds].size.width *200 / 375.0)];
     self.scrollView.location = locationRight;
+    self.scrollView.style = MYPageControlStyleLabel;
     self.scrollView.backgroundColor = [UIColor cyanColor];
     self.scrollView.useScaleEffect = YES;
     self.scrollView.needBgView = YES;

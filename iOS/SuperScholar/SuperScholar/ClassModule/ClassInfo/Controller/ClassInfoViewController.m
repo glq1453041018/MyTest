@@ -5,15 +5,18 @@
 //  Created by 骆亮 on 2018/3/15.
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
-
+// !!!: 控制器类
 #import "ClassInfoViewController.h"
 #import "ClassCommentViewController.h"
-
+#import "ZhaoShengViewController.h"         // 招生启示
+#import "ClassSpaceViewController.h"        // 班级动态圈
+#import "ClassEnvironmentViewController.h"  // 班级环境
+// !!!: 视图类
 #import "ClassInfoHeadView.h"
 #import "ClassInfoTableViewCell.h"
 #import "ClassInfoFootView.h"
 #import "PhotoBrowser.h"
-
+// !!!: 数据类
 #import "ClassInfoModel.h"
 #import "ClassInfoManager.h"
 
@@ -234,12 +237,24 @@
 
 // !!!: 滚动视图的代理事件
 -(void)bannerScrollView:(MYBannerScrollView *)bannerScrollView didClickScrollView:(NSInteger)pageIndex{
-    [PhotoBrowser showURLImages:bannerScrollView.imagePaths placeholderImage:[UIImage imageNamed:@"zhanweifu"] selectedIndex:pageIndex];
+    [PhotoBrowser showURLImages:bannerScrollView.imagePaths placeholderImage:kPlaceholderImage selectedIndex:pageIndex];
 }
 
 // !!!: 标题视图的代理事件
 -(void)classInfoManagerTitleClickEvent:(NSInteger)index data:(ClassInfoModel *)model{
-    DLog(@"点击了:%@",model.key);
+    DLog(@"点击了:%@:%@",model.code,model.key);
+    if ([model.code isEqualToString:ZhaoShengQiShiCode]) {          // 招生启示
+        [self goToZhaoShengQiShiModule];
+    }
+    else if ([model.code isEqualToString:ZuiXinDongTaiCode]){       // 最新动态
+        [self goToZuiXinDongTaiModule];
+    }
+    else if ([model.code isEqualToString:BanJiHuanJingCode]){       // 班级环境
+        [self goToBanJiHuanJingModule];
+    }
+    else if ([model.code isEqualToString:JingCaiHuoDongCode]){      // 精彩活动
+        
+    }
 }
 
 
@@ -262,8 +277,37 @@
 
 
 #pragma mark - <************************** 其他方法 **************************>
-
-
+// !!!: 跳转招生启示模块
+-(void)goToZhaoShengQiShiModule{
+    ZhaoShengViewController *ctrl = [ZhaoShengViewController new];
+    ctrl.IsNeedNavigationBar = YES;
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
+// !!!: 跳转最新动态模块
+-(void)goToZuiXinDongTaiModule{
+    UITabBarController *tabCtrl = (UITabBarController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    UINavigationController *navCtrl = tabCtrl.selectedViewController;
+    ClassSapceViewController *ctrl = nil;
+    for (UIViewController *itemCtrl in navCtrl.childViewControllers) {
+        if ([itemCtrl isKindOfClass:[ClassSapceViewController class]]) {
+            ctrl = (ClassSapceViewController*)itemCtrl;
+            break;
+        }
+    }
+    if (ctrl) {  // 已经存在班级动态圈
+        [self.navigationController popToViewController:ctrl animated:YES];
+    }
+    else{
+        ctrl = [ClassSapceViewController new];
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
+}
+// !!!: 跳转学校环境
+-(void)goToBanJiHuanJingModule{
+    ClassEnvironmentViewController *ctrl = [ClassEnvironmentViewController new];
+    ctrl.title = @"班级环境";
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
 
 
 #pragma mark - <************************** 检测释放 **************************>

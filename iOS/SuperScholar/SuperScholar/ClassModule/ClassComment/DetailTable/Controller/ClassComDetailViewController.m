@@ -11,13 +11,14 @@
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"             // 消息主题cell
 #import "ClassComDetailTableViewCell.h"         // 回复cell
+#import "CommentView.h"                         // 评论视图
 // !!!: 数据
 #import "ClassComDetailManager.h"
 
-@interface ClassComDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ClassComDetailViewController ()<UITableViewDelegate,UITableViewDataSource,CommentViewDelegate>
 // !!!: 视图类
 @property (weak, nonatomic) IBOutlet UITableView *table;
-
+@property (strong ,nonatomic) CommentView *commentView;                 // 评论视图
 // !!!: 数据类
 //@property (copy ,nonatomic) NSArray *data;
 @property (strong ,nonatomic) ClassComDetailManager *manager;
@@ -59,6 +60,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     // 导航栏
     [self.navigationBar setTitle:self.title?self.title:@"班级评价" leftImage:kGoBackImageString rightText:nil];
+    
     self.isNeedGoBack = YES;
     
     self.constraint.constant = self.navigationBar.bottom;
@@ -66,10 +68,20 @@
     self.table.separatorStyle = NO;
     self.table.showsVerticalScrollIndicator = NO;
 //    self.table.mj_footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
+    [self.view addSubview:self.commentView];
 }
 
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
+-(CommentView *)commentView{
+    if (_commentView==nil) {
+        _commentView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([CommentView class]) owner:nil options:nil].firstObject;
+        _commentView.delegate = self;
+        _commentView.y = kScreenHeight - _commentView.viewHeight;
+    }
+    return _commentView;
+}
 -(ClassComDetailManager *)manager{
     if (_manager==nil) {
         _manager = [ClassComDetailManager new];
@@ -104,6 +116,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
             cell.selectionStyle = NO;
         }
+        cell.starView.hidden = !self.messageType;       // 星星默认是隐藏的
         [self.manager loadCell:cell];
         return cell;
     }
@@ -114,6 +127,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassComDetailTableViewCell" owner:self options:nil] firstObject];
             cell.selectionStyle = NO;
         }
+        cell.rowView.hidden = indexPath.row==self.manager.dataModel.responses.count-1;
         [self.manager loadResponseCell:cell index:indexPath.row];
         return cell;
     }
@@ -147,7 +161,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, AdaptedWidthValue(30))];
     view.backgroundColor = [UIColor whiteColor];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, kScreenWidth-10*2, AdaptedWidthValue(30))];
-    label.textColor = KColorTheme;
+    label.textColor = kDarkCyanColor;
     label.font = [UIFont systemFontOfSize:FontSize_12];
     label.text = @"最新评论";
     [view addSubview:label];
@@ -159,10 +173,20 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    CommentDetailViewController *ctrl = [CommentDetailViewController new];
-    [self.navigationController pushViewController:ctrl animated:YES];
+    if (indexPath.section==1) {
+        CommentDetailViewController *ctrl = [CommentDetailViewController new];
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
 }
 
+
+
+// !!!: 评论代理
+-(void)commentView:(CommentView *)commentView sendMessage:(NSString *)message complete:(void (^)(BOOL))completeBlock{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        completeBlock(YES);
+    });
+}
 
 
 #pragma mark - <************************** 点击事件 **************************>

@@ -18,11 +18,30 @@
 }
 
 
++(NSArray *)randomContents:(NSInteger)count{
+    NSMutableArray *res = [NSMutableArray array];
+    for (int i=0; i<count; i++) {
+        [res addObject:[self randomContent]];
+    }
+    return res.copy;
+}
+
+
+
 +(NSString *)randomUrlString{
     NSDictionary *dic = [self localDataDictionary];
     NSInteger randomNum = getRandomNumberFromAtoB(0, 49);
     NSArray *pics = [dic objectForKey:@"pics"];
     return pics[randomNum];
+}
+
+
++(NSArray *)randomUrls:(NSInteger)count{
+    NSMutableArray *res = [NSMutableArray array];
+    for (int i=0; i<count; i++) {
+        [res addObject:[self randomUrlString]];
+    }
+    return res.copy;
 }
 
 

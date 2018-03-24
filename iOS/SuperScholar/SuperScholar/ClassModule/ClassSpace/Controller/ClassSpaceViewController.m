@@ -8,18 +8,22 @@
 
 // !!!: 控制器类
 #import "ClassSpaceViewController.h"
+#import "SpeechViewController.h"                // 发表
 #import "ClassInfoViewController.h"             // 班级信息
 #import "ClassComDetailViewController.h"        // 班级评论列表
+#import "PersonalInfoViewController.h"          // 个人信息中心
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"
 #import "ClassSpaceHeadView.h"
+#import "LLListPickView.h"                      // 弹窗列表视图
 // !!!: 管理类
 #import "ClassSpaceManager.h"
 
-@interface ClassSapceViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ClassSapceViewController ()<UITableViewDelegate,UITableViewDataSource,LLListPickViewDelegate,ClassSpaceTableViewCellDelegate>
 // !!!: 视图类
 @property (strong ,nonatomic) UITableView *table;
 @property (strong ,nonatomic) ClassSpaceHeadView *headView;
+@property (strong ,nonatomic) LLListPickView *pickView;
 // !!!: 数据类
 @property (strong ,nonatomic) NSMutableArray *data;
 @property (strong ,nonatomic) ClassSpaceManager *manager;
@@ -67,7 +71,8 @@
 -(void)initUI{
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     // 导航栏
-    [self.navigationBar setTitle:self.title?self.title:@"班级动态" leftImage:kGoBackImageString rightText:@"发布"];
+    [self.navigationBar setTitle:self.title?self.title:@"班级动态" leftImage:kGoBackImageString rightImage:@"camera"];
+    [self.navigationBar.rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 5)];
     self.isNeedGoBack = YES;
     
     self.table.tableHeaderView = self.headView;
@@ -96,6 +101,14 @@
     return _headView;
 }
 
+-(LLListPickView *)pickView{
+    if (_pickView==nil) {
+        _pickView = [LLListPickView new];
+        _pickView.delegate = self;
+    }
+    return _pickView;
+}
+
 -(NSMutableArray *)data{
     if (_data==nil) {
         _data = [NSMutableArray array];
@@ -116,7 +129,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)navigationViewRightClickEvent{
-    
+    [self.pickView showItems:@[@"拍照",@"录像",@"去相册选择"]];
 }
 
 // !!!: 列表的代理方法
@@ -133,6 +146,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
         cell.selectionStyle = NO;
     }
+    cell.delegate = self;
     [self.manager loadData:self.data cell:cell index:indexPath.row pageSize:10];
     return cell;
 }
@@ -150,10 +164,41 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     ClassComDetailViewController *ctrl = [ClassComDetailViewController new];
+    ctrl.messageType = MessageTypeDefault;
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 
+// !!!: LLListPickView代理事件
+-(void)lllistPickViewItemSelected:(NSInteger)index{
+    SpeechViewController *ctrl = [SpeechViewController new];
+    [self presentViewController:ctrl animated:NO completion:nil];
+    [ctrl lllistPickViewItemSelected:index];
+}
+
+// !!!: cell的代理事件
+-(void)classSpaceTableViewCellClickEvent:(ClassCellClickEvent)event{
+//    NSString *tip = @[@"头像",@"赞",@"评论"][event];
+    switch (event) {
+        case ClassCellHeadClickEvent:
+        {
+            [self goToPersionalModule];     // 跳转个人信息页面
+        }
+            break;
+        case ClassCellLikeClickEvent:
+        {
+            
+        }
+            break;
+        case ClassCellCommentClickEvent:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
 
 #pragma mark - <************************** 点击事件 **************************>
 // !!!: 头部点击事件
@@ -166,7 +211,11 @@
 
 
 #pragma mark - <************************** 其他方法 **************************>
-
+// !!!: 头像点击
+-(void)goToPersionalModule{
+    PersonalInfoViewController *ctrl = [PersonalInfoViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
 
 
 

@@ -9,14 +9,22 @@
 #import "AddressViewManager.h"
 
 @interface AddressViewManager ()
-
 @property (strong ,nonatomic) AMapLocationManager *locationManager;
-
 @end
 
 @implementation AddressViewManager
 
-+(void)configMap{
++(instancetype)share{
+    static AddressViewManager *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [AddressViewManager new];
+    });
+    return instance;
+}
+
+
+-(void)configMap{
     [AMapServices sharedServices].apiKey = kMapKey;
 }
 

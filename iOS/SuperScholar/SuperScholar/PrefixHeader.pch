@@ -23,6 +23,7 @@
 #import "NSObject+InitData.h"
 #import "MJDIYHeader.h"
 #import "MJDIYAutoFooter.h"
+#import "UICollectionView+Extension.h"
 
 // !!!: ------------------------------------其他------------------------------------
 #import "AppMacro.h"            // 常用的宏

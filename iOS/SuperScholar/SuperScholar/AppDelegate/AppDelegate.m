@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ShareManager.h"
 #import "AddressViewManager.h"
 #import "MainTabBarViewController.h"
 
@@ -23,9 +24,22 @@
     self.window.rootViewController = [MainTabBarViewController new];
     [self.window makeKeyAndVisible];
     
-    [AddressViewManager configMap];
+//    [AddressViewManager configMap];
+    
+    [ShareManager applicationDidFinishLaunching];
+    
+    [[UITextView appearance] setTintColor:KColorTheme];
+    [[UITextField appearance] setTintColor:KColorTheme];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    if([ShareManager applicationOpenURL:url]){
+        return YES;
+    }
+    return NO;
 }
 
 
