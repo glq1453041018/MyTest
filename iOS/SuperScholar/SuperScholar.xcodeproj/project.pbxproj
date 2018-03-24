@@ -160,6 +160,9 @@
 		C7F2C02A2063B4FB00C34D2D /* PhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C0292063B4FB00C34D2D /* PhotoBrowser.m */; };
 		D31B768E2061345D000AA637 /* testData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D31B768D2061345D000AA637 /* testData.plist */; };
 		D31B76912061379D000AA637 /* TESTDATA.m in Sources */ = {isa = PBXBuildFile; fileRef = D31B76902061379D000AA637 /* TESTDATA.m */; };
+		D3FA488620666B350016D0B8 /* LolitaTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FA488520666B350016D0B8 /* LolitaTableView.m */; };
+		D3FA488E2066735A0016D0B8 /* PersonalInfoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FA488D2066735A0016D0B8 /* PersonalInfoListViewController.m */; };
+		D3FA489120668D4D0016D0B8 /* PersonalInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FA489020668D4D0016D0B8 /* PersonalInfoManager.m */; };
 		F4060B422063FE7F00C416A3 /* OpenShare+Alipay.m in Sources */ = {isa = PBXBuildFile; fileRef = F4060B362063FE7F00C416A3 /* OpenShare+Alipay.m */; };
 		F4060B432063FE7F00C416A3 /* OpenShare+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = F4060B382063FE7F00C416A3 /* OpenShare+QQ.m */; };
 		F4060B442063FE7F00C416A3 /* OpenShare+Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = F4060B3A2063FE7F00C416A3 /* OpenShare+Renren.m */; };
@@ -438,6 +441,12 @@
 		D31B768D2061345D000AA637 /* testData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testData.plist; sourceTree = "<group>"; };
 		D31B768F2061379D000AA637 /* TESTDATA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TESTDATA.h; sourceTree = "<group>"; };
 		D31B76902061379D000AA637 /* TESTDATA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TESTDATA.m; sourceTree = "<group>"; };
+		D3FA488420666B350016D0B8 /* LolitaTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LolitaTableView.h; sourceTree = "<group>"; };
+		D3FA488520666B350016D0B8 /* LolitaTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LolitaTableView.m; sourceTree = "<group>"; };
+		D3FA488C2066735A0016D0B8 /* PersonalInfoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoListViewController.h; sourceTree = "<group>"; };
+		D3FA488D2066735A0016D0B8 /* PersonalInfoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoListViewController.m; sourceTree = "<group>"; };
+		D3FA488F20668D4D0016D0B8 /* PersonalInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalInfoManager.h; path = SuperScholar/Public/Controller/PersonalInfo/Controller/PersonalInfoManager.h; sourceTree = SOURCE_ROOT; };
+		D3FA489020668D4D0016D0B8 /* PersonalInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalInfoManager.m; path = SuperScholar/Public/Controller/PersonalInfo/Controller/PersonalInfoManager.m; sourceTree = SOURCE_ROOT; };
 		D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperScholar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar.release.xcconfig"; sourceTree = "<group>"; };
 		F4060B352063FE7F00C416A3 /* OpenShare+Alipay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Alipay.h"; sourceTree = "<group>"; };
 		F4060B362063FE7F00C416A3 /* OpenShare+Alipay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Alipay.m"; sourceTree = "<group>"; };
@@ -781,6 +790,7 @@
 		384A554B20521F20006D8C23 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D3FA488320666B220016D0B8 /* NestedTableView */,
 				C70A31E020649A4D00D1139A /* LLNoDataView */,
 				C75E03AE2063484A00EC0AF5 /* CommentView */,
 				C750B22D2061EF1F00DAD5CD /* LLListPickView */,
@@ -1066,6 +1076,8 @@
 				C70A31F02064F72C00D1139A /* PersonalInfoViewController.h */,
 				C70A31F12064F72C00D1139A /* PersonalInfoViewController.m */,
 				C70A31F22064F72C00D1139A /* PersonalInfoViewController.xib */,
+				D3FA488C2066735A0016D0B8 /* PersonalInfoListViewController.h */,
+				D3FA488D2066735A0016D0B8 /* PersonalInfoListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1073,6 +1085,8 @@
 		C70A31EE2064F70400D1139A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D3FA488F20668D4D0016D0B8 /* PersonalInfoManager.h */,
+				D3FA489020668D4D0016D0B8 /* PersonalInfoManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1760,6 +1774,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D3FA488320666B220016D0B8 /* NestedTableView */ = {
+			isa = PBXGroup;
+			children = (
+				D3FA488420666B350016D0B8 /* LolitaTableView.h */,
+				D3FA488520666B350016D0B8 /* LolitaTableView.m */,
+			);
+			path = NestedTableView;
+			sourceTree = "<group>";
+		};
 		F4060B342063FE7F00C416A3 /* openshare */ = {
 			isa = PBXGroup;
 			children = (
@@ -2126,6 +2149,7 @@
 				C7188801205A6EE800333387 /* NSTimer+Addition.m in Sources */,
 				C7613F24205CC48B002604A3 /* ClassSpaceModel.m in Sources */,
 				C781F856205BC28600BE37AD /* ClassViewCollectionViewCell.m in Sources */,
+				D3FA488620666B350016D0B8 /* LolitaTableView.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
 				C7A27AF7206503DD00BCB8C0 /* ActivitySubViewController.m in Sources */,
 				BE66924820633F3300111810 /* MYImageButton.m in Sources */,
@@ -2175,6 +2199,7 @@
 				C750B240206217D000DAD5CD /* LxGridViewFlowLayout.m in Sources */,
 				C7613F23205CC48B002604A3 /* ClassSpaceViewController.m in Sources */,
 				C750B2352061F88100DAD5CD /* LLListPickView.m in Sources */,
+				D3FA488E2066735A0016D0B8 /* PersonalInfoListViewController.m in Sources */,
 				C781F83B205B528200BE37AD /* LLNavigationView.m in Sources */,
 				C758D946205F848500257DDB /* ClassCommentSectionView.m in Sources */,
 				384A556220521F2E006D8C23 /* MYSegmentController.m in Sources */,
@@ -2203,6 +2228,7 @@
 				C781F863205BCEC800BE37AD /* UIImage+ImageEffects.m in Sources */,
 				C781F875205CA79E00BE37AD /* AddressViewManager.m in Sources */,
 				C718880D205A894900333387 /* ClassInfoTableViewCell.m in Sources */,
+				D3FA489120668D4D0016D0B8 /* PersonalInfoManager.m in Sources */,
 				C7A27AFB206503DD00BCB8C0 /* ActivityModel.m in Sources */,
 				C781F848205B702D00BE37AD /* ClassInfoTitleItemView.m in Sources */,
 				C71887FD205A6D7900333387 /* MYBannerScrollView.m in Sources */,
