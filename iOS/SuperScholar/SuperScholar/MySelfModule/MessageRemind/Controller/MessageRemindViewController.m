@@ -7,6 +7,8 @@
 //
 
 #import "MessageRemindViewController.h"
+#import "ActivityDetailWebViewController.h"
+#import "ClassComDetailViewController.h"
 #import "ShareManager.h"
 #import "ZhaoShengTableViewCell.h"
 #import "TESTDATA.h"
@@ -118,6 +120,20 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return ShiPei(134);
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row % 2 == 0){//网页文章
+        ActivityDetailWebViewController *vc = [ActivityDetailWebViewController new];
+        vc.title = self.title;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else{//普通文章
+        ClassComDetailViewController *ctrl = [ClassComDetailViewController new];
+        ctrl.title = self.title;
+        ctrl.messageType = MessageTypeDefault;
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
 }
 
 #pragma mark - <************************** 点击事件 **************************>
