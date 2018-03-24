@@ -174,6 +174,8 @@
 		F49D7D4B205D5E90009D17EA /* MessageRemindViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49D7D49205D5E90009D17EA /* MessageRemindViewController.xib */; };
 		F49D7D54205D6F2A009D17EA /* MessageRemindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D7D52205D6F2A009D17EA /* MessageRemindTableViewCell.m */; };
 		F49D7D55205D6F2A009D17EA /* MessageRemindTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49D7D53205D6F2A009D17EA /* MessageRemindTableViewCell.xib */; };
+		F4CFCC2F206630B10002E8DB /* ActivityVideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CFCC2B206630B10002E8DB /* ActivityVideoDetailViewController.m */; };
+		F4CFCC30206630B10002E8DB /* ActivityVideoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4CFCC2C206630B10002E8DB /* ActivityVideoDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -462,6 +464,9 @@
 		F49D7D51205D6F2A009D17EA /* MessageRemindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageRemindTableViewCell.h; sourceTree = "<group>"; };
 		F49D7D52205D6F2A009D17EA /* MessageRemindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageRemindTableViewCell.m; sourceTree = "<group>"; };
 		F49D7D53205D6F2A009D17EA /* MessageRemindTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageRemindTableViewCell.xib; sourceTree = "<group>"; };
+		F4CFCC2A206630B10002E8DB /* ActivityVideoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityVideoDetailViewController.h; sourceTree = "<group>"; };
+		F4CFCC2B206630B10002E8DB /* ActivityVideoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityVideoDetailViewController.m; sourceTree = "<group>"; };
+		F4CFCC2C206630B10002E8DB /* ActivityVideoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityVideoDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1654,6 +1659,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A27AE0206503DD00BCB8C0 /* ActivityDetailWebController */,
+				F4CFCC28206630B10002E8DB /* ActivityVideoDetailViewController */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1681,12 +1687,12 @@
 		C7A27AE5206503DD00BCB8C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C7A27AE6206503DD00BCB8C0 /* ActivitySubViewController.h */,
 				C7A27AE7206503DD00BCB8C0 /* ActivityViewController.h */,
-				C7A27AE8206503DD00BCB8C0 /* ActivitySubViewController.m */,
-				C7A27AE9206503DD00BCB8C0 /* ActivityViewController.xib */,
-				C7A27AEA206503DD00BCB8C0 /* ActivitySubViewController.xib */,
 				C7A27AEB206503DD00BCB8C0 /* ActivityViewController.m */,
+				C7A27AE9206503DD00BCB8C0 /* ActivityViewController.xib */,
+				C7A27AE6206503DD00BCB8C0 /* ActivitySubViewController.h */,
+				C7A27AE8206503DD00BCB8C0 /* ActivitySubViewController.m */,
+				C7A27AEA206503DD00BCB8C0 /* ActivitySubViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1853,6 +1859,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F4CFCC28206630B10002E8DB /* ActivityVideoDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F4CFCC29206630B10002E8DB /* Controller */,
+				F4CFCC2D206630B10002E8DB /* Model */,
+				F4CFCC2E206630B10002E8DB /* View */,
+			);
+			path = ActivityVideoDetailViewController;
+			sourceTree = "<group>";
+		};
+		F4CFCC29206630B10002E8DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4CFCC2A206630B10002E8DB /* ActivityVideoDetailViewController.h */,
+				F4CFCC2B206630B10002E8DB /* ActivityVideoDetailViewController.m */,
+				F4CFCC2C206630B10002E8DB /* ActivityVideoDetailViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F4CFCC2D206630B10002E8DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F4CFCC2E206630B10002E8DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FA4F9C06915C67A5F8BC4296 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1939,6 +1979,7 @@
 				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				C750B23A206209A100DAD5CD /* SpeechViewController.xib in Resources */,
 				C7A27AF6206503DD00BCB8C0 /* ActivityDetailWebViewController.xib in Resources */,
+				F4CFCC30206630B10002E8DB /* ActivityVideoDetailViewController.xib in Resources */,
 				BE950ED3205B8728009F562B /* LoginInterfaceViewController.xib in Resources */,
 				BE950EE8205BECAF009F562B /* DataEditingViewController.xib in Resources */,
 				384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */,
@@ -2076,6 +2117,7 @@
 				C758D97A2060F4C100257DDB /* WeakScriptMessageDelegate.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
 				C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */,
+				F4CFCC2F206630B10002E8DB /* ActivityVideoDetailViewController.m in Sources */,
 				C7F2C01E206395BC00C34D2D /* CutomCollectionViewLayout.m in Sources */,
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
 				C70A31F32064F72C00D1139A /* PersonalInfoViewController.m in Sources */,

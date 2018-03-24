@@ -24,7 +24,7 @@
     self.window.rootViewController = [MainTabBarViewController new];
     [self.window makeKeyAndVisible];
     
-    [AddressViewManager configMap];
+//    [AddressViewManager configMap];
     
     [ShareManager applicationDidFinishLaunching];
     

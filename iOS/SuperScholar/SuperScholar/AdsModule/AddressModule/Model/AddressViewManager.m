@@ -10,7 +10,6 @@
 
 @interface AddressViewManager ()
 @property (strong ,nonatomic) AMapLocationManager *locationManager;
-@P
 @end
 
 @implementation AddressViewManager

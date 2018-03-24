@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface MyCommentTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *videoPlayImage;
+@end
+
+@interface MyCommentTableViewCell_NOImage : UITableViewCell
 
 @end

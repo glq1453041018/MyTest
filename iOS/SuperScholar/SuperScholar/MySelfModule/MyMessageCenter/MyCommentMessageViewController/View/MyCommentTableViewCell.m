@@ -22,3 +22,9 @@
 }
 
 @end
+
+
+@implementation MyCommentTableViewCell_NOImage
+
+
+@end

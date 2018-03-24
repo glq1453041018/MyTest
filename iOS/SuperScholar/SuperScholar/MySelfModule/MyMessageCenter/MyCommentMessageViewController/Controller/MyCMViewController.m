@@ -35,8 +35,9 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    [self.data addObject:@"ffsdaf"];
-    [self.data addObject:@"fdsadfa"];
+    for (int i = 0; i < 20; i ++) {
+      [self.data addObject:@"1"];  
+    }
 }
 
 
@@ -82,20 +83,40 @@
     return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *identifier = @"mycommentid";
-    MyCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if(!cell){
-        NSArray *cells = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MyCommentTableViewCell class]) owner:nil options:nil];
-        for (MyCommentTableViewCell *obj in cells) {
-            if([obj isKindOfClass:[MyCommentTableViewCell class]]){
-                cell = obj;
-                break;
+    if(indexPath.section % 2 == 0){//图片或视频
+        NSString *identifier = @"mycommentid";
+        MyCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if(!cell){
+            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MyCommentTableViewCell class]) owner:nil options:nil];
+            for (MyCommentTableViewCell *obj in cells) {
+                if([obj isKindOfClass:[MyCommentTableViewCell class]]){
+                    cell = obj;
+                    break;
+                }
             }
+            cell.shiPeiAllSubViews();
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.shiPeiAllSubViews();
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        cell.videoPlayImage.hidden = indexPath.section % 4;
+        return cell;
+    }else{//文本
+        NSString *identifier = @"mycommentid1";
+        MyCommentTableViewCell_NOImage *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if(!cell){
+            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MyCommentTableViewCell class]) owner:nil options:nil];
+            for (MyCommentTableViewCell_NOImage *obj in cells) {
+                if([obj isKindOfClass:[MyCommentTableViewCell_NOImage class]]){
+                    cell = obj;
+                    break;
+                }
+            }
+            cell.shiPeiAllSubViews();
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        return cell;
     }
-    return cell;
+    return nil;
 }
 
 #pragma mark UITableViewDelegate
