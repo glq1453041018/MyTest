@@ -27,11 +27,13 @@ typedef NS_ENUM(NSInteger , ImagesType) {
 @property (copy ,nonatomic) NSArray *images;
 @property (assign ,nonatomic) ImagesType type;
 @property (strong ,nonatomic) UIImage *placeholderImage;
+@property (assign, nonatomic) CGRect fromFrame;//图片源位置位置，使用convertRect映射到window上的frame
 @end
 @implementation PhotoBrowser
 
-+(void)showImages:(NSArray*)images imageTyep:(ImagesType)type placeholderImage:(UIImage *)image selectedIndex:(NSInteger)index{
++(instancetype)showImages:(NSArray*)images imageTyep:(ImagesType)type placeholderImage:(UIImage *)image selectedIndex:(NSInteger)index fromFrame:(CGRect)fromFrame{
     PhotoBrowser *photoBrowser = [[PhotoBrowser alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    photoBrowser.fromFrame = fromFrame;
     photoBrowser.images = images;
     photoBrowser.type = type;
     photoBrowser.placeholderImage = image;
@@ -52,30 +54,44 @@ typedef NS_ENUM(NSInteger , ImagesType) {
     }
     
     // 添加到keyWindow上
+    CGPoint position = photoBrowser.center;
+    if(photoBrowser.fromFrame.size.width){
+        position = CGPointMake(photoBrowser.fromFrame.origin.x + photoBrowser.fromFrame.size.width / 2.0, photoBrowser.fromFrame.origin.y + photoBrowser.fromFrame.size.height / 2.0);
+    }
+    
     UIWindow *keyWindow = [[UIApplication sharedApplication].delegate window];
     [keyWindow addSubview:photoBrowser];
+    CAAnimationGroup *group_animations = [CAAnimationGroup animation];
+    group_animations.duration = 0.25f;  // 动画之行时间
+    group_animations.removedOnCompletion = NO;
+    group_animations.fillMode = kCAFillModeForwards;
+    
+    CABasicAnimation *positon_animation = [CABasicAnimation animationWithKeyPath:@"position"];
+    positon_animation.fromValue = [NSValue valueWithCGPoint:position];
+    positon_animation.toValue = [NSValue valueWithCGPoint:photoBrowser.center];
+    
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    animation.duration = 0.25f;  // 动画之行时间
     animation.fromValue = @(0.0);
     animation.toValue = @(1.0);
-    animation.removedOnCompletion = NO;
-    animation.fillMode = kCAFillModeForwards;
     // 将动画添加到layer上
-    [photoBrowser.layer addAnimation:animation forKey:@"animation"];
+    [group_animations setAnimations:@[positon_animation, animation]];
+    [photoBrowser.layer addAnimation:group_animations forKey:@"animation"];
     
     // 设置位置
     [photoBrowser.collectionView setContentOffset:CGPointMake([UIScreen mainScreen].bounds.size.width*index, 0) animated:NO];
     photoBrowser.pageControl.currentPage = index;
     photoBrowser.pageLabel.text = [NSString stringWithFormat:@"%ld / %ld",index+1,images.count];
+    
+    return photoBrowser;
 }
 
 
-+(void)showLocalImages:(NSArray *)images selectedIndex:(NSInteger)index{
-    [self showImages:images imageTyep:Image_Local placeholderImage:nil selectedIndex:index];
++(instancetype)showLocalImages:(NSArray *)images selectedIndex:(NSInteger)index fromFrame:(CGRect)fromFrame{
+    return [self showImages:images imageTyep:Image_Local placeholderImage:nil selectedIndex:index fromFrame:fromFrame];
 }
 
-+(void)showURLImages:(NSArray *)images placeholderImage:(UIImage *)image selectedIndex:(NSInteger)index{
-    [self showImages:images imageTyep:Image_URL placeholderImage:image selectedIndex:index];
++(instancetype)showURLImages:(NSArray *)images placeholderImage:(UIImage *)image selectedIndex:(NSInteger)index fromFrame:(CGRect)fromFrame{
+   return [self showImages:images imageTyep:Image_URL placeholderImage:image selectedIndex:index fromFrame:(CGRect)fromFrame];
 }
 
 #pragma mark - <************************** 初始化控件 **************************>
@@ -208,6 +224,9 @@ typedef NS_ENUM(NSInteger , ImagesType) {
     NSInteger pageIndex = scroll.contentOffset.x/self.frame.size.width;
     self.pageControl.currentPage = pageIndex;
     self.pageLabel.text = [NSString stringWithFormat:@"%ld / %ld",pageIndex+1,self.images.count];
+    if([self.delegate respondsToSelector:@selector(photoBrowser:didScrollToPage:)]){
+        self.fromFrame = [self.delegate photoBrowser:self didScrollToPage:pageIndex];
+    }
 }
 
 // !!!: 手势代理
@@ -255,6 +274,35 @@ typedef NS_ENUM(NSInteger , ImagesType) {
                                           otherButtonTitles:nil];
     [alert show];
 }
+- (void)goToOriginPositonIfNeeded{
+    if(self.fromFrame.size.width){
+        NSArray *cellArray =  self.collectionView.visibleCells;
+        PhotoBrowserCollectionViewCell *cell = cellArray.firstObject;
+        UIImageView *imageView = cell.imageView;
+        
+        if(cell.scrollView.zoomScale > 1)//放大问题未解决
+            [cell.scrollView setZoomScale:1];
+        
+        UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+        //由于imageview的contentModel是fit，所以不能把imageview的frame作为image的frame，需要进行转化，并将contentMode转为fill达到我们想要的效果
+        CGFloat img_x = imageView.frame.origin.x;
+        CGFloat img_width = imageView.viewWidth;//image的宽即imageView的宽
+        CGFloat img_height = img_width * imageView.image.size.height / imageView.image.size.width;//算出image按比例缩放后的高
+        CGFloat img_y = cell.scrollView.viewHeight / 2 - img_height / 2;
+        
+        CGRect imgFrame = [imageView.superview convertRect:CGRectMake(img_x, img_y, img_width, img_height) toView:window];
+        imageView.frame = imgFrame;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.layer.masksToBounds = YES;
+        [window addSubview:imageView];
+        [UIView animateWithDuration:0.33 animations:^{
+            imageView.frame = self.fromFrame;
+        }completion:^(BOOL finished) {
+            [imageView removeFromSuperview];
+        }];
+    }
+}
+
 // !!!: 手势处理
 - (void)handleSwipe:(UIPanGestureRecognizer *)swipe{
     NSArray *cellArray =  self.collectionView.visibleCells;
@@ -287,6 +335,7 @@ typedef NS_ENUM(NSInteger , ImagesType) {
         self.collectionView.scrollEnabled = YES;
         // 如果超过了最大滑动距离
         if (fabs(self.collectionView.frame.origin.y)>hideHeight) {
+            [self goToOriginPositonIfNeeded];
             [UIView animateWithDuration:0.5 animations:^{
                 self.alpha = 0;
                 if (self.collectionView.frame.origin.y<0) {
@@ -316,7 +365,9 @@ typedef NS_ENUM(NSInteger , ImagesType) {
 
 
 -(void)handleSingleTap:(UIGestureRecognizer *)tap{
-    [UIView animateWithDuration:0.5 animations:^{
+    [self goToOriginPositonIfNeeded];
+    
+    [UIView animateWithDuration:0.33 animations:^{
         CGRect newFrame = self.collectionView.frame;
         newFrame.origin.y = self.collectionView.frame.origin.y + self.frame.size.height;
         self.collectionView.frame = newFrame;
@@ -390,6 +441,7 @@ typedef NS_ENUM(NSInteger , ImagesType) {
 
 //控制缩放时在中心
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView{
+    DLog(@"contentsize:%lf", scrollView.contentSize.width);
     CGFloat offsetX = (scrollView.bounds.size.width > scrollView.contentSize.width)?
     (scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5 : 0.0;
     CGFloat offsetY = (scrollView.bounds.size.height > scrollView.contentSize.height)?
