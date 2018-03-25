@@ -10,7 +10,6 @@
 #import "NSArray+ExtraMethod.h"
 
 @interface ClassCommentManager ()<PhotoBrowserDelegate>
-@property (strong, nonatomic) PhotoBrowser *photoBroser;
 @end
 
 @implementation ClassCommentManager
@@ -167,9 +166,9 @@
     DLog(@"第%ld个图片",btn.tag);
     ClassSpaceModel *csm = objc_getAssociatedObject(btn, @"imageBtn");
     CGRect window_frame = [btn.superview convertRect:btn.frame toView:[UIApplication sharedApplication].keyWindow];
-    self.photoBroser = [PhotoBrowser showURLImages:csm.pics placeholderImage:kPlaceholderImage selectedIndex:btn.tag fromFrame:window_frame];
-    objc_setAssociatedObject(self.photoBroser, @"photoBrowser", csm, OBJC_ASSOCIATION_RETAIN);
-    self.photoBroser.delegate = self;
+    PhotoBrowser *photoBroser = [PhotoBrowser showURLImages:csm.pics placeholderImage:kPlaceholderImage selectedIndex:btn.tag fromFrame:window_frame];
+    objc_setAssociatedObject(photoBroser, @"photoBrowser", csm, OBJC_ASSOCIATION_RETAIN);
+    photoBroser.delegate = self;
 }
 
 // !!!:图片切换代理

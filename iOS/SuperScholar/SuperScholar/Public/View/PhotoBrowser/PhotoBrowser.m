@@ -55,7 +55,7 @@ typedef NS_ENUM(NSInteger , ImagesType) {
     
     // 添加到keyWindow上
     CGPoint position = photoBrowser.center;
-    if(photoBrowser.fromFrame.size.width){
+    if(photoBrowser.fromFrame.size.width){//设置图片初始positon
         position = CGPointMake(photoBrowser.fromFrame.origin.x + photoBrowser.fromFrame.size.width / 2.0, photoBrowser.fromFrame.origin.y + photoBrowser.fromFrame.size.height / 2.0);
     }
     
@@ -274,22 +274,23 @@ typedef NS_ENUM(NSInteger , ImagesType) {
                                           otherButtonTitles:nil];
     [alert show];
 }
+// !!!: 将图片移回原来位置
 - (void)goToOriginPositonIfNeeded{
     if(self.fromFrame.size.width){
         NSArray *cellArray =  self.collectionView.visibleCells;
         PhotoBrowserCollectionViewCell *cell = cellArray.firstObject;
         UIImageView *imageView = cell.imageView;
         
-        if(cell.scrollView.zoomScale > 1)//放大问题未解决
+        if(cell.scrollView.zoomScale > 1)//放大问题未解决，暂时强制取消放大效果
             [cell.scrollView setZoomScale:1];
-        
-        UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+
         //由于imageview的contentModel是fit，所以不能把imageview的frame作为image的frame，需要进行转化，并将contentMode转为fill达到我们想要的效果
-        CGFloat img_x = imageView.frame.origin.x;
         CGFloat img_width = imageView.viewWidth;//image的宽即imageView的宽
         CGFloat img_height = img_width * imageView.image.size.height / imageView.image.size.width;//算出image按比例缩放后的高
+        CGFloat img_x = imageView.viewOrigin.x;
         CGFloat img_y = cell.scrollView.viewHeight / 2 - img_height / 2;
         
+        UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
         CGRect imgFrame = [imageView.superview convertRect:CGRectMake(img_x, img_y, img_width, img_height) toView:window];
         imageView.frame = imgFrame;
         imageView.contentMode = UIViewContentModeScaleAspectFill;
