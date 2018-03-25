@@ -9,6 +9,7 @@
 #import "ClassCommentViewController.h"
 #import "ClassComDetailViewController.h"        // 评论详情
 #import "SpeechViewController.h"                // 发表
+#import "PersonalInfoViewController.h"
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"             // cell
 #import "ClassCommentSectionView.h"
@@ -16,7 +17,7 @@
 // !!!: 管理类
 #import "ClassCommentManager.h"
 
-@interface ClassCommentViewController ()<UITableViewDelegate,UITableViewDataSource,ClassCommentSectionViewDelegate,LLListPickViewDelegate>
+@interface ClassCommentViewController ()<UITableViewDelegate,UITableViewDataSource,ClassCommentSectionViewDelegate,LLListPickViewDelegate,ClassSpaceTableViewCellDelegate>
 // !!!: 视图类
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong ,nonatomic) ClassCommentSectionView *sectionView;
@@ -128,6 +129,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
         cell.selectionStyle = NO;
     }
+    cell.delegate = self;
     [self.manager loadData:self.data cell:cell index:indexPath.row pageSize:10];
     return cell;
 }
@@ -151,6 +153,31 @@
     [ctrl lllistPickViewItemSelected:index];
 }
 
+
+// !!!: cell的代理事件
+-(void)classSpaceTableViewCellClickEvent:(ClassCellClickEvent)event{
+    //    NSString *tip = @[@"头像",@"赞",@"评论"][event];
+    switch (event) {
+        case ClassCellHeadClickEvent:
+        {
+            [self goToPersionalModule];     // 跳转个人信息页面
+        }
+            break;
+        case ClassCellLikeClickEvent:
+        {
+            
+        }
+            break;
+        case ClassCellCommentClickEvent:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - <************************** 点击事件 **************************>
 
 
@@ -162,6 +189,12 @@
     
 }
 
+
+// !!!: 头像点击
+-(void)goToPersionalModule{
+    PersonalInfoViewController *ctrl = [PersonalInfoViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
 
 
 #pragma mark - <************************** 检测释放 **************************>

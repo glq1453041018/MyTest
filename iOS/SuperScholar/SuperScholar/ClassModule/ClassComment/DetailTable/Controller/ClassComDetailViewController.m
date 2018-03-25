@@ -8,6 +8,7 @@
 
 #import "ClassComDetailViewController.h"
 #import "CommentDetailViewController.h"         // 评论详情
+#import "PersonalInfoViewController.h"
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"             // 消息主题cell
 #import "ClassComDetailTableViewCell.h"         // 回复cell
@@ -15,7 +16,7 @@
 // !!!: 数据
 #import "ClassComDetailManager.h"
 
-@interface ClassComDetailViewController ()<UITableViewDelegate,UITableViewDataSource,CommentViewDelegate>
+@interface ClassComDetailViewController ()<UITableViewDelegate,UITableViewDataSource,CommentViewDelegate,ClassSpaceTableViewCellDelegate>
 // !!!: 视图类
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong ,nonatomic) CommentView *commentView;                 // 评论视图
@@ -117,6 +118,7 @@
             cell.selectionStyle = NO;
         }
         cell.starView.hidden = !self.messageType;       // 星星默认是隐藏的
+        cell.delegate = self;
         [self.manager loadCell:cell];
         return cell;
     }
@@ -189,7 +191,37 @@
 }
 
 
+// !!!: cell的代理事件
+-(void)classSpaceTableViewCellClickEvent:(ClassCellClickEvent)event{
+    //    NSString *tip = @[@"头像",@"赞",@"评论"][event];
+    switch (event) {
+        case ClassCellHeadClickEvent:
+        {
+            [self goToPersionalModule];     // 跳转个人信息页面
+        }
+            break;
+        case ClassCellLikeClickEvent:
+        {
+            
+        }
+            break;
+        case ClassCellCommentClickEvent:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+
 #pragma mark - <************************** 点击事件 **************************>
+// !!!: 头像点击
+-(void)goToPersionalModule{
+    PersonalInfoViewController *ctrl = [PersonalInfoViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
 
 
 
