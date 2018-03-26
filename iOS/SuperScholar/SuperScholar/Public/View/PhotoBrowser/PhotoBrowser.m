@@ -84,13 +84,15 @@ typedef NS_ENUM(NSInteger , ImagesType) {
     positon_animation.fromValue = [NSValue valueWithCGPoint:position];
     positon_animation.toValue = [NSValue valueWithCGPoint:photoBrowser.center];
     
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-//    animation.fromValue = [NSValue valueWithCGRect:CGRectMake(0, 0, photoBrowser.fromFrame.size.width, photoBrowser.fromFrame.size.height)];
-    animation.fromValue = @(0.3);
-//    animation.toValue = [NSValue valueWithCGRect:[UIScreen mainScreen].bounds];
-    animation.toValue = @(1);
+    CABasicAnimation *scale_x = [CABasicAnimation animationWithKeyPath:@"transform.scale.x"];
+    scale_x.fromValue = @(photoBrowser.fromFrame.size.width / photoBrowser.viewWidth);
+    scale_x.toValue = @(1);
+    
+    CABasicAnimation *scale_y = [CABasicAnimation animationWithKeyPath:@"transform.scale.y"];
+    scale_y.fromValue = @(photoBrowser.fromFrame.size.height / photoBrowser.viewHeight);
+    scale_y.toValue = @(1);
     // 将动画添加到layer上
-    [group_animations setAnimations:@[positon_animation, animation]];
+    [group_animations setAnimations:@[positon_animation, scale_x, scale_y]];
     [photoBrowser.layer addAnimation:group_animations forKey:@"animation"];
     
     return photoBrowser;
