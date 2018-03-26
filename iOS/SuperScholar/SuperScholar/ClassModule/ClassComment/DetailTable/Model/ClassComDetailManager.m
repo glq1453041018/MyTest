@@ -148,7 +148,7 @@
 -(void)imageActionEvent:(UIButton*)btn{
     DLog(@"第%ld个图片",btn.tag);
     ClassSpaceModel *csm = objc_getAssociatedObject(btn, @"imageBtn");
-    [PhotoBrowser showURLImages:csm.pics placeholderImage:kPlaceholderImage selectedIndex:btn.tag fromFrame:CGRectZero];
+    [PhotoBrowser showURLImages:csm.pics placeholderImage:kPlaceholderImage selectedIndex:btn.tag selectedView:nil];
 }
 
 

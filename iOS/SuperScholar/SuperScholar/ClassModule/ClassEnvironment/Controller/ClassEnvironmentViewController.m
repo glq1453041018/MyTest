@@ -91,7 +91,7 @@
     for (ClassEnvironmentModel *model in self.imageArray) {
         [images addObject:model.picUrl];
     }
-    [PhotoBrowser showURLImages:images placeholderImage:kPlaceholderImage selectedIndex:indexPath.row fromFrame:CGRectZero];
+    [PhotoBrowser showURLImages:images placeholderImage:kPlaceholderImage selectedIndex:indexPath.row selectedView:nil];
 }
 
 

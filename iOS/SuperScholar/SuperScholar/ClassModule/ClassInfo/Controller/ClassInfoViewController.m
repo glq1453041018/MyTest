@@ -237,7 +237,7 @@
 
 // !!!: 滚动视图的代理事件
 -(void)bannerScrollView:(MYBannerScrollView *)bannerScrollView didClickScrollView:(NSInteger)pageIndex{
-    [PhotoBrowser showURLImages:bannerScrollView.imagePaths placeholderImage:kPlaceholderImage selectedIndex:pageIndex fromFrame:CGRectZero];
+    [PhotoBrowser showURLImages:bannerScrollView.imagePaths placeholderImage:kPlaceholderImage selectedIndex:pageIndex selectedView:nil];
 }
 
 // !!!: 标题视图的代理事件
