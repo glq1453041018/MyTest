@@ -8,6 +8,7 @@
 
 #import "DataEditingViewController.h"
 #import "DataEditTableViewCell.h"
+#import "RemotePushManager.h"
 #import <SVProgressHUD.h>
 #import "MYDatePicker.h"
 #import "MYCitySelectPicker.h"
@@ -317,6 +318,7 @@
 #pragma mark - <************************** 点击事件 **************************>
 - (IBAction)onClickExit:(id)sender{
     [SVProgressHUD showSuccessWithStatus:@"退出成功"];
+    [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
     SaveInfoForKey(nil, UserId_NSUserDefaults);
     [self.navigationController popViewControllerAnimated:YES];
 }

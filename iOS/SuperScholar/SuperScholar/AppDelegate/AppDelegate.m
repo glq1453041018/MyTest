@@ -7,9 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import <CloudPushSDK/CloudPushSDK.h>
+#import <UserNotifications/UserNotifications.h>
 #import "ShareManager.h"
 #import "AddressViewManager.h"
 #import "MainTabBarViewController.h"
+#import "RemotePushManager.h"
 
 @interface AppDelegate ()
 
@@ -26,11 +29,13 @@
     
 //    [AddressViewManager configMap];
     
-    [ShareManager applicationDidFinishLaunching];
+    [ShareManager applicationDidFinishLaunching];//mob分享
     
     [[UITextView appearance] setTintColor:KColorTheme];
     [[UITextField appearance] setTintColor:KColorTheme];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    [self setupAliPush];//阿里推送
     
     return YES;
 }
@@ -42,6 +47,18 @@
     return NO;
 }
 
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+//    NSString *device_token = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
+    [CloudPushSDK registerDevice:deviceToken withCallback:^(CloudPushCallbackResult *res) {
+        
+    }];
+}
+/*
+ *  苹果推送注册失败回调
+ */
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"didFailToRegisterForRemoteNotificationsWithError %@", error);
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -68,6 +85,68 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+#pragma mark - 阿里推送
+- (void)setupAliPush{
+    // SDK初始化
+    [CloudPushSDK asyncInit:@"24833806" appSecret:@"e94d6a582eb24e9897347c7b3b9abcd0" callback:^(CloudPushCallbackResult *res) {
+        if (res.success) {
+            NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
+            [[RemotePushManager defaultManager] bindAccountToAliPushServer];
+        } else {
+            NSLog(@"Push SDK init failed, error: %@", res.error);
+        }
+    }];
+    
+    
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0 // Xcode 8编译会调用
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        center.delegate = self;
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionCarPlay) completionHandler:^(BOOL granted, NSError *_Nullable error) {
+            if (!error) {
+                NSLog(@"request authorization succeeded!");
+            }
+        }];
+        
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+#else // Xcode 7编译会调用
+        UIUserNotificationType types = (UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+#endif
+    } else if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+        UIUserNotificationType types = (UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    } else {
+        UIRemoteNotificationType apn_type = (UIRemoteNotificationType)(UIRemoteNotificationTypeAlert |
+                                                                       UIRemoteNotificationTypeSound |
+                                                                       UIRemoteNotificationTypeBadge);
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:apn_type];
+    }
+    
+    
+    
+    
+    //iOS10必须加下面这段代码。
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate=self;
+    UNAuthorizationOptions types10=UNAuthorizationOptionBadge|  UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
+    [center requestAuthorizationWithOptions:types10     completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (granted) {
+            //点击允许
+            //这里可以添加一些自己的逻辑
+        } else {
+            //点击不允许
+            //这里可以添加一些自己的逻辑
+        }
+    }];
+}
+
 
 
 @end
