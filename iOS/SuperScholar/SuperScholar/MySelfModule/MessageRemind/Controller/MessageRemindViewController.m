@@ -7,8 +7,11 @@
 //
 
 #import "MessageRemindViewController.h"
+#import "ActivityDetailWebViewController.h"
+#import "ClassComDetailViewController.h"
 #import "ShareManager.h"
 #import "ZhaoShengTableViewCell.h"
+#import "TESTDATA.h"
 
 @interface MessageRemindViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -37,7 +40,7 @@
 // !!!: 获取数据
 -(void)getDataFormServer{
     for (int i=0; i < 10; i ++) {
-        [self.data addObject:@"fdas"];
+        [self.data addObject:[TESTDATA randomContent]];
     }
 }
 
@@ -93,6 +96,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *text = [self.data objectAtIndex:indexPath.row];
+    
     NSString *cellid = indexPath.row % 4 ? @"zhaoshengcell2" : @"zhaoshengcell";
     ZhaoShengTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if(!cell){
@@ -101,6 +106,9 @@
         else
             cell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ZhaoShengTableViewCell class]) owner:nil options:nil][0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        [cell.contentLable setAttributedText:[self adjustLineSpace:text]];
+        
         [cell cwn_makeShiPeis:^(UIView *maker) {
             maker.shiPeiAllSubViews().shiPeiSelf();
         }];
@@ -114,11 +122,39 @@
     return ShiPei(134);
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row % 2 == 0){//网页文章
+        ActivityDetailWebViewController *vc = [ActivityDetailWebViewController new];
+        vc.title = self.title;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else{//普通文章
+        ClassComDetailViewController *ctrl = [ClassComDetailViewController new];
+        ctrl.title = self.title;
+        ctrl.messageType = MessageTypeDefault;
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
+}
+
 #pragma mark - <************************** 点击事件 **************************>
 
 
 #pragma mark - <************************** 私有方法 **************************>
 
+- (NSMutableAttributedString *)adjustLineSpace:(NSString *)text{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:LineSpace];//调整行间距
+    
+    NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:text];
+    
+    [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
+    //设置文字颜色
+    [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
+    //设置文字大小
+    [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
+    
+    return attributStr;
+}
 
 
 

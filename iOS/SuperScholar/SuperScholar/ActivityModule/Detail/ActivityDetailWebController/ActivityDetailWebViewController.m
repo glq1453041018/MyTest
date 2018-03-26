@@ -200,6 +200,8 @@
     if(webView.webView.scrollView.contentSize.height > 0){
         self.webView.viewHeight = webView.webView.scrollView.contentSize.height;
         self.table.tableHeaderView = self.webView;
+    }else{
+        DLog(@"%lf", webView.webView.scrollView.contentSize.height);
     }
     [self.loadingView stopAnimating];
 }

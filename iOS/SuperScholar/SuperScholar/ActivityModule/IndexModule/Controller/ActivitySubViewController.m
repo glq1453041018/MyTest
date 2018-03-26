@@ -8,6 +8,8 @@
 
 #import "ActivitySubViewController.h"
 #import "ActivityDetailWebViewController.h"
+#import "ClassComDetailViewController.h"
+#import "ActivityVideoDetailViewController.h"
 
 
 #import "ActivitySubViewManager.h"
@@ -124,7 +126,7 @@
                     }
                 }
                 //加载数据
-                [cell.content setText:model.title];
+                [cell.content setAttributedText:[self adjustLineSpace:model.title]];
                 [cell.image sd_setImageWithURL:[NSURL URLWithString:model.imageUrl] placeholderImage:kPlaceholderImage];
                 return cell;
         }else{//模型判断是不带图片的cell
@@ -139,7 +141,7 @@
                 }
             }
             //加载数据
-            [cell.content setText:model.title];
+            [cell.content setAttributedText:[self adjustLineSpace:model.title]];
             return  cell;
         }
     }else if(self.listType == ActivityListTypeActivityShow){
@@ -155,7 +157,7 @@
                 }
             }
             //加载数据
-            [cell.content setText:model.title];
+            [cell.content setAttributedText:[self adjustLineSpace:model.title]];
             [cell.image sd_setImageWithURL:[NSURL URLWithString:model.imageUrl] placeholderImage:kPlaceholderImage];
             return  cell;
         }
@@ -182,7 +184,7 @@
             [cell adjustFrame];
         }
         //加载数据
-        [cell.contentLable setText:model.title];
+        [cell.contentLable setAttributedText:[self adjustLineSpace:model.title]];
         [cell.headImage sd_setImageWithURL:[NSURL URLWithString:model.imageUrl] placeholderImage:kPlaceholderImage];
         return cell;
     }else{//模型判断是不带图片的cell
@@ -199,7 +201,7 @@
             [cell adjustFrame];
         }
         //加载数据
-        [cell.contentLable setText:model.title];
+        [cell.contentLable setAttributedText:[self adjustLineSpace:model.title]];
         return cell;
     }
     return nil;
@@ -209,19 +211,29 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(self.listType == ActivityListTypeGoodArticle){
-        return indexPath.row % 4 == 0 ? ShiPei(248) : ShiPei(122);
+        return indexPath.row % 4 == 0 ? ShiPei(278) : ShiPei(152);
     }else if(self.listType == ActivityListTypeActivityShow){
-        return indexPath.row == 2 ? ShiPei(258) : ShiPei(134);
+        return indexPath.row == 2 ? ShiPei(288) : ShiPei(134);
     }
     return ShiPei(134);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row % 2 == 0){
-        ActivityDetailWebViewController *vc = [ActivityDetailWebViewController new];
-        vc.title = self.title;
+    if(self.listType == ActivityListTypeActivityShow && indexPath.row == 2){//视频文章
+        ActivityVideoDetailViewController *vc = [ActivityVideoDetailViewController new];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
+    }else
+    if(indexPath.row % 2 == 0){//网页文章
+            ActivityDetailWebViewController *vc = [ActivityDetailWebViewController new];
+            vc.title = self.title;
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+    } else{//普通文章
+        ClassComDetailViewController *ctrl = [ClassComDetailViewController new];
+        ctrl.title = self.title;
+        ctrl.messageType = MessageTypeDefault;
+        [self.navigationController pushViewController:ctrl animated:YES];
     }
 }
 
@@ -229,6 +241,21 @@
 
 
 #pragma mark - <************************** 私有方法 **************************>
+
+- (NSMutableAttributedString *)adjustLineSpace:(NSString *)text{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:LineSpace];//调整行间距
+    
+    NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:text];
+
+    [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
+    //设置文字颜色
+    [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
+    //设置文字大小
+    [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
+
+    return attributStr;
+}
 
 
 

@@ -7,6 +7,10 @@
 //
 
 #import "ClassCommentManager.h"
+#import "NSArray+ExtraMethod.h"
+
+@interface ClassCommentManager ()<PhotoBrowserDelegate>
+@end
 
 @implementation ClassCommentManager
 
@@ -161,8 +165,23 @@
 -(void)imageActionEvent:(UIButton*)btn{
     DLog(@"第%ld个图片",btn.tag);
     ClassSpaceModel *csm = objc_getAssociatedObject(btn, @"imageBtn");
-    [PhotoBrowser showURLImages:csm.pics placeholderImage:kPlaceholderImage selectedIndex:btn.tag];
+    CGRect window_frame = [btn.superview convertRect:btn.frame toView:[UIApplication sharedApplication].keyWindow];
+    PhotoBrowser *photoBroser = [PhotoBrowser showURLImages:csm.pics placeholderImage:kPlaceholderImage selectedIndex:btn.tag fromFrame:window_frame];
+    objc_setAssociatedObject(photoBroser, @"photoBrowser", csm, OBJC_ASSOCIATION_RETAIN);
+    photoBroser.delegate = self;
 }
 
+// !!!:图片切换代理
+- (CGRect)photoBrowser:(PhotoBrowser *)photoBrowser didScrollToPage:(NSInteger)currentPage{
+    ClassSpaceModel *csm = objc_getAssociatedObject(photoBrowser, @"photoBrowser");
+    if(csm){
+        UIButton *btn = [csm.picViews objectAtIndexNotOverFlow:currentPage];
+        if(btn){
+            CGRect window_frame = [btn.superview convertRect:btn.frame toView:[UIApplication sharedApplication].keyWindow];
+            return window_frame;
+        }
+    }
+    return CGRectZero;
+}
 
 @end

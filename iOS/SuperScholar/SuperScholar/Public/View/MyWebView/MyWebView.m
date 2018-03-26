@@ -87,6 +87,7 @@
         [_webView goBack];
         [_webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
         [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
+        [_webView addObserver:self forKeyPath:@"scrollView.contentSize" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:@"mywebview"];
     }
     return _webView;
 }
@@ -175,7 +176,16 @@
             [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
         }
     }
-    else
+    else if([keyPath isEqualToString:@"scrollView.contentSize"]){
+        CGSize pre = [change[@"old"] CGSizeValue];
+        CGSize now = [change[@"new"] CGSizeValue];
+        if(pre.width == now.width && pre.height == now.height)//没变化
+            return;
+        //contentsize有变化
+        if([self.delegate respondsToSelector:@selector(didFinishWebView:)]){
+            [self.delegate didFinishWebView:self];
+        }
+    }else
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
@@ -196,6 +206,7 @@
 -(void)dealloc{
     [self.webView removeObserver:self forKeyPath:@"title"];
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+    [self.webView removeObserver:self forKeyPath:@"scrollView.contentSize" context:@"mywebview"];
     [self deleteWebCache];
 }
 

@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleid" rowHeight="304" id="KGk-i7-Jjw" customClass="ActivityTableViewCell_Image">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="248"/>
+        <tableViewCell contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleid" rowHeight="304" id="KGk-i7-Jjw" customClass="ActivityTableViewCell_Image">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="278"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="277"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgImage" id="kfY-EG-Jx1">
@@ -35,19 +36,19 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Tkg-A8-buI">
-                        <rect key="frame" x="15" y="97" width="345" height="108"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="Tkg-A8-buI">
+                        <rect key="frame" x="15" y="127" width="345" height="108"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教莆田教育中心" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lxJ-O0-Mxb">
-                        <rect key="frame" x="15" y="49" width="345" height="35"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教莆田教育中心" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lxJ-O0-Mxb">
+                        <rect key="frame" x="15" y="49" width="345" height="65"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" id="AXa-BP-JkO">
-                        <rect key="frame" x="15" y="205" width="345" height="42"/>
+                    <view contentMode="scaleToFill" misplaced="YES" id="AXa-BP-JkO">
+                        <rect key="frame" x="15" y="235" width="345" height="42"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tZB-lo-RpE">
@@ -91,11 +92,11 @@
             </connections>
             <point key="canvasLocation" x="17.5" y="13"/>
         </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleid2" rowHeight="141" id="LnD-7A-FjT" customClass="ActivityTableViewCell_NO_Image">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="122"/>
+        <tableViewCell contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleid2" rowHeight="141" id="LnD-7A-FjT" customClass="ActivityTableViewCell_NO_Image">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LnD-7A-FjT" id="qKG-2t-Sbk">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgImage" id="1kh-YJ-qhv">
@@ -116,15 +117,15 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教莆田教育中心" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JHE-IZ-tst">
-                        <rect key="frame" x="15" y="49" width="345" height="34"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教莆田教育中心" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JHE-IZ-tst">
+                        <rect key="frame" x="15" y="49" width="345" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" id="4mp-2V-dmF">
-                        <rect key="frame" x="15" y="83" width="345" height="38"/>
+                    <view contentMode="scaleToFill" misplaced="YES" id="4mp-2V-dmF">
+                        <rect key="frame" x="15" y="113" width="345" height="38"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c2h-W5-FXt">
@@ -165,28 +166,32 @@
                 <outlet property="name" destination="jMz-DD-dUG" id="ZgC-9j-QBn"/>
                 <outlet property="zan" destination="hxo-dO-CpT" id="Ils-Sn-qbP"/>
             </connections>
-            <point key="canvasLocation" x="24" y="253"/>
+            <point key="canvasLocation" x="18" y="278"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="activity" rowHeight="304" id="MV3-wR-3cv" customClass="ActivityTableViewCell_Video">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="258"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="288"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MV3-wR-3cv" id="4iJ-t2-udg">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="257"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="287"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="qU3-zp-8JP">
-                        <rect key="frame" x="15" y="57" width="345" height="155"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教莆田教育中心" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mH8-cU-G5Q">
-                        <rect key="frame" x="15" y="14" width="345" height="35"/>
+                        <rect key="frame" x="15" y="14" width="345" height="65"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="qU3-zp-8JP">
+                        <rect key="frame" x="15" y="87" width="345" height="155"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="guping_back_bofang" id="VCr-MV-Rpk">
+                        <rect key="frame" x="161" y="138" width="53" height="53"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                     <view contentMode="scaleToFill" misplaced="YES" id="7Hz-rr-xRn">
-                        <rect key="frame" x="15" y="215" width="345" height="42"/>
+                        <rect key="frame" x="15" y="245" width="345" height="42"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bgImage" id="9mt-jb-1w8">
@@ -227,11 +232,12 @@
                 <outlet property="image" destination="qU3-zp-8JP" id="O1h-0v-dNs"/>
                 <outlet property="name" destination="2ii-s1-5xJ" id="ncB-i9-I8v"/>
             </connections>
-            <point key="canvasLocation" x="24" y="529"/>
+            <point key="canvasLocation" x="18" y="556"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="bgImage" width="30" height="30"/>
+        <image name="guping_back_bofang" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

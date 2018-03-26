@@ -35,8 +35,9 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    [self.data addObject:@"ffsdaf"];
-    [self.data addObject:@"fdsadfa"];
+    for (int i = 0; i < 20; i ++) {
+        [self.data addObject:[TESTDATA randomContent]];
+    }
 }
 
 
@@ -82,25 +83,64 @@
     return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *identifier = @"mycommentid";
-    MyCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if(!cell){
-        NSArray *cells = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MyCommentTableViewCell class]) owner:nil options:nil];
-        for (MyCommentTableViewCell *obj in cells) {
-            if([obj isKindOfClass:[MyCommentTableViewCell class]]){
-                cell = obj;
-                break;
+    NSString *text = [self.data objectAtIndex:indexPath.row];
+    
+    if(indexPath.section % 2 == 0){//图片或视频
+        NSString *identifier = @"mycommentid";
+        MyCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if(!cell){
+            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MyCommentTableViewCell class]) owner:nil options:nil];
+            for (MyCommentTableViewCell *obj in cells) {
+                if([obj isKindOfClass:[MyCommentTableViewCell class]]){
+                    cell = obj;
+                    break;
+                }
             }
+            cell.shiPeiAllSubViews();
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.shiPeiAllSubViews();
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
+        NSMutableAttributedString *attr = [cell.replayLabel.attributedText mutableCopy];
+        [attr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attr length])];
+        [cell.replayLabel setAttributedText:attr];
+        
+        [cell.messageContent setAttributedText:[self adjustLineSpace:text font:FontSize_12 color:FontSize_colorlightgray lineSpace:2.0]];
+        [cell.contentLabel setAttributedText:[self adjustLineSpace:text font:FontSize_16 color:FontSize_colorgray lineSpace:LineSpace]];
+        cell.videoPlayImage.hidden = indexPath.section % 4;
+        return cell;
+    }else{//文本
+        NSString *identifier = @"mycommentid1";
+        MyCommentTableViewCell_NOImage *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if(!cell){
+            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MyCommentTableViewCell class]) owner:nil options:nil];
+            for (MyCommentTableViewCell_NOImage *obj in cells) {
+                if([obj isKindOfClass:[MyCommentTableViewCell_NOImage class]]){
+                    cell = obj;
+                    break;
+                }
+            }
+            cell.shiPeiAllSubViews();
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
+        NSMutableAttributedString *attr = [cell.replayLabel.attributedText mutableCopy];
+        [attr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attr length])];
+        [cell.replayLabel setAttributedText:attr];
+        
+        [cell.messageContent setAttributedText:[self adjustLineSpace:text font:FontSize_12 color:FontSize_colorlightgray lineSpace:2.0]];
+        [cell.contentLabel setAttributedText:[self adjustLineSpace:text font:FontSize_16 color:FontSize_colorgray lineSpace:LineSpace]];
+        return cell;
     }
-    return cell;
+    return nil;
 }
 
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return ShiPei(229);
+    return ShiPei(259);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -109,6 +149,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.001;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
 }
 
 
@@ -121,6 +165,20 @@
 
 #pragma mark - <************************** 其他方法 **************************>
 
+- (NSMutableAttributedString *)adjustLineSpace:(NSString *)text font:(CGFloat)font color:(UIColor *)color lineSpace:(CGFloat)lineSpace{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:lineSpace];//调整行间距
+    
+    NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:text];
+    
+    [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
+    //设置文字颜色
+    [attributStr addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, attributStr.length)];
+    //设置文字大小
+    [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:font] range:NSMakeRange(0, attributStr.length)];
+    
+    return attributStr;
+}
 
 
 

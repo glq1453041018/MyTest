@@ -185,23 +185,7 @@ static const CGFloat kShareViewHeight = 218;
     manager.body = body;
     manager.completion = completion;
 
-    manager.backgoundView.alpha = 0;
-    [UIView animateWithDuration:0.11 animations:^{
-        manager.backgoundView.alpha = 1;
-    } completion:nil];
-    
-    [manager.backWhiteView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if([obj isKindOfClass:[MYImageButton class]]){
-            obj.viewOrigin = CGPointMake(obj.viewOrigin.x, obj.viewOrigin.y + obj.superview.viewHeight);
-            [UIView animateWithDuration:0.66 delay:0.1 + idx * 0.08 usingSpringWithDamping:0.6 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                obj.viewOrigin = CGPointMake(obj.viewOrigin.x, obj.viewOrigin.y - obj.superview.viewHeight);
-            } completion:nil];
-        }
-    }];
-    
-    [UIView animateWithDuration:0.33 animations:^{
-        manager.backWhiteView.viewOrigin = CGPointMake(0, CGRectGetMaxY(window.frame) - kShareViewHeight);
-    } completion:nil];
+    [manager showShareView];
 }
 // !!!: 弹窗分享——纯文本
 +(void)showShareViewWithTitle:(NSString *)title withCompletion:(void (^)(OSMessage *, NSError *))completion{
@@ -221,6 +205,31 @@ static const CGFloat kShareViewHeight = 218;
 
 - (void)onClickBtn:(UIButton *)btn{
     [[self class] shareToPlatform:btn.tag title:self.title body:self.body image:self.image link:self.link withCompletion:self.completion];
+}
+
+- (void)showShareView{
+    UIWindow *window = [[UIApplication sharedApplication].delegate window];
+    ShareManager *manager = objc_getAssociatedObject(window, @selector(showShareViewWithTitle:body:image:link:withCompletion:));
+    if(!manager)
+        return;
+    
+    manager.backgoundView.alpha = 0;
+    [UIView animateWithDuration:0.11 animations:^{
+        manager.backgoundView.alpha = 1;
+    } completion:nil];
+    
+    [manager.backWhiteView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if([obj isKindOfClass:[MYImageButton class]]){
+            obj.viewOrigin = CGPointMake(obj.viewOrigin.x, obj.viewOrigin.y + obj.superview.viewHeight);
+            [UIView animateWithDuration:0.66 delay:0.1 + idx * 0.08 usingSpringWithDamping:0.6 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                obj.viewOrigin = CGPointMake(obj.viewOrigin.x, obj.viewOrigin.y - obj.superview.viewHeight);
+            } completion:nil];
+        }
+    }];
+    
+    [UIView animateWithDuration:0.33 animations:^{
+        manager.backWhiteView.viewOrigin = CGPointMake(0, CGRectGetMaxY(window.frame) - kShareViewHeight);
+    } completion:nil];
 }
 
 - (void)hideShareView{
