@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ShareManager.h"
-#import "AddressViewManager.h"
+#import "MapManager.h"
 #import "MainTabBarViewController.h"
 
 @interface AppDelegate ()
@@ -24,7 +24,7 @@
     self.window.rootViewController = [MainTabBarViewController new];
     [self.window makeKeyAndVisible];
     
-//    [AddressViewManager configMap];
+    [[MapManager share] configMap];
     
     [ShareManager applicationDidFinishLaunching];
     

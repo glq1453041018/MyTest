@@ -7,15 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AMapFoundationKit/AMapFoundationKit.h>
-#import <AMapLocationKit/AMapLocationKit.h>
+#import "AddressModel.h"
 
 @interface AddressViewManager : NSObject
 
-+(instancetype)share;
 
--(void)configMap;
+// !!!: 获取数据
++(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock;
 
--(void)locationCompletionBlock:(void(^)(AMapLocationReGeocode *regeocode, NSError *error))block;
+
+
+// !!!: 获取城市名称
++(NSDictionary*)getCityList;
+
 
 @end
+
+
+

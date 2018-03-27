@@ -92,6 +92,9 @@
 		C750B23A206209A100DAD5CD /* SpeechViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C750B238206209A100DAD5CD /* SpeechViewController.xib */; };
 		C750B23D2062162E00DAD5CD /* TZTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C750B23C2062162E00DAD5CD /* TZTestCell.m */; };
 		C750B240206217D000DAD5CD /* LxGridViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C750B23F206217D000DAD5CD /* LxGridViewFlowLayout.m */; };
+		C750D9492068B2750099388F /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C750D9482068B2750099388F /* AddressModel.m */; };
+		C750D94C2068B3C40099388F /* MapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C750D94B2068B3C40099388F /* MapManager.m */; };
+		C750D94E2068B7140099388F /* cityOrder.plist in Resources */ = {isa = PBXBuildFile; fileRef = C750D94D2068B7140099388F /* cityOrder.plist */; };
 		C758D93F205F848500257DDB /* ClassCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D930205F848500257DDB /* ClassCommentViewController.m */; };
 		C758D940205F848500257DDB /* ClassCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C758D932205F848500257DDB /* ClassCommentViewController.xib */; };
 		C758D941205F848500257DDB /* ClassCommentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D935205F848500257DDB /* ClassCommentManager.m */; };
@@ -325,6 +328,11 @@
 		C750B23C2062162E00DAD5CD /* TZTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZTestCell.m; sourceTree = "<group>"; };
 		C750B23E206217D000DAD5CD /* LxGridViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxGridViewFlowLayout.h; sourceTree = "<group>"; };
 		C750B23F206217D000DAD5CD /* LxGridViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxGridViewFlowLayout.m; sourceTree = "<group>"; };
+		C750D9472068B2750099388F /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
+		C750D9482068B2750099388F /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
+		C750D94A2068B3C40099388F /* MapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapManager.h; sourceTree = "<group>"; };
+		C750D94B2068B3C40099388F /* MapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapManager.m; sourceTree = "<group>"; };
+		C750D94D2068B7140099388F /* cityOrder.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityOrder.plist; sourceTree = "<group>"; };
 		C758D930205F848500257DDB /* ClassCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCommentViewController.m; sourceTree = "<group>"; };
 		C758D931205F848500257DDB /* ClassCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCommentViewController.h; sourceTree = "<group>"; };
 		C758D932205F848500257DDB /* ClassCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassCommentViewController.xib; sourceTree = "<group>"; };
@@ -783,6 +791,8 @@
 				D31B76902061379D000AA637 /* TESTDATA.m */,
 				BE6692A62063A5DF00111810 /* ShareManager.h */,
 				BE6692A72063A5DF00111810 /* ShareManager.m */,
+				C750D94A2068B3C40099388F /* MapManager.h */,
+				C750D94B2068B3C40099388F /* MapManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1478,6 +1488,7 @@
 			children = (
 				BE243E6C205F780F008781EB /* city.plist */,
 				D31B768D2061345D000AA637 /* testData.plist */,
+				C750D94D2068B7140099388F /* cityOrder.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1656,6 +1667,8 @@
 		C781F86C205BFFC100BE37AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C750D9472068B2750099388F /* AddressModel.h */,
+				C750D9482068B2750099388F /* AddressModel.m */,
 				C781F873205CA79E00BE37AD /* AddressViewManager.h */,
 				C781F874205CA79E00BE37AD /* AddressViewManager.m */,
 			);
@@ -2027,6 +2040,7 @@
 				BE950EC8205B8634009F562B /* MySelfViewController.xib in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
 				C758D945205F848500257DDB /* ClassCommentSectionView.xib in Resources */,
+				C750D94E2068B7140099388F /* cityOrder.plist in Resources */,
 				BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */,
 				C758D95E20609CD000257DDB /* ClassComDetailTableViewCell.xib in Resources */,
 				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
@@ -2140,6 +2154,7 @@
 				C758D97A2060F4C100257DDB /* WeakScriptMessageDelegate.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
 				C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */,
+				C750D9492068B2750099388F /* AddressModel.m in Sources */,
 				F4CFCC2F206630B10002E8DB /* ActivityVideoDetailViewController.m in Sources */,
 				C7F2C01E206395BC00C34D2D /* CutomCollectionViewLayout.m in Sources */,
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
@@ -2214,6 +2229,7 @@
 				C758D9702060D47A00257DDB /* CommentDetailManager.m in Sources */,
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
 				3831C91020626768003CC26F /* myTableView.m in Sources */,
+				C750D94C2068B3C40099388F /* MapManager.m in Sources */,
 				C7A27AFA206503DD00BCB8C0 /* ActivityViewController.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
 				C7F2C01A206383DD00C34D2D /* ClassEnvironmentViewController.m in Sources */,

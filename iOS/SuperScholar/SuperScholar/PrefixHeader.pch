@@ -29,6 +29,7 @@
 #import "AppMacro.h"            // 常用的宏
 #import "AppConfigInfo.h"       // 应用配置
 #import "AppAPI.h"              // 接口
+#import "MapManager.h"          // 地图
 
 #import "TESTDATA.h"            // 测试数据
 
