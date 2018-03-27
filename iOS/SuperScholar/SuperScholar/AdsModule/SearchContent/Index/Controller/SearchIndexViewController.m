@@ -134,6 +134,7 @@
     [self.navigationBar setCenterView:self.searchBar leftView:nil rightView:nil];
     self.navigationBar.backgroundColor = [UIColor clearColor];
 }
+
 -(void)viewDidDisappear:(BOOL)animated{
     //    [self.navigationController popViewControllerAnimated:YES];
 }

@@ -16,6 +16,8 @@
 #pragma mark - <************************** 应用配置信息 **************************>
 // 主题色
 #define KColorTheme HexColor(0x74d0c6)
+// 主题字体的颜色
+#define KColorTheme_font HexColor(0x20B2AA)  //#20B2AA   0x17B896
 // 选中的颜色
 #define kSelectedColor KColorTheme
 // 未选中的颜色
@@ -41,9 +43,11 @@
 #define FontSize_12 12
 #define FontSize_13 13
 #define FontSize_14 14
+#define FontSize_15 15
 #define FontSize_16 17
 //字体颜色
 #define FontSize_colorgray HexColor(0x333333)
+#define FontSize_colorgray_44 HexColor(0x444444)
 #define FontSize_colordarkgray HexColor(0x666666)
 #define FontSize_colorlightlightgray HexColor(0x888888)
 #define FontSize_colorlightgray HexColor(0x999999)
