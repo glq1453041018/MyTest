@@ -255,9 +255,9 @@
 
 #pragma mark - <************************** 点击事件 **************************>
 
-//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    [self.view setHidden:YES];
-//}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view setHidden:YES];
+}
 
 
 #pragma mark - <************************** 其他方法 **************************>

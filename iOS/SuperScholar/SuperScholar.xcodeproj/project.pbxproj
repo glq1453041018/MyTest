@@ -2000,7 +2000,7 @@
 					C73DD5BF204E88BD00C6437F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = P6247WX9N5;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2401,15 +2401,11 @@
 			baseConfigurationReference = AA3BC876F4E559385FBF2362 /* Pods-SuperScholar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-=======
 				CODE_SIGN_ENTITLEMENTS = SuperScholar/SuperScholar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: zheng jianchun (2853DHY5W9)";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: zheng jianchun (2853DHY5W9)";
->>>>>>> fc414f1e6639d7842b31417fed970c8849c7ab28
-				DEVELOPMENT_TEAM = P6247WX9N5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2432,13 +2428,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-=======
-				PROVISIONING_PROFILE = "4ce3d3ea-8564-4aa0-aaff-db110c73c65e";
-				PROVISIONING_PROFILE_SPECIFIER = SuperScholar_Profiles;
->>>>>>> fc414f1e6639d7842b31417fed970c8849c7ab28
 			};
 			name = Debug;
 		};
@@ -2447,13 +2438,10 @@
 			baseConfigurationReference = D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-=======
 				CODE_SIGN_ENTITLEMENTS = SuperScholar/SuperScholar.entitlements;
->>>>>>> fc414f1e6639d7842b31417fed970c8849c7ab28
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = P6247WX9N5;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2476,13 +2464,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-=======
-				PROVISIONING_PROFILE = "4ce3d3ea-8564-4aa0-aaff-db110c73c65e";
-				PROVISIONING_PROFILE_SPECIFIER = SuperScholar_Profiles;
->>>>>>> fc414f1e6639d7842b31417fed970c8849c7ab28
 			};
 			name = Release;
 		};
