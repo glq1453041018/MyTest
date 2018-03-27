@@ -21,7 +21,7 @@
     for (int index = 0; index < [self.collectionView numberOfItemsInSection:0]; index++) {
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
         [attributesArray addObject:attributes];
-        NSLog(@"%f %f %f %f",attributes.frame.origin.x,attributes.frame.origin.y,attributes.frame.size.width,attributes.frame.size.height);
+//        NSLog(@"%f %f %f %f",attributes.frame.origin.x,attributes.frame.origin.y,attributes.frame.size.width,attributes.frame.size.height);
     }
 }
 

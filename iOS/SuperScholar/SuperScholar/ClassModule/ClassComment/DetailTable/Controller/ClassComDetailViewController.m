@@ -106,6 +106,7 @@
         if (self.manager.dataModel.mainModel) {
             return 1;
         }
+        return 0;
     }
     return self.manager.dataModel.responses.count;
 }

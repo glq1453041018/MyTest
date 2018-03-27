@@ -303,6 +303,16 @@
     [_timer resumeTimerAfterTimeInterval:_autoDuration];
 }
 
+-(void)setCurrentPage:(NSInteger)page{
+    self.currentPageIndex = page;
+    self.pageControl.currentPage = self.currentPageIndex;
+    [self.pageLabel setText:[NSString stringWithFormat:@"%ld/%ld", self.currentPageIndex + 1, [self.imagePaths count]]];
+    [self configContentViews];
+    [self pauseTimer];
+    [_scrollView setContentOffset:CGPointMake(_estimateSize.width, 0)animated:YES];
+    [self.timer resumeTimerAfterTimeInterval:_autoDuration];
+}
+
 #pragma mark - EventHandler
 
 - (void)timerDidFired:(NSTimer *)timer{

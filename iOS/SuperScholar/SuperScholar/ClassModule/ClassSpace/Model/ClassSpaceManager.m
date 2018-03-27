@@ -152,6 +152,7 @@
     photoBroser.delegate = self;
 }
 
+    
 // !!!:PhotoBrowser图片切换代理
 - (UIView *)photoBrowser:(PhotoBrowser *)photoBrowser didScrollToPage:(NSInteger)currentPage{
     ClassSpaceModel *csm = objc_getAssociatedObject(photoBrowser, @"photoBrowser");

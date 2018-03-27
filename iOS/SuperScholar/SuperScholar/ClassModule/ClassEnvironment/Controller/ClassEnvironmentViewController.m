@@ -14,7 +14,7 @@
 #import "ClassEnvironmentManager.h"
 #import "CutomCollectionViewLayout.h"
 
-@interface ClassEnvironmentViewController ()<CutomCollectionViewLayoutDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+@interface ClassEnvironmentViewController ()<CutomCollectionViewLayoutDelegate,UICollectionViewDelegate,UICollectionViewDataSource,PhotoBrowserDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 @property (weak, nonatomic) IBOutlet CutomCollectionViewLayout *layout;
@@ -91,8 +91,21 @@
     for (ClassEnvironmentModel *model in self.imageArray) {
         [images addObject:model.picUrl];
     }
-    [PhotoBrowser showURLImages:images placeholderImage:kPlaceholderImage selectedIndex:indexPath.row selectedView:nil];
+    CustomCollectionViewCell *cell = (CustomCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    PhotoBrowser *photoBrower = [PhotoBrowser showURLImages:images placeholderImage:kPlaceholderImage selectedIndex:indexPath.row selectedView:cell];
+    photoBrower.delegate = self;
 }
+
+// !!!: 图片浏览器代理
+-(void)photoBrowser:(PhotoBrowser *)photoBrowser didScrollToPage:(NSInteger)currentPage completion:(void (^)(UIView *))completion{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:currentPage inSection:0];
+    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CustomCollectionViewCell *cell = (CustomCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
+        completion(cell);
+    });
+}
+
 
 
 #pragma mark - <************************** 点击事件 **************************>
