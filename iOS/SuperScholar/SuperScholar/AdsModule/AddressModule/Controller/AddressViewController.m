@@ -9,14 +9,13 @@
 #import "AddressViewController.h"
 #import "AddressViewManager.h"
 
-@interface AddressViewController ()
+@interface AddressViewController ()<UITableViewDelegate,UITableViewDataSource>
 // !!!: 视图类
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong ,nonatomic) UISearchBar *searchBar;
 
 // !!!: 数据类
-@property (strong ,nonatomic) NSArray *data;
-@property (strong ,nonatomic) AddressViewManager *addrManager;
+@property (strong ,nonatomic) NSMutableArray *addressData;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 
@@ -24,12 +23,6 @@
 
 @implementation AddressViewController
 
--(void)loadView{
-    [super loadView];
-    [self.addrManager locationCompletionBlock:^(AMapLocationReGeocode *regeocode, NSError *error) {
-        
-    }];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,7 +38,30 @@
 // !!!: 获取数据
 -(void)getDataFormServer{
     
-    self.data = @[@"",@"",@""];
+    // 地图
+    [[MapManager share] locationCompletionBlock:^(AddressInfo *currentAddress, BOOL needUpdate, NSError *error) {
+        if (needUpdate&&error==nil) {
+            NSString *newCity = currentAddress.cityName;
+            newCity = newCity.length?newCity:@"";
+            AddressModel *am = [AddressModel new];
+            am.typeName = @"定位";
+            am.cityName = newCity;
+            am.cellHeight = 44;
+            [self.addressData replaceObjectAtIndex:0 withObject:@[am]];
+            [self.table reloadData];
+        }
+    }];
+    
+    [AddressViewManager requestDataResponse:^(NSArray *resArray, id error) {
+        if (error) {
+            DLog(@"获取城市地址错误");
+            return ;
+        }
+        NSMutableArray *tmp = [NSMutableArray arrayWithArray:@[self.addressData.firstObject]];
+        [tmp addObjectsFromArray:resArray];
+        self.addressData = tmp.mutableCopy;
+        [self.table reloadData];
+    }];
 
 }
 
@@ -61,6 +77,7 @@
     self.navigationBar.backgroundColor = [UIColor clearColor];
     
     self.table.tableFooterView = [UIView new];
+    self.table.sectionIndexColor = KColorTheme;
 }
 
 
@@ -74,12 +91,21 @@
     return _searchBar;
 }
 
--(AddressViewManager *)addrManager{
-    if (_addrManager==nil) {
-        _addrManager = [AddressViewManager new];
+
+-(NSMutableArray *)addressData{
+    if (_addressData==nil) {
+        _addressData = [NSMutableArray array];
+        NSString *location = [MapManager share].historyAddress.cityName;
+        location = location.length?location:@"定位中...";
+        AddressModel *am = [AddressModel new];
+        am.typeName = @"定位";
+        am.cityName = location;
+        am.cellHeight = 44;
+        [_addressData addObject:@[am]];
     }
-    return _addrManager;
+    return _addressData;
 }
+
 
 #pragma mark - <************************** 代理方法 **************************>
 // !!!: 导航代理
@@ -89,29 +115,72 @@
 
 // !!!: 列表的代理方法
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return self.addressData.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.data.count;
+    if (section==0||section==1) {
+        return 1;
+    }
+    NSArray *items = self.addressData[section];
+    return items.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray *items = self.data[indexPath.section];
+    NSArray *items = self.addressData[indexPath.section];
+    AddressModel *am = items[indexPath.row];
     static NSString *cellId = @"UITableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell==nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell.selectionStyle = NO;
+        cell.textLabel.textColor = FontSize_colorgray;
+        cell.textLabel.font = [UIFont systemFontOfSize:AdaptedWidthValue(FontSize_16)];
     }
+    CGFloat space = 10;
+    CGFloat itemWidth = ((kScreenWidth - 30) - space*4) / 3.0;
+    if (indexPath.section==0) {
+        
+    }
+    cell.textLabel.text = am.cityName;
     return cell;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44;
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NSArray *items = self.addressData[section];
+    AddressModel *am = items.firstObject;
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
+    bgView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, bgView.viewWidth-10*2, bgView.viewHeight)];
+    label.textColor = KColorTheme;
+    label.font = [UIFont systemFontOfSize:FontSize_14];
+    label.text = am.typeName;
+    [bgView addSubview:label];
+    return bgView;
 }
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//}
-//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray *items = self.addressData[indexPath.section];
+    AddressModel *am = items.firstObject;
+    return am.cellHeight;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 30;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.01;
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+- (nullable NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
+    NSMutableArray *titles = [NSMutableArray array];
+    for (int i=0; i<self.addressData.count; i++) {
+        NSArray *items = self.addressData[i];
+        AddressModel *am = items.firstObject;
+        NSString *title = am.typeName;
+        if (am.typeName.length>2) {
+            title = [am.typeName substringToIndex:2];
+        }
+        [titles addObject:title];
+    }
+    return titles;
 }
 
 

@@ -27,13 +27,15 @@ typedef NS_ENUM(NSInteger , ImagesType) {
 @property (copy ,nonatomic) NSArray *images;
 @property (assign ,nonatomic) ImagesType type;
 @property (strong ,nonatomic) UIImage *placeholderImage;
-@property (assign, nonatomic) CGRect fromFrame;//图片源位置位置，使用convertRect映射到window上的frame
+@property (assign, nonatomic) CGRect fromFrame;//图片源位置，使用convertRect映射到window上的frame，关闭浏览器需要移回去的位置
+@property (assign, nonatomic) UIView *fromView;//源图片视图，其frame映射到window上的frame为fromFrame，关闭浏览器需要移回去视图
 @end
 @implementation PhotoBrowser
 
-+(instancetype)showImages:(NSArray*)images imageTyep:(ImagesType)type placeholderImage:(UIImage *)image selectedIndex:(NSInteger)index fromFrame:(CGRect)fromFrame{
++(instancetype)showImages:(NSArray*)images imageTyep:(ImagesType)type placeholderImage:(UIImage *)image selectedIndex:(NSInteger)index fromView:(UIView *)fromView{
     PhotoBrowser *photoBrowser = [[PhotoBrowser alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    photoBrowser.fromFrame = fromFrame;
+    photoBrowser.fromView = fromView;
+    photoBrowser.fromFrame = [fromView.superview convertRect:fromView.frame toView:[[UIApplication sharedApplication].delegate window]];
     photoBrowser.images = images;
     photoBrowser.type = type;
     photoBrowser.placeholderImage = image;
@@ -47,11 +49,25 @@ typedef NS_ENUM(NSInteger , ImagesType) {
             [photoBrowser addSubview:photoBrowser.pageLabel];
         }
     }
-    [photoBrowser addSubview:photoBrowser.backBtn];
+//    [photoBrowser addSubview:photoBrowser.backBtn];
     if (type==Image_URL) {
         [photoBrowser addSubview:photoBrowser.saveBtn];
         [photoBrowser addSubview:photoBrowser.activityIndicator];
     }
+    
+    UIWindow *keyWindow = [[UIApplication sharedApplication].delegate window];
+    [keyWindow addSubview:photoBrowser];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        photoBrowser.fromView.hidden = YES;
+    });
+    
+    // 设置位置
+    [photoBrowser.collectionView setContentOffset:CGPointMake([UIScreen mainScreen].bounds.size.width*index, 0) animated:NO];
+    photoBrowser.pageControl.currentPage = index;
+    photoBrowser.pageLabel.text = [NSString stringWithFormat:@"%ld / %ld",index+1,images.count];
+    
+    
     
     // 添加到keyWindow上
     CGPoint position = photoBrowser.center;
@@ -59,8 +75,6 @@ typedef NS_ENUM(NSInteger , ImagesType) {
         position = CGPointMake(photoBrowser.fromFrame.origin.x + photoBrowser.fromFrame.size.width / 2.0, photoBrowser.fromFrame.origin.y + photoBrowser.fromFrame.size.height / 2.0);
     }
     
-    UIWindow *keyWindow = [[UIApplication sharedApplication].delegate window];
-    [keyWindow addSubview:photoBrowser];
     CAAnimationGroup *group_animations = [CAAnimationGroup animation];
     group_animations.duration = 0.25f;  // 动画之行时间
     group_animations.removedOnCompletion = NO;
@@ -70,28 +84,27 @@ typedef NS_ENUM(NSInteger , ImagesType) {
     positon_animation.fromValue = [NSValue valueWithCGPoint:position];
     positon_animation.toValue = [NSValue valueWithCGPoint:photoBrowser.center];
     
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    animation.fromValue = @(0.0);
-    animation.toValue = @(1.0);
-    // 将动画添加到layer上
-    [group_animations setAnimations:@[positon_animation, animation]];
-    [photoBrowser.layer addAnimation:group_animations forKey:@"animation"];
+    CABasicAnimation *scale_x = [CABasicAnimation animationWithKeyPath:@"transform.scale.x"];
+    scale_x.fromValue = @(photoBrowser.fromFrame.size.width / photoBrowser.viewWidth);
+    scale_x.toValue = @(1);
     
-    // 设置位置
-    [photoBrowser.collectionView setContentOffset:CGPointMake([UIScreen mainScreen].bounds.size.width*index, 0) animated:NO];
-    photoBrowser.pageControl.currentPage = index;
-    photoBrowser.pageLabel.text = [NSString stringWithFormat:@"%ld / %ld",index+1,images.count];
+    CABasicAnimation *scale_y = [CABasicAnimation animationWithKeyPath:@"transform.scale.y"];
+    scale_y.fromValue = @(photoBrowser.fromFrame.size.height / photoBrowser.viewHeight);
+    scale_y.toValue = @(1);
+    // 将动画添加到layer上
+    [group_animations setAnimations:@[positon_animation, scale_x, scale_y]];
+    [photoBrowser.layer addAnimation:group_animations forKey:@"animation"];
     
     return photoBrowser;
 }
 
 
-+(instancetype)showLocalImages:(NSArray *)images selectedIndex:(NSInteger)index fromFrame:(CGRect)fromFrame{
-    return [self showImages:images imageTyep:Image_Local placeholderImage:nil selectedIndex:index fromFrame:fromFrame];
++ (instancetype)showLocalImages:(NSArray *)images selectedIndex:(NSInteger)index selectedView:(UIView *)selectedView{
+    return [self showImages:images imageTyep:Image_Local placeholderImage:nil selectedIndex:index fromView:selectedView];
 }
 
-+(instancetype)showURLImages:(NSArray *)images placeholderImage:(UIImage *)image selectedIndex:(NSInteger)index fromFrame:(CGRect)fromFrame{
-   return [self showImages:images imageTyep:Image_URL placeholderImage:image selectedIndex:index fromFrame:(CGRect)fromFrame];
++(instancetype)showURLImages:(NSArray *)images placeholderImage:(UIImage *)image selectedIndex:(NSInteger)index selectedView:(UIView *)selectedView{
+   return [self showImages:images imageTyep:Image_URL placeholderImage:image selectedIndex:index fromView:selectedView];
 }
 
 #pragma mark - <************************** 初始化控件 **************************>
@@ -138,7 +151,7 @@ typedef NS_ENUM(NSInteger , ImagesType) {
         //注意此方法可以根据页数返回UIPageControl合适的大小
         CGSize size= [_pageControl sizeForNumberOfPages:self.images.count];
         _pageControl.bounds=CGRectMake(0, 0, size.width, size.height);
-        _pageControl.center=CGPointMake(self.frame.size.width/2.0, self.frame.size.height-_pageControl.bounds.size.height/2.0);
+        _pageControl.center=CGPointMake(self.bounds.size.width/2.0, self.bounds.size.height-_pageControl.bounds.size.height/2.0);
         //设置颜色
         _pageControl.pageIndicatorTintColor=[UIColor whiteColor];
         //设置当前页颜色
@@ -225,7 +238,12 @@ typedef NS_ENUM(NSInteger , ImagesType) {
     self.pageControl.currentPage = pageIndex;
     self.pageLabel.text = [NSString stringWithFormat:@"%ld / %ld",pageIndex+1,self.images.count];
     if([self.delegate respondsToSelector:@selector(photoBrowser:didScrollToPage:)]){
-        self.fromFrame = [self.delegate photoBrowser:self didScrollToPage:pageIndex];
+        UIView *selectedView = [self.delegate photoBrowser:self didScrollToPage:pageIndex];
+        CGRect frame = [selectedView.superview convertRect:selectedView.frame toView:[[UIApplication sharedApplication].delegate window]];
+        self.fromFrame = frame;
+        self.fromView.hidden = NO;
+        self.fromView = selectedView;
+        self.fromView.hidden = YES;
     }
 }
 
@@ -300,6 +318,7 @@ typedef NS_ENUM(NSInteger , ImagesType) {
             imageView.frame = self.fromFrame;
         }completion:^(BOOL finished) {
             [imageView removeFromSuperview];
+            self.fromView.hidden = NO;
         }];
     }
 }

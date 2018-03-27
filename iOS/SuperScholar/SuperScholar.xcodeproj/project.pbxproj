@@ -68,6 +68,7 @@
 		BE950EDF205BE97E009F562B /* LLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950EDD205BE97E009F562B /* LLAlertView.m */; };
 		BE950EE7205BECAF009F562B /* DataEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE950EE5205BECAF009F562B /* DataEditingViewController.m */; };
 		BE950EE8205BECAF009F562B /* DataEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE950EE6205BECAF009F562B /* DataEditingViewController.xib */; };
+		BE9E86962069147E00019559 /* RemotePushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9E86952069147E00019559 /* RemotePushManager.m */; };
 		BED0DF3F205C084F00276785 /* DataEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0DF3D205C084F00276785 /* DataEditTableViewCell.m */; };
 		BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED0DF3E205C084F00276785 /* DataEditTableViewCell.xib */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
@@ -95,6 +96,9 @@
 		C750B23A206209A100DAD5CD /* SpeechViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C750B238206209A100DAD5CD /* SpeechViewController.xib */; };
 		C750B23D2062162E00DAD5CD /* TZTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C750B23C2062162E00DAD5CD /* TZTestCell.m */; };
 		C750B240206217D000DAD5CD /* LxGridViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C750B23F206217D000DAD5CD /* LxGridViewFlowLayout.m */; };
+		C750D9492068B2750099388F /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C750D9482068B2750099388F /* AddressModel.m */; };
+		C750D94C2068B3C40099388F /* MapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C750D94B2068B3C40099388F /* MapManager.m */; };
+		C750D94E2068B7140099388F /* cityOrder.plist in Resources */ = {isa = PBXBuildFile; fileRef = C750D94D2068B7140099388F /* cityOrder.plist */; };
 		C758D93F205F848500257DDB /* ClassCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D930205F848500257DDB /* ClassCommentViewController.m */; };
 		C758D940205F848500257DDB /* ClassCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C758D932205F848500257DDB /* ClassCommentViewController.xib */; };
 		C758D941205F848500257DDB /* ClassCommentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D935205F848500257DDB /* ClassCommentManager.m */; };
@@ -289,6 +293,9 @@
 		BE950EE4205BECAF009F562B /* DataEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEditingViewController.h; sourceTree = "<group>"; };
 		BE950EE5205BECAF009F562B /* DataEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEditingViewController.m; sourceTree = "<group>"; };
 		BE950EE6205BECAF009F562B /* DataEditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataEditingViewController.xib; sourceTree = "<group>"; };
+		BE9E86932068FE9800019559 /* SuperScholar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SuperScholar.entitlements; sourceTree = "<group>"; };
+		BE9E86942069147E00019559 /* RemotePushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemotePushManager.h; sourceTree = "<group>"; };
+		BE9E86952069147E00019559 /* RemotePushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemotePushManager.m; sourceTree = "<group>"; };
 		BED0DF3C205C084F00276785 /* DataEditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEditTableViewCell.h; sourceTree = "<group>"; };
 		BED0DF3D205C084F00276785 /* DataEditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEditTableViewCell.m; sourceTree = "<group>"; };
 		BED0DF3E205C084F00276785 /* DataEditTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataEditTableViewCell.xib; sourceTree = "<group>"; };
@@ -333,6 +340,11 @@
 		C750B23C2062162E00DAD5CD /* TZTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZTestCell.m; sourceTree = "<group>"; };
 		C750B23E206217D000DAD5CD /* LxGridViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxGridViewFlowLayout.h; sourceTree = "<group>"; };
 		C750B23F206217D000DAD5CD /* LxGridViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxGridViewFlowLayout.m; sourceTree = "<group>"; };
+		C750D9472068B2750099388F /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
+		C750D9482068B2750099388F /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
+		C750D94A2068B3C40099388F /* MapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapManager.h; sourceTree = "<group>"; };
+		C750D94B2068B3C40099388F /* MapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapManager.m; sourceTree = "<group>"; };
+		C750D94D2068B7140099388F /* cityOrder.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityOrder.plist; sourceTree = "<group>"; };
 		C758D930205F848500257DDB /* ClassCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCommentViewController.m; sourceTree = "<group>"; };
 		C758D931205F848500257DDB /* ClassCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCommentViewController.h; sourceTree = "<group>"; };
 		C758D932205F848500257DDB /* ClassCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassCommentViewController.xib; sourceTree = "<group>"; };
@@ -796,6 +808,10 @@
 				D31B76902061379D000AA637 /* TESTDATA.m */,
 				BE6692A62063A5DF00111810 /* ShareManager.h */,
 				BE6692A72063A5DF00111810 /* ShareManager.m */,
+				C750D94A2068B3C40099388F /* MapManager.h */,
+				C750D94B2068B3C40099388F /* MapManager.m */,
+				BE9E86942069147E00019559 /* RemotePushManager.h */,
+				BE9E86952069147E00019559 /* RemotePushManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1210,6 +1226,7 @@
 		C73DD5C2204E88BD00C6437F /* SuperScholar */ = {
 			isa = PBXGroup;
 			children = (
+				BE9E86932068FE9800019559 /* SuperScholar.entitlements */,
 				C76169C8204F733400C94311 /* AdsModule */,
 				C76169E2204F7F6E00C94311 /* ActivityModule */,
 				C76169F1204F865300C94311 /* ClassModule */,
@@ -1491,6 +1508,7 @@
 			children = (
 				BE243E6C205F780F008781EB /* city.plist */,
 				D31B768D2061345D000AA637 /* testData.plist */,
+				C750D94D2068B7140099388F /* cityOrder.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1669,6 +1687,8 @@
 		C781F86C205BFFC100BE37AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C750D9472068B2750099388F /* AddressModel.h */,
+				C750D9482068B2750099388F /* AddressModel.m */,
 				C781F873205CA79E00BE37AD /* AddressViewManager.h */,
 				C781F874205CA79E00BE37AD /* AddressViewManager.m */,
 			);
@@ -1980,7 +2000,15 @@
 					C73DD5BF204E88BD00C6437F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = P6247WX9N5;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -2040,6 +2068,7 @@
 				BE950EC8205B8634009F562B /* MySelfViewController.xib in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
 				C758D945205F848500257DDB /* ClassCommentSectionView.xib in Resources */,
+				C750D94E2068B7140099388F /* cityOrder.plist in Resources */,
 				BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */,
 				C758D95E20609CD000257DDB /* ClassComDetailTableViewCell.xib in Resources */,
 				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
@@ -2154,6 +2183,7 @@
 				C758D97A2060F4C100257DDB /* WeakScriptMessageDelegate.m in Sources */,
 				C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */,
 				C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */,
+				C750D9492068B2750099388F /* AddressModel.m in Sources */,
 				F4CFCC2F206630B10002E8DB /* ActivityVideoDetailViewController.m in Sources */,
 				C7F2C01E206395BC00C34D2D /* CutomCollectionViewLayout.m in Sources */,
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
@@ -2226,10 +2256,12 @@
 				3832D60620649A860083C718 /* AdsTableViewCell.m in Sources */,
 				F4060B462063FE7F00C416A3 /* OpenShare+Weixin.m in Sources */,
 				BE6692442063397400111810 /* MyCMViewController.m in Sources */,
+				BE9E86962069147E00019559 /* RemotePushManager.m in Sources */,
 				BE950ED2205B8728009F562B /* LoginInterfaceViewController.m in Sources */,
 				C758D9702060D47A00257DDB /* CommentDetailManager.m in Sources */,
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
 				3831C91020626768003CC26F /* myTableView.m in Sources */,
+				C750D94C2068B3C40099388F /* MapManager.m in Sources */,
 				C7A27AFA206503DD00BCB8C0 /* ActivityViewController.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
 				C7F2C01A206383DD00C34D2D /* ClassEnvironmentViewController.m in Sources */,
@@ -2369,8 +2401,14 @@
 			baseConfigurationReference = AA3BC876F4E559385FBF2362 /* Pods-SuperScholar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+=======
+				CODE_SIGN_ENTITLEMENTS = SuperScholar/SuperScholar.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: zheng jianchun (2853DHY5W9)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: zheng jianchun (2853DHY5W9)";
+>>>>>>> fc414f1e6639d7842b31417fed970c8849c7ab28
 				DEVELOPMENT_TEAM = P6247WX9N5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2394,8 +2432,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+=======
+				PROVISIONING_PROFILE = "4ce3d3ea-8564-4aa0-aaff-db110c73c65e";
+				PROVISIONING_PROFILE_SPECIFIER = SuperScholar_Profiles;
+>>>>>>> fc414f1e6639d7842b31417fed970c8849c7ab28
 			};
 			name = Debug;
 		};
@@ -2404,7 +2447,11 @@
 			baseConfigurationReference = D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+=======
+				CODE_SIGN_ENTITLEMENTS = SuperScholar/SuperScholar.entitlements;
+>>>>>>> fc414f1e6639d7842b31417fed970c8849c7ab28
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = P6247WX9N5;
 				ENABLE_BITCODE = NO;
@@ -2429,8 +2476,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+=======
+				PROVISIONING_PROFILE = "4ce3d3ea-8564-4aa0-aaff-db110c73c65e";
+				PROVISIONING_PROFILE_SPECIFIER = SuperScholar_Profiles;
+>>>>>>> fc414f1e6639d7842b31417fed970c8849c7ab28
 			};
 			name = Release;
 		};
