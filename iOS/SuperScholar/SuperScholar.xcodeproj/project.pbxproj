@@ -34,6 +34,9 @@
 		384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384A556F2052674F006D8C23 /* SchoolTableViewCell.xib */; };
 		386924B5205FB1FB0093B48E /* AdsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386924B3205FB1FB0093B48E /* AdsDetailViewController.m */; };
 		386924B6205FB1FB0093B48E /* AdsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386924B4205FB1FB0093B48E /* AdsDetailViewController.xib */; };
+		3869642D2069CEA90050F3F1 /* SelectTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869642C2069CEA90050F3F1 /* SelectTypeModel.m */; };
+		3872419920688B5D00C2347A /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3872419720688B5D00C2347A /* SelectTypeViewController.m */; };
+		3872419A20688B5D00C2347A /* SelectTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3872419820688B5D00C2347A /* SelectTypeViewController.xib */; };
 		3890404D2060CED6007BA074 /* AdsDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3890404B2060CED6007BA074 /* AdsDetailTableViewCell.m */; };
 		3890404E2060CED6007BA074 /* AdsDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3890404C2060CED6007BA074 /* AdsDetailTableViewCell.xib */; };
 		389040522060ECD8007BA074 /* AdsWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 389040502060ECD8007BA074 /* AdsWebViewViewController.m */; };
@@ -234,6 +237,11 @@
 		386924B2205FB1FB0093B48E /* AdsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsDetailViewController.h; sourceTree = "<group>"; };
 		386924B3205FB1FB0093B48E /* AdsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsDetailViewController.m; sourceTree = "<group>"; };
 		386924B4205FB1FB0093B48E /* AdsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsDetailViewController.xib; sourceTree = "<group>"; };
+		3869642B2069CEA90050F3F1 /* SelectTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTypeModel.h; sourceTree = "<group>"; };
+		3869642C2069CEA90050F3F1 /* SelectTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTypeModel.m; sourceTree = "<group>"; };
+		3872419620688B5D00C2347A /* SelectTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTypeViewController.h; sourceTree = "<group>"; };
+		3872419720688B5D00C2347A /* SelectTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTypeViewController.m; sourceTree = "<group>"; };
+		3872419820688B5D00C2347A /* SelectTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectTypeViewController.xib; sourceTree = "<group>"; };
 		3890404A2060CED6007BA074 /* AdsDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsDetailTableViewCell.h; sourceTree = "<group>"; };
 		3890404B2060CED6007BA074 /* AdsDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsDetailTableViewCell.m; sourceTree = "<group>"; };
 		3890404C2060CED6007BA074 /* AdsDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdsDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -531,6 +539,9 @@
 				3890404F2060ECD8007BA074 /* AdsWebViewViewController.h */,
 				389040502060ECD8007BA074 /* AdsWebViewViewController.m */,
 				389040512060ECD8007BA074 /* AdsWebViewViewController.xib */,
+				3872419620688B5D00C2347A /* SelectTypeViewController.h */,
+				3872419720688B5D00C2347A /* SelectTypeViewController.m */,
+				3872419820688B5D00C2347A /* SelectTypeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -538,6 +549,8 @@
 		38010D77204FBFBC00E4511C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3869642B2069CEA90050F3F1 /* SelectTypeModel.h */,
+				3869642C2069CEA90050F3F1 /* SelectTypeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1987,7 +2000,7 @@
 					C73DD5BF204E88BD00C6437F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = P6247WX9N5;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2075,6 +2088,7 @@
 				C781F860205BCD0100BE37AD /* ClassViewController.xib in Resources */,
 				F44A6B64205D0F07005DBF33 /* SuggestionViewController.xib in Resources */,
 				3890404E2060CED6007BA074 /* AdsDetailTableViewCell.xib in Resources */,
+				3872419A20688B5D00C2347A /* SelectTypeViewController.xib in Resources */,
 				C75E03B32063484F00EC0AF5 /* CommentView.xib in Resources */,
 				C781F84A205B703900BE37AD /* ClassInfoTitleItemView.xib in Resources */,
 			);
@@ -2184,6 +2198,7 @@
 				C7A27AF7206503DD00BCB8C0 /* ActivitySubViewController.m in Sources */,
 				BE66924820633F3300111810 /* MYImageButton.m in Sources */,
 				C758D94A205F8C3700257DDB /* ClassComDetailViewController.m in Sources */,
+				3872419920688B5D00C2347A /* SelectTypeViewController.m in Sources */,
 				38010DB1204FFB5E00E4511C /* ZhaoShengTableViewCell.m in Sources */,
 				F40A8FFD205E237F0087814A /* MYDatePicker.m in Sources */,
 				C758D96320609CE600257DDB /* ClassComDetailManager.m in Sources */,
@@ -2217,6 +2232,7 @@
 				C758D96C2060C66800257DDB /* CommentDetailViewController.m in Sources */,
 				D31B76912061379D000AA637 /* TESTDATA.m in Sources */,
 				C750B239206209A100DAD5CD /* SpeechViewController.m in Sources */,
+				3869642D2069CEA90050F3F1 /* SelectTypeModel.m in Sources */,
 				C781F842205B580A00BE37AD /* ClassInfoFootView.m in Sources */,
 				BE950ECB205B8634009F562B /* MYAutoScaleView.m in Sources */,
 				384A555620521F20006D8C23 /* NSDictionary+Utility.m in Sources */,
@@ -2388,7 +2404,9 @@
 				CODE_SIGN_ENTITLEMENTS = SuperScholar/SuperScholar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: zheng jianchun (2853DHY5W9)";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: zheng jianchun (2853DHY5W9)";
-				DEVELOPMENT_TEAM = P6247WX9N5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/MobIM",
@@ -2410,8 +2428,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4ce3d3ea-8564-4aa0-aaff-db110c73c65e";
-				PROVISIONING_PROFILE_SPECIFIER = SuperScholar_Profiles;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -2421,8 +2439,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SuperScholar/SuperScholar.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = P6247WX9N5;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/MobIM",
@@ -2444,8 +2464,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4ce3d3ea-8564-4aa0-aaff-db110c73c65e";
-				PROVISIONING_PROFILE_SPECIFIER = SuperScholar_Profiles;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
