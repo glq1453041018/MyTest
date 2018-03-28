@@ -232,6 +232,7 @@
     } else{//普通文章
         ClassComDetailViewController *ctrl = [ClassComDetailViewController new];
         ctrl.title = self.title;
+        ctrl.hidesBottomBarWhenPushed = YES;
         ctrl.messageType = MessageTypeDefault;
         [self.navigationController pushViewController:ctrl animated:YES];
     }
