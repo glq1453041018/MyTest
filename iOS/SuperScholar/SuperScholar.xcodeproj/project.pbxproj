@@ -158,6 +158,8 @@
 		C7A27AFC206503DD00BCB8C0 /* ActivitySubViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A27AEF206503DD00BCB8C0 /* ActivitySubViewManager.m */; };
 		C7A27AFD206503DD00BCB8C0 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A27AF2206503DD00BCB8C0 /* ActivityTableViewCell.m */; };
 		C7A27AFE206503DD00BCB8C0 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A27AF4206503DD00BCB8C0 /* ActivityTableViewCell.xib */; };
+		C7BA9C47206B54F100A71EAC /* AddressSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA9C46206B54F100A71EAC /* AddressSearchViewController.m */; };
+		C7E84BA5206A6AD7001E73F0 /* AddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E84BA4206A6AD7001E73F0 /* AddressTableViewCell.m */; };
 		C7F2C01A206383DD00C34D2D /* ClassEnvironmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C018206383DD00C34D2D /* ClassEnvironmentViewController.m */; };
 		C7F2C01B206383DD00C34D2D /* ClassEnvironmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F2C019206383DD00C34D2D /* ClassEnvironmentViewController.xib */; };
 		C7F2C01E206395BC00C34D2D /* CutomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C01D206395BC00C34D2D /* CutomCollectionViewLayout.m */; };
@@ -445,6 +447,11 @@
 		C7A27AF2206503DD00BCB8C0 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
 		C7A27AF3206503DD00BCB8C0 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
 		C7A27AF4206503DD00BCB8C0 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
+		C7BA9C45206B54F100A71EAC /* AddressSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressSearchViewController.h; sourceTree = "<group>"; };
+		C7BA9C46206B54F100A71EAC /* AddressSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressSearchViewController.m; sourceTree = "<group>"; };
+		C7BA9CBB206B76E700A71EAC /* AddressSearchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressSearchDelegate.h; sourceTree = "<group>"; };
+		C7E84BA3206A6AD7001E73F0 /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableViewCell.h; sourceTree = "<group>"; };
+		C7E84BA4206A6AD7001E73F0 /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableViewCell.m; sourceTree = "<group>"; };
 		C7F2C017206383DD00C34D2D /* ClassEnvironmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassEnvironmentViewController.h; sourceTree = "<group>"; };
 		C7F2C018206383DD00C34D2D /* ClassEnvironmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassEnvironmentViewController.m; sourceTree = "<group>"; };
 		C7F2C019206383DD00C34D2D /* ClassEnvironmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassEnvironmentViewController.xib; sourceTree = "<group>"; };
@@ -1669,7 +1676,7 @@
 			children = (
 				C781F86B205BFFC100BE37AD /* Controller */,
 				C781F86C205BFFC100BE37AD /* Model */,
-				C781F86D205BFFC100BE37AD /* View */,
+				C7E84B9D206A6A21001E73F0 /* View */,
 			);
 			path = AddressModule;
 			sourceTree = "<group>";
@@ -1680,6 +1687,9 @@
 				C781F86E205BFFE000BE37AD /* AddressViewController.h */,
 				C781F86F205BFFE000BE37AD /* AddressViewController.m */,
 				C781F870205BFFE000BE37AD /* AddressViewController.xib */,
+				C7BA9C45206B54F100A71EAC /* AddressSearchViewController.h */,
+				C7BA9C46206B54F100A71EAC /* AddressSearchViewController.m */,
+				C7BA9CBB206B76E700A71EAC /* AddressSearchDelegate.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1693,13 +1703,6 @@
 				C781F874205CA79E00BE37AD /* AddressViewManager.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		C781F86D205BFFC100BE37AD /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		C7A27ADF206503DD00BCB8C0 /* Detail */ = {
@@ -1761,6 +1764,15 @@
 				C7A27AF2206503DD00BCB8C0 /* ActivityTableViewCell.m */,
 				C7A27AF3206503DD00BCB8C0 /* ActivityTableViewCell.h */,
 				C7A27AF4206503DD00BCB8C0 /* ActivityTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C7E84B9D206A6A21001E73F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C7E84BA3206A6AD7001E73F0 /* AddressTableViewCell.h */,
+				C7E84BA4206A6AD7001E73F0 /* AddressTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2129,10 +2141,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2185,6 +2194,7 @@
 				C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */,
 				C750D9492068B2750099388F /* AddressModel.m in Sources */,
 				F4CFCC2F206630B10002E8DB /* ActivityVideoDetailViewController.m in Sources */,
+				C7BA9C47206B54F100A71EAC /* AddressSearchViewController.m in Sources */,
 				C7F2C01E206395BC00C34D2D /* CutomCollectionViewLayout.m in Sources */,
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
 				C70A31F32064F72C00D1139A /* PersonalInfoViewController.m in Sources */,
@@ -2196,6 +2206,7 @@
 				D3FA488620666B350016D0B8 /* LolitaTableView.m in Sources */,
 				C73DD5C5204E88BD00C6437F /* main.m in Sources */,
 				C7A27AF7206503DD00BCB8C0 /* ActivitySubViewController.m in Sources */,
+				C7E84BA5206A6AD7001E73F0 /* AddressTableViewCell.m in Sources */,
 				BE66924820633F3300111810 /* MYImageButton.m in Sources */,
 				C758D94A205F8C3700257DDB /* ClassComDetailViewController.m in Sources */,
 				3872419920688B5D00C2347A /* SelectTypeViewController.m in Sources */,
