@@ -8,10 +8,11 @@
 #import <Foundation/Foundation.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
 
 @class AddressInfo;
 @interface MapManager : NSObject
-@property (strong ,nonatomic) AddressInfo *historyAddress;  // 历史地址
+@property (strong ,nonatomic) AMapGeocode *historyGeocode;  // 地理位置信息
 
 +(instancetype)share;
 
@@ -23,7 +24,12 @@
 /**
  获取实时地址, 此方法会更新 historyAddress
  */
--(void)locationCompletionBlock:(void(^)(AddressInfo *currentAddress, BOOL needUpdate, NSError *error))block;
+-(void)locationCompletionBlock:(void(^)(AMapGeocode *currentAddress, BOOL needUpdate, NSError *error))block;
+
+/**
+ 设置成新的城市
+ */
+-(void)setCity:(NSString*)cityName;
 
 
 @end
@@ -32,10 +38,3 @@
 
 
 
-
-// !!!: 地址信息
-@interface AddressInfo : NSObject
-@property (strong ,nonatomic) AMapLocationPoint *location;          // 经纬度
-@property (strong ,nonatomic) AMapLocationReGeocode *regeocode;     // 反地理位置
-@property (copy ,nonatomic) NSString *cityName;
-@end

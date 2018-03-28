@@ -21,4 +21,11 @@
     // Configure the view for the selected state
 }
 
+-(NSMutableArray *)subViews{
+    if (_subViews==nil) {
+        _subViews = [NSMutableArray array];
+    }
+    return _subViews;
+}
+
 @end

@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddressModel.h"
+#import "AddressSearchDelegate.h"
 
-@interface AddressSearchViewController : UISearchController
+@interface AddressSearchViewController : UIViewController
+
+@property (copy ,nonatomic) NSArray *originArray;   // 原始数据数组
+
+@property (nonatomic,weak) id <AddressSearchDelegate> delegate;
 
 @end
+

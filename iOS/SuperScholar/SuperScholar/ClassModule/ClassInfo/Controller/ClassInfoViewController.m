@@ -228,6 +228,13 @@
         if ([cimi.code isEqualToString:@"phone"]) {
             [self callPhone];
         }
+        else if ([cimi.code isEqualToString:@"environment"]){               // 环境
+            [self goToBanJiHuanJingModule];
+        }
+        else if ([cimi.code isEqualToString:@"school"]){                    // 学校
+            ClassInfoViewController *ctrl = [ClassInfoViewController new];
+            [self.navigationController pushViewController:ctrl animated:YES];
+        }
     }
 }
 
@@ -260,8 +267,8 @@
     else if ([model.code isEqualToString:ZuiXinDongTaiCode]){       // 最新动态
         [self goToZuiXinDongTaiModule];
     }
-    else if ([model.code isEqualToString:BanJiHuanJingCode]){       // 班级环境
-        [self goToBanJiHuanJingModule];
+    else if ([model.code isEqualToString:HuoDongYuGaoCode]){        // 活动预告
+        [self goToHuoDongYuGaoModule];
     }
     else if ([model.code isEqualToString:JingCaiHuoDongCode]){      // 精彩活动
         
@@ -312,6 +319,10 @@
         ctrl = [ClassSapceViewController new];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
+}
+// !!!: 跳转活动预告
+-(void)goToHuoDongYuGaoModule{
+    
 }
 // !!!: 跳转学校环境
 -(void)goToBanJiHuanJingModule{

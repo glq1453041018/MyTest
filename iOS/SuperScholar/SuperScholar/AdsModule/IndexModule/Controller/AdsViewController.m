@@ -19,7 +19,7 @@
 
 #import "UIButton+Positon.h"
 
-@interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface AdsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,AddressSearchDelegate>
 @property (nonatomic,strong) UICollectionView *CollectionView;
 @property (strong ,nonatomic) UIView *leftView;
 @property (copy ,nonatomic) NSString *address;
@@ -34,11 +34,6 @@
 @end
 
 @implementation AdsViewController
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    self.address = @[@"福州",@"连云港",@"阿拉善盟",@"大厂回族自治县"][getRandomNumberFromAtoB(0, 3)];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -483,6 +478,7 @@
 // !!!: 导航代理
 -(void)navigationViewLeftClickEvent{
     AddressViewController *ctrl = [AddressViewController new];
+    ctrl.delegate = self;
     [self.navigationController presentViewController:ctrl animated:YES completion:nil];
 }
 -(void)navigationViewRightClickEvent{
@@ -579,6 +575,12 @@
     SearchIndexViewController *zhaosheng = [[SearchIndexViewController alloc]initWithNibName:@"SearchIndexViewController" bundle:nil];
     zhaosheng.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:zhaosheng animated:YES];
+}
+
+
+#pragma mark - <************************** 城市选择代理 **************************>
+-(void)addressSearchController:(UIViewController *)ctrl cityModel:(AddressModel *)am{
+    [self setAddress:am.cityName];
 }
 
 

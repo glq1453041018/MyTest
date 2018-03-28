@@ -10,4 +10,7 @@
 
 @interface AddressTableViewCell : UITableViewCell
 
+@property (strong ,nonatomic) NSMutableArray *subViews;
+
+
 @end

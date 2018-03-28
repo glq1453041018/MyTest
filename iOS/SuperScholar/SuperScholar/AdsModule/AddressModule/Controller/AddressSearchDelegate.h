@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "AddressModel.h"
 
 @protocol AddressSearchDelegate <NSObject>
+
+@optional
+-(void)addressSearchController:(UIViewController*)ctrl cityModel:(AddressModel*)am;
 
 @end
