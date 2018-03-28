@@ -134,13 +134,13 @@
 
 // !!!: MyWebViewDelegate
 - (void)didFinishWebView:(MyWebView *)webView{
-    [webView.webView.scrollView setContentOffset:CGPointMake(0, 48)];
-    if(webView.webView.scrollView.contentSize.height > 200){
-        webView.webView.scrollView.scrollEnabled = NO;
-        webView.webView.hidden = NO;
-    }else{
-        webView.webView.hidden = YES;
-    }
+//    [webView.webView.scrollView setContentOffset:CGPointMake(0, 48)];
+//    if(webView.webView.scrollView.contentSize.height > 200){
+//        webView.webView.scrollView.scrollEnabled = NO;
+//        webView.webView.hidden = NO;
+//    }else{
+//        webView.webView.hidden = YES;
+//    }
 }
 
 #pragma mark - <************************** 点击事件 **************************>
