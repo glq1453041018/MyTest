@@ -9,11 +9,13 @@
 #import "ActivityVideoDetailViewController.h"
 #import "ClassSpaceViewController.h"
 #import "CommentView.h"                         // 评论视图
+#import "MyWebView.h"
 
-@interface ActivityVideoDetailViewController ()<UITableViewDelegate, UITableViewDataSource, CommentViewDelegate>
+@interface ActivityVideoDetailViewController ()<UITableViewDelegate, UITableViewDataSource, CommentViewDelegate, MyWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *data;
 @property (strong ,nonatomic) CommentView *commentView;                 // 评论视图
+@property (weak, nonatomic) IBOutlet MyWebView *webView;
 @end
 
 @implementation ActivityVideoDetailViewController
@@ -56,6 +58,13 @@
     self.tableView.tableFooterView = [UIView new];
     
     [self.view addSubview:self.commentView];
+    
+    self.webView.delegate = self;
+    self.webView.webView.configuration.allowsInlineMediaPlayback = YES;
+    WKWebViewConfiguration *vc = self.webView.webView.configuration;
+    vc.allowsInlineMediaPlayback = YES;
+//    [self.webView.webView.configuration setValue:@NO forKey:@"fullScreenEnabled"];
+     [self.webView loadUrlString:@"http://123.207.65.130/a.html"];
 }
 
 
@@ -121,6 +130,17 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         completeBlock(YES);
     });
+}
+
+// !!!: MyWebViewDelegate
+- (void)didFinishWebView:(MyWebView *)webView{
+//    [webView.webView.scrollView setContentOffset:CGPointMake(0, 48)];
+//    if(webView.webView.scrollView.contentSize.height > 200){
+//        webView.webView.scrollView.scrollEnabled = NO;
+//        webView.webView.hidden = NO;
+//    }else{
+//        webView.webView.hidden = YES;
+//    }
 }
 
 #pragma mark - <************************** 点击事件 **************************>
