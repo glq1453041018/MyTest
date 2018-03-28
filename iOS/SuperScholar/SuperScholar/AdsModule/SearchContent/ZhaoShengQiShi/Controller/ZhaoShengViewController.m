@@ -219,22 +219,24 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
         }
-        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
-        
-        NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:@"新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教婴早教莆田教育婴早教莆田教育莆田教育中心新爱婴早教莆田教育中心"];
-        
-        //    if (fenxianTip.length>5) {
-        [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
-        //设置文字颜色
-        [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
-        //设置文字大小
-        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
-        
-        //    }
-        
-        //赋值
-        cell.contentLable.attributedText = attributStr;
+//        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
+//        
+//        NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:@"新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教婴早教莆田教育婴早教莆田教育莆田教育中心新爱婴早教莆田教育中心"];
+//        
+//        //    if (fenxianTip.length>5) {
+//        [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
+//        //设置文字颜色
+//        [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
+//        //设置文字大小
+//        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
+//        
+//        //    }
+//        
+//        //赋值
+//        cell.contentLable.attributedText = attributStr;
+    
+        [cell.contentLable setAttributedText:[self adjustLineSpace:[TESTDATA randomContent]]];
         cell.contentLable.lineBreakMode = NSLineBreakByTruncatingTail;
         
         
@@ -249,22 +251,23 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
         }
-        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
-        
-        NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:@"新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教婴早教莆田教育婴早教莆田教育莆田教育中心新爱婴早教莆田教育中心"];
-        
-        //    if (fenxianTip.length>5) {
-        [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
-        //设置文字颜色
-        [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
-        //设置文字大小
-        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
-        
-        //    }
-        
-        //赋值
-        cell.contentLable.attributedText = attributStr;
+//        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//        [paragraphStyle setLineSpacing:LineSpace];//调整行间距
+//        
+//        NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:@"新爱婴早教莆田教育中心新爱婴早教莆田教育中心新爱婴早教婴早教莆田教育婴早教莆田教育莆田教育中心新爱婴早教莆田教育中心"];
+//        
+//        //    if (fenxianTip.length>5) {
+//        [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
+//        //设置文字颜色
+//        [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
+//        //设置文字大小
+//        [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
+//        
+//        //    }
+//        
+//        //赋值
+//        cell.contentLable.attributedText = attributStr;
+        [cell.contentLable setAttributedText:[self adjustLineSpace:[TESTDATA randomContent]]];
         cell.contentLable.lineBreakMode = NSLineBreakByTruncatingTail;
         
         
@@ -292,7 +295,20 @@
 
 #pragma mark - <************************** 其他方法 **************************>
 
-
+- (NSMutableAttributedString *)adjustLineSpace:(NSString *)text{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:LineSpace];//调整行间距
+    
+    NSMutableAttributedString *attributStr = [[NSMutableAttributedString alloc]initWithString:text];
+    
+    [attributStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attributStr length])];
+    //设置文字颜色
+    [attributStr addAttribute:NSForegroundColorAttributeName value:FontSize_colorgray range:NSMakeRange(0, attributStr.length)];
+    //设置文字大小
+    [attributStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:FontSize_16] range:NSMakeRange(0, attributStr.length)];
+    
+    return attributStr;
+}
 
 
 #pragma mark - <************************** 检测释放 **************************>

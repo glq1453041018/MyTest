@@ -10,7 +10,9 @@
 #import "SearchIndexViewController.h"
 #import "AddressViewController.h"
 #import "AdsDetailViewController.h"
+#import "SelectTypeViewController.h"
 //#import "ZhaoShengViewController.h"
+
 
 #import "AdsCollectionViewCell.h"
 #import "AdsTableViewCell.h"
@@ -23,6 +25,9 @@
 @property (copy ,nonatomic) NSString *address;
 @property (strong ,nonatomic) UISearchBar *searchBar;
 @property (strong ,nonatomic) UILabel *rightLabel;
+@property (strong,nonatomic) SelectTypeViewController *SelectView;
+
+@property (assign,nonatomic)NSInteger typeIndex;
 
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -56,6 +61,21 @@
 }
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
+-(SelectTypeViewController *)SelectView{
+    if (_SelectView == nil) {
+        _SelectView = [[SelectTypeViewController alloc]initWithNibName:@"SelectTypeViewController" bundle:nil];
+        [self addChildViewController:_SelectView];
+        [self.view addSubview:_SelectView.view];
+        CGRect rect = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [_SelectView.view cwn_makeConstraints:^(UIView *maker) {
+            maker.leftToSuper(0).topToSuper(rect.origin.y+self.tableView.frame.origin.y).rightToSuper(0).bottomToSuper(0);
+        }];
+        _SelectView.view.hidden = YES;
+         _SelectView.mytableView.frame = CGRectMake(_SelectView.mytableView.frame.origin.x, 0, _SelectView.mytableView.frame.size.width, 0);
+        _SelectView.LefttableView.frame = CGRectMake(_SelectView.LefttableView.frame.origin.x, 0, _SelectView.LefttableView.frame.size.width, 0);
+    }
+    return _SelectView;
+}
 -(UIView *)leftView{
     if (_leftView==nil) {
         _leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
@@ -250,9 +270,15 @@
             }
         }
         [cell adjustFrame];
+        cell.typeSelectBtn.tag = 0;
+        cell.areaSelectBtn.tag = 1;
+        cell.IntelligenceBtn.tag = 2;
         [cell.typeSelectBtn setImagePosition:ZXImagePositionRight spacing:3];
         [cell.areaSelectBtn setImagePosition:ZXImagePositionRight spacing:3];
         [cell.IntelligenceBtn setImagePosition:ZXImagePositionRight spacing:3];
+        [cell.typeSelectBtn addTarget:self action:@selector(TypeChangeClick:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.areaSelectBtn addTarget:self action:@selector(TypeChangeClick:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.IntelligenceBtn addTarget:self action:@selector(TypeChangeClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return cell;
 }
@@ -315,7 +341,10 @@
                         break;
                     }
                 }
+                
                 [cell adjustFrame];
+                cell.headImage.contentMode = UIViewContentModeScaleAspectFill;
+                cell.headImage.clipsToBounds = YES;
             }
     
 //        }
@@ -393,6 +422,12 @@
                 }
             }
             [cell adjustFrame];
+            cell.headImage1.contentMode = UIViewContentModeScaleAspectFill;
+            cell.headImage2.contentMode = UIViewContentModeScaleAspectFill;
+            cell.headImage3.contentMode = UIViewContentModeScaleAspectFill;
+            cell.headImage1.clipsToBounds = YES;
+            cell.headImage2.clipsToBounds = YES;
+            cell.headImage3.clipsToBounds = YES;
         }
         
         //        }
@@ -547,8 +582,73 @@
 }
 
 
-#pragma mark - <************************** 其他方法 **************************>
+#pragma mark - <************************** 点击事件 **************************>
+-(void)TypeChangeClick:(UIButton*)sender{
+//    SelectTypeViewController *select = [[SelectTypeViewController alloc]initWithNibName:@"SelectTypeViewController" bundle:nil];
+//    [self addChildViewController:select];
+//    [self.view addSubview:select.view];
+    UIView *view = [sender superview];
+    for (UIView *btn in [view subviews]) {
+        if ([btn isKindOfClass:[UIButton class]]) {
+            [(UIButton*)btn setTitleColor:FontSize_colorgray_44 forState:UIControlStateNormal];
+            [(UIButton*)btn setImage:[UIImage imageNamed:@"arrow_bottom"] forState:UIControlStateNormal];
+        }
+    }
 
+     [sender setTitleColor:KColorTheme_font forState:UIControlStateNormal];
+    if (self.SelectView.view.hidden) {
+        self.SelectView.view.hidden = NO;
+        if (self.typeIndex!=sender.tag) {
+            self.typeIndex = sender.tag;
+            self.SelectView.type = sender.tag;
+            [self.SelectView refreshOnOutside];
+        }
+        [UIView animateWithDuration:0.3 animations:^{
+            self.SelectView.view.backgroundColor = RGBColor(220, 220, 220, 0.9);
+            self.SelectView.mytableView.frame = CGRectMake(self.SelectView.mytableView.frame.origin.x, 0, self.SelectView.mytableView.frame.size.width, self.SelectView.tableHeight);
+            self.SelectView.LefttableView.frame = CGRectMake(self.SelectView.LefttableView.frame.origin.x, 0, self.SelectView.LefttableView.frame.size.width, self.SelectView.tableHeight);
+
+        }];
+        
+       
+        [sender setImage:[UIImage imageNamed:@"arrow_top"] forState:UIControlStateNormal];
+    }else{
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            self.SelectView.mytableView.frame = CGRectMake(self.SelectView.mytableView.frame.origin.x, 0, self.SelectView.mytableView.frame.size.width, 0);
+            self.SelectView.LefttableView.frame = CGRectMake(self.SelectView.LefttableView.frame.origin.x, 0, self.SelectView.LefttableView.frame.size.width, 0);
+            self.SelectView.view.backgroundColor = RGBColor(220, 220, 220, 0);
+        } completion:^(BOOL finished) {
+            self.SelectView.view.hidden = YES;
+            
+            if (self.typeIndex!=sender.tag) {
+                self.typeIndex = sender.tag;
+                self.SelectView.type = sender.tag;
+               [self.SelectView refreshOnOutside];
+//                CGFloat height = count*50*MAIN_SPWPW;
+                self.SelectView.view.hidden = NO;
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.SelectView.view.backgroundColor = RGBColor(220, 220, 220, 0.9);
+                    self.SelectView.mytableView.frame = CGRectMake(self.SelectView.mytableView.frame.origin.x, 0, self.SelectView.mytableView.frame.size.width, self.SelectView.tableHeight);
+                    self.SelectView.LefttableView.frame = CGRectMake(self.SelectView.LefttableView.frame.origin.x, 0, self.SelectView.LefttableView.frame.size.width, self.SelectView.tableHeight);
+                    
+                }];
+                [sender setImage:[UIImage imageNamed:@"arrow_top"] forState:UIControlStateNormal];
+            }else{
+                
+                [sender setImage:[UIImage imageNamed:@"arrow_bottom"] forState:UIControlStateNormal];
+            }
+
+        }];
+
+        
+        
+
+    }
+
+//    select.view.frame = CGRectMake(0, rect.origin.y, IEW_WIDTH, IEW_HEGHT-rect.origin.y);
+
+}
 
 
 

@@ -9,53 +9,68 @@
 #import "AddressViewManager.h"
 
 @interface AddressViewManager ()
-@property (strong ,nonatomic) AMapLocationManager *locationManager;
+
 @end
 
 @implementation AddressViewManager
 
-+(instancetype)share{
-    static AddressViewManager *instance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [AddressViewManager new];
-    });
-    return instance;
-}
-
-
--(void)configMap{
-    [AMapServices sharedServices].apiKey = kMapKey;
-}
-
--(void)locationCompletionBlock:(void (^)(AMapLocationReGeocode *, NSError *))block{
-    [self.locationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
-        if (block) {
-            block(regeocode,error);
+// !!!: 获取数据
++(void)requestDataResponse:(void (^)(NSArray *, id))responseBlock{
+    
+    NSDictionary *dic = [self getCityList];
+    
+    NSMutableArray *resArray = [NSMutableArray array];
+    // 热门城市
+    NSArray *hots = [dic objectForKey:@"hotCity"];
+    if (hots.count) {
+        NSMutableArray *hotsTmp = [NSMutableArray array];
+        for (int i=0; i<hots.count; i++) {
+            AddressModel *am = [AddressModel new];
+            am.typeName = @"热门城市";
+            am.cityName = hots[i];
+            am.cellHeight = 120;
+            [hotsTmp addObject:am];
         }
-        if (error){
-            DLog(@"locError:{%ld - %@};", (long)error.code, error.localizedDescription);
-            if (error.code == AMapLocationErrorLocateFailed){
-                return;
-            }
+        [resArray addObject:hotsTmp];
+    }
+    // 普通城市
+    NSDictionary *normal = [dic objectForKey:@"normalCity"];
+    NSArray *keys = [normal.allKeys sortedArrayUsingComparator:^NSComparisonResult(NSString * obj1, NSString* obj2) {
+        if (obj1>obj2) {
+            return NSOrderedDescending;
         }
-        if (regeocode){
-            DLog(@"reGeocode:%@", regeocode);
+        else{
+            return NSOrderedAscending;
         }
     }];
-}
-
--(AMapLocationManager *)locationManager{
-    if (_locationManager==nil) {
-        _locationManager = [AMapLocationManager new];
-        [_locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
-        //   逆地理请求超时时间，最低2s
-        _locationManager.reGeocodeTimeout = 2;
-        //   定位超时时间，最低2s，
-        self.locationManager.locationTimeout = 2;
+    for (NSString *key in keys) {
+        NSArray *items = [normal objectForKey:key];
+        if (items.count) {
+            NSMutableArray *normalTmp = [NSMutableArray array];
+            for (int i=0; i<items.count; i++) {
+                AddressModel *am = [AddressModel new];
+                am.typeName = key;
+                am.cityName = items[i];
+                am.cellHeight = 44;
+                [normalTmp addObject:am];
+            }
+            [resArray addObject:normalTmp];
+        }
     }
-    return _locationManager;
+    if (responseBlock) {
+        responseBlock(resArray,nil);
+    }
+    
 }
 
+
+
+
+// !!!: 获取城市名称
++(NSDictionary *)getCityList{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"cityOrder" ofType:@"plist"];
+    NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    return dic;
+}
 
 @end

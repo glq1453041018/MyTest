@@ -53,4 +53,6 @@ typedef NS_ENUM(NSInteger , MYPageControlStyle) {//分页控件样式
 - (void)pauseTimer;
 - (void)resumeTimer;
 
+- (void)setCurrentPage:(NSInteger)page; // 设置当前页
+
 @end

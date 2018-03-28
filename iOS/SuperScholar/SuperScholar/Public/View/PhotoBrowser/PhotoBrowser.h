@@ -11,15 +11,19 @@
 
 @protocol PhotoBrowserDelegate <NSObject>
 
+@optional
 /**
- 图片浏览器切换图片通知，目的：获取关闭浏览器图片后，需要移回的fromFrame
-
  @param photoBrowser 图片浏览器
  @param currentPage 当前图片下标
- @return selectedView 为currentPage对应的视图，一般来说是一个imageView，关闭浏览器时会将这个视图移回原来的位置
  */
-@optional
-- (UIView *)photoBrowser:(PhotoBrowser *)photoBrowser didScrollToPage:(NSInteger)currentPage;
+
+// !!!: 主线程
+-(UIView *)photoBrowser:(PhotoBrowser *)photoBrowser didScrollToPage:(NSInteger)currentPage;
+// !!!: 配合视图滚动使用
+-(void)photoBrowser:(PhotoBrowser *)photoBrowser didScrollToPage:(NSInteger)currentPage completion:(void(^)(UIView *))completion;
+
+// !!!: 结束显示
+-(void)photoBrowser:(PhotoBrowser *)photoBrowser didHidden:(NSInteger)currentPage;
 
 @end
 
@@ -45,6 +49,10 @@
 +(instancetype)showURLImages:(NSArray*)images placeholderImage:(UIImage *)image selectedIndex:(NSInteger)index  selectedView:(UIView *)selectedView;
 
 @end
+
+
+
+
 
 @interface PhotoBrowserCollectionViewCell : UICollectionViewCell
 @property(nonatomic,strong)UIImageView *imageView;

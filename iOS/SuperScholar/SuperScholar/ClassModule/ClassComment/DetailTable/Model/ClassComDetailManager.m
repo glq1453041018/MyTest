@@ -7,6 +7,10 @@
 //
 
 #import "ClassComDetailManager.h"
+#import "NSArray+ExtraMethod.h"
+
+@interface ClassComDetailManager ()<PhotoBrowserDelegate>
+@end
 
 @implementation ClassComDetailManager
 // !!!: 数据模型初始化
@@ -148,10 +152,23 @@
 -(void)imageActionEvent:(UIButton*)btn{
     DLog(@"第%ld个图片",btn.tag);
     ClassSpaceModel *csm = objc_getAssociatedObject(btn, @"imageBtn");
-    [PhotoBrowser showURLImages:csm.pics placeholderImage:kPlaceholderImage selectedIndex:btn.tag selectedView:nil];
+    PhotoBrowser *photoBroser = [PhotoBrowser showURLImages:csm.pics placeholderImage:kPlaceholderImage selectedIndex:btn.tag selectedView:btn];
+    objc_setAssociatedObject(photoBroser, @"photoBrowser", csm, OBJC_ASSOCIATION_RETAIN);
+    photoBroser.delegate = self;
 }
 
-
+    // !!!:图片切换代理
+- (UIView *)photoBrowser:(PhotoBrowser *)photoBrowser didScrollToPage:(NSInteger)currentPage{
+    ClassSpaceModel *csm = objc_getAssociatedObject(photoBrowser, @"photoBrowser");
+    if(csm){
+        UIButton *btn = [csm.picViews objectAtIndexNotOverFlow:currentPage];
+        if(btn){
+            return btn;
+        }
+    }
+    return nil;
+}
+    
 
 // !!!: 加载回复视图
 -(void)loadResponseCell:(ClassComDetailTableViewCell *)cell index:(NSInteger)index{
@@ -170,5 +187,7 @@
     cell.rowView.y = ccim.cellHeight-0.5;
 }
 
+    
+    
 
 @end

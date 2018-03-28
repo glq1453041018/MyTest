@@ -10,7 +10,7 @@
 #import <CloudPushSDK/CloudPushSDK.h>
 #import <UserNotifications/UserNotifications.h>
 #import "ShareManager.h"
-#import "AddressViewManager.h"
+#import "MapManager.h"
 #import "MainTabBarViewController.h"
 #import "RemotePushManager.h"
 
@@ -27,7 +27,7 @@
     self.window.rootViewController = [MainTabBarViewController new];
     [self.window makeKeyAndVisible];
     
-//    [AddressViewManager configMap];
+    [[MapManager share] configMap];
     
     [ShareManager applicationDidFinishLaunching];//mob分享
     

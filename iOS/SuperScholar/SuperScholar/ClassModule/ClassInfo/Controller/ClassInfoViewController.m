@@ -20,7 +20,7 @@
 #import "ClassInfoModel.h"
 #import "ClassInfoManager.h"
 
-@interface ClassInfoViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate,ClassInfoManagerDelegate>
+@interface ClassInfoViewController ()<UITableViewDelegate,UITableViewDataSource,MYBannerScrollViewDelegate,ClassInfoManagerDelegate,PhotoBrowserDelegate>
 // !!!: 视图类
 @property (strong ,nonatomic) UITableView *table;
 @property (strong ,nonatomic) ClassInfoHeadView *headView;
@@ -237,8 +237,19 @@
 
 // !!!: 滚动视图的代理事件
 -(void)bannerScrollView:(MYBannerScrollView *)bannerScrollView didClickScrollView:(NSInteger)pageIndex{
-    [PhotoBrowser showURLImages:bannerScrollView.imagePaths placeholderImage:kPlaceholderImage selectedIndex:pageIndex selectedView:nil];
+    PhotoBrowser *photoBrowser = [PhotoBrowser showURLImages:bannerScrollView.imagePaths placeholderImage:kPlaceholderImage selectedIndex:pageIndex selectedView:self.headView.scrollView];
+    photoBrowser.delegate = self;
+    [self.headView.scrollView pauseTimer];
 }
+    
+// !!!: 图片浏览器的代理事件
+-(UIView *)photoBrowser:(PhotoBrowser *)photoBrowser didScrollToPage:(NSInteger)currentPage{
+    return self.headView.scrollView;
+}
+-(void)photoBrowser:(PhotoBrowser *)photoBrowser didHidden:(NSInteger)currentPage{
+    [self.headView.scrollView setCurrentPage:currentPage];
+}
+
 
 // !!!: 标题视图的代理事件
 -(void)classInfoManagerTitleClickEvent:(NSInteger)index data:(ClassInfoModel *)model{
