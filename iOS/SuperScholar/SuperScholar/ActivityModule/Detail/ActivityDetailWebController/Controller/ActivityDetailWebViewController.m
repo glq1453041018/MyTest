@@ -12,6 +12,7 @@
 #import "ClassSpaceTableViewCell.h"             // 消息主题cell
 #import "ClassComDetailTableViewCell.h"         // 回复cell
 #import "CommentView.h"                         // 评论视图
+#import "ArrowMenuView.h"
 // !!!: 数据
 #import "ClassComDetailManager.h"
 
@@ -19,6 +20,7 @@
 // !!!: 视图类
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong ,nonatomic) CommentView *commentView;                 // 评论视图
+@property (strong, nonatomic) ArrowMenuView *menu;
 // !!!: 数据类
 //@property (copy ,nonatomic) NSArray *data;
 @property (strong ,nonatomic) ClassComDetailManager *manager;
@@ -58,7 +60,7 @@
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     // 导航栏
-    [self.navigationBar setTitle:self.title?self.title:@"班级评价" leftImage:kGoBackImageString rightText:nil];
+    [self.navigationBar setTitle:self.title?self.title:@"班级评价" leftImage:kGoBackImageString rightText:@"设置"];
     
     self.isNeedGoBack = YES;
     
@@ -100,6 +102,20 @@
 // !!!: 导航栏
 -(void)navigationViewLeftClickEvent{
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)navigationViewRightClickEvent{
+    if(!_menu){
+        _menu = [[ArrowMenuView alloc] initWithFrame:CGRectMake(IEW_WIDTH - 8 - 120, 60, 120, 176) withSelectionBlock:^(NSInteger index) {
+            
+        }];
+        [self.view addSubview:_menu];
+        _menu.titles = [@[@"分享", @"收藏", @"点赞", @"评论"] mutableCopy];
+        [_menu reloadData];
+    }else{
+        _menu.hidden = YES;
+        [_menu removeFromSuperview];
+        _menu = nil;
+    }
 }
 // !!!: 列表的代理方法
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
