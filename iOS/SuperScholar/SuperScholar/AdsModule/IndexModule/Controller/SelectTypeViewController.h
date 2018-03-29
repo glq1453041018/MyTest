@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^returnTypeBlock)(NSDictionary *typeDic);
 @interface SelectTypeViewController : UIViewController
+
+@property (copy,nonatomic)returnTypeBlock returnType;
+@property (strong,nonatomic)NSMutableDictionary *typeDic;
 @property (strong,nonatomic)UITableView *mytableView;
 @property (strong,nonatomic)UITableView *LefttableView;
 @property (assign,nonatomic) NSInteger type; //0全部,1 附近,2智能排序

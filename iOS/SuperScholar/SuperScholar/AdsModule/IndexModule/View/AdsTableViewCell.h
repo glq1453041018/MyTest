@@ -32,6 +32,8 @@
 @end
 
 @interface AdsTableViewCell_Header : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *contentType;
+
 @property (weak, nonatomic) IBOutlet UIButton *typeSelectBtn;
 @property (weak, nonatomic) IBOutlet UIButton *areaSelectBtn;
 @property (weak, nonatomic) IBOutlet UIButton *IntelligenceBtn;
