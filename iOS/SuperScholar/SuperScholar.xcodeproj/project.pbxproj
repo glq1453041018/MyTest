@@ -46,6 +46,7 @@
 		BE243E73205FA08A008781EB /* MYCitySelectPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BE243E72205FA08A008781EB /* MYCitySelectPicker.m */; };
 		BE243E76205FBDC3008781EB /* MYInfoInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE243E75205FBDC3008781EB /* MYInfoInputView.m */; };
 		BE243E78205FC0C6008781EB /* MYInfoInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE243E77205FC0C6008781EB /* MYInfoInputView.xib */; };
+		BE4E8045206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4E8044206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework */; };
 		BE5C4875206CB3B10084BEB3 /* SPCallingCardBubbleChatContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5C4842206CB3B10084BEB3 /* SPCallingCardBubbleChatContentView.xib */; };
 		BE5C4876206CB3B10084BEB3 /* SPCallingCardBubbleChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5C4844206CB3B10084BEB3 /* SPCallingCardBubbleChatView.m */; };
 		BE5C4877206CB3B10084BEB3 /* SPCallingCardBubbleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5C4846206CB3B10084BEB3 /* SPCallingCardBubbleViewModel.m */; };
@@ -74,7 +75,6 @@
 		BE5C488E206CB3B20084BEB3 /* SecurityGuardSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5C486D206CB3B10084BEB3 /* SecurityGuardSDK.framework */; };
 		BE5C488F206CB3B20084BEB3 /* SGMain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5C486E206CB3B10084BEB3 /* SGMain.framework */; };
 		BE5C4890206CB3B20084BEB3 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5C486F206CB3B10084BEB3 /* UTMini.framework */; };
-		BE5C4891206CB3B20084BEB3 /* WXOpenIMSDKFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5C4870206CB3B10084BEB3 /* WXOpenIMSDKFMWK.framework */; };
 		BE5C4892206CB3B20084BEB3 /* WXOpenIMSDKResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE5C4871206CB3B10084BEB3 /* WXOpenIMSDKResource.bundle */; };
 		BE5C4893206CB3B20084BEB3 /* WXOUIModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5C4872206CB3B10084BEB3 /* WXOUIModule.framework */; };
 		BE5C4894206CB3B20084BEB3 /* WXOUIModuleResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE5C4873206CB3B10084BEB3 /* WXOUIModuleResources.bundle */; };
@@ -309,6 +309,7 @@
 		BE243E74205FBDC3008781EB /* MYInfoInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInfoInputView.h; sourceTree = "<group>"; };
 		BE243E75205FBDC3008781EB /* MYInfoInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInfoInputView.m; sourceTree = "<group>"; };
 		BE243E77205FC0C6008781EB /* MYInfoInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYInfoInputView.xib; sourceTree = "<group>"; };
+		BE4E8044206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WXOpenIMSDKFMWK.framework; sourceTree = "<group>"; };
 		BE5C4842206CB3B10084BEB3 /* SPCallingCardBubbleChatContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPCallingCardBubbleChatContentView.xib; sourceTree = "<group>"; };
 		BE5C4843206CB3B10084BEB3 /* SPCallingCardBubbleChatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCallingCardBubbleChatView.h; sourceTree = "<group>"; };
 		BE5C4844206CB3B10084BEB3 /* SPCallingCardBubbleChatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCallingCardBubbleChatView.m; sourceTree = "<group>"; };
@@ -348,7 +349,6 @@
 		BE5C486D206CB3B10084BEB3 /* SecurityGuardSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SecurityGuardSDK.framework; sourceTree = "<group>"; };
 		BE5C486E206CB3B10084BEB3 /* SGMain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SGMain.framework; sourceTree = "<group>"; };
 		BE5C486F206CB3B10084BEB3 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
-		BE5C4870206CB3B10084BEB3 /* WXOpenIMSDKFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WXOpenIMSDKFMWK.framework; sourceTree = "<group>"; };
 		BE5C4871206CB3B10084BEB3 /* WXOpenIMSDKResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WXOpenIMSDKResource.bundle; sourceTree = "<group>"; };
 		BE5C4872206CB3B10084BEB3 /* WXOUIModule.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WXOUIModule.framework; sourceTree = "<group>"; };
 		BE5C4873206CB3B10084BEB3 /* WXOUIModuleResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WXOUIModuleResources.bundle; sourceTree = "<group>"; };
@@ -626,6 +626,7 @@
 				BE6692A52063A58800111810 /* libsqlite3.tbd in Frameworks */,
 				BE5C48B5206CB44F0084BEB3 /* UIKit.framework in Frameworks */,
 				BE5C48B3206CB4480084BEB3 /* AddressBook.framework in Frameworks */,
+				BE4E8045206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework in Frameworks */,
 				BE5C48B1206CB4400084BEB3 /* SystemConfiguration.framework in Frameworks */,
 				BE5C48AF206CB4390084BEB3 /* CoreLocation.framework in Frameworks */,
 				BE5C48AD206CB4330084BEB3 /* CoreTelephony.framework in Frameworks */,
@@ -643,7 +644,6 @@
 				BE5C488E206CB3B20084BEB3 /* SecurityGuardSDK.framework in Frameworks */,
 				BE5C4890206CB3B20084BEB3 /* UTMini.framework in Frameworks */,
 				BE5C488F206CB3B20084BEB3 /* SGMain.framework in Frameworks */,
-				BE5C4891206CB3B20084BEB3 /* WXOpenIMSDKFMWK.framework in Frameworks */,
 				BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1022,9 +1022,9 @@
 				BE5C483F206CB3B10084BEB3 /* Customize */,
 				BE5C4863206CB3B10084BEB3 /* MainLogic */,
 				BE5C486D206CB3B10084BEB3 /* SecurityGuardSDK.framework */,
+				BE4E8044206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework */,
 				BE5C486E206CB3B10084BEB3 /* SGMain.framework */,
 				BE5C486F206CB3B10084BEB3 /* UTMini.framework */,
-				BE5C4870206CB3B10084BEB3 /* WXOpenIMSDKFMWK.framework */,
 				BE5C4871206CB3B10084BEB3 /* WXOpenIMSDKResource.bundle */,
 				BE5C4872206CB3B10084BEB3 /* WXOUIModule.framework */,
 				BE5C4873206CB3B10084BEB3 /* WXOUIModuleResources.bundle */,
