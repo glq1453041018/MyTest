@@ -52,6 +52,12 @@
     }
     return _leftArray;
 }
+-(NSMutableDictionary *)typeDic{
+    if (_typeDic == nil) {
+        _typeDic = [NSMutableDictionary dictionary];
+    }
+    return _typeDic;
+}
 -(void)creatTableView{
     
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -358,6 +364,18 @@
             model4.type = @"人气最高";
             [self.leftArray addObject:model4];
 
+        }
+            break;
+        case 3:
+        {
+            SelectTypeModel *model1 = [[SelectTypeModel alloc]init];
+            model1.type = @"招生启示";
+            [self.leftArray addObject:model1];
+            SelectTypeModel *model2 = [[SelectTypeModel alloc]init];
+            model2.type = @"学校";
+            
+            [self.leftArray addObject:model2];
+            
         }
             break;
             

@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SuperScholar/AdsModule/IndexModule/Controller/AdsViewController.m"
-            timestampString = "543833145.3274209"
+            timestampString = "543899517.790679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "624"
-            endingLineNumber = "624"
+            startingLineNumber = "627"
+            endingLineNumber = "627"
             landmarkName = "-TypeChangeClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SuperScholar/AdsModule/IndexModule/Controller/SelectTypeViewController.m"
-            timestampString = "543833020.004517"
+            timestampString = "543900485.548936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "-refreshOnOutside"
             landmarkType = "7">
          </BreakpointContent>
@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SuperScholar/AdsModule/IndexModule/Controller/SelectTypeViewController.m"
-            timestampString = "543833037.6524349"
+            timestampString = "543900485.548936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "-refreshOnOutside"
             landmarkType = "7">
          </BreakpointContent>

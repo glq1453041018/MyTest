@@ -203,8 +203,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HK-G7-eqy">
+                        <rect key="frame" x="0.0" y="0.0" width="96" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="招生启示" image="arrow_bottom">
+                            <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUd-cG-01z">
-                        <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
+                        <rect key="frame" x="96" y="0.0" width="93" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="全部" image="arrow_bottom">
@@ -212,7 +220,7 @@
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5H-Nd-3RK">
-                        <rect key="frame" x="125" y="0.0" width="125" height="40"/>
+                        <rect key="frame" x="189" y="0.0" width="93" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="附近" image="arrow_bottom">
@@ -220,7 +228,7 @@
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFu-67-aXT">
-                        <rect key="frame" x="250" y="0.0" width="125" height="40"/>
+                        <rect key="frame" x="282" y="0.0" width="93" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="智能排序" image="arrow_bottom">
@@ -233,6 +241,7 @@
             <connections>
                 <outlet property="IntelligenceBtn" destination="xFu-67-aXT" id="Knx-mu-ykK"/>
                 <outlet property="areaSelectBtn" destination="z5H-Nd-3RK" id="aIz-y7-RkI"/>
+                <outlet property="contentType" destination="8HK-G7-eqy" id="8ca-lV-Thf"/>
                 <outlet property="typeSelectBtn" destination="IUd-cG-01z" id="ORz-et-nRy"/>
             </connections>
             <point key="canvasLocation" x="-29.5" y="659"/>

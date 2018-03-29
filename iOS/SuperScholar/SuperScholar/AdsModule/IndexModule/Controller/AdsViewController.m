@@ -265,12 +265,15 @@
             }
         }
         [cell adjustFrame];
+        cell.contentType.tag = 3;
         cell.typeSelectBtn.tag = 0;
         cell.areaSelectBtn.tag = 1;
         cell.IntelligenceBtn.tag = 2;
+        [cell.contentType setImagePosition:ZXImagePositionRight spacing:3];
         [cell.typeSelectBtn setImagePosition:ZXImagePositionRight spacing:3];
         [cell.areaSelectBtn setImagePosition:ZXImagePositionRight spacing:3];
         [cell.IntelligenceBtn setImagePosition:ZXImagePositionRight spacing:3];
+        [cell.contentType addTarget:self action:@selector(TypeChangeClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell.typeSelectBtn addTarget:self action:@selector(TypeChangeClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell.areaSelectBtn addTarget:self action:@selector(TypeChangeClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell.IntelligenceBtn addTarget:self action:@selector(TypeChangeClick:) forControlEvents:UIControlEventTouchUpInside];
