@@ -139,8 +139,8 @@
  * @ param multiplier   比例
  * @ param constant    常数
  */
-- (UIView *(^)(CGFloat constant))width;
-- (UIView *(^)(CGFloat constant))height;
+- (UIView *(^)(CGFloat constant))widths;
+- (UIView *(^)(CGFloat constant))heights;
 - (UIView *(^)(UIView *targetView, CGFloat multiplier, CGFloat constant))widthTo;
 - (UIView *(^)(UIView *targetView, CGFloat multiplier, CGFloat constant))heightTo;
 

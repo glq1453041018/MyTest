@@ -34,7 +34,7 @@ static CGFloat const kCitySelectNaviPickerBarHeight = 44;
         
         [superView addSubview:self];
         [self cwn_makeConstraints:^(UIView *maker) {
-            weakself.bottomToSup = maker.leftToSuper(0).rightToSuper(0).height(kCitySelectDatePickerHeight + kCitySelectNaviPickerBarHeight).bottomToSuper(kCitySelectDatePickerHeight + kCitySelectNaviPickerBarHeight).lastConstraint;
+            weakself.bottomToSup = maker.leftToSuper(0).rightToSuper(0).heights(kCitySelectDatePickerHeight + kCitySelectNaviPickerBarHeight).bottomToSuper(kCitySelectDatePickerHeight + kCitySelectNaviPickerBarHeight).lastConstraint;
         }];
         
         _pickView = [[UIPickerView alloc] init];
@@ -53,7 +53,7 @@ static CGFloat const kCitySelectNaviPickerBarHeight = 44;
         [self addSubview:self.naviPickerBar];
         [self configToolItem];
         [self.naviPickerBar cwn_makeConstraints:^(UIView *maker) {
-            maker.leftToSuper(0).topToSuper(0).rightToSuper(0).height(kCitySelectNaviPickerBarHeight);
+            maker.leftToSuper(0).topToSuper(0).rightToSuper(0).heights(kCitySelectNaviPickerBarHeight);
         }];
     }
     return self;

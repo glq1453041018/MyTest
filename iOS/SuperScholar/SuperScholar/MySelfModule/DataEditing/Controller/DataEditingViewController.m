@@ -14,6 +14,7 @@
 #import "MYCitySelectPicker.h"
 #import <TZImagePickerController.h>
 #import "MYInfoInputView.h"
+#import "IMManager.h"
 
 @interface DataEditingViewController ()<UITableViewDelegate, UITableViewDataSource, MYDatePickerDatasource, TZImagePickerControllerDelegate>
 
@@ -319,6 +320,7 @@
 - (IBAction)onClickExit:(id)sender{
     [SVProgressHUD showSuccessWithStatus:@"退出成功"];
     [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
+    [IMManager callThisBeforeISVAccountLogout];
     SaveInfoForKey(nil, UserId_NSUserDefaults);
     [self.navigationController popViewControllerAnimated:YES];
 }
