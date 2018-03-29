@@ -16,7 +16,7 @@
 
 - (void)dealloc{
     if(self.scrollview)
-        [self removeObserver:self.scrollview forKeyPath:@"contentOffset"];
+        [self.scrollview removeObserver:self forKeyPath:@"contentOffset"];
 }
 
 - (void)setContentView:(UIView *)contentView scrollview:(UIScrollView *)scrollview{

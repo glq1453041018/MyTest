@@ -27,8 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *desLabel;
 
-@property (strong, nonatomic) NSLayoutConstraint *top;
-@property (strong, nonatomic) NSLayoutConstraint *top1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;
 
 @end
 
@@ -68,13 +67,7 @@
     self.navigationBar.backgroundColor = [UIColor clearColor];
     
     [self.view insertSubview:self.mainTable belowSubview:self.navigationBar];
-    WeakObj(self);
-    [self.backImageView cwn_makeConstraints:^(UIView *maker) {
-        weakself.top = maker.leftToSuper(0).rightToSuper(0).bottomToSuper(0).topToSuper(0).lastConstraint;
-    }];
-    [self.topBackView cwn_makeConstraints:^(UIView *maker) {
-        weakself.top1 = maker.leftToSuper(0).rightToSuper(0).bottomToSuper(0).topToSuper(0).lastConstraint;
-    }];
+    
 }
 
 
@@ -89,7 +82,7 @@
         _mainTable.showsVerticalScrollIndicator = NO;
         _mainTable.type = LolitaTableViewTypeMain;
         _mainTable.tableHeaderView = self.topView;
-//        [_mainTable addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+        [_mainTable addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     }
     return _mainTable;
 }
@@ -155,6 +148,19 @@
     self.navigationBar.backgroundColor = [KColorTheme colorWithAlphaComponent:alpha];
 }
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    if (scrollView==self.mainTable&&self.segement.containerView.isDragging==NO) {
+        self.segement.containerView.scrollEnabled = NO;
+    }
+    if (self.segement.containerView.isDragging) {
+        self.mainTable.scrollEnabled=NO;
+    }
+}
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    self.segement.containerView.scrollEnabled = YES;
+    self.mainTable.scrollEnabled=YES;
+}
+
 // !!!: 悬停的位置
 -(CGFloat)lolitaTableViewHeightForStayPosition:(LolitaTableView *)tableView{
     return [tableView rectForSection:0].origin.y-self.navigationBar.bottom;
@@ -170,14 +176,13 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     CGPoint point = [change[@"new"] CGPointValue];
     self.top.constant = MIN(0, point.y);
-    self.top1.constant = MIN(0, point.y);
 }
 
 
 #pragma mark - <************************** 检测释放 **************************>
 - (void)dealloc{
     if(self.mainTable)
-        //[self removeObserver:self.mainTable forKeyPath:@"contentOffset"];
+        [self.mainTable removeObserver:self forKeyPath:@"contentOffset"];
     DLog(@"%@释放掉",[self class]);
 }
 
