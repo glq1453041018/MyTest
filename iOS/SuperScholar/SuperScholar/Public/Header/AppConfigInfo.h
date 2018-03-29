@@ -68,7 +68,12 @@
 
 
 
+
+
 #pragma mark - <************************** 通知字段 **************************>
+static NSString *AMapSearchCityCompletionNotification = @"AMapSearchCityCompletionNotification";            // 高德地图搜索城市完成通知
+
+
 
 
 
@@ -114,6 +119,8 @@ static NSString* ZuiXinDongTaiCode                   = @"zxdt";          // 最�
 static NSString* BanJiHuanJingCode                   = @"bjhj";          // 班级环境
 static NSString* XueXiaoHuanJingCode                 = @"xxhj";          // 学校环境
 static NSString* JingCaiHuoDongCode                  = @"jchd";          // 精彩活动
+static NSString* HuoDongYuGaoCode                    = @"hdyg";          // 活动预告
+
 
 
 

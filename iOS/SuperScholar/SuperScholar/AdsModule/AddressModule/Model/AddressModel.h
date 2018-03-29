@@ -13,7 +13,9 @@
 
 @property (copy ,nonatomic) NSString *typeName;                     // 类型名称
 @property (copy ,nonatomic) NSString *cityName;                     // 城市名称
-@property (assign ,nonatomic) CLLocationCoordinate2D coordinate;    // 经纬度坐标
+@property (copy ,nonatomic) NSString *cityLetter;
+@property (assign ,nonatomic) double latitude;                      // 纬度
+@property (assign ,nonatomic) double longitude;                     // 经度
 
 @property (assign ,nonatomic) CGFloat cellHeight;                   
 

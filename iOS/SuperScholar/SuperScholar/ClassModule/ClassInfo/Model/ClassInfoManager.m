@@ -14,9 +14,9 @@
     NSMutableArray *titles = [NSMutableArray array];
     for (int i=0; i<4; i++) {
         ClassInfoModel *cim = [ClassInfoModel new];
-        cim.key = @[@"招生启示",@"最新动态",@"班级环境",@"精彩活动"][i];
+        cim.key = @[@"招生启示",@"最新动态",@"活动预告",@"精彩活动"][i];
         cim.value = @[@"12",@"23",@"25",@"32"][i];
-        cim.code = @[ZhaoShengQiShiCode,ZuiXinDongTaiCode,BanJiHuanJingCode,JingCaiHuoDongCode][i];
+        cim.code = @[ZhaoShengQiShiCode,ZuiXinDongTaiCode,HuoDongYuGaoCode,JingCaiHuoDongCode][i];
         cim.cellHeight = AdaptedWidthValue(60);
         [titles addObject:cim];
     }
@@ -26,12 +26,13 @@
     cimpj.cellHeight = AdaptedWidthValue(44);
     NSArray *pingjias = @[cimpj];
     NSMutableArray *items = [NSMutableArray array];
-    for (int i=0; i<4; i++) {
+    NSArray *columns = @[@"北京市东华街道20号楼6单元501室（新区美罗湘西200）",@"联系方式",@"班级简介",@"班级环境",@"班级列表",@"学校信息"];
+    for (int i=0; i<5; i++) {
         ClassInfoModel_Item *cimi = [ClassInfoModel_Item new];
         cimi.icon = @"location";
-        cimi.key = @[@"北京市东华街道20号楼6单元501室（新区美罗湘西200）",@"联系方式",@"班级简介",@"班级列表"][i];
-        cimi.value = @[@"",@"15150912502",@"",@""][i];
-        cimi.code = @[@"location",@"phone",@"brief",@"list"][i];
+        cimi.key = columns[i];
+        cimi.value = @[@"",@"15150912502",@"",@"",@"",@""][i];
+        cimi.code = @[@"location",@"phone",@"brief",@"environment",@"list",@"school"][i];
         cimi.cellHeight = AdaptedWidthValue(44);
         [items addObject:cimi];
     }

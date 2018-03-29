@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddressSearchDelegate.h"
 
 @interface AddressViewController : UIViewController
-
+@property (nonatomic,weak) id <AddressSearchDelegate> delegate;
 @end

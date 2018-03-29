@@ -25,10 +25,11 @@
     if (hots.count) {
         NSMutableArray *hotsTmp = [NSMutableArray array];
         for (int i=0; i<hots.count; i++) {
-            AddressModel *am = [AddressModel new];
+            NSDictionary *itemDic = hots[i];
+            AddressModel *am = [AddressModel objectWithModuleDic:itemDic hintDic:nil];
             am.typeName = @"热门城市";
-            am.cityName = hots[i];
-            am.cellHeight = 120;
+            NSInteger row = ceilf(hots.count / 3.0);
+            am.cellHeight = row * 45;
             [hotsTmp addObject:am];
         }
         [resArray addObject:hotsTmp];
@@ -48,9 +49,9 @@
         if (items.count) {
             NSMutableArray *normalTmp = [NSMutableArray array];
             for (int i=0; i<items.count; i++) {
-                AddressModel *am = [AddressModel new];
+                NSDictionary *itemDic = items[i];
+                AddressModel *am = [AddressModel objectWithModuleDic:itemDic hintDic:nil];
                 am.typeName = key;
-                am.cityName = items[i];
                 am.cellHeight = 44;
                 [normalTmp addObject:am];
             }
