@@ -238,7 +238,7 @@
     return block;
 }
 
-- (UIView *(^)(CGFloat))width{
+- (UIView *(^)(CGFloat))widths{
     __weak typeof(self) weakSelf = self;
     UIView *(^block)(CGFloat) = ^(CGFloat constant){
         [weakSelf setLastConstraint:[weakSelf setLayoutWidth:constant]];
@@ -247,7 +247,7 @@
     return block;
 }
 
-- (UIView *(^)(CGFloat))height{
+- (UIView *(^)(CGFloat))heights{
     __weak typeof(self) weakSelf = self;
     UIView *(^block)(CGFloat) = ^(CGFloat constant){
         [weakSelf setLastConstraint:[weakSelf setLayoutHeight:constant]];

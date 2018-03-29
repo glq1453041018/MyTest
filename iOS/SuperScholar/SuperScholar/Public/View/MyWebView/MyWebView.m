@@ -31,7 +31,7 @@
         }];
         
         [self.progress cwn_makeConstraints:^(UIView *maker) {
-            maker.leftToSuper(0).rightToSuper(0).topToSuper(0).height(2);
+            maker.leftToSuper(0).rightToSuper(0).topToSuper(0).heights(2);
         }];
         
         self.needLoading = YES;
@@ -57,7 +57,7 @@
         }];
         
         [self.progress cwn_makeConstraints:^(UIView *maker) {
-            maker.leftToSuper(0).rightToSuper(0).topToSuper(0).height(2);
+            maker.leftToSuper(0).rightToSuper(0).topToSuper(0).heights(2);
         }];
         
         self.needLoading = YES;

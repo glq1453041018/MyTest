@@ -23,7 +23,7 @@
         DLog(@"%@",NSStringFromCGRect(self.view.frame));
 //        loading.center = CGPointMake(kScreenWidth/2.0, (kScreenHeight-kNavigationbarHeight)/2.0+kNavigationbarHeight);
         [loading cwn_makeConstraints:^(UIView *maker) {
-            maker.centerXtoSuper(0).centerYtoSuper(0).width(maker.viewWidth).height(maker.viewHeight);
+            maker.centerXtoSuper(0).centerYtoSuper(0).widths(maker.viewWidth).heights(maker.viewHeight);
         }];
         objc_setAssociatedObject(self, @selector(loadingView), loading, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }

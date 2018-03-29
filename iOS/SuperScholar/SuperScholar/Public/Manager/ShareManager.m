@@ -162,13 +162,13 @@ static const CGFloat kShareViewHeight = 218;
         [cancel addTarget:manager action:@selector(onClickBackView) forControlEvents:UIControlEventTouchUpInside];
         [manager.backWhiteView addSubview:cancel];
         [cancel cwn_makeConstraints:^(UIView *maker) {
-            maker.leftToSuper(0).rightToSuper(0).bottomToSuper(0).height(44);
+            maker.leftToSuper(0).rightToSuper(0).bottomToSuper(0).heights(44);
         }];
         UIView *line = [[UIView alloc] init];
         line.backgroundColor = SeparatorLineColor;
         [manager.backWhiteView addSubview:line];
         [line cwn_makeConstraints:^(UIView *maker) {
-            maker.leftToLeft(cancel, 1, 0).rightToRight(cancel, 1, 0).bottomTo(cancel, 1, 0).height(0.5);
+            maker.leftToLeft(cancel, 1, 0).rightToRight(cancel, 1, 0).bottomTo(cancel, 1, 0).heights(0.5);
         }];
 
         
