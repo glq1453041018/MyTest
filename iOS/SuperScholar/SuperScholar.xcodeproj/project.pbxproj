@@ -2012,7 +2012,7 @@
 					C73DD5BF204E88BD00C6437F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = P6247WX9N5;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2415,7 +2415,7 @@
 				CODE_SIGN_ENTITLEMENTS = SuperScholar/SuperScholar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = P6247WX9N5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2439,8 +2439,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "11fc3be4-55b9-4b6f-80c3-df3af464f200";
-				PROVISIONING_PROFILE_SPECIFIER = superScholarHD;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -2451,7 +2451,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SuperScholar/SuperScholar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = P6247WX9N5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2475,8 +2475,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "11fc3be4-55b9-4b6f-80c3-df3af464f200";
-				PROVISIONING_PROFILE_SPECIFIER = superScholarHD;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
