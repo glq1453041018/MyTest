@@ -204,7 +204,12 @@ static const CGFloat kShareViewHeight = 218;
 }
 
 - (void)onClickBtn:(UIButton *)btn{
-    [[self class] shareToPlatform:btn.tag title:self.title body:self.body image:self.image link:self.link withCompletion:self.completion];
+    btn.userInteractionEnabled = NO;
+    [self onClickBackView];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.22 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        btn.userInteractionEnabled = YES;
+        [[self class] shareToPlatform:btn.tag title:self.title body:self.body image:self.image link:self.link withCompletion:self.completion];
+    });
 }
 
 - (void)showShareView{

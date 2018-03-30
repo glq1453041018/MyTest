@@ -50,11 +50,6 @@ typedef void(^LLAlertViewBlock)(NSInteger index);
 /**
  隐藏
  */
--(void)hide;
-
-/**
- 隐藏
- */
 -(void)hideWithBlock:(void(^)())block;
 
 

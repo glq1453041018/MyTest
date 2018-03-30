@@ -12,13 +12,19 @@
 #import "ClassSpaceTableViewCell.h"             // 消息主题cell
 #import "ClassComDetailTableViewCell.h"         // 回复cell
 #import "CommentView.h"                         // 评论视图
+#import "ArrowMenuView.h"
+#import "LLAlertView.h"
+#import <SVProgressHUD.h>
 // !!!: 数据
 #import "ClassComDetailManager.h"
+#import "ShareManager.h"
 
 @interface ActivityDetailWebViewController ()<UITableViewDelegate,UITableViewDataSource,CommentViewDelegate, MyWebViewDelegate>
 // !!!: 视图类
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong ,nonatomic) CommentView *commentView;                 // 评论视图
+@property (strong, nonatomic) ArrowMenuView *menu;
+@property (strong, nonatomic) LLAlertView *alert;
 // !!!: 数据类
 //@property (copy ,nonatomic) NSArray *data;
 @property (strong ,nonatomic) ClassComDetailManager *manager;
@@ -58,7 +64,7 @@
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     // 导航栏
-    [self.navigationBar setTitle:self.title?self.title:@"班级评价" leftImage:kGoBackImageString rightText:nil];
+    [self.navigationBar setTitle:self.title?self.title:@"班级评价" leftImage:kGoBackImageString rightText:@"设置"];
     
     self.isNeedGoBack = YES;
     
@@ -99,7 +105,49 @@
 #pragma mark - <************************** 代理方法 **************************>
 // !!!: 导航栏
 -(void)navigationViewLeftClickEvent{
+    if(_alert.isShow)
+        [self navigationViewRightClickEvent];
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)navigationViewRightClickEvent{
+    WeakObj(self);
+    if(!_menu){
+        _alert = [[LLAlertView alloc] initWithFrame:CGRectMake(0, kNavigationbarHeight, IEW_WIDTH, IEW_HEGHT - kNavigationbarHeight)];
+        [_alert setTouchBgView:^{//背景点击事件
+            [weakself navigationViewRightClickEvent];//调自己收起来
+        }];
+        [self.view addSubview:_alert];
+        
+        _menu = [[ArrowMenuView alloc] initWithFrame:CGRectZero withSelectionBlock:^(NSInteger index) {
+            switch (index) {
+                case 0://分享
+                    [weakself onClickShare];
+                    break;
+                case 1://收藏
+                    [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+                    break;
+                case 2://点赞
+                    [SVProgressHUD showSuccessWithStatus:@"点赞成功"];
+                    break;
+                default:
+                    break;
+            }
+            [weakself navigationViewRightClickEvent];//调自己收起来
+        }];
+        _alert.contentView = _menu;
+        _menu.frame = CGRectMake(IEW_WIDTH - 8 - IEW_WIDTH * 4 / 9, -6, IEW_WIDTH * 4 / 9, 176);
+        _menu.titles = [@[@"分享", @"收藏", @"点赞"] mutableCopy];
+        [_menu reloadData];
+        
+        [_alert show];
+    }else{
+        [_alert hideWithBlock:^{
+            [weakself.alert removeFromSuperview];
+            weakself.alert = nil;
+            weakself.menu.hidden = YES;
+            weakself.menu = nil;
+        }];
+    }
 }
 // !!!: 列表的代理方法
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -181,7 +229,15 @@
 
 
 #pragma mark - <************************** 点击事件 **************************>
-
+- (void)onClickShare{
+    NSString *url = [self.webView.webView.URL absoluteString];
+    [ShareManager showShareViewWithTitle:@"没有人生来勇敢，天赋过人" body:@"其实这个世界上，没有那么多与生俱来就很优秀的人" image:kPlaceholderImage link:url withCompletion:^(OSMessage *message, NSError *error) {
+        if(!error)
+            [SVProgressHUD showSuccessWithStatus:@"分享成功"];
+        else
+            [SVProgressHUD showErrorWithStatus:@"分享失败"];
+    }];
+}
 
 
 

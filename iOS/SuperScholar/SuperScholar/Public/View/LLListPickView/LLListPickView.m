@@ -118,7 +118,7 @@
             self.table.transform = CGAffineTransformIdentity;
         }
     } completion:^(BOOL finished) {
-        [self hide];
+        [self hideWithBlock:nil];
         if (finishHide) {
             finishHide();
         }
