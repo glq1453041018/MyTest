@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MYImageButton.h"
 
 @interface ArrowMenuView : UIView
 
@@ -14,4 +15,9 @@
 
 - (instancetype)initWithFrame:(CGRect)frame withSelectionBlock:(void(^)(NSInteger index))block;
 - (void)reloadData;//刷新titles
+@end
+
+
+@interface ArrowMenuTableCell : UITableViewCell
+@property (strong, nonatomic) MYImageButton *button;
 @end

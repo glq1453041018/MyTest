@@ -148,7 +148,7 @@
     });
 }
 
--(void)hide{
+-(void)hideWithBlock:(void (^)())block{
     if (self.isShow==NO||self.isShowing) {
         return;
     }
@@ -166,20 +166,16 @@
         self.isShow=NO;
         self.isShowing = NO;
         self.userInteractionEnabled = YES;
+        if (block) {
+            block();
+        }
     });
-}
-
--(void)hideWithBlock:(void (^)())block{
-    if (block) {
-        block();
-    }
-    [self hide];
 }
 
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     if (self.touchToClose) {
-        [self hide];
+        [self hideWithBlock:nil];
     }
     if (self.touchBgView) {
         if (self.isShow) {
