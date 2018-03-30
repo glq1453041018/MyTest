@@ -10,7 +10,7 @@
 
 @interface ClassCommentSectionView()
 
-@property (weak, nonatomic) IBOutlet UIView *rowLabel;
+@property (strong, nonatomic) UIView *rowLabel;
 @property (nonatomic,weak) id <ClassCommentSectionViewDelegate> delegate;
 @property (copy ,nonatomic) NSArray *types;
 @property (strong ,nonatomic) NSMutableArray *subViews;
@@ -85,6 +85,16 @@
     
     self.viewHeight = lastBtn.bottom + space;
     self.rowLabel.bottom = self.viewHeight - 1;
+    self.heightConstraint.constant = self.viewHeight;
+}
+
+-(UIView *)rowLabel{
+    if (_rowLabel==nil) {
+        _rowLabel = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 1)];
+        _rowLabel.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        [self addSubview:_rowLabel];
+    }
+    return _rowLabel;
 }
 
 -(void)btnAction:(UIButton*)btn{

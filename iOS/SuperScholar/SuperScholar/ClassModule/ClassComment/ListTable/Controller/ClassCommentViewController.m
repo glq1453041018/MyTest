@@ -85,7 +85,7 @@
 
 -(ClassCommentSectionView *)sectionView{
     if (_sectionView==nil) {
-        _sectionView = [[[NSBundle mainBundle] loadNibNamed:@"ClassCommentSectionView" owner:nil options:nil] lastObject];
+        _sectionView = [ClassCommentSectionView new];
     }
     return _sectionView;
 }
