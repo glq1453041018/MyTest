@@ -154,7 +154,6 @@
 		C758D93F205F848500257DDB /* ClassCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D930205F848500257DDB /* ClassCommentViewController.m */; };
 		C758D940205F848500257DDB /* ClassCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C758D932205F848500257DDB /* ClassCommentViewController.xib */; };
 		C758D941205F848500257DDB /* ClassCommentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D935205F848500257DDB /* ClassCommentManager.m */; };
-		C758D945205F848500257DDB /* ClassCommentSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C758D93C205F848500257DDB /* ClassCommentSectionView.xib */; };
 		C758D946205F848500257DDB /* ClassCommentSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D93E205F848500257DDB /* ClassCommentSectionView.m */; };
 		C758D94A205F8C3700257DDB /* ClassComDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C758D948205F8C3700257DDB /* ClassComDetailViewController.m */; };
 		C758D94B205F8C3700257DDB /* ClassComDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C758D949205F8C3700257DDB /* ClassComDetailViewController.xib */; };
@@ -468,7 +467,6 @@
 		C758D935205F848500257DDB /* ClassCommentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCommentManager.m; sourceTree = "<group>"; };
 		C758D936205F848500257DDB /* ClassCommentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCommentManager.h; sourceTree = "<group>"; };
 		C758D93A205F848500257DDB /* ClassCommentSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCommentSectionView.h; sourceTree = "<group>"; };
-		C758D93C205F848500257DDB /* ClassCommentSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassCommentSectionView.xib; sourceTree = "<group>"; };
 		C758D93E205F848500257DDB /* ClassCommentSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCommentSectionView.m; sourceTree = "<group>"; };
 		C758D947205F8C3700257DDB /* ClassComDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassComDetailViewController.h; sourceTree = "<group>"; };
 		C758D948205F8C3700257DDB /* ClassComDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassComDetailViewController.m; sourceTree = "<group>"; };
@@ -1684,7 +1682,6 @@
 			children = (
 				C758D93A205F848500257DDB /* ClassCommentSectionView.h */,
 				C758D93E205F848500257DDB /* ClassCommentSectionView.m */,
-				C758D93C205F848500257DDB /* ClassCommentSectionView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2393,7 +2390,6 @@
 				384A556720522095006D8C23 /* SearchIndexViewController.xib in Resources */,
 				BE950EC8205B8634009F562B /* MySelfViewController.xib in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
-				C758D945205F848500257DDB /* ClassCommentSectionView.xib in Resources */,
 				C750D94E2068B7140099388F /* cityOrder.plist in Resources */,
 				BE5C4892206CB3B20084BEB3 /* WXOpenIMSDKResource.bundle in Resources */,
 				BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */,
