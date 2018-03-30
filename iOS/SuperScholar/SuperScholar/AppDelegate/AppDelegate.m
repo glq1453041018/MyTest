@@ -13,6 +13,7 @@
 #import "MapManager.h"
 #import "MainTabBarViewController.h"
 #import "RemotePushManager.h"
+#import "IMManager.h"
 
 @interface AppDelegate ()
 
@@ -30,6 +31,9 @@
     [[MapManager share] configMap];
     
     [ShareManager applicationDidFinishLaunching];//mob分享
+    
+    [IMManager callThisInDidFinishLaunching];
+    [IMManager callThisAfterISVAccountLoginSuccessWithYWLoginId:GetInfoForKey(UserId_NSUserDefaults)];
     
     [[UITextView appearance] setTintColor:KColorTheme];
     [[UITextField appearance] setTintColor:KColorTheme];

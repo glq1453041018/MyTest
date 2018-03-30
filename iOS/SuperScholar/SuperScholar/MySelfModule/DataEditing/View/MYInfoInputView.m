@@ -35,7 +35,7 @@ static int view_height = 154;
 - (void)didMoveToSuperview{
     WeakObj(self);
     [self cwn_makeConstraints:^(UIView *maker) {
-         weakself.inputViewBottom = maker.leftToSuper(0).rightToSuper(0).height(view_height).bottomToSuper(-view_height).lastConstraint;
+         weakself.inputViewBottom = maker.leftToSuper(0).rightToSuper(0).heights(view_height).bottomToSuper(-view_height).lastConstraint;
     }];
     
     switch (self.inputType) {

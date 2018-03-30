@@ -63,7 +63,7 @@
     [super didMoveToSuperview];
     WS(ws);
     [self cwn_makeConstraints:^(UIView *maker) {
-        ws.self_top = maker.rightToSuper(0).leftToSuper(0).height(kNavigationbarHeight).topToSuper(0).lastConstraint;
+        ws.self_top = maker.rightToSuper(0).leftToSuper(0).heights(kNavigationbarHeight).topToSuper(0).lastConstraint;
     }];
 }
 
@@ -77,7 +77,7 @@
     if (leftImg&&leftImg.length) {
         [self.letfBtn setImage:[UIImage imageNamed:leftImg] forState:UIControlStateNormal];
         [self.letfBtn cwn_reMakeConstraints:^(UIView *maker) {
-            maker.leftToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).width(defaultWidth);
+            maker.leftToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).widths(defaultWidth);
         }];
     }
     if (leftText&&leftText.length) {
@@ -85,14 +85,14 @@
         maxWidth = [leftText sizeWithAttributes:@{NSFontAttributeName:self.letfBtn.titleLabel.font}].width + 10;
         maxWidth = MIN(kScreenWidth/2.0, MAX(maxWidth, defaultWidth));
         [self.letfBtn cwn_reMakeConstraints:^(UIView *maker) {
-            maker.leftToSuper(7).topToSuper(kStatusBarHeight).bottomToSuper(0).width(maxWidth);
+            maker.leftToSuper(7).topToSuper(kStatusBarHeight).bottomToSuper(0).widths(maxWidth);
         }];
     }
     // 右边
     if (rightImg&&rightImg.length) {
         [self.rightBtn setImage:[UIImage imageNamed:rightImg] forState:UIControlStateNormal];
         [self.rightBtn cwn_reMakeConstraints:^(UIView *maker) {
-            maker.rightToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).width(defaultWidth);
+            maker.rightToSuper(0).topToSuper(kStatusBarHeight).bottomToSuper(0).widths(defaultWidth);
         }];
     }
     if (rightText&&rightText.length) {
@@ -101,7 +101,7 @@
         maxWidth = MAX(maxWidth, defaultWidth);
         maxWidth = MIN(kScreenWidth/2.0, MAX(maxWidth, defaultWidth));
         [self.rightBtn cwn_reMakeConstraints:^(UIView *maker) {
-            maker.rightToSuper(7).topToSuper(kStatusBarHeight).bottomToSuper(0).width(maxWidth);
+            maker.rightToSuper(7).topToSuper(kStatusBarHeight).bottomToSuper(0).widths(maxWidth);
         }];
     }
     // 中间文字
@@ -144,7 +144,7 @@
         maxWidth = MAX(maxWidth, leftView.viewWidth);
         maxWidth = MIN(maxWidth, kScreenWidth/2.0);
         [leftView cwn_makeConstraints:^(UIView *maker) {
-            maker.leftToSuper(15).centerYtoSuper(kStatusBarHeight/2.0).height(maker.viewHeight).width(maker.viewWidth);
+            maker.leftToSuper(15).centerYtoSuper(kStatusBarHeight/2.0).heights(maker.viewHeight).widths(maker.viewWidth);
         }];
         // 添加手势
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftClickEvent)];
@@ -155,7 +155,7 @@
         maxWidth = MAX(maxWidth, rightView.viewWidth);
         maxWidth = MIN(maxWidth, kScreenWidth/2.0);
         [rightView cwn_makeConstraints:^(UIView *maker) {
-            maker.rightToSuper(15).centerYtoSuper(kStatusBarHeight/2.0).height(maker.viewHeight).width(maker.viewWidth);
+            maker.rightToSuper(15).centerYtoSuper(kStatusBarHeight/2.0).heights(maker.viewHeight).widths(maker.viewWidth);
         }];
         // 添加手势
         rightView.userInteractionEnabled = YES;
@@ -166,7 +166,7 @@
         [self addSubview:centerView];
         maxWidth = MIN(maxWidth, kScreenWidth);
         [centerView cwn_makeConstraints:^(UIView *maker) {
-            maker.centerXtoSuper(0).centerYtoSuper(kStatusBarHeight/2.0).height(maker.viewHeight).width(maker.viewWidth);
+            maker.centerXtoSuper(0).centerYtoSuper(kStatusBarHeight/2.0).heights(maker.viewHeight).widths(maker.viewWidth);
         }];
     }
 }

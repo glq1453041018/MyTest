@@ -9,6 +9,7 @@
 #import "LoginInterfaceViewController.h"
 #import "RemotePushManager.h"
 #import "SMSManager.h"
+#import "IMManager.h"
 
 @interface LoginInterfaceViewController ()<UITextFieldDelegate>
 @property (strong, nonatomic) dispatch_source_t timer;//定时器
@@ -58,6 +59,7 @@
             [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
             SaveInfoForKey(@"abcdefg", UserId_NSUserDefaults);
             [[RemotePushManager defaultManager] bindAccountToAliPushServer];
+            [IMManager callThisAfterISVAccountLoginSuccessWithYWLoginId:GetInfoForKey(UserId_NSUserDefaults)];
             [self dismissViewControllerAnimated:YES completion:nil];
         }else{//验证码错误
             self.vertifyErrorLog.text = @"验证码错误";
