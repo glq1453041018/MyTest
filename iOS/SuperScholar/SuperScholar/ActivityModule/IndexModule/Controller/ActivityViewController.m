@@ -9,10 +9,14 @@
 #import "ActivityViewController.h"
 #import "MYSegmentController.h"
 #import "ActivitySubViewController.h"
+#import "SpeechViewController.h"
+#import "LLListPickView.h"
 
-@interface ActivityViewController ()
+@interface ActivityViewController ()<LLListPickViewDelegate>
 @property (strong, nonatomic) MYSegmentController *segmentController;
 @property (assign, nonatomic) BOOL viewDidLayout;
+
+@property (strong ,nonatomic) LLListPickView *pickView;
 @end
 
 @implementation ActivityViewController
@@ -47,7 +51,8 @@
 #pragma mark - <************************** 配置视图 **************************>
 // !!!: 配置视图
 -(void)initUI{
-    [self.navigationBar setTitle:@"活动列表" leftImage:nil rightImage:nil];
+    [self.navigationBar setTitle:@"活动列表" leftImage:nil rightImage:@"camera"];
+    [self.navigationBar.rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 5)];
 }
 
 - (void)configSegmentController{
@@ -99,7 +104,13 @@
 
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
-
+-(LLListPickView *)pickView{
+    if (_pickView==nil) {
+        _pickView = [LLListPickView new];
+        _pickView.delegate = self;
+    }
+    return _pickView;
+}
 
 #pragma mark - <************************** 代理方法 **************************>
 
@@ -108,6 +119,17 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)navigationViewRightClickEvent{
+    [self.pickView showItems:@[@"拍照",@"录像",@"去相册选择"]];
+}
+
+#pragma mark LLListPickViewDelegate
+// !!!: LLListPickView代理事件
+-(void)lllistPickViewItemSelected:(NSInteger)index{
+    SpeechViewController *ctrl = [SpeechViewController new];
+    [self presentViewController:ctrl animated:NO completion:nil];
+    [ctrl lllistPickViewItemSelected:index];
+}
 #pragma mark - <************************** 点击事件 **************************>
 
 
