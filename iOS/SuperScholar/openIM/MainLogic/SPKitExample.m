@@ -7,6 +7,7 @@
 //
 
 #import "SPKitExample.h"
+#import "UIButton+AddBlock.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -618,15 +619,20 @@ UIAlertViewDelegate>
     NSArray *viewControllers = nil;
     if (conversationNavigationController.viewControllers.firstObject == conversationViewController) {
         viewControllers = @[conversationNavigationController.viewControllers.firstObject];
+        [conversationNavigationController setViewControllers:viewControllers animated:YES];
     }
     else {
         NSLog(@"conversationNavigationController.viewControllers.firstObject:%@", conversationNavigationController.viewControllers.firstObject);
         NSLog(@"conversationViewController:%@", conversationViewController);
-        viewControllers = @[conversationNavigationController.viewControllers.firstObject, conversationViewController];
+//        viewControllers = @[conversationNavigationController.viewControllers.firstObject, conversationViewController];
+        [conversationViewController.navigationBar setTitle:nil leftImage:kGoBackImageString rightText:@""];
+        [conversationViewController.navigationBar.letfBtn addBlock:^(UIButton *btn) {
+            [conversationNavigationController popViewControllerAnimated:YES];
+        }];
+        [conversationNavigationController pushViewController:conversationViewController animated:YES];
     }
-
-    [conversationNavigationController setViewControllers:viewControllers animated:YES];
 }
+
 
 /**
  *  打开单聊页面

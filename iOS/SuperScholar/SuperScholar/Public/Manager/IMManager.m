@@ -22,18 +22,18 @@
                                                                     } successBlock:^{
                                                                         //  到这里已经完成SDK接入并登录成功，你可以通过exampleMakeConversationListControllerWithSelectItemBlock获得会话列表
                                                                         /// 可以显示会话列表页面
-                                                                        UIViewController *ctrl =  [IMManager exampleMakeConversationListControllerWithSelectItemBlock:^(YWConversation *aConversation) {
-                                                                            [IMManager exampleOpenConversationViewControllerWithConversation:aConversation fromNavigationController:[(UITabBarController *)[[[UIApplication sharedApplication].delegate window] rootViewController] selectedViewController]];
-                                                                        }];
-                                                                        UINavigationController *nav = [[(UITabBarController *)[[[UIApplication sharedApplication].delegate window] rootViewController] childViewControllers] objectAtIndex:3];
-                                                                        UIViewController *vc = [nav.childViewControllers firstObject];
-                                                                        [vc.navigationBar setTitle:@"交流" leftImage:nil rightText:nil];
-                                                                        [vc addChildViewController:ctrl];
-                                                                        [vc.view addSubview:ctrl.view];
-                                                                        [ctrl.view cwn_makeConstraints:^(UIView *maker) {
-                                                                            maker.edgeInsetsToSuper(UIEdgeInsetsMake(kNavigationbarHeight, 0, kTabBarHeight, 0));
-                                                                        }];
-                                                                    } failedBlock:^(NSError *aError) {        
+//                                                                        UIViewController *ctrl =  [IMManager exampleMakeConversationListControllerWithSelectItemBlock:^(YWConversation *aConversation) {
+//                                                                            [IMManager exampleOpenConversationViewControllerWithConversation:aConversation fromNavigationController:[(UITabBarController *)[[[UIApplication sharedApplication].delegate window] rootViewController] selectedViewController]];
+//                                                                        }];
+//                                                                        UINavigationController *nav = [[(UITabBarController *)[[[UIApplication sharedApplication].delegate window] rootViewController] childViewControllers] objectAtIndex:3];
+//                                                                        UIViewController *vc = [nav.childViewControllers firstObject];
+//                                                                        [vc.navigationBar setTitle:@"交流" leftImage:nil rightText:nil];
+//                                                                        [vc addChildViewController:ctrl];
+//                                                                        [vc.view addSubview:ctrl.view];
+//                                                                        [ctrl.view cwn_makeConstraints:^(UIView *maker) {
+//                                                                            maker.edgeInsetsToSuper(UIEdgeInsetsMake(kNavigationbarHeight, 0, kTabBarHeight, 0));
+//                                                                        }];
+                                                                    } failedBlock:^(NSError *aError) {
                                                                         if (aError.code == YWLoginErrorCodePasswordError || aError.code == YWLoginErrorCodePasswordInvalid || aError.code == YWLoginErrorCodeUserNotExsit) {
                                                                             /// 可以显示错误提示
                                                                         }
@@ -75,8 +75,6 @@
         [conversationController setViewWillAppearBlock:^(BOOL aAnimated) {
             [weakController.navigationController setNavigationBarHidden:NO animated:aAnimated];
         }];
-        
-        [conversationController.navigationBar setTitle:@"" leftImage:kGoBackImageString rightText:nil];
         
         [aNavigationController pushViewController:conversationController animated:YES];
         

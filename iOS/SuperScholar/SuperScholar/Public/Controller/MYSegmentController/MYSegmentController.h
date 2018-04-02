@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, GLQSegementStyle) {
  ArticleY< 字体下部指示杠Y
  segementViewHeght scrollview高度
  */
-+ (instancetype)segementControllerWithFrame:(CGRect)frame titles:(NSArray <NSString *>*)titles withArry:(NSArray *)arry withStr:(NSString *)str withVerticalLabelColor:(UIColor *)Verticalcolor withVerticalHeght:(float)VerticalHeght withVerticalLabelColorY:(float)verticalLabelColorY withSegementView:(float)segementViewHeght withSegementViewWidth:(float)SegementViewWidth withDownlable:(float)downLableFloat withDownColor:(UIColor*)downColor withArticleY:(float)ArticleY;
++ (instancetype)segementControllerWithFrame:(CGRect)frame titles:(NSArray <NSString *>*)titles withArry:(NSArray *)arry withStr:(NSString *)needAutoPop withVerticalLabelColor:(UIColor *)Verticalcolor withVerticalHeght:(float)VerticalHeght withVerticalLabelColorY:(float)verticalLabelColorY withSegementView:(float)segementViewHeght withSegementViewWidth:(float)SegementViewWidth withDownlable:(float)downLableFloat withDownColor:(UIColor*)downColor withArticleY:(float)ArticleY;
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles withArry:(NSArray *)arry withStr:(NSString *)str withVerticalLabelColor:(UIColor *)Verticalcolor withVerticalHeght:(float)VerticalHeght withVerticalLabelColorY:(float)verticalLabelColorY withSegementView:(float)segementViewHeght withSegementViewWidth:(float)SegementViewWidth withDownlable:(float)downLableFloat withDownColor:(UIColor*)downColor withArticleY:(float)ArticleY;
 - (void)setSegementViewControllers:(NSArray <UIViewController *>*)viewControllers;
 /**
