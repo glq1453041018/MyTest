@@ -2063,8 +2063,8 @@
 			isa = PBXGroup;
 			children = (
 				BE57A5962071C83A00C5593D /* IndexModule */,
-				BE57A5872071C83A00C5593D /* ContactsList */,
 				BE57A59D2071C83A00C5593D /* MessageList */,
+				BE57A5872071C83A00C5593D /* ContactsList */,
 			);
 			path = InteractiveModule;
 			sourceTree = "<group>";

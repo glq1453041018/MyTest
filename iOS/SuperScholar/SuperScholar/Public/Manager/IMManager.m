@@ -7,6 +7,7 @@
 //
 
 #import "IMManager.h"
+#import "UIButton+AddBlock.h"
 
 @implementation IMManager
 + (void)callThisInDidFinishLaunching{
@@ -70,6 +71,11 @@
         return;
     } else {
         YWConversationViewController *conversationController = [[SPKitExample sharedInstance].ywIMKit makeConversationViewControllerWithConversationId:aConversation.conversationId];
+    
+        [conversationController.navigationBar setTitle:nil leftImage:kGoBackImageString rightText:@""];
+        [conversationController.navigationBar.letfBtn addBlock:^(UIButton *btn) {
+            [conversationController.navigationController popViewControllerAnimated:YES];
+        }];
         
         __weak typeof(conversationController) weakController = conversationController;
         [conversationController setViewWillAppearBlock:^(BOOL aAnimated) {
