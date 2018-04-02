@@ -154,12 +154,12 @@ FOUNDATION_EXTERN NSString *const kSPCustomConversationIdForFAQ;
 /**
  *  打开某个会话
  */
-- (void)exampleOpenConversationViewControllerWithConversation:(YWConversation *)aConversation fromNavigationController:(UINavigationController *)aNavigationController;
+- (YWConversationViewController *)exampleOpenConversationViewControllerWithConversation:(YWConversation *)aConversation fromNavigationController:(UINavigationController *)aNavigationController;
 
 /**
  *  打开单聊页面
  */
-- (void)exampleOpenConversationViewControllerWithPerson:(YWPerson *)aPerson fromNavigationController:(UINavigationController *)aNavigationController;
+- (YWConversationViewController *)exampleOpenConversationViewControllerWithPerson:(YWPerson *)aPerson fromNavigationController:(UINavigationController *)aNavigationController;
 
 /**
  *  打开群聊页面

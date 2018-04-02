@@ -583,7 +583,7 @@ UIAlertViewDelegate>
 /**
  *  打开某个会话
  */
-- (void)exampleOpenConversationViewControllerWithConversation:(YWConversation *)aConversation fromNavigationController:(UINavigationController *)aNavigationController
+- (YWConversationViewController *)exampleOpenConversationViewControllerWithConversation:(YWConversation *)aConversation fromNavigationController:(UINavigationController *)aNavigationController
 {
 
     UINavigationController *conversationNavigationController = nil;
@@ -631,17 +631,19 @@ UIAlertViewDelegate>
         }];
         [conversationNavigationController pushViewController:conversationViewController animated:YES];
     }
+    
+    return conversationViewController;
 }
 
 
 /**
  *  打开单聊页面
  */
-- (void)exampleOpenConversationViewControllerWithPerson:(YWPerson *)aPerson fromNavigationController:(UINavigationController *)aNavigationController
+- (YWConversationViewController *)exampleOpenConversationViewControllerWithPerson:(YWPerson *)aPerson fromNavigationController:(UINavigationController *)aNavigationController
 {
     YWConversation *conversation = [YWP2PConversation fetchConversationByPerson:aPerson creatIfNotExist:YES baseContext:self.ywIMKit.IMCore];
     
-    [self exampleOpenConversationViewControllerWithConversation:conversation fromNavigationController:aNavigationController];
+    return [self exampleOpenConversationViewControllerWithConversation:conversation fromNavigationController:aNavigationController];
 }
 
 /**

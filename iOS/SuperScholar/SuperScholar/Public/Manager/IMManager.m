@@ -8,6 +8,7 @@
 
 #import "IMManager.h"
 #import "UIButton+AddBlock.h"
+#import "SPUtil.h"
 
 @implementation IMManager
 + (void)callThisInDidFinishLaunching{
@@ -70,28 +71,32 @@
         [aNavigationController setNavigationBarHidden:NO];
         return;
     } else {
-        YWConversationViewController *conversationController = [[SPKitExample sharedInstance].ywIMKit makeConversationViewControllerWithConversationId:aConversation.conversationId];
-    
-        [conversationController.navigationBar setTitle:nil leftImage:kGoBackImageString rightText:@""];
-        [conversationController.navigationBar.letfBtn addBlock:^(UIButton *btn) {
-            [conversationController.navigationController popViewControllerAnimated:YES];
+        YWP2PConversation *vc = (YWP2PConversation *)aConversation;
+        [[SPUtil sharedInstance] syncGetCachedProfileIfExists:vc.person completion:^(BOOL aIsSuccess, YWPerson *aPerson, NSString *aDisplayName, UIImage *aAvatarImage) {
+            YWConversationViewController *conversationController = [[SPKitExample sharedInstance].ywIMKit makeConversationViewControllerWithConversationId:aConversation.conversationId];
+            
+            WeakObj(conversationController);
+            [conversationController.navigationBar setTitle:aDisplayName leftImage:kGoBackImageString rightText:@""];
+            [conversationController.navigationBar.letfBtn addBlock:^(UIButton *btn) {
+                [weakconversationController.navigationController popViewControllerAnimated:YES];
+            }];
+            
+            __weak typeof(conversationController) weakController = conversationController;
+            [conversationController setViewWillAppearBlock:^(BOOL aAnimated) {
+                [weakController.navigationController setNavigationBarHidden:NO animated:aAnimated];
+            }];
+            
+            [aNavigationController pushViewController:conversationController animated:YES];
+            
+            /// 添加自定义插件
+            [[SPKitExample sharedInstance] exampleAddInputViewPluginToConversationController:conversationController];
+            
+            /// 添加自定义表情
+            [[SPKitExample sharedInstance] exampleShowCustomEmotionWithConversationController:conversationController];
+            
+            /// 设置显示自定义消息
+            [[SPKitExample sharedInstance] exampleShowCustomMessageWithConversationController:conversationController];
         }];
-        
-        __weak typeof(conversationController) weakController = conversationController;
-        [conversationController setViewWillAppearBlock:^(BOOL aAnimated) {
-            [weakController.navigationController setNavigationBarHidden:NO animated:aAnimated];
-        }];
-        
-        [aNavigationController pushViewController:conversationController animated:YES];
-        
-        /// 添加自定义插件
-        [[SPKitExample sharedInstance] exampleAddInputViewPluginToConversationController:conversationController];
-        
-        /// 添加自定义表情
-        [[SPKitExample sharedInstance] exampleShowCustomEmotionWithConversationController:conversationController];
-        
-        /// 设置显示自定义消息
-        [[SPKitExample sharedInstance] exampleShowCustomMessageWithConversationController:conversationController];
     }
 }
 

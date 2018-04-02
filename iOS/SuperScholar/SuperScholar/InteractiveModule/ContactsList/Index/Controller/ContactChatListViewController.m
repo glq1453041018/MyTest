@@ -147,8 +147,11 @@
 //    }
 //    else {
         YWPerson *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
-        [[SPKitExample sharedInstance] exampleOpenConversationViewControllerWithPerson:person fromNavigationController:self.navigationController];
+    
+        [[SPUtil sharedInstance] syncGetCachedProfileIfExists:person completion:^(BOOL aIsSuccess, YWPerson *aPerson, NSString *aDisplayName, UIImage *aAvatarImage) {
+            YWConversationViewController *tovc = [[SPKitExample sharedInstance] exampleOpenConversationViewControllerWithPerson:person fromNavigationController:self.navigationController];
+            [tovc.navigationBar setTitle:aDisplayName leftImage:kGoBackImageString rightText:@""];
+        }];
 //    }
 }
 
