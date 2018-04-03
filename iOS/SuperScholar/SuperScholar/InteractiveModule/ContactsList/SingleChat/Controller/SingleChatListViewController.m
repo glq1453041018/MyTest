@@ -1,18 +1,18 @@
 //
-//  InteractiveViewController.m
+//  SingleChatListViewController.m
 //  SuperScholar
 //
-//  Created by 骆亮 on 2018/3/7.
+//  Created by 伟南 陈 on 2018/4/2.
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-#import "InteractiveViewController.h"
+#import "SingleChatListViewController.h"
 
-@interface InteractiveViewController ()
+@interface SingleChatListViewController ()
 
 @end
 
-@implementation InteractiveViewController
+@implementation SingleChatListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

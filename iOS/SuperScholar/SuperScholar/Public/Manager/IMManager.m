@@ -7,6 +7,8 @@
 //
 
 #import "IMManager.h"
+#import "UIButton+AddBlock.h"
+#import "SPUtil.h"
 
 @implementation IMManager
 + (void)callThisInDidFinishLaunching{
@@ -22,18 +24,18 @@
                                                                     } successBlock:^{
                                                                         //  到这里已经完成SDK接入并登录成功，你可以通过exampleMakeConversationListControllerWithSelectItemBlock获得会话列表
                                                                         /// 可以显示会话列表页面
-                                                                        UIViewController *ctrl =  [IMManager exampleMakeConversationListControllerWithSelectItemBlock:^(YWConversation *aConversation) {
-                                                                            [IMManager exampleOpenConversationViewControllerWithConversation:aConversation fromNavigationController:[(UITabBarController *)[[[UIApplication sharedApplication].delegate window] rootViewController] selectedViewController]];
-                                                                        }];
-                                                                        UINavigationController *nav = [[(UITabBarController *)[[[UIApplication sharedApplication].delegate window] rootViewController] childViewControllers] objectAtIndex:3];
-                                                                        UIViewController *vc = [nav.childViewControllers firstObject];
-                                                                        [vc.navigationBar setTitle:@"交流" leftImage:nil rightText:nil];
-                                                                        [vc addChildViewController:ctrl];
-                                                                        [vc.view addSubview:ctrl.view];
-                                                                        [ctrl.view cwn_makeConstraints:^(UIView *maker) {
-                                                                            maker.edgeInsetsToSuper(UIEdgeInsetsMake(kNavigationbarHeight, 0, kTabBarHeight, 0));
-                                                                        }];
-                                                                    } failedBlock:^(NSError *aError) {        
+//                                                                        UIViewController *ctrl =  [IMManager exampleMakeConversationListControllerWithSelectItemBlock:^(YWConversation *aConversation) {
+//                                                                            [IMManager exampleOpenConversationViewControllerWithConversation:aConversation fromNavigationController:[(UITabBarController *)[[[UIApplication sharedApplication].delegate window] rootViewController] selectedViewController]];
+//                                                                        }];
+//                                                                        UINavigationController *nav = [[(UITabBarController *)[[[UIApplication sharedApplication].delegate window] rootViewController] childViewControllers] objectAtIndex:3];
+//                                                                        UIViewController *vc = [nav.childViewControllers firstObject];
+//                                                                        [vc.navigationBar setTitle:@"交流" leftImage:nil rightText:nil];
+//                                                                        [vc addChildViewController:ctrl];
+//                                                                        [vc.view addSubview:ctrl.view];
+//                                                                        [ctrl.view cwn_makeConstraints:^(UIView *maker) {
+//                                                                            maker.edgeInsetsToSuper(UIEdgeInsetsMake(kNavigationbarHeight, 0, kTabBarHeight, 0));
+//                                                                        }];
+                                                                    } failedBlock:^(NSError *aError) {
                                                                         if (aError.code == YWLoginErrorCodePasswordError || aError.code == YWLoginErrorCodePasswordInvalid || aError.code == YWLoginErrorCodeUserNotExsit) {
                                                                             /// 可以显示错误提示
                                                                         }
@@ -69,25 +71,32 @@
         [aNavigationController setNavigationBarHidden:NO];
         return;
     } else {
-        YWConversationViewController *conversationController = [[SPKitExample sharedInstance].ywIMKit makeConversationViewControllerWithConversationId:aConversation.conversationId];
-        
-        __weak typeof(conversationController) weakController = conversationController;
-        [conversationController setViewWillAppearBlock:^(BOOL aAnimated) {
-            [weakController.navigationController setNavigationBarHidden:NO animated:aAnimated];
+        YWP2PConversation *vc = (YWP2PConversation *)aConversation;
+        [[SPUtil sharedInstance] syncGetCachedProfileIfExists:vc.person completion:^(BOOL aIsSuccess, YWPerson *aPerson, NSString *aDisplayName, UIImage *aAvatarImage) {
+            YWConversationViewController *conversationController = [[SPKitExample sharedInstance].ywIMKit makeConversationViewControllerWithConversationId:aConversation.conversationId];
+            
+            WeakObj(conversationController);
+            [conversationController.navigationBar setTitle:aDisplayName leftImage:kGoBackImageString rightText:@""];
+            [conversationController.navigationBar.letfBtn addBlock:^(UIButton *btn) {
+                [weakconversationController.navigationController popViewControllerAnimated:YES];
+            }];
+            
+            __weak typeof(conversationController) weakController = conversationController;
+            [conversationController setViewWillAppearBlock:^(BOOL aAnimated) {
+                [weakController.navigationController setNavigationBarHidden:NO animated:aAnimated];
+            }];
+            
+            [aNavigationController pushViewController:conversationController animated:YES];
+            
+            /// 添加自定义插件
+            [[SPKitExample sharedInstance] exampleAddInputViewPluginToConversationController:conversationController];
+            
+            /// 添加自定义表情
+            [[SPKitExample sharedInstance] exampleShowCustomEmotionWithConversationController:conversationController];
+            
+            /// 设置显示自定义消息
+            [[SPKitExample sharedInstance] exampleShowCustomMessageWithConversationController:conversationController];
         }];
-        
-        [conversationController.navigationBar setTitle:@"" leftImage:kGoBackImageString rightText:nil];
-        
-        [aNavigationController pushViewController:conversationController animated:YES];
-        
-        /// 添加自定义插件
-        [[SPKitExample sharedInstance] exampleAddInputViewPluginToConversationController:conversationController];
-        
-        /// 添加自定义表情
-        [[SPKitExample sharedInstance] exampleShowCustomEmotionWithConversationController:conversationController];
-        
-        /// 设置显示自定义消息
-        [[SPKitExample sharedInstance] exampleShowCustomMessageWithConversationController:conversationController];
     }
 }
 

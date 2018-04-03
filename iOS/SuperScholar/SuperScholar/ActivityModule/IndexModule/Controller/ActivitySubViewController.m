@@ -144,7 +144,7 @@
             [cell.content setAttributedText:[self adjustLineSpace:model.title]];
             return  cell;
         }
-    }else if(self.listType == ActivityListTypeActivityShow){
+    }else if(self.listType == ActivityListTypeActivityShow || self.listType == ActivityListTypeActivityPre){
         if(indexPath.row == 2){
             cellid = @"activity";
             __block ActivityTableViewCell_Video *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
@@ -212,14 +212,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(self.listType == ActivityListTypeGoodArticle){
         return indexPath.row % 4 == 0 ? ShiPei(278) : ShiPei(152);
-    }else if(self.listType == ActivityListTypeActivityShow){
+    }else if(self.listType == ActivityListTypeActivityShow || self.listType == ActivityListTypeActivityPre){
         return indexPath.row == 2 ? ShiPei(288) : ShiPei(134);
     }
     return ShiPei(134);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(self.listType == ActivityListTypeActivityShow && indexPath.row == 2){//视频文章
+    if((self.listType == ActivityListTypeActivityShow || self.listType == ActivityListTypeActivityPre) && indexPath.row == 2){//视频文章
         ActivityVideoDetailViewController *vc = [ActivityVideoDetailViewController new];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];

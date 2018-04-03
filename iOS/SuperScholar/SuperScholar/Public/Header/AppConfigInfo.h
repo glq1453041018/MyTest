@@ -98,6 +98,12 @@ typedef NS_ENUM(NSInteger , MessageType) {
     MessageTypeComment              // 评价信息类型 
 };
 
+// !!!: 多媒体的类型
+typedef NS_ENUM(NSInteger , MediaType) {
+    MediaTypePic,                   // 图文的
+    MediaTypeVideo                  // 视频的
+};
+
 // !!!: 班级信息cell点击类型
 typedef NS_ENUM(NSInteger , ClassCellClickEvent) {
     ClassCellHeadClickEvent,        // 头像

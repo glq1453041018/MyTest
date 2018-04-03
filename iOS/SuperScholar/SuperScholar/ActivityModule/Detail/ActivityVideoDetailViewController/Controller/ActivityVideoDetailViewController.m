@@ -8,14 +8,18 @@
 
 #import "ActivityVideoDetailViewController.h"
 #import "ClassSpaceViewController.h"
+#import "CommentDetailViewController.h"
+#import "ClassComDetailTableViewCell.h"
 #import "CommentView.h"                         // 评论视图
 #import "MyWebView.h"
+#import "ClassComDetailModel.h"
 
 @interface ActivityVideoDetailViewController ()<UITableViewDelegate, UITableViewDataSource, CommentViewDelegate, MyWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *data;
+@property (copy ,nonatomic) NSArray <ClassComItemModel*> *responses;    // 评论列表
 @property (strong ,nonatomic) CommentView *commentView;                 // 评论视图
 @property (weak, nonatomic) IBOutlet MyWebView *webView;
+
 @end
 
 @implementation ActivityVideoDetailViewController
@@ -36,10 +40,29 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    for (int i = 0; i < 20; i ++) {
-        [self.data addObject:@"fdasfa"];
-        [self.data addObject:@"fagawg"];
+    // 回复数组
+    // 创建回复cell
+    ClassComDetailTableViewCell *cellDetail = [[[NSBundle mainBundle] loadNibNamed:@"ClassComDetailTableViewCell" owner:nil options:nil] firstObject];
+    NSMutableArray *items = [NSMutableArray array];
+    for (int i=0; i<10; i++) {
+        ClassComItemModel *itemModel = [ClassComItemModel new];
+        itemModel.userName = [NSString stringWithFormat:@"啦啦%d号",i];
+        itemModel.icon = [TESTDATA randomUrlString];
+        itemModel.comment = [TESTDATA randomContent];
+        itemModel.commentAttr = [self changeToAttr:itemModel.comment];
+        itemModel.date = @"2018-3-19";
+        cellDetail.commentLabel.text = itemModel.comment;
+        CGSize size = [cellDetail.commentLabel sizeThatFits:CGSizeMake(AdaptedWidthValue(305), MAXFLOAT)];
+        itemModel.commentLabelHeight = size.height;
+        itemModel.moreNum = getRandomNumberFromAtoB(1, 20);
+        itemModel.more = YES;
+        itemModel.cellHeight = cellDetail.commentLabel.y + itemModel.commentLabelHeight + 10;
+        itemModel.cellHeight += itemModel.more?cellDetail.moreLabel.viewHeight+5:0;   // 是否有更多
+        [items addObject:itemModel];
     }
+    
+    self.responses = [items mutableCopy];
+    [self.tableView reloadData];
 }
 
 
@@ -69,11 +92,11 @@
 
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
-- (NSMutableArray *)data{
-    if(!_data){
-        _data = [NSMutableArray array];
+- (NSArray<ClassComItemModel *> *)responses{
+    if(!_responses){
+        _responses = [NSMutableArray array];
     }
-    return _data;
+    return _responses;
 }
 
 -(CommentView *)commentView{
@@ -97,18 +120,30 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.data count];
+    return [self.responses count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *text = [self.data objectAtIndex:indexPath.row];
-    NSString *cellid = @"video_detail_id";
-    UITableViewCell *cell;
-    cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-    if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    static NSString *cellId = @"ClassComDetailTableViewCell";
+    ClassComDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell==nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassComDetailTableViewCell" owner:self options:nil] firstObject];
+        cell.selectionStyle = NO;
     }
-    cell.textLabel.text = text;
+    cell.rowView.hidden = indexPath.row==self.responses.count-1;
+
+    ClassComItemModel *ccim = self.responses[indexPath.row];
+    [cell.iconImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:ccim.icon] forState:UIControlStateNormal placeholderImage:kPlaceholderHeadImage];
+    cell.userNameLabel.text = ccim.userName;
+    cell.commentLabel.attributedText = ccim.commentAttr;
+    cell.dateLabel.text = ccim.date;
+    cell.commentLabel.text = ccim.comment;
+    cell.moreLabel.text = [NSString stringWithFormat:@"  查看%ld回复 >",ccim.moreNum];
+    
+    // frame
+    cell.commentLabel.viewHeight = ccim.commentLabelHeight;
+    cell.moreLabel.y = cell.commentLabel.bottom + 5;
+    cell.moreLabel.hidden = !ccim.more;
+    cell.rowView.y = ccim.cellHeight-0.5;
     return cell;
 }
 
@@ -124,6 +159,16 @@
     title.text = @"    精彩评论";
     return title;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    ClassComItemModel *csm = self.responses[indexPath.row];
+    return csm.cellHeight;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    CommentDetailViewController *ctrl = [CommentDetailViewController new];
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
+
 
 // !!!: 评论代理
 -(void)commentView:(CommentView *)commentView sendMessage:(NSString *)message complete:(void (^)(BOOL))completeBlock{
@@ -154,6 +199,20 @@
 
 #pragma mark - <************************** 私有方法 **************************>
 
+// !!!: 转换为富文本内容
+- (NSMutableAttributedString*)changeToAttr:(NSString*)content{
+    NSMutableAttributedString *attr = nil;
+    if (content.length==0||content==nil) {
+        return attr;
+    }
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineSpacing = 6;
+    attr = [[NSMutableAttributedString alloc] initWithString:content attributes:@{
+                                                                                  NSFontAttributeName:[UIFont systemFontOfSize:FontSize_16],
+                                                                                  NSParagraphStyleAttributeName:style
+                                                                                  }];
+    return attr;
+}
 
 
 

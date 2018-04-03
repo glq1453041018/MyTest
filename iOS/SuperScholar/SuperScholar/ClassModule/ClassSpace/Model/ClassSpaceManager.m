@@ -8,9 +8,27 @@
 
 #import "ClassSpaceManager.h"
 #import "NSArray+ExtraMethod.h"
-@interface ClassSpaceManager()<PhotoBrowserDelegate>
+#import <ZFPlayer/ZFPlayer.h>
+@interface ClassSpaceManager()<PhotoBrowserDelegate,ZFPlayerDelegate>
+@property (nonatomic, strong) ZFPlayerView        *playerView;
 @end
 @implementation ClassSpaceManager
+
+- (ZFPlayerView *)playerView{
+    if (!_playerView) {
+        _playerView = [ZFPlayerView sharedPlayerView];
+        _playerView.delegate = self;
+        // 当cell播放视频由全屏变为小屏时候，回到中间位置
+        _playerView.cellPlayerOnCenter = NO;
+        // 当cell划出屏幕的时候停止播放
+        _playerView.stopPlayWhileCellNotVisable = YES;
+        _playerView.playerLayerGravity = ZFPlayerLayerGravityResizeAspectFill;
+        _playerView.hasDownload = NO;
+        [_playerView autoPlayTheVideo];
+    }
+    return _playerView;
+}
+
 
 // !!!: 获取数据
 +(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock{
@@ -29,12 +47,21 @@
         for (int j=0; j<getRandomNumberFromAtoB(0, 9); j++) {
             [pics addObject:[TESTDATA randomUrlString]];
         }
-        csm.pics = pics;
+         if (getRandomNumberFromAtoB(0, 10)%2==0) {
+         csm.pics = pics;
+         csm.type = MediaTypePic;
+         }else{
+         csm.type = MediaTypeVideo;
+         }
         cell.contentLabel.attributedText = csm.contentAttring;
         CGSize size = [cell.contentLabel sizeThatFits:CGSizeMake(AdaptedWidthValue(355), MAXFLOAT)];
         csm.contentLabelHeight = size.height + 10*2;
-        [self addPicsWithModel:csm];
-        csm.cellHeight = cell.contentLabel.y+csm.contentLabelHeight+csm.mediaView.viewHeight+cell.bottomView.viewHeight;
+        if (csm.type==MediaTypePic) {
+            [self addPicsWithModel:csm];
+            csm.cellHeight = cell.contentLabel.y+csm.contentLabelHeight+csm.mediaView.viewHeight+cell.bottomView.viewHeight;
+        }else{
+            csm.cellHeight = cell.contentLabel.y+csm.contentLabelHeight+AdaptedWidthValue(190)+cell.bottomView.viewHeight;
+        }
         [cells addObject:csm];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -143,6 +170,36 @@
     }
 }
 
+
+-(void)loadData:(NSArray *)data cell:(ClassSpaceVideoTableViewCell *)cell table:(UITableView *)table indexPath:(NSIndexPath *)indexpath{
+    ClassSpaceModel *csm = data[indexpath.row];
+    // content
+    [cell.headerBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:csm.headerIcon] forState:UIControlStateNormal placeholderImage:kPlaceholderHeadImage];
+    cell.userNamelLabel.text = [NSString stringWithFormat:@"%ld row",indexpath.row];
+    cell.contentLabel.attributedText = csm.contentAttring;
+    [cell.playBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:csm.headerIcon] forState:UIControlStateNormal placeholderImage:kPlaceholderHeadImage];
+    cell.starView.hidden = YES;
+     __block ClassSpaceVideoTableViewCell *weakCell = cell;
+     WS(ws);
+     cell.playBlock = ^{
+         NSURL *videoURL = [NSURL URLWithString:@"http://hcluploadffiles.oss-cn-hangzhou.aliyuncs.com/UpLoadFiles/Videos/2018-03-22/4a76b8518cac4b85b8993eec531b5b8a.mp4"];
+         ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
+         playerModel.title            = @"";
+         playerModel.videoURL         = videoURL;
+         playerModel.placeholderImageURLString = csm.headerIcon;
+         playerModel.scrollView       = table;
+         playerModel.indexPath        = indexpath;
+         playerModel.fatherViewTag    = weakCell.playBtn.tag;
+         [ws.playerView playerModel:playerModel];
+         [ws.playerView autoPlayTheVideo];
+     };
+    // frame
+    cell.contentLabel.viewHeight = csm.contentLabelHeight;
+    cell.playBtn.top = cell.contentLabel.bottom;
+    cell.bottomView.top = cell.playBtn.bottom;
+}
+
+
 // !!!: 图片点击事件
 -(void)imageActionEvent:(UIButton*)btn{
     DLog(@"第%ld个图片",btn.tag);
@@ -164,6 +221,7 @@
     }
     return nil;
 }
+
 
 
 
