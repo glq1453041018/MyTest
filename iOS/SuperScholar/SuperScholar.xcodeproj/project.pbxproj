@@ -133,6 +133,11 @@
 		BE9AFD9A206CFE760022BF7C /* ActivityDetailWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9AFD96206CFE760022BF7C /* ActivityDetailWebViewController.xib */; };
 		BE9AFD9D206CFEA50022BF7C /* ArrowMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9AFD9C206CFEA50022BF7C /* ArrowMenuView.m */; };
 		BE9E86962069147E00019559 /* RemotePushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9E86952069147E00019559 /* RemotePushManager.m */; };
+		BEC0958120735E6A003B10E8 /* ContactSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC0957F20735E6A003B10E8 /* ContactSearchViewController.m */; };
+		BEC0958220735E6A003B10E8 /* ContactSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEC0958020735E6A003B10E8 /* ContactSearchViewController.xib */; };
+		BEC0958620736B44003B10E8 /* ContactChatListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC0958420736B44003B10E8 /* ContactChatListManager.m */; };
+		BEC0958720736B44003B10E8 /* ContactChatListManager.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEC0958520736B44003B10E8 /* ContactChatListManager.xib */; };
+		BEC0958A20736F7C003B10E8 /* MYSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC0958920736F7C003B10E8 /* MYSearchView.m */; };
 		BED0DF3F205C084F00276785 /* DataEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0DF3D205C084F00276785 /* DataEditTableViewCell.m */; };
 		BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED0DF3E205C084F00276785 /* DataEditTableViewCell.xib */; };
 		BFBB36CCCD85DE7A0E13C8F3 /* libPods-SuperScholar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3E049EDDB8A8350306F505 /* libPods-SuperScholar.a */; };
@@ -443,6 +448,14 @@
 		BE9E86932068FE9800019559 /* SuperScholar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SuperScholar.entitlements; sourceTree = "<group>"; };
 		BE9E86942069147E00019559 /* RemotePushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemotePushManager.h; sourceTree = "<group>"; };
 		BE9E86952069147E00019559 /* RemotePushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemotePushManager.m; sourceTree = "<group>"; };
+		BEC0957E20735E6A003B10E8 /* ContactSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactSearchViewController.h; sourceTree = "<group>"; };
+		BEC0957F20735E6A003B10E8 /* ContactSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactSearchViewController.m; sourceTree = "<group>"; };
+		BEC0958020735E6A003B10E8 /* ContactSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactSearchViewController.xib; sourceTree = "<group>"; };
+		BEC0958320736B44003B10E8 /* ContactChatListManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactChatListManager.h; sourceTree = "<group>"; };
+		BEC0958420736B44003B10E8 /* ContactChatListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactChatListManager.m; sourceTree = "<group>"; };
+		BEC0958520736B44003B10E8 /* ContactChatListManager.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactChatListManager.xib; sourceTree = "<group>"; };
+		BEC0958820736F7C003B10E8 /* MYSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSearchView.h; sourceTree = "<group>"; };
+		BEC0958920736F7C003B10E8 /* MYSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSearchView.m; sourceTree = "<group>"; };
 		BED0DF3C205C084F00276785 /* DataEditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEditTableViewCell.h; sourceTree = "<group>"; };
 		BED0DF3D205C084F00276785 /* DataEditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEditTableViewCell.m; sourceTree = "<group>"; };
 		BED0DF3E205C084F00276785 /* DataEditTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataEditTableViewCell.xib; sourceTree = "<group>"; };
@@ -1009,6 +1022,8 @@
 				F40A8FFC205E237F0087814A /* MYDatePicker.m */,
 				BE66924620633F3300111810 /* MYImageButton.h */,
 				BE66924720633F3300111810 /* MYImageButton.m */,
+				BEC0958820736F7C003B10E8 /* MYSearchView.h */,
+				BEC0958920736F7C003B10E8 /* MYSearchView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1057,6 +1072,7 @@
 				BE57A5B12071F4FE00C5593D /* Index */,
 				BE57A5882071C83A00C5593D /* GroupChat */,
 				BE57A58F2071C83A00C5593D /* SingleChat */,
+				BEC0957A20735E3A003B10E8 /* Search */,
 			);
 			path = ContactsList;
 			sourceTree = "<group>";
@@ -1227,6 +1243,9 @@
 		BE57A5B62071F4FE00C5593D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BEC0958320736B44003B10E8 /* ContactChatListManager.h */,
+				BEC0958420736B44003B10E8 /* ContactChatListManager.m */,
+				BEC0958520736B44003B10E8 /* ContactChatListManager.xib */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1596,6 +1615,40 @@
 			children = (
 				BE9AFD9B206CFEA50022BF7C /* ArrowMenuView.h */,
 				BE9AFD9C206CFEA50022BF7C /* ArrowMenuView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEC0957A20735E3A003B10E8 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BEC0957B20735E3A003B10E8 /* Controller */,
+				BEC0957C20735E3A003B10E8 /* Model */,
+				BEC0957D20735E3A003B10E8 /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BEC0957B20735E3A003B10E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BEC0957E20735E6A003B10E8 /* ContactSearchViewController.h */,
+				BEC0957F20735E6A003B10E8 /* ContactSearchViewController.m */,
+				BEC0958020735E6A003B10E8 /* ContactSearchViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BEC0957C20735E3A003B10E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BEC0957D20735E3A003B10E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2613,6 +2666,7 @@
 				BE950EC8205B8634009F562B /* MySelfViewController.xib in Resources */,
 				C73DD5CE204E88BD00C6437F /* Main.storyboard in Resources */,
 				C750D94E2068B7140099388F /* cityOrder.plist in Resources */,
+				BEC0958220735E6A003B10E8 /* ContactSearchViewController.xib in Resources */,
 				BE5C4892206CB3B20084BEB3 /* WXOpenIMSDKResource.bundle in Resources */,
 				BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */,
 				BE5C487F206CB3B20084BEB3 /* calling_card_bg@2x.png in Resources */,
@@ -2640,6 +2694,7 @@
 				BE5C4881206CB3B20084BEB3 /* face_e@2x.png in Resources */,
 				BE9AFD9A206CFE760022BF7C /* ActivityDetailWebViewController.xib in Resources */,
 				C781F860205BCD0100BE37AD /* ClassViewController.xib in Resources */,
+				BEC0958720736B44003B10E8 /* ContactChatListManager.xib in Resources */,
 				BE5C4888206CB3B20084BEB3 /* YW_TGZ_Emoitons.emo in Resources */,
 				F44A6B64205D0F07005DBF33 /* SuggestionViewController.xib in Resources */,
 				3890404E2060CED6007BA074 /* AdsDetailTableViewCell.xib in Resources */,
@@ -2680,13 +2735,17 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SuperScholar/Pods-SuperScholar-resources.sh",
 				"${PODS_ROOT}/AMap2DMap-NO-IDFA/MAMapKit.framework/AMap.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/SVProgressHUD-0.8.1/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 				"${PODS_ROOT}/ZFPlayer/ZFPlayer/ZFPlayer.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZFPlayer.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2759,6 +2818,7 @@
 				C7E84BA5206A6AD7001E73F0 /* AddressTableViewCell.m in Sources */,
 				BE66924820633F3300111810 /* MYImageButton.m in Sources */,
 				C758D94A205F8C3700257DDB /* ClassComDetailViewController.m in Sources */,
+				BEC0958120735E6A003B10E8 /* ContactSearchViewController.m in Sources */,
 				3872419920688B5D00C2347A /* SelectTypeViewController.m in Sources */,
 				38010DB1204FFB5E00E4511C /* ZhaoShengTableViewCell.m in Sources */,
 				F40A8FFD205E237F0087814A /* MYDatePicker.m in Sources */,
@@ -2845,6 +2905,7 @@
 				C758D93F205F848500257DDB /* ClassCommentViewController.m in Sources */,
 				384A556620522095006D8C23 /* SearchIndexViewController.m in Sources */,
 				C7188804205A6F4500333387 /* NSArray+ExtraMethod.m in Sources */,
+				BEC0958A20736F7C003B10E8 /* MYSearchView.m in Sources */,
 				389040522060ECD8007BA074 /* AdsWebViewViewController.m in Sources */,
 				C781F863205BCEC800BE37AD /* UIImage+ImageEffects.m in Sources */,
 				C781F875205CA79E00BE37AD /* AddressViewManager.m in Sources */,
@@ -2856,6 +2917,7 @@
 				C71887FD205A6D7900333387 /* MYBannerScrollView.m in Sources */,
 				BE57A5BD2071F59900C5593D /* ContactChatListTableViewCell.m in Sources */,
 				38010D8F204FD6E500E4511C /* AdsCollectionViewCell.m in Sources */,
+				BEC0958620736B44003B10E8 /* ContactChatListManager.m in Sources */,
 				C7C451BB2071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

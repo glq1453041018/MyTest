@@ -11,6 +11,11 @@
 #import "MYSegmentController.h"
 #import "ContactChatListViewController.h"
 #import "MessageListViewController.h"
+#import "ContactSearchViewController.h"
+#import "ContactSearchViewController.h"
+
+//view
+#import "UIButton+AddBlock.h"
 
 @interface InteractiveViewController ()
 @property (strong, nonatomic) MYSegmentController *segmentController;
@@ -45,12 +50,20 @@
 #pragma mark - <*********************** 页面ui搭建和数据初始化 ************************>
 
 - (void)configNavigationBar{
+    WeakObj(self);
     self.navigationController.navigationBar.hidden=YES;
     UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:@[@"消息", @"联系人"]];
     segment.tintColor = [UIColor whiteColor];
     segment.selectedSegmentIndex = 0;
     [segment addTarget:self action:@selector(onClickSegmentControl:) forControlEvents:UIControlEventValueChanged];
     [self.navigationBar setCenterView:segment leftView:nil rightView:nil];
+    [self.navigationBar setTitle:@"" leftText:@"" rightImage:@"beiJing"];
+    self.navigationBar.rightBtn.hidden = YES;
+    [self.navigationBar.rightBtn addBlock:^(UIButton *sender) {
+        ContactSearchViewController *vc = [ContactSearchViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [weakself.navigationController pushViewController:vc animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configTableView{
@@ -72,7 +85,9 @@
 //    [self.segmentController setSegementTintColor:KColorTheme];
     self.segmentController.downLineLabel.hidden = YES;
     
+    WeakObj(self);
     [self.segmentController selectedAtIndex:^(NSInteger index) {
+        weakself.navigationBar.rightBtn.hidden = index == 0;
     }];
 }
 

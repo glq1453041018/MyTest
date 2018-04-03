@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactSearchViewController">
+            <connections>
+                <outlet property="navigationView" destination="3bb-Mc-Lx7" id="9NR-Yf-Nei"/>
+                <outlet property="searchView" destination="YlW-cO-5SE" id="LpU-3V-M4H"/>
+                <outlet property="tableView" destination="RKa-OQ-u0u" id="OfT-gg-ULM"/>
+                <outlet property="view" destination="jrh-fM-6do" id="RE1-ka-s4p"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="jrh-fM-6do">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bb-Mc-Lx7" customClass="LLNavigationView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YlW-cO-5SE" customClass="MYSearchView">
+                            <rect key="frame" x="12" y="26" width="299" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="FYP-4E-gNT"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RKa-OQ-u0u">
+                    <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Fix-WV-QQQ"/>
+                        <outlet property="delegate" destination="-1" id="hLM-VI-eob"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="RKa-OQ-u0u" firstAttribute="leading" secondItem="jrh-fM-6do" secondAttribute="leading" id="9Iz-IV-0Bd"/>
+                <constraint firstItem="3bb-Mc-Lx7" firstAttribute="leading" secondItem="jrh-fM-6do" secondAttribute="leading" id="FLw-Ek-RKI"/>
+                <constraint firstAttribute="trailing" secondItem="RKa-OQ-u0u" secondAttribute="trailing" id="Gay-e5-6an"/>
+                <constraint firstAttribute="bottom" secondItem="RKa-OQ-u0u" secondAttribute="bottom" id="R9s-NA-Swn"/>
+                <constraint firstItem="3bb-Mc-Lx7" firstAttribute="top" secondItem="jrh-fM-6do" secondAttribute="top" id="b3G-gi-0s8"/>
+                <constraint firstAttribute="trailing" secondItem="3bb-Mc-Lx7" secondAttribute="trailing" id="qq5-oI-wau"/>
+                <constraint firstItem="RKa-OQ-u0u" firstAttribute="top" secondItem="3bb-Mc-Lx7" secondAttribute="bottom" constant="1" id="vkT-QR-tNs"/>
+            </constraints>
+            <point key="canvasLocation" x="28.5" y="395.5"/>
+        </view>
+    </objects>
+</document>

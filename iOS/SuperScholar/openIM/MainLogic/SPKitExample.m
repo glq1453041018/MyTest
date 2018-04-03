@@ -7,6 +7,7 @@
 //
 
 #import "SPKitExample.h"
+#import <SVProgressHUD.h>
 #import "UIButton+AddBlock.h"
 
 #import <AVFoundation/AVFoundation.h>
@@ -430,7 +431,8 @@ UIAlertViewDelegate>
         if (aStatus == YWIMConnectionStatusForceLogout || aStatus == YWIMConnectionStatusMannualLogout || aStatus == YWIMConnectionStatusAutoConnectFailed) {
             /// 手动登出、被踢、自动连接失败，都退出到登录页面
             if (aStatus != YWIMConnectionStatusMannualLogout) {
-                [YWIndicator showTopToastTitle:@"云旺" content:@"退出登录" userInfo:nil withTimeToDisplay:2 andClickBlock:nil];
+                [SVProgressHUD showWithStatus:@"退出登录"];
+                [SVProgressHUD dismissWithDelay:0.33];
             }
 
 #warning TODO: NEED TO HIDE IM PAGES WITH YOUR OWN METHOD
@@ -628,7 +630,7 @@ UIAlertViewDelegate>
         [conversationViewController.navigationBar setTitle:nil leftImage:kGoBackImageString rightText:@""];
         [conversationViewController.navigationBar.letfBtn addBlock:^(UIButton *btn) {
             [conversationNavigationController popViewControllerAnimated:YES];
-        }];
+        } forControlEvents:UIControlEventTouchUpInside];
         [conversationNavigationController pushViewController:conversationViewController animated:YES];
     }
     
@@ -845,8 +847,8 @@ UIAlertViewDelegate>
         SPInputViewPluginGreeting *plugin = [[SPInputViewPluginGreeting alloc] init];
         [messageInputView addPlugin:plugin];
 
-        SPInputViewPluginCallingCard *pluginCallingCard = [[SPInputViewPluginCallingCard alloc] init];
-        [messageInputView addPlugin:pluginCallingCard];
+//        SPInputViewPluginCallingCard *pluginCallingCard = [[SPInputViewPluginCallingCard alloc] init];
+//        [messageInputView addPlugin:pluginCallingCard];
         
         if ([aConversationController.conversation isKindOfClass:[YWP2PConversation class]]) {
             /// 透传消息目前仅支持单聊会话

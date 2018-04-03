@@ -12,4 +12,5 @@
 @property (nonatomic, copy) NSString *identifier;
 
 - (void)configureWithAvatar:(UIImage *)image title:(NSString *)title subtitle:(NSString *)subtitle;
+- (void)configureWithAvatarUrl:(NSString *)image title:(NSString *)title subtitle:(NSString *)subtitle;
 @end

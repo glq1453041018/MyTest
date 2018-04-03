@@ -72,6 +72,29 @@
         return;
     } else {
         YWP2PConversation *vc = (YWP2PConversation *)aConversation;
+        if([vc isMemberOfClass:[YWCustomConversation class]]){//客服
+            if ([[(YWCustomConversation *)vc conversationId] isEqualToString:kSPCustomConversationIdForFAQ]) {
+                UIViewController *controller = [UIViewController new];
+                controller.view.backgroundColor = [UIColor whiteColor];
+                [controller.navigationBar setTitle:@"云旺iOS精华问题" leftImage:kGoBackImageString rightText:@""];
+                [controller setHidesBottomBarWhenPushed:YES];
+                controller.automaticallyAdjustsScrollViewInsets = NO;
+                WeakObj(controller);
+                [controller.navigationBar.letfBtn addBlock:^(UIButton *btn) {
+                    [weakcontroller.navigationController popViewControllerAnimated:YES];
+                } forControlEvents:UIControlEventTouchUpInside];
+                
+                YWWebViewController *controller_sub = [YWWebViewController makeControllerWithUrlString:@"https://bbs.aliyun.com/searcher.php?step=2&method=AND&type=thread&verify=d26d3c6e63c0b37d&sch_area=1&fid=285&sch_time=all&keyword=汇总" andImkit:[SPKitExample sharedInstance].ywIMKit];
+                [controller addChildViewController:controller_sub];
+                [controller.view addSubview:controller_sub.view];
+                [controller_sub.view cwn_makeConstraints:^(UIView *maker) {
+                    maker.edgeInsetsToSuper(UIEdgeInsetsMake(kNavigationbarHeight, 0, 0, 0));
+                }];
+
+                [aNavigationController pushViewController:controller animated:YES];
+            }
+            return;
+        }
         [[SPUtil sharedInstance] syncGetCachedProfileIfExists:vc.person completion:^(BOOL aIsSuccess, YWPerson *aPerson, NSString *aDisplayName, UIImage *aAvatarImage) {
             YWConversationViewController *conversationController = [[SPKitExample sharedInstance].ywIMKit makeConversationViewControllerWithConversationId:aConversation.conversationId];
             
@@ -79,7 +102,7 @@
             [conversationController.navigationBar setTitle:aDisplayName leftImage:kGoBackImageString rightText:@""];
             [conversationController.navigationBar.letfBtn addBlock:^(UIButton *btn) {
                 [weakconversationController.navigationController popViewControllerAnimated:YES];
-            }];
+            } forControlEvents:UIControlEventTouchUpInside];
             
             __weak typeof(conversationController) weakController = conversationController;
             [conversationController setViewWillAppearBlock:^(BOOL aAnimated) {
@@ -97,6 +120,7 @@
             /// 设置显示自定义消息
             [[SPKitExample sharedInstance] exampleShowCustomMessageWithConversationController:conversationController];
         }];
+            
     }
 }
 

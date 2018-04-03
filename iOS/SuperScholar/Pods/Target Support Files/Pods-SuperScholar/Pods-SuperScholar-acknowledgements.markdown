@@ -177,9 +177,9 @@ THE SOFTWARE.
 
 Copyright © 2012-2017 mob.com
 
-## SVProgressHUD-0.8.1
+## SVProgressHUD
 
-Copyright (c) 2011 Sam Vermette
+Copyright (c) 2011-2016 Sam Vermette, Tobias Tiemerding and contributors.
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -202,9 +202,10 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-A different license may apply to other ressources included in this package, 
-including Joseph Wain's Glyphish Icons. Please consult their 
+A different license may apply to other resources included in this package, 
+including Freepik Icons. Please consult their 
 respective headers for the terms of their individual licenses.
+
 
 ## TZImagePickerController
 
