@@ -47,6 +47,18 @@
 		BE243E76205FBDC3008781EB /* MYInfoInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE243E75205FBDC3008781EB /* MYInfoInputView.m */; };
 		BE243E78205FC0C6008781EB /* MYInfoInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE243E77205FC0C6008781EB /* MYInfoInputView.xib */; };
 		BE4E8045206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4E8044206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework */; };
+		BE57A5A22071C83A00C5593D /* GroupChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A58B2071C83A00C5593D /* GroupChatListViewController.m */; };
+		BE57A5A32071C83A00C5593D /* SingleChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A5922071C83A00C5593D /* SingleChatListViewController.m */; };
+		BE57A5A42071C83A00C5593D /* SingleChatListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE57A5932071C83A00C5593D /* SingleChatListViewController.xib */; };
+		BE57A5A52071C83A00C5593D /* InteractiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A5992071C83A00C5593D /* InteractiveViewController.m */; };
+		BE57A5A62071C83A00C5593D /* InteractiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE57A59A2071C83A00C5593D /* InteractiveViewController.xib */; };
+		BE57A5AA2071D58600C5593D /* MessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A5A82071D58600C5593D /* MessageListViewController.m */; };
+		BE57A5AB2071D58600C5593D /* MessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE57A5A92071D58600C5593D /* MessageListViewController.xib */; };
+		BE57A5B82071F4FE00C5593D /* ContactChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A5B42071F4FE00C5593D /* ContactChatListViewController.m */; };
+		BE57A5B92071F4FE00C5593D /* ContactChatListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE57A5B52071F4FE00C5593D /* ContactChatListViewController.xib */; };
+		BE57A5BD2071F59900C5593D /* ContactChatListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A5BB2071F59900C5593D /* ContactChatListTableViewCell.m */; };
+		BE57A5BE2071F59900C5593D /* ContactChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE57A5BC2071F59900C5593D /* ContactChatListTableViewCell.xib */; };
+		BE57A5CD20724F1C00C5593D /* UIButton+AddBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A5CC20724F1C00C5593D /* UIButton+AddBlock.m */; };
 		BE5C4875206CB3B10084BEB3 /* SPCallingCardBubbleChatContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5C4842206CB3B10084BEB3 /* SPCallingCardBubbleChatContentView.xib */; };
 		BE5C4876206CB3B10084BEB3 /* SPCallingCardBubbleChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5C4844206CB3B10084BEB3 /* SPCallingCardBubbleChatView.m */; };
 		BE5C4877206CB3B10084BEB3 /* SPCallingCardBubbleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5C4846206CB3B10084BEB3 /* SPCallingCardBubbleViewModel.m */; };
@@ -179,8 +191,6 @@
 		C76169F6204F889300C94311 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169F4204F889300C94311 /* MainTabBarViewController.m */; };
 		C76169F7204F889300C94311 /* MainTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76169F5204F889300C94311 /* MainTabBarViewController.xib */; };
 		C76169FB204F889900C94311 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C76169FA204F889900C94311 /* AppDelegate.m */; };
-		C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */; };
-		C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */; };
 		C781F837205B4B1900BE37AD /* ClassInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F836205B4B1900BE37AD /* ClassInfoManager.m */; };
 		C781F83B205B528200BE37AD /* LLNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F839205B528200BE37AD /* LLNavigationView.m */; };
 		C781F83F205B529200BE37AD /* MYCommentStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C781F83E205B529200BE37AD /* MYCommentStarView.m */; };
@@ -312,6 +322,25 @@
 		BE243E75205FBDC3008781EB /* MYInfoInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInfoInputView.m; sourceTree = "<group>"; };
 		BE243E77205FC0C6008781EB /* MYInfoInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYInfoInputView.xib; sourceTree = "<group>"; };
 		BE4E8044206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WXOpenIMSDKFMWK.framework; sourceTree = "<group>"; };
+		BE57A58A2071C83A00C5593D /* GroupChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupChatListViewController.h; sourceTree = "<group>"; };
+		BE57A58B2071C83A00C5593D /* GroupChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupChatListViewController.m; sourceTree = "<group>"; };
+		BE57A5912071C83A00C5593D /* SingleChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChatListViewController.h; sourceTree = "<group>"; };
+		BE57A5922071C83A00C5593D /* SingleChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChatListViewController.m; sourceTree = "<group>"; };
+		BE57A5932071C83A00C5593D /* SingleChatListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleChatListViewController.xib; sourceTree = "<group>"; };
+		BE57A5982071C83A00C5593D /* InteractiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveViewController.h; sourceTree = "<group>"; };
+		BE57A5992071C83A00C5593D /* InteractiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractiveViewController.m; sourceTree = "<group>"; };
+		BE57A59A2071C83A00C5593D /* InteractiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InteractiveViewController.xib; sourceTree = "<group>"; };
+		BE57A5A72071D58600C5593D /* MessageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageListViewController.h; sourceTree = "<group>"; };
+		BE57A5A82071D58600C5593D /* MessageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageListViewController.m; sourceTree = "<group>"; };
+		BE57A5A92071D58600C5593D /* MessageListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageListViewController.xib; sourceTree = "<group>"; };
+		BE57A5B32071F4FE00C5593D /* ContactChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactChatListViewController.h; sourceTree = "<group>"; };
+		BE57A5B42071F4FE00C5593D /* ContactChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactChatListViewController.m; sourceTree = "<group>"; };
+		BE57A5B52071F4FE00C5593D /* ContactChatListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactChatListViewController.xib; sourceTree = "<group>"; };
+		BE57A5BA2071F59900C5593D /* ContactChatListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactChatListTableViewCell.h; sourceTree = "<group>"; };
+		BE57A5BB2071F59900C5593D /* ContactChatListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactChatListTableViewCell.m; sourceTree = "<group>"; };
+		BE57A5BC2071F59900C5593D /* ContactChatListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactChatListTableViewCell.xib; sourceTree = "<group>"; };
+		BE57A5CB20724F1C00C5593D /* UIButton+AddBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AddBlock.h"; sourceTree = "<group>"; };
+		BE57A5CC20724F1C00C5593D /* UIButton+AddBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AddBlock.m"; sourceTree = "<group>"; };
 		BE5C4842206CB3B10084BEB3 /* SPCallingCardBubbleChatContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPCallingCardBubbleChatContentView.xib; sourceTree = "<group>"; };
 		BE5C4843206CB3B10084BEB3 /* SPCallingCardBubbleChatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCallingCardBubbleChatView.h; sourceTree = "<group>"; };
 		BE5C4844206CB3B10084BEB3 /* SPCallingCardBubbleChatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCallingCardBubbleChatView.m; sourceTree = "<group>"; };
@@ -512,9 +541,6 @@
 		C76169F5204F889300C94311 /* MainTabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarViewController.xib; sourceTree = "<group>"; };
 		C76169F9204F889900C94311 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C76169FA204F889900C94311 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C7616A09204F8F6A00C94311 /* InteractiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveViewController.h; sourceTree = "<group>"; };
-		C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractiveViewController.m; sourceTree = "<group>"; };
-		C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InteractiveViewController.xib; sourceTree = "<group>"; };
 		C781F835205B4B1900BE37AD /* ClassInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoManager.h; sourceTree = "<group>"; };
 		C781F836205B4B1900BE37AD /* ClassInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoManager.m; sourceTree = "<group>"; };
 		C781F839205B528200BE37AD /* LLNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNavigationView.m; sourceTree = "<group>"; };
@@ -916,6 +942,8 @@
 				38B0043920637FCD002459B3 /* UIButton+Positon.m */,
 				C70A31E92064C74400D1139A /* UICollectionView+Extension.h */,
 				C70A31EA2064C74400D1139A /* UICollectionView+Extension.m */,
+				BE57A5CB20724F1C00C5593D /* UIButton+AddBlock.h */,
+				BE57A5CC20724F1C00C5593D /* UIButton+AddBlock.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -943,8 +971,8 @@
 		384A554A20521F20006D8C23 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				BE5C4896206CB3B20084BEB3 /* IMManager.m */,
 				BE5C4897206CB3B20084BEB3 /* IMManager.h */,
+				BE5C4896206CB3B20084BEB3 /* IMManager.m */,
 				BE950ED7205B8793009F562B /* SMSManager.h */,
 				BE950ED8205B8793009F562B /* SMSManager.m */,
 				C758D9712060EE9100257DDB /* LLTableCellOptimization.h */,
@@ -1021,6 +1049,196 @@
 				D766E932AD159347BD301596 /* Pods-SuperScholar.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE57A5872071C83A00C5593D /* ContactsList */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A5B12071F4FE00C5593D /* Index */,
+				BE57A5882071C83A00C5593D /* GroupChat */,
+				BE57A58F2071C83A00C5593D /* SingleChat */,
+			);
+			path = ContactsList;
+			sourceTree = "<group>";
+		};
+		BE57A5882071C83A00C5593D /* GroupChat */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A5892071C83A00C5593D /* Controller */,
+				BE57A58C2071C83A00C5593D /* Model */,
+				BE57A58D2071C83A00C5593D /* View */,
+			);
+			path = GroupChat;
+			sourceTree = "<group>";
+		};
+		BE57A5892071C83A00C5593D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A58A2071C83A00C5593D /* GroupChatListViewController.h */,
+				BE57A58B2071C83A00C5593D /* GroupChatListViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE57A58C2071C83A00C5593D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE57A58D2071C83A00C5593D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE57A58F2071C83A00C5593D /* SingleChat */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A5902071C83A00C5593D /* Controller */,
+				BE57A5942071C83A00C5593D /* Model */,
+				BE57A5952071C83A00C5593D /* View */,
+			);
+			path = SingleChat;
+			sourceTree = "<group>";
+		};
+		BE57A5902071C83A00C5593D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A5912071C83A00C5593D /* SingleChatListViewController.h */,
+				BE57A5922071C83A00C5593D /* SingleChatListViewController.m */,
+				BE57A5932071C83A00C5593D /* SingleChatListViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE57A5942071C83A00C5593D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE57A5952071C83A00C5593D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE57A5962071C83A00C5593D /* IndexModule */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A5972071C83A00C5593D /* Controller */,
+				BE57A59B2071C83A00C5593D /* Model */,
+				BE57A59C2071C83A00C5593D /* View */,
+			);
+			path = IndexModule;
+			sourceTree = "<group>";
+		};
+		BE57A5972071C83A00C5593D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A5982071C83A00C5593D /* InteractiveViewController.h */,
+				BE57A5992071C83A00C5593D /* InteractiveViewController.m */,
+				BE57A59A2071C83A00C5593D /* InteractiveViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE57A59B2071C83A00C5593D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE57A59C2071C83A00C5593D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE57A59D2071C83A00C5593D /* MessageList */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A59E2071C83A00C5593D /* Index */,
+			);
+			path = MessageList;
+			sourceTree = "<group>";
+		};
+		BE57A59E2071C83A00C5593D /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A59F2071C83A00C5593D /* Controller */,
+				BE57A5A02071C83A00C5593D /* Model */,
+				BE57A5A12071C83A00C5593D /* View */,
+			);
+			path = Index;
+			sourceTree = "<group>";
+		};
+		BE57A59F2071C83A00C5593D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A5A72071D58600C5593D /* MessageListViewController.h */,
+				BE57A5A82071D58600C5593D /* MessageListViewController.m */,
+				BE57A5A92071D58600C5593D /* MessageListViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE57A5A02071C83A00C5593D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE57A5A12071C83A00C5593D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE57A5B12071F4FE00C5593D /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A5B22071F4FE00C5593D /* Controller */,
+				BE57A5B62071F4FE00C5593D /* Model */,
+				BE57A5B72071F4FE00C5593D /* View */,
+			);
+			path = Index;
+			sourceTree = "<group>";
+		};
+		BE57A5B22071F4FE00C5593D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A5B32071F4FE00C5593D /* ContactChatListViewController.h */,
+				BE57A5B42071F4FE00C5593D /* ContactChatListViewController.m */,
+				BE57A5B52071F4FE00C5593D /* ContactChatListViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE57A5B62071F4FE00C5593D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE57A5B72071F4FE00C5593D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A5BA2071F59900C5593D /* ContactChatListTableViewCell.h */,
+				BE57A5BB2071F59900C5593D /* ContactChatListTableViewCell.m */,
+				BE57A5BC2071F59900C5593D /* ContactChatListTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BE5C483E206CB3B10084BEB3 /* openIM */ = {
@@ -1854,7 +2072,9 @@
 		C76169E3204F7F6E00C94311 /* InteractiveModule */ = {
 			isa = PBXGroup;
 			children = (
-				C7616A08204F8F5D00C94311 /* IndexModule */,
+				BE57A5962071C83A00C5593D /* IndexModule */,
+				BE57A59D2071C83A00C5593D /* MessageList */,
+				BE57A5872071C83A00C5593D /* ContactsList */,
 			);
 			path = InteractiveModule;
 			sourceTree = "<group>";
@@ -1897,16 +2117,6 @@
 				C781F84B205BC21700BE37AD /* Controller */,
 				C781F84F205BC21700BE37AD /* Model */,
 				C781F850205BC21700BE37AD /* View */,
-			);
-			path = IndexModule;
-			sourceTree = "<group>";
-		};
-		C7616A08204F8F5D00C94311 /* IndexModule */ = {
-			isa = PBXGroup;
-			children = (
-				C7616A09204F8F6A00C94311 /* InteractiveViewController.h */,
-				C7616A0A204F8F6A00C94311 /* InteractiveViewController.m */,
-				C7616A0B204F8F6A00C94311 /* InteractiveViewController.xib */,
 			);
 			path = IndexModule;
 			sourceTree = "<group>";
@@ -2366,10 +2576,10 @@
 				BE5C4885206CB3B20084BEB3 /* input_plug_ico_card_nor@2x.png in Resources */,
 				BE5C488B206CB3B20084BEB3 /* pub_title_ico_back_white@2x.png in Resources */,
 				C73DD5D3204E88BD00C6437F /* LaunchScreen.storyboard in Resources */,
+				BE57A5A62071C83A00C5593D /* InteractiveViewController.xib in Resources */,
 				38010D86204FBFBC00E4511C /* AdsViewController.xib in Resources */,
 				BE5C4886206CB3B20084BEB3 /* input_plug_ico_hi_nor@2x.png in Resources */,
 				386924B6205FB1FB0093B48E /* AdsDetailViewController.xib in Resources */,
-				C7616A0D204F8F6A00C94311 /* InteractiveViewController.xib in Resources */,
 				C750B23A206209A100DAD5CD /* SpeechViewController.xib in Resources */,
 				F4CFCC30206630B10002E8DB /* ActivityVideoDetailViewController.xib in Resources */,
 				BE950ED3205B8728009F562B /* LoginInterfaceViewController.xib in Resources */,
@@ -2383,6 +2593,7 @@
 				C7A27AFE206503DD00BCB8C0 /* ActivityTableViewCell.xib in Resources */,
 				C758D94B205F8C3700257DDB /* ClassComDetailViewController.xib in Resources */,
 				C73DD5D0204E88BD00C6437F /* Assets.xcassets in Resources */,
+				BE57A5AB2071D58600C5593D /* MessageListViewController.xib in Resources */,
 				C718880E205A894900333387 /* ClassInfoTableViewCell.xib in Resources */,
 				C70A31F42064F72C00D1139A /* PersonalInfoViewController.xib in Resources */,
 				C7613F29205CC48B002604A3 /* ClassSpaceHeadView.xib in Resources */,
@@ -2405,7 +2616,9 @@
 				BE5C4892206CB3B20084BEB3 /* WXOpenIMSDKResource.bundle in Resources */,
 				BED0DF40205C084F00276785 /* DataEditTableViewCell.xib in Resources */,
 				BE5C487F206CB3B20084BEB3 /* calling_card_bg@2x.png in Resources */,
+				BE57A5B92071F4FE00C5593D /* ContactChatListViewController.xib in Resources */,
 				BE5C4884206CB3B20084BEB3 /* icon_delete@2x.png in Resources */,
+				BE57A5A42071C83A00C5593D /* SingleChatListViewController.xib in Resources */,
 				C758D95E20609CD000257DDB /* ClassComDetailTableViewCell.xib in Resources */,
 				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
 				BE5C4882206CB3B20084BEB3 /* greeting_message@2x.png in Resources */,
@@ -2414,6 +2627,7 @@
 				D31B768E2061345D000AA637 /* testData.plist in Resources */,
 				F49D7D55205D6F2A009D17EA /* MessageRemindTableViewCell.xib in Resources */,
 				C7613F27205CC48B002604A3 /* ClassSpaceTableViewCell.xib in Resources */,
+				BE57A5BE2071F59900C5593D /* ContactChatListTableViewCell.xib in Resources */,
 				C758D96D2060C66800257DDB /* CommentDetailViewController.xib in Resources */,
 				C7F2C01B206383DD00C34D2D /* ClassEnvironmentViewController.xib in Resources */,
 				C758D940205F848500257DDB /* ClassCommentViewController.xib in Resources */,
@@ -2505,6 +2719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C758D96420609CE600257DDB /* ClassComDetailModel.m in Sources */,
+				BE57A5AA2071D58600C5593D /* MessageListViewController.m in Sources */,
 				BE5C488C206CB3B20084BEB3 /* SPKitExample.m in Sources */,
 				384A555D20521F20006D8C23 /* MJDIYAutoFooter.m in Sources */,
 				C758D95D20609CD000257DDB /* ClassComDetailTableViewCell.m in Sources */,
@@ -2534,7 +2749,6 @@
 				C7F2C01E206395BC00C34D2D /* CutomCollectionViewLayout.m in Sources */,
 				384A555820521F20006D8C23 /* UIView+AdjustFrame.m in Sources */,
 				C70A31F32064F72C00D1139A /* PersonalInfoViewController.m in Sources */,
-				C7616A0C204F8F6A00C94311 /* InteractiveViewController.m in Sources */,
 				C758D941205F848500257DDB /* ClassCommentManager.m in Sources */,
 				C7188801205A6EE800333387 /* NSTimer+Addition.m in Sources */,
 				C7613F24205CC48B002604A3 /* ClassSpaceModel.m in Sources */,
@@ -2560,6 +2774,7 @@
 				F49D7D54205D6F2A009D17EA /* MessageRemindTableViewCell.m in Sources */,
 				BE950EC7205B8634009F562B /* MySelfViewController.m in Sources */,
 				384A555E20521F20006D8C23 /* MJDIYHeader.m in Sources */,
+				BE57A5A52071C83A00C5593D /* InteractiveViewController.m in Sources */,
 				BE9AFD99206CFE760022BF7C /* ActivityDetailWebViewController.m in Sources */,
 				C7A27AFC206503DD00BCB8C0 /* ActivitySubViewManager.m in Sources */,
 				F4060B422063FE7F00C416A3 /* OpenShare+Alipay.m in Sources */,
@@ -2569,6 +2784,7 @@
 				C781F871205BFFE000BE37AD /* AddressViewController.m in Sources */,
 				BE6692A82063A5DF00111810 /* ShareManager.m in Sources */,
 				C781F866205BE91900BE37AD /* ClassViewManager.m in Sources */,
+				BE57A5A32071C83A00C5593D /* SingleChatListViewController.m in Sources */,
 				C7613F26205CC48B002604A3 /* ClassSpaceHeadView.m in Sources */,
 				C7F2C0242063979E00C34D2D /* ClassEnvironmentManager.m in Sources */,
 				C7613F25205CC48B002604A3 /* ClassSpaceManager.m in Sources */,
@@ -2611,8 +2827,10 @@
 				BE9E86962069147E00019559 /* RemotePushManager.m in Sources */,
 				BE950ED2205B8728009F562B /* LoginInterfaceViewController.m in Sources */,
 				C758D9702060D47A00257DDB /* CommentDetailManager.m in Sources */,
+				BE57A5CD20724F1C00C5593D /* UIButton+AddBlock.m in Sources */,
 				BE5C487D206CB3B20084BEB3 /* SPBubbleViewModelCustomize.m in Sources */,
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
+				BE57A5A22071C83A00C5593D /* GroupChatListViewController.m in Sources */,
 				3831C91020626768003CC26F /* myTableView.m in Sources */,
 				C750D94C2068B3C40099388F /* MapManager.m in Sources */,
 				C7A27AFA206503DD00BCB8C0 /* ActivityViewController.m in Sources */,
@@ -2630,11 +2848,13 @@
 				389040522060ECD8007BA074 /* AdsWebViewViewController.m in Sources */,
 				C781F863205BCEC800BE37AD /* UIImage+ImageEffects.m in Sources */,
 				C781F875205CA79E00BE37AD /* AddressViewManager.m in Sources */,
+				BE57A5B82071F4FE00C5593D /* ContactChatListViewController.m in Sources */,
 				C718880D205A894900333387 /* ClassInfoTableViewCell.m in Sources */,
 				D3FA489120668D4D0016D0B8 /* PersonalInfoManager.m in Sources */,
 				C7A27AFB206503DD00BCB8C0 /* ActivityModel.m in Sources */,
 				C781F848205B702D00BE37AD /* ClassInfoTitleItemView.m in Sources */,
 				C71887FD205A6D7900333387 /* MYBannerScrollView.m in Sources */,
+				BE57A5BD2071F59900C5593D /* ContactChatListTableViewCell.m in Sources */,
 				38010D8F204FD6E500E4511C /* AdsCollectionViewCell.m in Sources */,
 				C7C451BB2071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.m in Sources */,
 			);

@@ -7,6 +7,7 @@
 //
 
 #import "SPKitExample.h"
+#import "UIButton+AddBlock.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -582,7 +583,7 @@ UIAlertViewDelegate>
 /**
  *  打开某个会话
  */
-- (void)exampleOpenConversationViewControllerWithConversation:(YWConversation *)aConversation fromNavigationController:(UINavigationController *)aNavigationController
+- (YWConversationViewController *)exampleOpenConversationViewControllerWithConversation:(YWConversation *)aConversation fromNavigationController:(UINavigationController *)aNavigationController
 {
 
     UINavigationController *conversationNavigationController = nil;
@@ -618,24 +619,31 @@ UIAlertViewDelegate>
     NSArray *viewControllers = nil;
     if (conversationNavigationController.viewControllers.firstObject == conversationViewController) {
         viewControllers = @[conversationNavigationController.viewControllers.firstObject];
+        [conversationNavigationController setViewControllers:viewControllers animated:YES];
     }
     else {
         NSLog(@"conversationNavigationController.viewControllers.firstObject:%@", conversationNavigationController.viewControllers.firstObject);
         NSLog(@"conversationViewController:%@", conversationViewController);
-        viewControllers = @[conversationNavigationController.viewControllers.firstObject, conversationViewController];
+//        viewControllers = @[conversationNavigationController.viewControllers.firstObject, conversationViewController];
+        [conversationViewController.navigationBar setTitle:nil leftImage:kGoBackImageString rightText:@""];
+        [conversationViewController.navigationBar.letfBtn addBlock:^(UIButton *btn) {
+            [conversationNavigationController popViewControllerAnimated:YES];
+        }];
+        [conversationNavigationController pushViewController:conversationViewController animated:YES];
     }
-
-    [conversationNavigationController setViewControllers:viewControllers animated:YES];
+    
+    return conversationViewController;
 }
+
 
 /**
  *  打开单聊页面
  */
-- (void)exampleOpenConversationViewControllerWithPerson:(YWPerson *)aPerson fromNavigationController:(UINavigationController *)aNavigationController
+- (YWConversationViewController *)exampleOpenConversationViewControllerWithPerson:(YWPerson *)aPerson fromNavigationController:(UINavigationController *)aNavigationController
 {
     YWConversation *conversation = [YWP2PConversation fetchConversationByPerson:aPerson creatIfNotExist:YES baseContext:self.ywIMKit.IMCore];
     
-    [self exampleOpenConversationViewControllerWithConversation:conversation fromNavigationController:aNavigationController];
+    return [self exampleOpenConversationViewControllerWithConversation:conversation fromNavigationController:aNavigationController];
 }
 
 /**
