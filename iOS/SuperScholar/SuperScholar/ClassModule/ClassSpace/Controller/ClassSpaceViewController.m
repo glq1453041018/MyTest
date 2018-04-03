@@ -14,6 +14,7 @@
 #import "PersonalInfoViewController.h"          // 个人信息中心
 // !!!: 视图类
 #import "ClassSpaceTableViewCell.h"
+#import "ClassSpaceVideoTableViewCell.h"
 #import "ClassSpaceHeadView.h"
 #import "LLListPickView.h"                      // 弹窗列表视图
 // !!!: 管理类
@@ -140,15 +141,29 @@
     return self.data.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"ClassSpaceTableViewCell";
-    ClassSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell==nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
-        cell.selectionStyle = NO;
+    ClassSpaceModel *csm = self.data[indexPath.row];
+    if (csm.type==MediaTypePic) {
+        static NSString *cellId = @"ClassSpaceTableViewCell";
+        ClassSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        if (cell==nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceTableViewCell" owner:self options:nil] firstObject];
+            cell.selectionStyle = NO;
+        }
+        cell.delegate = self;
+        [self.manager loadData:self.data cell:cell index:indexPath.row pageSize:10];
+        return cell;
     }
-    cell.delegate = self;
-    [self.manager loadData:self.data cell:cell index:indexPath.row pageSize:10];
-    return cell;
+    else{
+        static NSString *cellId = @"ClassSpaceVideoTableViewCell";
+        ClassSpaceVideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        if (cell==nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassSpaceVideoTableViewCell" owner:self options:nil] firstObject];
+            cell.selectionStyle = NO;
+        }
+        cell.delegate = self;
+        [self.manager loadData:self.data cell:cell table:tableView indexPath:indexPath];
+        return cell;
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 10;

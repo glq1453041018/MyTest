@@ -208,6 +208,8 @@
 		C7A27AFD206503DD00BCB8C0 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A27AF2206503DD00BCB8C0 /* ActivityTableViewCell.m */; };
 		C7A27AFE206503DD00BCB8C0 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A27AF4206503DD00BCB8C0 /* ActivityTableViewCell.xib */; };
 		C7BA9C47206B54F100A71EAC /* AddressSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA9C46206B54F100A71EAC /* AddressSearchViewController.m */; };
+		C7C451BB2071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C451B92071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.m */; };
+		C7C451BC2071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C451BA2071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.xib */; };
 		C7E84BA5206A6AD7001E73F0 /* AddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E84BA4206A6AD7001E73F0 /* AddressTableViewCell.m */; };
 		C7F2C01A206383DD00C34D2D /* ClassEnvironmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C018206383DD00C34D2D /* ClassEnvironmentViewController.m */; };
 		C7F2C01B206383DD00C34D2D /* ClassEnvironmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F2C019206383DD00C34D2D /* ClassEnvironmentViewController.xib */; };
@@ -560,6 +562,10 @@
 		C7BA9C45206B54F100A71EAC /* AddressSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressSearchViewController.h; sourceTree = "<group>"; };
 		C7BA9C46206B54F100A71EAC /* AddressSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressSearchViewController.m; sourceTree = "<group>"; };
 		C7BA9CBB206B76E700A71EAC /* AddressSearchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressSearchDelegate.h; sourceTree = "<group>"; };
+		C7C451B72071D722001EAE43 /* ClassSpaceTableViewCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSpaceTableViewCellDelegate.h; sourceTree = "<group>"; };
+		C7C451B82071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassSpaceVideoTableViewCell.h; sourceTree = "<group>"; };
+		C7C451B92071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassSpaceVideoTableViewCell.m; sourceTree = "<group>"; };
+		C7C451BA2071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassSpaceVideoTableViewCell.xib; sourceTree = "<group>"; };
 		C7E84BA3206A6AD7001E73F0 /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableViewCell.h; sourceTree = "<group>"; };
 		C7E84BA4206A6AD7001E73F0 /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableViewCell.m; sourceTree = "<group>"; };
 		C7F2C017206383DD00C34D2D /* ClassEnvironmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassEnvironmentViewController.h; sourceTree = "<group>"; };
@@ -1779,6 +1785,10 @@
 				C7613F1D205CC48B002604A3 /* ClassSpaceTableViewCell.h */,
 				C7613F20205CC48B002604A3 /* ClassSpaceTableViewCell.m */,
 				C7613F1F205CC48B002604A3 /* ClassSpaceTableViewCell.xib */,
+				C7C451B72071D722001EAE43 /* ClassSpaceTableViewCellDelegate.h */,
+				C7C451B82071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.h */,
+				C7C451B92071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.m */,
+				C7C451BA2071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.xib */,
 				C7613F22205CC48B002604A3 /* ClassSpaceHeadView.h */,
 				C7613F1E205CC48B002604A3 /* ClassSpaceHeadView.m */,
 				C7613F21205CC48B002604A3 /* ClassSpaceHeadView.xib */,
@@ -2363,6 +2373,7 @@
 				C750B23A206209A100DAD5CD /* SpeechViewController.xib in Resources */,
 				F4CFCC30206630B10002E8DB /* ActivityVideoDetailViewController.xib in Resources */,
 				BE950ED3205B8728009F562B /* LoginInterfaceViewController.xib in Resources */,
+				C7C451BC2071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.xib in Resources */,
 				BE5C4889206CB3B20084BEB3 /* profile.json in Resources */,
 				BE950EE8205BECAF009F562B /* DataEditingViewController.xib in Resources */,
 				384A55712052674F006D8C23 /* SchoolTableViewCell.xib in Resources */,
@@ -2457,6 +2468,7 @@
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD-0.8.1/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
+				"${PODS_ROOT}/ZFPlayer/ZFPlayer/ZFPlayer.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -2624,6 +2636,7 @@
 				C781F848205B702D00BE37AD /* ClassInfoTitleItemView.m in Sources */,
 				C71887FD205A6D7900333387 /* MYBannerScrollView.m in Sources */,
 				38010D8F204FD6E500E4511C /* AdsCollectionViewCell.m in Sources */,
+				C7C451BB2071D7DA001EAE43 /* ClassSpaceVideoTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

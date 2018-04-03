@@ -25,6 +25,7 @@
 
 
 // !!!: 多媒体信息
+@property (assign ,nonatomic) MediaType type;
 @property (copy ,nonatomic) NSArray *pics;
 @property (strong ,nonatomic) UIView *mediaView;
 @property (copy ,nonatomic) NSMutableArray *picViews;

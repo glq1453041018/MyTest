@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MYCommentStarView.h"
-
-@protocol ClassSpaceTableViewCellDelegate;
+#import "ClassSpaceTableViewCellDelegate.h"
 @interface ClassSpaceTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *headerBtn;
@@ -30,11 +29,6 @@
 @end
 
 
-
-@protocol ClassSpaceTableViewCellDelegate <NSObject>
-@optional
--(void)classSpaceTableViewCellClickEvent:(ClassCellClickEvent)event;
-@end
 
 
 

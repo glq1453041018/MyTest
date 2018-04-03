@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ClassSpaceModel.h"             // 数据模型
 #import "ClassSpaceTableViewCell.h"     // cell样式
+#import "ClassSpaceVideoTableViewCell.h"
 #import "PhotoBrowser.h"                // 图片浏览器
 #import "LLTableCellOptimization.h"     // cell优化策略
 
@@ -23,5 +24,8 @@
 
 // !!!: 加载视图
 -(void)loadData:(NSArray *)data cell:(ClassSpaceTableViewCell*)cell index:(NSInteger)index pageSize:(NSInteger)pageSize;
+
+// !!!: 加载视图
+-(void)loadData:(NSArray *)data cell:(ClassSpaceVideoTableViewCell*)cell table:(UITableView*)table indexPath:(NSIndexPath*)indexpath;
 
 @end
