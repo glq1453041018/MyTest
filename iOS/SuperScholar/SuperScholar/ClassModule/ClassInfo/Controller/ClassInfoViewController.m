@@ -46,7 +46,7 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    [ClassInfoManager requestDataResponse:^(NSArray *resArray, id error) {
+    [ClassInfoManager requestDataType:self.type response:^(NSArray *resArray, id error) {
         if (error) {
             return;
         }
@@ -233,6 +233,7 @@
         }
         else if ([cimi.code isEqualToString:@"school"]){                    // 学校
             ClassInfoViewController *ctrl = [ClassInfoViewController new];
+            ctrl.type = ReCruitTypeSchool;
             [self.navigationController pushViewController:ctrl animated:YES];
         }
     }
