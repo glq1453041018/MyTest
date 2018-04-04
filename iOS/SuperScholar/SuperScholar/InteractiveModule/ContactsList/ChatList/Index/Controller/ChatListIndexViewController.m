@@ -60,7 +60,7 @@
     self.group_vc = [[SingleChatListViewController alloc] init];
     
     [_segmentController setSegementViewControllers:@[self.single_vc, self.group_vc]];
-    _segmentController.style = GLQSegementStyleFlush;
+    _segmentController.style = GLQSegementStyleDefault;
     _segmentController.downLineLabel.hidden = YES;
     
     [_segmentController selectedAtIndex:^(NSInteger index) {
