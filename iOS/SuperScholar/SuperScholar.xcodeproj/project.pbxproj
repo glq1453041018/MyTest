@@ -46,10 +46,14 @@
 		BE243E73205FA08A008781EB /* MYCitySelectPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BE243E72205FA08A008781EB /* MYCitySelectPicker.m */; };
 		BE243E76205FBDC3008781EB /* MYInfoInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE243E75205FBDC3008781EB /* MYInfoInputView.m */; };
 		BE243E78205FC0C6008781EB /* MYInfoInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE243E77205FC0C6008781EB /* MYInfoInputView.xib */; };
+		BE4927F2207478D900ADB9CA /* NewFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4927F0207478D900ADB9CA /* NewFriendViewController.m */; };
+		BE4927F3207478D900ADB9CA /* NewFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE4927F1207478D900ADB9CA /* NewFriendViewController.xib */; };
+		BE4928062074950400ADB9CA /* GroupChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4927F82074950400ADB9CA /* GroupChatListViewController.m */; };
+		BE4928072074950400ADB9CA /* SingleChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4928022074950400ADB9CA /* SingleChatListViewController.m */; };
+		BE4928082074950400ADB9CA /* SingleChatListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE4928032074950400ADB9CA /* SingleChatListViewController.xib */; };
+		BE49280C2074953400ADB9CA /* ChatListIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE49280A2074953400ADB9CA /* ChatListIndexViewController.m */; };
+		BE49280D2074953400ADB9CA /* ChatListIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE49280B2074953400ADB9CA /* ChatListIndexViewController.xib */; };
 		BE4E8045206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4E8044206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework */; };
-		BE57A5A22071C83A00C5593D /* GroupChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A58B2071C83A00C5593D /* GroupChatListViewController.m */; };
-		BE57A5A32071C83A00C5593D /* SingleChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A5922071C83A00C5593D /* SingleChatListViewController.m */; };
-		BE57A5A42071C83A00C5593D /* SingleChatListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE57A5932071C83A00C5593D /* SingleChatListViewController.xib */; };
 		BE57A5A52071C83A00C5593D /* InteractiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A5992071C83A00C5593D /* InteractiveViewController.m */; };
 		BE57A5A62071C83A00C5593D /* InteractiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE57A59A2071C83A00C5593D /* InteractiveViewController.xib */; };
 		BE57A5AA2071D58600C5593D /* MessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A5A82071D58600C5593D /* MessageListViewController.m */; };
@@ -326,12 +330,18 @@
 		BE243E74205FBDC3008781EB /* MYInfoInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInfoInputView.h; sourceTree = "<group>"; };
 		BE243E75205FBDC3008781EB /* MYInfoInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInfoInputView.m; sourceTree = "<group>"; };
 		BE243E77205FC0C6008781EB /* MYInfoInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYInfoInputView.xib; sourceTree = "<group>"; };
+		BE4927EF207478D900ADB9CA /* NewFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFriendViewController.h; sourceTree = "<group>"; };
+		BE4927F0207478D900ADB9CA /* NewFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFriendViewController.m; sourceTree = "<group>"; };
+		BE4927F1207478D900ADB9CA /* NewFriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewFriendViewController.xib; sourceTree = "<group>"; };
+		BE4927F72074950400ADB9CA /* GroupChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupChatListViewController.h; sourceTree = "<group>"; };
+		BE4927F82074950400ADB9CA /* GroupChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupChatListViewController.m; sourceTree = "<group>"; };
+		BE4928012074950400ADB9CA /* SingleChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChatListViewController.h; sourceTree = "<group>"; };
+		BE4928022074950400ADB9CA /* SingleChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChatListViewController.m; sourceTree = "<group>"; };
+		BE4928032074950400ADB9CA /* SingleChatListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleChatListViewController.xib; sourceTree = "<group>"; };
+		BE4928092074953400ADB9CA /* ChatListIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListIndexViewController.h; sourceTree = "<group>"; };
+		BE49280A2074953400ADB9CA /* ChatListIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListIndexViewController.m; sourceTree = "<group>"; };
+		BE49280B2074953400ADB9CA /* ChatListIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatListIndexViewController.xib; sourceTree = "<group>"; };
 		BE4E8044206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WXOpenIMSDKFMWK.framework; sourceTree = "<group>"; };
-		BE57A58A2071C83A00C5593D /* GroupChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupChatListViewController.h; sourceTree = "<group>"; };
-		BE57A58B2071C83A00C5593D /* GroupChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupChatListViewController.m; sourceTree = "<group>"; };
-		BE57A5912071C83A00C5593D /* SingleChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChatListViewController.h; sourceTree = "<group>"; };
-		BE57A5922071C83A00C5593D /* SingleChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChatListViewController.m; sourceTree = "<group>"; };
-		BE57A5932071C83A00C5593D /* SingleChatListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleChatListViewController.xib; sourceTree = "<group>"; };
 		BE57A5982071C83A00C5593D /* InteractiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveViewController.h; sourceTree = "<group>"; };
 		BE57A5992071C83A00C5593D /* InteractiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractiveViewController.m; sourceTree = "<group>"; };
 		BE57A59A2071C83A00C5593D /* InteractiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InteractiveViewController.xib; sourceTree = "<group>"; };
@@ -1066,82 +1076,160 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		BE57A5872071C83A00C5593D /* ContactsList */ = {
+		BE4927EB207478C800ADB9CA /* NewFriend */ = {
 			isa = PBXGroup;
 			children = (
-				BE57A5B12071F4FE00C5593D /* Index */,
-				BE57A5882071C83A00C5593D /* GroupChat */,
-				BE57A58F2071C83A00C5593D /* SingleChat */,
-				BEC0957A20735E3A003B10E8 /* Search */,
+				BE4927EC207478C800ADB9CA /* Controller */,
+				BE4927ED207478C800ADB9CA /* Model */,
+				BE4927EE207478C800ADB9CA /* View */,
 			);
-			path = ContactsList;
+			path = NewFriend;
 			sourceTree = "<group>";
 		};
-		BE57A5882071C83A00C5593D /* GroupChat */ = {
+		BE4927EC207478C800ADB9CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BE57A5892071C83A00C5593D /* Controller */,
-				BE57A58C2071C83A00C5593D /* Model */,
-				BE57A58D2071C83A00C5593D /* View */,
+				BE4927EF207478D900ADB9CA /* NewFriendViewController.h */,
+				BE4927F0207478D900ADB9CA /* NewFriendViewController.m */,
+				BE4927F1207478D900ADB9CA /* NewFriendViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE4927ED207478C800ADB9CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE4927EE207478C800ADB9CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE4927F42074950400ADB9CA /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				BE4927FB2074950400ADB9CA /* Index */,
+				BE4927FF2074950400ADB9CA /* SingleChat */,
+				BE4927F52074950400ADB9CA /* GroupChat */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		BE4927F52074950400ADB9CA /* GroupChat */ = {
+			isa = PBXGroup;
+			children = (
+				BE4927F62074950400ADB9CA /* Controller */,
+				BE4927F92074950400ADB9CA /* Model */,
+				BE4927FA2074950400ADB9CA /* View */,
 			);
 			path = GroupChat;
 			sourceTree = "<group>";
 		};
-		BE57A5892071C83A00C5593D /* Controller */ = {
+		BE4927F62074950400ADB9CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BE57A58A2071C83A00C5593D /* GroupChatListViewController.h */,
-				BE57A58B2071C83A00C5593D /* GroupChatListViewController.m */,
+				BE4927F72074950400ADB9CA /* GroupChatListViewController.h */,
+				BE4927F82074950400ADB9CA /* GroupChatListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		BE57A58C2071C83A00C5593D /* Model */ = {
+		BE4927F92074950400ADB9CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BE57A58D2071C83A00C5593D /* View */ = {
+		BE4927FA2074950400ADB9CA /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		BE57A58F2071C83A00C5593D /* SingleChat */ = {
+		BE4927FB2074950400ADB9CA /* Index */ = {
 			isa = PBXGroup;
 			children = (
-				BE57A5902071C83A00C5593D /* Controller */,
-				BE57A5942071C83A00C5593D /* Model */,
-				BE57A5952071C83A00C5593D /* View */,
+				BE4927FC2074950400ADB9CA /* Controller */,
+				BE4927FD2074950400ADB9CA /* Model */,
+				BE4927FE2074950400ADB9CA /* View */,
+			);
+			path = Index;
+			sourceTree = "<group>";
+		};
+		BE4927FC2074950400ADB9CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE4928092074953400ADB9CA /* ChatListIndexViewController.h */,
+				BE49280A2074953400ADB9CA /* ChatListIndexViewController.m */,
+				BE49280B2074953400ADB9CA /* ChatListIndexViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE4927FD2074950400ADB9CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE4927FE2074950400ADB9CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE4927FF2074950400ADB9CA /* SingleChat */ = {
+			isa = PBXGroup;
+			children = (
+				BE4928002074950400ADB9CA /* Controller */,
+				BE4928042074950400ADB9CA /* Model */,
+				BE4928052074950400ADB9CA /* View */,
 			);
 			path = SingleChat;
 			sourceTree = "<group>";
 		};
-		BE57A5902071C83A00C5593D /* Controller */ = {
+		BE4928002074950400ADB9CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BE57A5912071C83A00C5593D /* SingleChatListViewController.h */,
-				BE57A5922071C83A00C5593D /* SingleChatListViewController.m */,
-				BE57A5932071C83A00C5593D /* SingleChatListViewController.xib */,
+				BE4928012074950400ADB9CA /* SingleChatListViewController.h */,
+				BE4928022074950400ADB9CA /* SingleChatListViewController.m */,
+				BE4928032074950400ADB9CA /* SingleChatListViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		BE57A5942071C83A00C5593D /* Model */ = {
+		BE4928042074950400ADB9CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BE57A5952071C83A00C5593D /* View */ = {
+		BE4928052074950400ADB9CA /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BE57A5872071C83A00C5593D /* ContactsList */ = {
+			isa = PBXGroup;
+			children = (
+				BE57A5B12071F4FE00C5593D /* Index */,
+				BE4927F42074950400ADB9CA /* ChatList */,
+				BEC0957A20735E3A003B10E8 /* Search */,
+				BE4927EB207478C800ADB9CA /* NewFriend */,
+			);
+			path = ContactsList;
 			sourceTree = "<group>";
 		};
 		BE57A5962071C83A00C5593D /* IndexModule */ = {
@@ -2588,7 +2676,7 @@
 					C73DD5BF204E88BD00C6437F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = P6247WX9N5;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2651,6 +2739,7 @@
 				C70A31F42064F72C00D1139A /* PersonalInfoViewController.xib in Resources */,
 				C7613F29205CC48B002604A3 /* ClassSpaceHeadView.xib in Resources */,
 				BE5C4887206CB3B20084BEB3 /* input_plug_ico_transparent_nor@2x.png in Resources */,
+				BE4928082074950400ADB9CA /* SingleChatListViewController.xib in Resources */,
 				384A556C205266D8006D8C23 /* SchoolViewController.xib in Resources */,
 				BE243E78205FC0C6008781EB /* MYInfoInputView.xib in Resources */,
 				3832D60720649A860083C718 /* AdsTableViewCell.xib in Resources */,
@@ -2672,11 +2761,11 @@
 				BE5C487F206CB3B20084BEB3 /* calling_card_bg@2x.png in Resources */,
 				BE57A5B92071F4FE00C5593D /* ContactChatListViewController.xib in Resources */,
 				BE5C4884206CB3B20084BEB3 /* icon_delete@2x.png in Resources */,
-				BE57A5A42071C83A00C5593D /* SingleChatListViewController.xib in Resources */,
 				C758D95E20609CD000257DDB /* ClassComDetailTableViewCell.xib in Resources */,
 				C7188809205A714900333387 /* ClassInfoHeadView.xib in Resources */,
 				BE5C4882206CB3B20084BEB3 /* greeting_message@2x.png in Resources */,
 				C7A27AF8206503DD00BCB8C0 /* ActivityViewController.xib in Resources */,
+				BE49280D2074953400ADB9CA /* ChatListIndexViewController.xib in Resources */,
 				C7A27AF9206503DD00BCB8C0 /* ActivitySubViewController.xib in Resources */,
 				D31B768E2061345D000AA637 /* testData.plist in Resources */,
 				F49D7D55205D6F2A009D17EA /* MessageRemindTableViewCell.xib in Resources */,
@@ -2700,6 +2789,7 @@
 				3890404E2060CED6007BA074 /* AdsDetailTableViewCell.xib in Resources */,
 				3872419A20688B5D00C2347A /* SelectTypeViewController.xib in Resources */,
 				BE5C4883206CB3B20084BEB3 /* icon_add@2x.png in Resources */,
+				BE4927F3207478D900ADB9CA /* NewFriendViewController.xib in Resources */,
 				C75E03B32063484F00EC0AF5 /* CommentView.xib in Resources */,
 				C781F84A205B703900BE37AD /* ClassInfoTitleItemView.xib in Resources */,
 			);
@@ -2794,6 +2884,7 @@
 				386924B5205FB1FB0093B48E /* AdsDetailViewController.m in Sources */,
 				BE243E73205FA08A008781EB /* MYCitySelectPicker.m in Sources */,
 				C781F83F205B529200BE37AD /* MYCommentStarView.m in Sources */,
+				BE4928072074950400ADB9CA /* SingleChatListViewController.m in Sources */,
 				BE5C4877206CB3B10084BEB3 /* SPCallingCardBubbleViewModel.m in Sources */,
 				BE950EE7205BECAF009F562B /* DataEditingViewController.m in Sources */,
 				F4060B472063FE7F00C416A3 /* OpenShare.m in Sources */,
@@ -2844,7 +2935,6 @@
 				C781F871205BFFE000BE37AD /* AddressViewController.m in Sources */,
 				BE6692A82063A5DF00111810 /* ShareManager.m in Sources */,
 				C781F866205BE91900BE37AD /* ClassViewManager.m in Sources */,
-				BE57A5A32071C83A00C5593D /* SingleChatListViewController.m in Sources */,
 				C7613F26205CC48B002604A3 /* ClassSpaceHeadView.m in Sources */,
 				C7F2C0242063979E00C34D2D /* ClassEnvironmentManager.m in Sources */,
 				C7613F25205CC48B002604A3 /* ClassSpaceManager.m in Sources */,
@@ -2884,17 +2974,18 @@
 				3832D60620649A860083C718 /* AdsTableViewCell.m in Sources */,
 				F4060B462063FE7F00C416A3 /* OpenShare+Weixin.m in Sources */,
 				BE6692442063397400111810 /* MyCMViewController.m in Sources */,
+				BE49280C2074953400ADB9CA /* ChatListIndexViewController.m in Sources */,
 				BE9E86962069147E00019559 /* RemotePushManager.m in Sources */,
 				BE950ED2205B8728009F562B /* LoginInterfaceViewController.m in Sources */,
 				C758D9702060D47A00257DDB /* CommentDetailManager.m in Sources */,
 				BE57A5CD20724F1C00C5593D /* UIButton+AddBlock.m in Sources */,
 				BE5C487D206CB3B20084BEB3 /* SPBubbleViewModelCustomize.m in Sources */,
 				384A555A20521F20006D8C23 /* UIViewController+Based.m in Sources */,
-				BE57A5A22071C83A00C5593D /* GroupChatListViewController.m in Sources */,
 				3831C91020626768003CC26F /* myTableView.m in Sources */,
 				C750D94C2068B3C40099388F /* MapManager.m in Sources */,
 				C7A27AFA206503DD00BCB8C0 /* ActivityViewController.m in Sources */,
 				BE5C488D206CB3B20084BEB3 /* SPUtil.m in Sources */,
+				BE4928062074950400ADB9CA /* GroupChatListViewController.m in Sources */,
 				BE5C487B206CB3B10084BEB3 /* SPInputViewPluginGreeting.m in Sources */,
 				C76169FB204F889900C94311 /* AppDelegate.m in Sources */,
 				C7F2C01A206383DD00C34D2D /* ClassEnvironmentViewController.m in Sources */,
@@ -2906,6 +2997,7 @@
 				384A556620522095006D8C23 /* SearchIndexViewController.m in Sources */,
 				C7188804205A6F4500333387 /* NSArray+ExtraMethod.m in Sources */,
 				BEC0958A20736F7C003B10E8 /* MYSearchView.m in Sources */,
+				BE4927F2207478D900ADB9CA /* NewFriendViewController.m in Sources */,
 				389040522060ECD8007BA074 /* AdsWebViewViewController.m in Sources */,
 				C781F863205BCEC800BE37AD /* UIImage+ImageEffects.m in Sources */,
 				C781F875205CA79E00BE37AD /* AddressViewManager.m in Sources */,
@@ -3042,8 +3134,8 @@
 				CODE_SIGN_ENTITLEMENTS = SuperScholar/SuperScholar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = P6247WX9N5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3067,8 +3159,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "11fc3be4-55b9-4b6f-80c3-df3af464f200";
-				PROVISIONING_PROFILE_SPECIFIER = superScholarHD;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -3079,8 +3171,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SuperScholar/SuperScholar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = P6247WX9N5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3104,8 +3196,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SuperScholar.SuperScholar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "11fc3be4-55b9-4b6f-80c3-df3af464f200";
-				PROVISIONING_PROFILE_SPECIFIER = superScholarHD;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

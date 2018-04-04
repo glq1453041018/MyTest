@@ -25,14 +25,19 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bb-Mc-Lx7" customClass="LLNavigationView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                     <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YlW-cO-5SE" customClass="MYSearchView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YlW-cO-5SE" customClass="MYSearchView">
                             <rect key="frame" x="12" y="26" width="299" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="fUA-gL-6SY"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="YlW-cO-5SE" secondAttribute="trailing" constant="64" id="CSG-Qc-IJY"/>
                         <constraint firstAttribute="height" constant="64" id="FYP-4E-gNT"/>
+                        <constraint firstAttribute="bottom" secondItem="YlW-cO-5SE" secondAttribute="bottom" constant="8" id="lk6-KQ-Ntv"/>
+                        <constraint firstItem="YlW-cO-5SE" firstAttribute="leading" secondItem="3bb-Mc-Lx7" secondAttribute="leading" constant="12" id="wlC-Vf-x0H"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RKa-OQ-u0u">

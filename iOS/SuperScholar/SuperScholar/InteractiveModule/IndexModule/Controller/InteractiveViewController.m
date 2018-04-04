@@ -13,6 +13,7 @@
 #import "MessageListViewController.h"
 #import "ContactSearchViewController.h"
 #import "ContactSearchViewController.h"
+#import "myTableView.h"
 
 //view
 #import "UIButton+AddBlock.h"

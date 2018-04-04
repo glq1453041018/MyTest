@@ -120,6 +120,11 @@
     return YES;
 }
 
+#pragma mark - UIScrollviewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
+
 #pragma mark - UITableView DataSource and Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

@@ -7,18 +7,16 @@
 //
 
 #import "ContactChatListViewController.h"
-#import "IMManager.h"
-#import "ContactChatListTableViewCell.h"
-#import "SPUtil.h"
-#import <SVProgressHUD.h>
+#import "NewFriendViewController.h"
+#import "LolitaTableView.h"
+#import "ChatListIndexViewController.h"
 
-@interface ContactChatListViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) YWFetchedResultsController *fetchedResultsController;
+@interface ContactChatListViewController ()<LolitaTableViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) LolitaTableView *mainTable;
+@property (strong, nonatomic) ChatListIndexViewController *chatListVC;
 @end
 
 @implementation ContactChatListViewController
-
 #pragma mark - <************************** 页面生命周期 **************************>
 
 - (void)viewDidLoad {
@@ -45,185 +43,166 @@
 // !!!: 配置视图
 -(void)initUI{
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ContactChatListTableViewCell" bundle:nil]
-         forCellReuseIdentifier:@"ContactChatListTableViewCell"];
-    self.tableView.separatorColor =[UIColor colorWithWhite:1.f*0xdf/0xff alpha:1.f];
+    [self configMainTable];
 }
 
-- (void)configNavigationBar{
+- (void)configMainTable{
+    [self.view addSubview:self.mainTable];
+    [self.mainTable cwn_makeConstraints:^(UIView *maker) {
+        maker.edgeInsetsToSuper(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
+    self.mainTable.tableHeaderView = [UIView new];
 }
+
 
 #pragma mark - <*********************** 初始化控件/数据 **********************>
+- (LolitaTableView *)mainTable{
+    if(!_mainTable){
+        _mainTable = [[LolitaTableView alloc] init];
+        _mainTable.delegate_StayPosition = self;
+        _mainTable.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        _mainTable.separatorColor = SeparatorLineColor;
+        _mainTable.dataSource = self;
+        _mainTable.delegate = self;
+        _mainTable.type = LolitaTableViewTypeMain;
+    }
+    return _mainTable;
+}
 
+- (ChatListIndexViewController *)chatListVC{
+    if(!_chatListVC){
+        _chatListVC = [[ChatListIndexViewController alloc] init];
+        _chatListVC.tableFrame = CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT - kNavigationbarHeight - kTabBarHeight);;
+        _chatListVC.view.frame = CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT - kNavigationbarHeight - kTabBarHeight);
+//         _subTable.frame = CGRectMake(0, 0, IEW_WIDTH, IEW_HEGHT - kNavigationbarHeight - kTabBarHeight);
+//        _subTable.backgroundColor = [UIColor lightGrayColor];
+//        _subTable.dataSource = self;
+//        _subTable.delegate = self;
+//        _subTable.type = LolitaTableViewTypeSub;
+    }
+    return _chatListVC;
+}
 
 
 
 #pragma mark - <************************** 代理方法 **************************>
 
-#pragma mark UITableViewDatasource
+#pragma mark LolitaTableViewDelegate
+- (CGFloat)lolitaTableViewHeightForStayPosition:(LolitaTableView *)tableView{
+    return CGRectGetMaxY([tableView rectForFooterInSection:0]);
+}
+
+#pragma mark UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.fetchedResultsController.sections.count;
+        return 2;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+        return section == 0 ? 2 : 1;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ContactChatListTableViewCell *cell= [tableView dequeueReusableCellWithIdentifier:@"ContactChatListTableViewCell"
-                                                         forIndexPath:indexPath];
-    
-    YWPerson *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.identifier = person.personId;
-    
-    __block NSString *displayName = nil;
-    __block UIImage *avatar = nil;
-    //  SPUtil中包含的功能都是Demo中需要的辅助代码，在你的真实APP中一般都需要替换为你真实的实现。
-    [[SPUtil sharedInstance] syncGetCachedProfileIfExists:person completion:^(BOOL aIsSuccess, YWPerson *aPerson, NSString *aDisplayName, UIImage *aAvatarImage) {
-        displayName = aDisplayName;
-        avatar = aAvatarImage;
-    }];
-    
-    if (!displayName || avatar == nil ) {
-        displayName = person.personId;
-        
-        __weak __typeof(self) weakSelf = self;
-        __weak __typeof(cell) weakCell = cell;
-        [[SPUtil sharedInstance] asyncGetProfileWithPerson:person
-                                                  progress:^(YWPerson *aPerson, NSString *aDisplayName, UIImage *aAvatarImage) {
-                                                      if (aDisplayName && [weakCell.identifier isEqualToString:aPerson.personId]) {
-                                                          NSIndexPath *aIndexPath = [weakSelf.tableView indexPathForCell:weakCell];
-                                                          if (!aIndexPath) {
-                                                              return ;
-                                                          }
-                                                          [weakSelf.tableView reloadRowsAtIndexPaths:@[aIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-                                                      }
-                                                  } completion:^(BOOL aIsSuccess, YWPerson *aPerson, NSString *aDisplayName, UIImage *aAvatarImage) {
-                                                      if (aDisplayName && [weakCell.identifier isEqualToString:aPerson.personId]) {
-                                                          NSIndexPath *aIndexPath = [weakSelf.tableView indexPathForCell:weakCell];
-                                                          if (!aIndexPath) {
-                                                              return ;
-                                                          }
-                                                          [weakSelf.tableView reloadRowsAtIndexPaths:@[aIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-                                                      }
-                                                  }];
+    UITableViewCell *cell;
+    cell = [tableView dequeueReusableCellWithIdentifier:@"main"];
+    if(!cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"main"];
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        [cell.contentView addSubview:self.chatListVC.view];
+        [self addChildViewController:self.chatListVC];
     }
-    
-    if (!avatar) {
-        avatar = kPlaceholderHeadImage;
+    if(indexPath.section == 0){
+        cell.textLabel.text = indexPath.row == 0 ? @"新朋友" :  @"创建群聊";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }else{
+        cell.textLabel.text = @"";
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    
-    [cell configureWithAvatar:avatar title:displayName subtitle:nil];
-    
     return cell;
 }
 
-#pragma mark UITableDelegate
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if (section >= [[self.fetchedResultsController sectionIndexTitles] count]) {
-        return nil;
-    }
-    return [self.fetchedResultsController sectionIndexTitles][(NSUInteger)section];
+#pragma mark UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section == 0)
+        return 50;
+    return IEW_HEGHT - kNavigationbarHeight - kTabBarHeight;
 }
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
-    return [self.fetchedResultsController sectionIndexTitles];
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if(section == 0)
+        return 10;
+    return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    if(tableView == self.mainTable && section == 0){
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, IEW_WIDTH, 10)];
+        view.backgroundColor = [UIColor clearColor];
+        
+        //top分割线
+        UIView *top_line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, IEW_WIDTH, 0.5)];
+        top_line.backgroundColor = SeparatorLineBoldColor;
+        [view addSubview:top_line];
+        //bottom分割线
+        UIView *bottom_line = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(view.frame) - 0.5, IEW_WIDTH, 0.5)];
+        bottom_line.backgroundColor = SeparatorLineBoldColor;
+        [view addSubview:bottom_line];
+        return view;
+    }
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (self.mode == ContactChatListModeMultipleSelection) {
-//        return;
-//    }
-//    else if (self.mode == ContactChatListModeSingleSelection) {
-//        // 取消选中之前已选中的 cell
-//        NSMutableArray *selectedRows = [[tableView indexPathsForSelectedRows] mutableCopy];
-//        [selectedRows removeObject:indexPath];
-//        for (NSIndexPath *indexPath in selectedRows) {
-//            [tableView deselectRowAtIndexPath:indexPath animated:NO];
-//        }
-//    }
-//    else {
-        YWPerson *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-        [[SPUtil sharedInstance] syncGetCachedProfileIfExists:person completion:^(BOOL aIsSuccess, YWPerson *aPerson, NSString *aDisplayName, UIImage *aAvatarImage) {
-            YWConversationViewController *tovc = [[SPKitExample sharedInstance] exampleOpenConversationViewControllerWithPerson:person fromNavigationController:self.navigationController];
-            [tovc.navigationBar setTitle:aDisplayName leftImage:kGoBackImageString rightText:@""];
-        }];
-//    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 64.0f;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
-    if ([view isKindOfClass:[UITableViewHeaderFooterView class]]) {
-        UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-        [header.textLabel setTextColor:[UIColor lightGrayColor]];
-    }
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (self.mode == ContactChatListModeMultipleSelection || self.mode == ContactChatListModeSingleSelection) {
-//        return UITableViewCellEditingStyleInsert | UITableViewCellEditingStyleDelete;
-//    }
-    return UITableViewCellEditingStyleDelete;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.mode == ContactChatListModeNormal) {
-        YWPerson *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
-        __weak typeof(self) weakSelf = self;
-        [[[SPKitExample sharedInstance].ywIMKit.IMCore getContactService] removeContact:person withResultBlock:^(NSError *error, NSArray *personArray) {
-            if (error == nil) {
-                [SVProgressHUD showSuccessWithStatus:@"删除好友成功"];
-                [weakSelf.tableView reloadData];
-            } else {
-                [SVProgressHUD showErrorWithStatus:@"删除好友失败"];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    switch (indexPath.section) {
+        case 0:{
+            switch (indexPath.row) {
+                case 0://新朋友
+                    [self pushToNewFriend];
+                    break;
+                case 1://创建群聊
+                    
+                    break;
+                default:
+                    break;
             }
-        }];
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    if (scrollView==self.mainTable&&self.chatListVC.segmentController.containerView.isDragging==NO) {
+        self.chatListVC.segmentController.containerView.scrollEnabled = NO;
+    }
+    if (self.chatListVC.segmentController.containerView.isDragging) {
+        self.mainTable.scrollEnabled=NO;
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    self.mainTable.scrollEnabled = YES;
+    self.chatListVC.segmentController.containerView.scrollEnabled = YES;
+}
 
 #pragma mark - <************************** 点击事件 **************************>
 
-
+- (void)pushToNewFriend{
+    NewFriendViewController *vc = [NewFriendViewController new];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 #pragma mark - <************************** 其他方法 **************************>
 
-#pragma mark - FRC
-- (YWFetchedResultsController *)fetchedResultsController{
-    if (_fetchedResultsController == nil) {
-        YWIMCore *imcore = [SPKitExample sharedInstance].ywIMKit.IMCore;
-        _fetchedResultsController = [[imcore getContactService] fetchedResultsControllerWithListMode:YWContactListModeAlphabetic imCore:imcore];
-        
-        __weak typeof(self) weakSelf = self;
-        [_fetchedResultsController setDidChangeContentBlock:^{
-            [weakSelf.tableView reloadData];
-        }];
-        
-        [_fetchedResultsController setDidResetContentBlock:^{
-            [weakSelf.tableView reloadData];
-        }];
-    }
-    return _fetchedResultsController;
-}
+
 
 
 #pragma mark - <************************** 检测释放 **************************>
 - (void)dealloc{
     NSLog(@"%@释放掉",[self class]);
 }
-
 
 @end

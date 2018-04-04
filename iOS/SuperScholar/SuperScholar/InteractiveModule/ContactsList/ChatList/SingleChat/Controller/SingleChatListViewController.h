@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IMManager.h"
+#import "ContactChatListTableViewCell.h"
+#import "SPUtil.h"
+#import <SVProgressHUD.h>
 
 @interface SingleChatListViewController : UIViewController
 
