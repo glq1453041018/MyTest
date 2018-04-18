@@ -36,8 +36,10 @@
 
 //默认颜色
 #define GLOBAL_TABLSECTION_LINECOLOR HexColor(0xc9ced6)
-//分割线颜色
+//浅分割线颜色
 #define SeparatorLineColor  HexColor(0xe0e0e0)
+//深分割线颜色
+#define SeparatorLineBoldColor  HexColor(0xd0d0d0)
 //table背景颜色
 #define TableBackGroundColor  HexColor(0xf7f7f7)
 //选项卡的高度

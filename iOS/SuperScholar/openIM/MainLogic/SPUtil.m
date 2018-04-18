@@ -7,6 +7,7 @@
 //
 
 #import "SPUtil.h"
+#import <SVProgressHUD.h>
 
 #import <CommonCrypto/CommonDigest.h>
 
@@ -84,7 +85,13 @@
 {
     /// 在这里使用了OpenIMSDK提供的默认样式显示提示信息
     /// 在您的app中，您也可以换成您app中已有的提示方式
-    [YWIndicator showTopToastTitle:title content:subtitle userInfo:nil withTimeToDisplay:1.f andClickBlock:NULL];
+//    [YWIndicator showTopToastTitle:title content:subtitle userInfo:nil withTimeToDisplay:1.f andClickBlock:NULL];
+    if(!title)
+        title = subtitle;
+    [SVProgressHUD showWithStatus:title];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+    });
 }
 
 /****************************************************************************

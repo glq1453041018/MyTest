@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface UIButton (AddBlock)
-- (void)addBlock:(void(^)(UIButton *btn))block;
+
+/**
+ 按钮事件添加，相当于addTarget
+ 
+ @param block 按钮事件回调
+ */
+- (void)addBlock:(void(^)(UIButton *sender))block forControlEvents:(UIControlEvents)controlEvents;
+
 @end
