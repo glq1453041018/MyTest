@@ -13,6 +13,8 @@
 // !!!: 视图类
 #import "TZTestCell.h"                  // collection的cell样式
 #import "LLListPickView.h"              // 选择视图
+// !!!!: 数据类
+#import "SpeechManager.h"
 // !!!: 其他
 #import "TZImageManager.h"
 #import "LxGridViewFlowLayout.h"
@@ -39,6 +41,7 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
 // !!!: 数据类
 @property (nonatomic, strong) NSMutableArray *selectedPhotos;
 @property (nonatomic, strong) NSMutableArray *selectedAssets;
+@property (strong ,nonatomic) NSData *videoData;                // 视频数据
 @property (copy ,nonatomic) NSString *contentString;    // 说说内容
 @property (assign ,nonatomic) BOOL lock;
 @end
@@ -54,17 +57,12 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
     [super viewDidLoad];
     // 初始化视图
     [self initUI];
-    // 获取数据
-    [self getDataFormServer];
 }
 
 
 
 #pragma mark - <************************** 获取数据 **************************>
-// !!!: 获取数据
--(void)getDataFormServer{
-    
-}
+
 
 
 #pragma mark - <************************** 配置视图 **************************>
@@ -186,7 +184,51 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)navigationViewRightClickEvent{
-    
+    if ([[self.contentString stringByReplacingOccurrencesOfString:@" " withString:@""] length]==0&&self.selectedPhotos.count==0) {
+        [[LLAlertView new] showSystemAlertViewClickBlock:nil message:@"请填写内容哦" buttonTitles:@"好的", nil];
+    }else{
+        [SpeechManager uploadMessageToServerWithMessage:self.contentString classId:self.classId response:^(NSDictionary *res, id error) {
+            if (error) {
+                [[LLAlertView new] showSystemAlertViewClickBlock:nil message:@"发表失败，请重新上传" buttonTitles:@"好的", nil];
+            }
+            else{
+                NSString *articleId = [NSString stringWithFormat:@"%@",[res objectForKeyNotNull:@"articleId"]];
+                if (articleId.length) {
+                    // 图片数组
+                    NSArray *pics,*videos = nil;
+                    if ([self existImage]) {        // 用户选择的是图片类型
+                        pics = self.selectedPhotos;
+                    }else if ([self existVideo]){   // 用户选择的是视频类型
+                        videos = @[self.videoData];
+                    }
+                    
+                    [SpeechManager uploadMediaToServerWithArticleId:articleId.integerValue classId:self.classId images:pics videos:videos response:^(NSArray *resArray, id error) {
+                        if (error) {
+                            [[LLAlertView new] showSystemAlertViewClickBlock:nil message:@"发表失败，请重新上传" buttonTitles:@"好的", nil];
+                        }
+                        else{
+                            NSString *tip = nil;
+                            for (int i=0; i<resArray.count; i++) {
+                                if (i) {
+                                    tip = [NSString stringWithFormat:@"%@,%@",tip,resArray[i]];
+                                }else{
+                                    tip = resArray[i];
+                                }
+                            }
+                            [self.contentView resignFirstResponder];
+                            WS(ws);
+                            [[LLAlertView new] showSystemAlertViewClickBlock:^(NSInteger index) {
+                                [ws navigationViewLeftClickEvent];
+                            } message:tip buttonTitles:@"好的", nil];
+                        }
+                    }];
+                }
+                else{
+                    [[LLAlertView new] showSystemAlertViewClickBlock:nil message:@"发表失败，请重新上传" buttonTitles:@"好的", nil];
+                }
+            }
+        }];
+    }
 }
 
 
@@ -407,8 +449,6 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
 
 
 
-
-
 #pragma mark - <************************** 点击事件 **************************>
 // !!!: 拍照
 - (void)takePhotoAndCamera:(NSInteger)tag{
@@ -499,7 +539,7 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
 }
 
 -(void)changeSenderBtnToEnable{
-    self.navigationBar.letfBtn.userInteractionEnabled = YES;
+    self.navigationBar.rightBtn.userInteractionEnabled = YES;
     self.navigationBar.rightBtn.hidden = NO;
 }
 
@@ -545,6 +585,7 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
 
 
 
+
 // !!!: 保存视频完成之后的回调
 - (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
     if (error) {
@@ -552,6 +593,8 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
     }
     else {
         DLog(@"保存视频成功");
+        // 记录视频数据
+        self.videoData = [NSData dataWithContentsOfFile:videoPath];
         TZImagePickerController *tzImagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
         tzImagePickerVc.sortAscendingByModificationDate = YES;
         [tzImagePickerVc showProgressHUD];

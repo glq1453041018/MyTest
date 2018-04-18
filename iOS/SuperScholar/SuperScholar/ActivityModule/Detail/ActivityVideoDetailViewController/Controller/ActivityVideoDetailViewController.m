@@ -191,7 +191,7 @@
 #pragma mark - <************************** 点击事件 **************************>
 // !!!: 点击进入班级
 - (IBAction)onClickComeInClass:(UIButton *)sender {
-    ClassSapceViewController *vc = [ClassSapceViewController new];
+    ClassSpaceViewController *vc = [ClassSpaceViewController new];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

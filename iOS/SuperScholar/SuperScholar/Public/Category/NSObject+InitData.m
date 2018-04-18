@@ -11,6 +11,8 @@
 #import "NSDictionary+Utility.h"
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 @implementation NSObject (InitData)
+
+// !!!!: 字典转换为模型
 +(instancetype)objectWithModuleDic:(NSDictionary *)moduleDic hintDic:(NSDictionary *)hintDic{
     NSObject *instance = [[[self class] alloc] init];
     unsigned int numIvars; // 成员变量个数
@@ -46,6 +48,7 @@
 }
 
 
+// !!!!: 模型转字典
 -(NSDictionary *)changeToDictionaryWithHintDic:(NSDictionary *)hintDic{
     NSMutableDictionary *resDic = [NSMutableDictionary dictionary];
     unsigned int numIvars; // 成员变量个数
@@ -69,6 +72,7 @@
 }
 
 
+// !!!!: 模型转json
 -(NSString *)changeToJsonStringWithHintDic:(NSDictionary *)hintDic{
     NSDictionary *resDic = [self changeToDictionaryWithHintDic:hintDic];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:resDic options:NSJSONWritingPrettyPrinted error:nil];
@@ -78,6 +82,21 @@
     return @"";
 }
 
+
+
+
+// !!!!: 一些描述信息
+-(NSDictionary *)descriptionInfo{
+    NSDictionary *dic = objc_getAssociatedObject(self, _cmd);
+    if (dic==nil) {
+        dic = [self changeToDictionaryWithHintDic:nil];
+        objc_setAssociatedObject(self, @selector(descriptionInfo), dic, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return dic;
+}
+-(void)setDescriptionInfo:(NSDictionary *)descriptionInfo{
+    objc_setAssociatedObject(self, @selector(descriptionInfo), descriptionInfo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 
 @end

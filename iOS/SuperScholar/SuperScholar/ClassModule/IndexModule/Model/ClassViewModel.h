@@ -10,7 +10,10 @@
 
 @interface ClassViewModel : NSObject
 
-@property (copy ,nonatomic) NSString *icon;
-@property (copy ,nonatomic) NSString *title;
+@property (copy ,nonatomic) NSString *icon;         // 图标
+@property (copy ,nonatomic) NSString *name;         // 班级名称
+@property (assign ,nonatomic) NSInteger classId;    // 班级Id
+@property (assign ,nonatomic) NSInteger userId;
+@property (copy ,nonatomic) NSString *desc;         // 班级秒速
 
 @end

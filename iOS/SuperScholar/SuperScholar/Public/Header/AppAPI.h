@@ -15,6 +15,16 @@
  */
 
 
+#pragma mark - <************************** 用户 **************************>
+#define U_LoginUrlString YuMingAnd(@"/mobile/user/login?")      // 用户登录
+
+
+
+
+#pragma mark - <************************** 班级 **************************>
+#define C_ClassListInfoUrlString YuMingAnd(@"/mobile/user/class?")      // 班级列表信息
+#define C_UplodMediaInfoUrlString YuMingAnd(@"/mobile/classStatus/imageAdd?")       // 上传班级动态图片
+#define C_UploadMessageUrlString YuMingAnd(@"/mobile/article/add?")     // 上传班级动态消息
 
 
 

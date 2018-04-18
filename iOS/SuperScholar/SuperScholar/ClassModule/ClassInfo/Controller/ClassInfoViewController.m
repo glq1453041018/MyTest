@@ -306,10 +306,10 @@
 -(void)goToZuiXinDongTaiModule{
     UITabBarController *tabCtrl = (UITabBarController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
     UINavigationController *navCtrl = tabCtrl.selectedViewController;
-    ClassSapceViewController *ctrl = nil;
+    ClassSpaceViewController *ctrl = nil;
     for (UIViewController *itemCtrl in navCtrl.childViewControllers) {
-        if ([itemCtrl isKindOfClass:[ClassSapceViewController class]]) {
-            ctrl = (ClassSapceViewController*)itemCtrl;
+        if ([itemCtrl isKindOfClass:[ClassSpaceViewController class]]) {
+            ctrl = (ClassSpaceViewController*)itemCtrl;
             break;
         }
     }
@@ -317,7 +317,7 @@
         [self.navigationController popToViewController:ctrl animated:YES];
     }
     else{
-        ctrl = [ClassSapceViewController new];
+        ctrl = [ClassSpaceViewController new];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
 }
@@ -328,7 +328,7 @@
 // !!!: 跳转学校环境
 -(void)goToBanJiHuanJingModule{
     ClassEnvironmentViewController *ctrl = [ClassEnvironmentViewController new];
-    ctrl.title = @"班级环境";
+    ctrl.title = @[@"班级环境",@"学校环境"][self.type];
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 

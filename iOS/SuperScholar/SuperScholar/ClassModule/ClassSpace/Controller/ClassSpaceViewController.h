@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ClassSapceViewController : UIViewController
+@interface ClassSpaceViewController : UIViewController
 
+@property (assign ,nonatomic) NSInteger classId;    // 必须传递classId
 
 @end

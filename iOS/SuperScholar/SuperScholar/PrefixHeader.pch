@@ -21,15 +21,18 @@
 #import "UIView+AdjustFrame.h"
 #import "UIView+CWNView.h"
 #import "NSObject+InitData.h"
+#import "NSDictionary+Utility.h"
 #import "MJDIYHeader.h"
 #import "MJDIYAutoFooter.h"
 #import "UICollectionView+Extension.h"
+#import "AFService.h"
 
 // !!!: ------------------------------------其他------------------------------------
 #import "AppMacro.h"            // 常用的宏
 #import "AppConfigInfo.h"       // 应用配置
 #import "AppAPI.h"              // 接口
 #import "MapManager.h"          // 地图
+#import "AppInfo.h"             // 应用的一些信息
 
 #import "TESTDATA.h"            // 测试数据
 
