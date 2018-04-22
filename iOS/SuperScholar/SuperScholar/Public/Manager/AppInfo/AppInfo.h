@@ -21,7 +21,13 @@
 /*
  测试登录事件
  */
--(void)loginEventTest;
+-(void)loginEventTestWithCompletion:(void (^)())completion;
+
+/*
+ 测试退出登录事件
+ */
+-(void)logoutEventTestWithCompletion:(void (^)())completion;
+
 
 
 @end
