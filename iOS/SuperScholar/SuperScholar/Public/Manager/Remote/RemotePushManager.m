@@ -278,7 +278,8 @@ static RemotePushManager *instance;
 //    [CloudPushSDK addAlias:GetInfoForKey(UserId_NSUserDefaults) withCallback:^(CloudPushCallbackResult *res) {
 //        
 //    }];
-    [CloudPushSDK bindAccount:GetInfoForKey(UserId_NSUserDefaults) withCallback:^(CloudPushCallbackResult *res) {
+    NSString *userid = GetInfoForKey(UserId_NSUserDefaults);
+    [CloudPushSDK bindAccount:userid withCallback:^(CloudPushCallbackResult *res) {
         
     }];
 }

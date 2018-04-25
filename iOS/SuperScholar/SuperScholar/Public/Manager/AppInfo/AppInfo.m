@@ -45,7 +45,7 @@
             // 将用户信息保存到本地
             SaveInfoForKey(dic.copy, UserInfo_NSUserDefaults);
             self.user = [UserModel objectWithModuleDic:dic hintDic:nil];
-            NSString *userid = [NSString stringWithFormat:@"%ld", self.user.userId];
+            NSString *userid = [NSString stringWithFormat:@"%ld", (long)self.user.userId];
             SaveInfoForKey(userid, UserId_NSUserDefaults);
             if(completion)
                 completion();
