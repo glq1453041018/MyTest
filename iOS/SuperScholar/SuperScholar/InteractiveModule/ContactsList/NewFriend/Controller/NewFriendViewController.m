@@ -15,7 +15,7 @@
 #import "ContactChatListTableViewCell.h"
 #import "SPKitExample.h"
 #import "SPUtil.h"
-#import "UIButton+AddBlock.h"
+#import "UIControl+AddBlock.h"
 
 @interface NewFriendViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -190,7 +190,7 @@
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             button.layer.cornerRadius = 4.f;
             button.clipsToBounds = YES;
-            [button addBlock:^(UIButton *sender) {
+            [button addBlock:^(UIControl *sender) {
                 [[[SPKitExample sharedInstance].ywIMKit.IMCore getContactService] responseToAddContact:YES fromPerson:person withMessage:@"" andResultBlock:^(NSError *error, YWPerson *person) {
                     if (error == nil) {
                         [YWIndicator showTopToastTitle:@"操作成功" content:@"通过好友申请" userInfo:nil withTimeToDisplay:1.5f andClickBlock:nil];

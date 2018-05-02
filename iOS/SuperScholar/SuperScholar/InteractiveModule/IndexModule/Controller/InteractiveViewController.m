@@ -16,7 +16,7 @@
 #import "myTableView.h"
 
 //view
-#import "UIButton+AddBlock.h"
+#import "UIControl+AddBlock.h"
 
 @interface InteractiveViewController ()
 @property (strong, nonatomic) MYSegmentController *segmentController;
@@ -60,7 +60,7 @@
     [self.navigationBar setCenterView:segment leftView:nil rightView:nil];
     [self.navigationBar setTitle:@"" leftText:@"" rightImage:@"beiJing"];
     self.navigationBar.rightBtn.hidden = YES;
-    [self.navigationBar.rightBtn addBlock:^(UIButton *sender) {
+    [self.navigationBar.rightBtn addBlock:^(UIControl *sender) {
         ContactSearchViewController *vc = [ContactSearchViewController new];
         vc.hidesBottomBarWhenPushed = YES;
         [weakself.navigationController pushViewController:vc animated:YES];

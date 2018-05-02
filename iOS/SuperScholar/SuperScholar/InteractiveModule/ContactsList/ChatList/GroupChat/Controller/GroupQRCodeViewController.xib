@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupQRCodeViewController">
+            <connections>
+                <outlet property="avatarImageView" destination="Eo5-BQ-bQ0" id="mBB-mb-gju"/>
+                <outlet property="nameLabel" destination="Pie-Nq-xR7" id="sjj-fc-Pi2"/>
+                <outlet property="qrCodeImageView" destination="7dy-Eo-Mht" id="AJV-Nr-3cI"/>
+                <outlet property="tips" destination="H0a-xm-4qr" id="Y0n-hJ-in3"/>
+                <outlet property="view" destination="viO-Nv-3fE" id="tV9-Xd-c3a"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="viO-Nv-3fE">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eo5-BQ-bQ0">
+                    <rect key="frame" x="158" y="104" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="41x-hN-kJJ"/>
+                        <constraint firstAttribute="width" secondItem="Eo5-BQ-bQ0" secondAttribute="height" id="xWb-QY-utQ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[群名称]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pie-Nq-xR7">
+                    <rect key="frame" x="23" y="174" width="329" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7dy-Eo-Mht">
+                    <rect key="frame" x="113" y="210" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="KbA-xp-BIC"/>
+                        <constraint firstAttribute="width" secondItem="7dy-Eo-Mht" secondAttribute="height" multiplier="1:1" id="gHy-Nm-E5H"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="扫描上面的二维码，加入群" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0a-xm-4qr">
+                    <rect key="frame" x="108" y="370" width="160" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Pie-Nq-xR7" firstAttribute="centerX" secondItem="viO-Nv-3fE" secondAttribute="centerX" id="8JD-D3-0Ru"/>
+                <constraint firstItem="7dy-Eo-Mht" firstAttribute="top" secondItem="Pie-Nq-xR7" secondAttribute="bottom" constant="15" id="BGt-P2-6Ef"/>
+                <constraint firstItem="Eo5-BQ-bQ0" firstAttribute="centerX" secondItem="viO-Nv-3fE" secondAttribute="centerX" id="RSc-wE-Ek4"/>
+                <constraint firstItem="Eo5-BQ-bQ0" firstAttribute="top" secondItem="viO-Nv-3fE" secondAttribute="top" constant="104" id="ZMM-uD-ike"/>
+                <constraint firstItem="H0a-xm-4qr" firstAttribute="top" secondItem="7dy-Eo-Mht" secondAttribute="bottom" constant="10" id="drR-02-nI7"/>
+                <constraint firstItem="Pie-Nq-xR7" firstAttribute="top" secondItem="Eo5-BQ-bQ0" secondAttribute="bottom" constant="10" id="eTl-GV-sfg"/>
+                <constraint firstItem="Pie-Nq-xR7" firstAttribute="leading" secondItem="viO-Nv-3fE" secondAttribute="leadingMargin" constant="15" id="kUK-ph-IcS"/>
+                <constraint firstItem="7dy-Eo-Mht" firstAttribute="centerX" secondItem="viO-Nv-3fE" secondAttribute="centerX" id="rSI-5x-M3c"/>
+                <constraint firstItem="H0a-xm-4qr" firstAttribute="centerX" secondItem="viO-Nv-3fE" secondAttribute="centerX" id="y9m-vf-b7c"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

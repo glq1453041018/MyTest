@@ -6,16 +6,16 @@
 //  Copyright © 2018年 SuperScholar. All rights reserved.
 //
 
-#import "UIButton+AddBlock.h"
+#import "UIControl+AddBlock.h"
 #import <objc/runtime.h>
 
-@interface UIButton ()
+@interface UIControl ()
 @property (strong, nonatomic) NSDictionary *event_blocks;//block缓存
 @end
-@implementation UIButton (AddBlock)
+@implementation UIControl (AddBlock)
 
 // !!!: 添加按钮事件
-- (void)addBlock:(void(^)(UIButton *sender))block forControlEvents:(UIControlEvents)controlEvents{
+- (void)addBlock:(void(^)(UIControl *sender))block forControlEvents:(UIControlEvents)controlEvents{
     NSAssert(block, @"不行，block必须传！");
     
     SEL sel;

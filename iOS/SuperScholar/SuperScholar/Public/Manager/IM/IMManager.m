@@ -7,7 +7,7 @@
 //
 
 #import "IMManager.h"
-#import "UIButton+AddBlock.h"
+#import "UIControl+AddBlock.h"
 #import "SPUtil.h"
 
 @implementation IMManager
@@ -80,7 +80,7 @@
                 [controller setHidesBottomBarWhenPushed:YES];
                 controller.automaticallyAdjustsScrollViewInsets = NO;
                 WeakObj(controller);
-                [controller.navigationBar.letfBtn addBlock:^(UIButton *btn) {
+                [controller.navigationBar.letfBtn addBlock:^(UIControl *btn) {
                     [weakcontroller.navigationController popViewControllerAnimated:YES];
                 } forControlEvents:UIControlEventTouchUpInside];
                 
@@ -94,13 +94,19 @@
                 [aNavigationController pushViewController:controller animated:YES];
             }
             return;
+        }else if([vc isMemberOfClass:[YWTribeConversation class]]){
+            YWTribeConversation *convc = (YWTribeConversation *)vc;
+            YWTribe *tribe = convc.tribe;
+            YWConversationViewController *tovc = [[SPKitExample sharedInstance] exampleOpenConversationViewControllerWithTribe:tribe fromNavigationController:aNavigationController];
+            [tovc.navigationBar setTitle:tribe.tribeName leftImage:kGoBackImageString rightText:@""];
+            return;
         }
         [[SPUtil sharedInstance] syncGetCachedProfileIfExists:vc.person completion:^(BOOL aIsSuccess, YWPerson *aPerson, NSString *aDisplayName, UIImage *aAvatarImage) {
             YWConversationViewController *conversationController = [[SPKitExample sharedInstance].ywIMKit makeConversationViewControllerWithConversationId:aConversation.conversationId];
             
             WeakObj(conversationController);
             [conversationController.navigationBar setTitle:aDisplayName leftImage:kGoBackImageString rightText:@""];
-            [conversationController.navigationBar.letfBtn addBlock:^(UIButton *btn) {
+            [conversationController.navigationBar.letfBtn addBlock:^(UIControl *btn) {
                 [weakconversationController.navigationController popViewControllerAnimated:YES];
             } forControlEvents:UIControlEventTouchUpInside];
             

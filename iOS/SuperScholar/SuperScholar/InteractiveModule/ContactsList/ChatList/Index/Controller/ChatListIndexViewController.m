@@ -12,7 +12,7 @@
 
 @interface ChatListIndexViewController ()
 @property (strong, nonatomic) SingleChatListViewController *single_vc;
-@property (strong, nonatomic) SingleChatListViewController *group_vc;
+@property (strong, nonatomic) GroupChatListViewController *group_vc;
 
 @property (assign, nonatomic) BOOL childControllerDidLoad;
 @end
@@ -57,7 +57,7 @@
     _segmentController.indicateView.backgroundColor = KColorTheme;
     
     self.single_vc = [[SingleChatListViewController alloc] init];    
-    self.group_vc = [[SingleChatListViewController alloc] init];
+    self.group_vc = [[GroupChatListViewController alloc] init];
     
     [_segmentController setSegementViewControllers:@[self.single_vc, self.group_vc]];
     _segmentController.style = GLQSegementStyleDefault;

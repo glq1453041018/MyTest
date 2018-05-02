@@ -12,7 +12,7 @@
 #import "ContactChatListTableViewCell.h"
 #import "ContactChatListManager.h"
 #import "MYSearchView.h"
-#import "UIButton+AddBlock.h"
+#import "UIControl+AddBlock.h"
 
 @interface ContactSearchViewController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
@@ -73,7 +73,7 @@
     self.isNeedGoBack = YES;
     
     WeakObj(self);
-    [self.navigationView.rightBtn addBlock:^(UIButton *sender) {
+    [self.navigationView.rightBtn addBlock:^(UIControl *sender) {
         [weakself.navigationController popViewControllerAnimated:YES];
     } forControlEvents:UIControlEventTouchUpInside];
     
@@ -203,7 +203,7 @@
     WeakObj(self);
     YWConversationViewController * vc =[[SPKitExample sharedInstance] exampleOpenConversationViewControllerWithPerson:person fromNavigationController:self.navigationController];
     [vc.navigationBar setTitle:[self.cachedDisplayNames objectForKey:person.personId] leftImage:kGoBackImageString rightText:nil];
-    [vc.navigationBar.letfBtn addBlock:^(UIButton *sender) {
+    [vc.navigationBar.letfBtn addBlock:^(UIControl *sender) {
         [weakself.navigationController popViewControllerAnimated:YES];
     } forControlEvents:UIControlEventTouchUpInside];
 }

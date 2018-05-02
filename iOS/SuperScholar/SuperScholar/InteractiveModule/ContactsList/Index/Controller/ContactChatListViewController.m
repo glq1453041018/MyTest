@@ -10,6 +10,7 @@
 #import "NewFriendViewController.h"
 #import "LolitaTableView.h"
 #import "ChatListIndexViewController.h"
+#import "GroupInfoEditViewController.h"
 
 @interface ContactChatListViewController ()<LolitaTableViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) LolitaTableView *mainTable;
@@ -159,7 +160,7 @@
                     [self pushToNewFriend];
                     break;
                 case 1://创建群聊
-                    
+                    [self alertGroupChatCreateTips];
                     break;
                 default:
                     break;
@@ -192,6 +193,33 @@
     NewFriendViewController *vc = [NewFriendViewController new];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)alertGroupChatCreateTips{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"创建群"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"取消"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"普通群", @"讨论组", nil];
+        [actionSheet showInView:self.view];
+}
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
+        GroupInfoEditViewController *controller = [GroupInfoEditViewController new];
+        if (buttonIndex == 0) {
+            controller.mode = SPTribeInfoEditModeCreateNormal;
+            controller.title = @"创建普通群";
+        }
+        else if (buttonIndex == 1) {
+            controller.mode = SPTribeInfoEditModeCreateMultipleChat;
+            controller.title = @"创建讨论组";
+        }
+        
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+        [self presentViewController:navigationController
+                           animated:YES
+                         completion:NULL];
+    }
 }
 
 
