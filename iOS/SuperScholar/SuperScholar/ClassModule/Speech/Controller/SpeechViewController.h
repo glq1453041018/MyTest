@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 @interface SpeechViewController : UIViewController
 
+@property (assign ,nonatomic) NSInteger classId;    // 必须传递classId
+
 -(void)lllistPickViewItemSelected:(NSInteger)index;
 
 @end

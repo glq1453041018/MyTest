@@ -53,6 +53,26 @@
     }
 }
 
+- (void)configureWithAvatarUrl:(NSString *)image title:(NSString *)title subtitle:(NSString *)subtitle {
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:image]];
+    self.titleLabel.text = title;
+    self.subtitleLabel.text = subtitle;
+    
+    UILayoutPriority titleLabelCenterYLayoutPriority;
+    if (subtitle.length == 0) {
+        titleLabelCenterYLayoutPriority = UILayoutPriorityDefaultHigh + 100;
+        self.subtitleLabel.hidden = YES;
+    }
+    else {
+        titleLabelCenterYLayoutPriority = UILayoutPriorityDefaultLow;
+        self.subtitleLabel.hidden = NO;
+    }
+    if (self.titleLabelCenterYConstraint.priority != titleLabelCenterYLayoutPriority) {
+        self.titleLabelCenterYConstraint.priority = titleLabelCenterYLayoutPriority;
+        [self setNeedsLayout];
+    }
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     

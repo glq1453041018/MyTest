@@ -19,7 +19,7 @@
 @property (nonatomic,weak) id <ClassInfoManagerDelegate> delegate;
 
 // !!!: 获取数据
-+(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock;
++(void)requestDataType:(ReCruitType)type response:(void(^)(NSArray *resArray,id error))responseBlock;
 
 // !!!: 加载数据
 -(void)loadTitleCellData:(NSArray*)data cell:(ClassInfoTableViewCell_Title*)cell delegate:(id)delegate;

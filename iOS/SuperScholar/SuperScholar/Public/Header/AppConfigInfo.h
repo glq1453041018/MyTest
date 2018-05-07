@@ -14,6 +14,10 @@
  */
 
 #pragma mark - <************************** 应用配置信息 **************************>
+// 域名
+#define YuMing @"http://www.ldz1130.club/server"
+#define YuMingAnd(urlString) [urlString hasPrefix:@"http"]?urlString:[NSString stringWithFormat:@"%@%@",YuMing,urlString]
+
 // 主题色
 #define KColorTheme HexColor(0x74d0c6)
 // 主题字体的颜色
@@ -32,8 +36,10 @@
 
 //默认颜色
 #define GLOBAL_TABLSECTION_LINECOLOR HexColor(0xc9ced6)
-//分割线颜色
+//浅分割线颜色
 #define SeparatorLineColor  HexColor(0xe0e0e0)
+//深分割线颜色
+#define SeparatorLineBoldColor  HexColor(0xd0d0d0)
 //table背景颜色
 #define TableBackGroundColor  HexColor(0xf7f7f7)
 //选项卡的高度
@@ -80,7 +86,8 @@ static NSString *AMapSearchCityCompletionNotification = @"AMapSearchCityCompleti
 
 
 #pragma mark - <************************** NSUserDefaults **************************>
-static NSString *UserId_NSUserDefaults = @"userid";
+static NSString *UserId_NSUserDefaults      = @"userid";
+static NSString *UserInfo_NSUserDefaults    = @"userInfo";      // 用户信息
 
 
 

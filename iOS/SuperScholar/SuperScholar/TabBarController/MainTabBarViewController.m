@@ -7,6 +7,7 @@
 //
 
 #import "MainTabBarViewController.h"
+#import "UIImage+ImageEffects.h"
 #import "AdsViewController.h"               // 广告页面
 #import "ActivityViewController.h"          // 活动页面
 #import "ClassViewController.h"             // 班级页面
@@ -23,6 +24,12 @@
     [super viewDidLoad];
     // 初始化视图
     [self initUI];
+    
+    [[UINavigationBar appearance] setShadowImage:nil];
+//    [[UINavigationBar appearance] setTranslucent:NO];
+    [[UINavigationBar appearance] setBarTintColor:KColorTheme];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:KColorTheme size:CGSizeMake(10, 10)] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
 }
 
 #pragma mark - <************************** 配置视图 **************************>

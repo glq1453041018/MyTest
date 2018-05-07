@@ -20,7 +20,7 @@
 // !!!: 管理类
 #import "ClassSpaceManager.h"
 
-@interface ClassSapceViewController ()<UITableViewDelegate,UITableViewDataSource,LLListPickViewDelegate,ClassSpaceTableViewCellDelegate>
+@interface ClassSpaceViewController ()<UITableViewDelegate,UITableViewDataSource,LLListPickViewDelegate,ClassSpaceTableViewCellDelegate>
 // !!!: 视图类
 @property (strong ,nonatomic) UITableView *table;
 @property (strong ,nonatomic) ClassSpaceHeadView *headView;
@@ -30,7 +30,7 @@
 @property (strong ,nonatomic) ClassSpaceManager *manager;
 @end
 
-@implementation ClassSapceViewController
+@implementation ClassSpaceViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,6 +71,7 @@
 // !!!: 配置视图
 -(void)initUI{
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.hidesBottomBarWhenPushed = YES;
     // 导航栏
     [self.navigationBar setTitle:self.title?self.title:@"班级动态" leftImage:kGoBackImageString rightImage:@"camera"];
     [self.navigationBar.rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 5)];
@@ -187,6 +188,7 @@
 // !!!: LLListPickView代理事件
 -(void)lllistPickViewItemSelected:(NSInteger)index{
     SpeechViewController *ctrl = [SpeechViewController new];
+    ctrl.classId = self.classId;
     [self presentViewController:ctrl animated:NO completion:nil];
     [ctrl lllistPickViewItemSelected:index];
 }

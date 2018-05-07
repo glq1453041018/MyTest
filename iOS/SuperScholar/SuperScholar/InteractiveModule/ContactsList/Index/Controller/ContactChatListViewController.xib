@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactChatListViewController">
             <connections>
-                <outlet property="tableView" destination="1Fd-8r-E6p" id="3sB-L6-s7L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,23 +18,7 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Fd-8r-E6p">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="5a5-6V-KU1"/>
-                        <outlet property="delegate" destination="-1" id="w6J-tz-9wj"/>
-                    </connections>
-                </tableView>
-            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="1Fd-8r-E6p" secondAttribute="bottom" id="3qR-Cl-9RD"/>
-                <constraint firstItem="1Fd-8r-E6p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Cz6-Kk-zMa"/>
-                <constraint firstAttribute="trailing" secondItem="1Fd-8r-E6p" secondAttribute="trailing" id="Fpe-9G-fq9"/>
-                <constraint firstItem="1Fd-8r-E6p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VeB-q8-3LG"/>
-            </constraints>
         </view>
     </objects>
 </document>

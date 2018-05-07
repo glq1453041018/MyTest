@@ -13,7 +13,7 @@
 @interface ClassViewManager : NSObject
 
 // !!!: 获取数据
-+(void)requestDataResponse:(void(^)(NSArray *resArray,id error))responseBlock;
++(void)requestDataResponse:(void(^)(NSArray <ClassViewModel*>* resArray,id error))responseBlock;
 
 +(void)loadCell:(ClassViewCollectionViewCell*)cell model:(ClassViewModel*)model;
 

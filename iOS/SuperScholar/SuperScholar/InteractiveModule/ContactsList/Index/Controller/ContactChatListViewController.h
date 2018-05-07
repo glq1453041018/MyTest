@@ -7,14 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum : NSUInteger {
-    ContactChatListModeNormal,
-//    ContactChatListModeSingleSelection,
-//    ContactChatListModeMultipleSelection
-} ContactChatListMode;
-
-
 @interface ContactChatListViewController : UIViewController
-@property (nonatomic, assign) ContactChatListMode mode;
+
 @end

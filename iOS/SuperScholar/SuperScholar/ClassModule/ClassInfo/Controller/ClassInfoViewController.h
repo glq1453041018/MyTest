@@ -10,5 +10,6 @@
 
 @interface ClassInfoViewController : UIViewController
 
+@property (assign ,nonatomic) ReCruitType type;     // 团体类型
 
 @end

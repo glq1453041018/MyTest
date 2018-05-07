@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *detailBtn;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
--(void)loadData:(NSArray*)data index:(NSInteger)index;
+// -(void)loadData:(NSArray*)data index:(NSInteger)index;
+
 @end

@@ -318,11 +318,13 @@
 
 #pragma mark - <************************** 点击事件 **************************>
 - (IBAction)onClickExit:(id)sender{
-    [SVProgressHUD showSuccessWithStatus:@"退出成功"];
-    [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
-    [IMManager callThisBeforeISVAccountLogout];
-    SaveInfoForKey(nil, UserId_NSUserDefaults);
-    [self.navigationController popViewControllerAnimated:YES];
+    [[AppInfo share] logoutEventTestWithCompletion:^{
+        [SVProgressHUD showSuccessWithStatus:@"退出成功"];
+        [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
+        [IMManager callThisBeforeISVAccountLogout];
+        SaveInfoForKey(nil, UserId_NSUserDefaults);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

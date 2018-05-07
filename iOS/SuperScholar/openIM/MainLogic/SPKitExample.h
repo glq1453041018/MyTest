@@ -164,7 +164,7 @@ FOUNDATION_EXTERN NSString *const kSPCustomConversationIdForFAQ;
 /**
  *  打开群聊页面
  */
-- (void)exampleOpenConversationViewControllerWithTribe:(YWTribe *)aTribe fromNavigationController:(UINavigationController *)aNavigationController;
+- (YWConversationViewController *)exampleOpenConversationViewControllerWithTribe:(YWTribe *)aTribe fromNavigationController:(UINavigationController *)aNavigationController;
 
 /**
  *  打开客服会话

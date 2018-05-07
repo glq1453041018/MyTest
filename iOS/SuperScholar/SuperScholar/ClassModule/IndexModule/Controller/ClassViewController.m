@@ -11,6 +11,7 @@
 #import "ClassInfoViewController.h"
 
 #import "ClassViewCollectionViewCell.h"
+#import "MJDIYHeader.h"
 
 #import "ClassViewManager.h"
 #import "ShareManager.h"
@@ -35,6 +36,7 @@
     [self initUI];
     // 获取数据
     [self getDataFormServer];
+
 }
 
 #pragma mark - <************************** 获取数据 **************************>
@@ -51,6 +53,18 @@
         [self.collectionView reloadData];
     }];
 }
+// !!!!: 获取最新数据
+-(void)loadNewData{
+    [ClassViewManager requestDataResponse:^(NSArray *resArray, id error) {
+        [self.collectionView.mj_header endRefreshing];
+        if (resArray.count==0) {
+            [self.collectionView showEmptyViewWithImage:@"team" tip:@"怎么能没有组织？" btnTitle:@"寻找组织" action:@selector(searchClass) target:self];
+            return ;
+        }
+        self.data = resArray.mutableCopy;
+        [self.collectionView reloadData];
+    }];
+}
 
 
 #pragma mark - <************************** 配置视图 **************************>
@@ -58,7 +72,7 @@
 -(void)initUI{
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.navigationBar setTitle:@"班级列表" leftImage:nil rightText:@"QQ"];
+    [self.navigationBar setTitle:@"班级列表" leftImage:nil rightText:nil];
     
     self.constraint.constant = self.navigationBar.bottom;
     self.constraintBottom.constant = kTabBarHeight;
@@ -67,6 +81,7 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
     [self.collectionView addGestureRecognizer:longPressGesture];
+    self.collectionView.mj_header = [MJDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     
 }
 
@@ -81,12 +96,6 @@
 
 #pragma mark - <************************** 代理方法 **************************>
 
--(void)navigationViewRightClickEvent{
-//    [ShareManager shareToPlatform:SharePlatformQQ link:@"www.baidu.com" title:[TESTDATA randomContent] body:[TESTDATA randomContent] image:kPlaceholderImage withCompletion:^(OSMessage *message, NSError *error) {
-//        
-//    }];
-}
-
 // !!!: UICollectionView代理方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.data.count;
@@ -100,8 +109,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     ClassViewModel *cvm = self.data[indexPath.row];
-    ClassSapceViewController *ctrl = [ClassSapceViewController new];
-    ctrl.title = cvm.title;
+    ClassSpaceViewController *ctrl = [ClassSpaceViewController new];
+    ctrl.classId = cvm.classId;
+    ctrl.title = cvm.name;
     ctrl.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:ctrl animated:YES];
 }
