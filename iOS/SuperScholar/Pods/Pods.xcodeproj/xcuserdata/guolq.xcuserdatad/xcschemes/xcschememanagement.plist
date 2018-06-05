@@ -12,37 +12,47 @@
 		<key>FMDB.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>MYAutoLayout.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
+		</dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 		<key>Pods-SuperScholar.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 		<key>SVProgressHUD-0.8.1.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>7</integer>
 		</dict>
 		<key>TZImagePickerController.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>8</integer>
+		</dict>
+		<key>ZFPlayer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -52,7 +62,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>10118EE54F86198D7D77E93CF75C5925</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>11978FCC1A239B2A7FC848466333D7AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1333842676EFF1B0C63B2D52073AF206</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19A519BEA81DABEEFDD8AB05E459CE49</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,6 +112,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>67C0A45D10FC055963CC3B88C80C97A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6E26308C414777FA32A12BDC074DE1E7</key>
 		<dict>
 			<key>primary</key>
@@ -102,6 +132,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9E033EDB5EC0819481B0546434FA577B</key>
 		<dict>
 			<key>primary</key>
@@ -113,6 +148,11 @@
 			<true/>
 		</dict>
 		<key>BE75D9D62F2E3A9E97A339598E81E533</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D6DC6A2D04288246F7874CBB904BBE4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

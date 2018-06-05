@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupProfileViewController">
+            <connections>
+                <outlet property="avatarImageView" destination="sQN-gd-NRJ" id="FGz-Ad-KUo"/>
+                <outlet property="converImageView" destination="iDt-cH-rOD" id="4pO-AP-7MW"/>
+                <outlet property="tableHeaderView" destination="oI0-jO-UPu" id="oXk-Ca-H59"/>
+                <outlet property="tableView" destination="cpu-QM-Uvh" id="wq9-50-M6O"/>
+                <outlet property="tribeIDLabel" destination="xYS-Z5-ZTy" id="rMv-7G-lbI"/>
+                <outlet property="tribeNameLabel" destination="aPN-0Z-Upb" id="dp1-vj-qwv"/>
+                <outlet property="view" destination="zqc-LZ-TVA" id="hKA-zx-gLJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="zqc-LZ-TVA">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cpu-QM-Uvh">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="scrollIndicatorInsets" minX="0.0" minY="264" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="3N1-TZ-B7e"/>
+                        <outlet property="delegate" destination="-1" id="hc2-59-0hn"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxP-bA-UO0">
+                    <rect key="frame" x="8" y="28" width="44" height="32"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="5XI-sV-4rG"/>
+                        <constraint firstAttribute="width" constant="44" id="h4j-MO-DTO"/>
+                    </constraints>
+                    <state key="normal" title="关闭">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissViewController:" destination="-1" eventType="touchUpInside" id="CuQ-Sg-r84"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="cpu-QM-Uvh" secondAttribute="trailing" id="Cpu-vu-pHC"/>
+                <constraint firstItem="cpu-QM-Uvh" firstAttribute="top" secondItem="zqc-LZ-TVA" secondAttribute="top" id="DBs-hk-Enk"/>
+                <constraint firstItem="QxP-bA-UO0" firstAttribute="top" secondItem="zqc-LZ-TVA" secondAttribute="top" constant="28" id="HH6-Hc-gjN"/>
+                <constraint firstItem="cpu-QM-Uvh" firstAttribute="top" secondItem="zqc-LZ-TVA" secondAttribute="top" id="LLX-vB-Rw2"/>
+                <constraint firstItem="cpu-QM-Uvh" firstAttribute="leading" secondItem="zqc-LZ-TVA" secondAttribute="leading" id="Lhq-5P-JT5"/>
+                <constraint firstAttribute="bottom" secondItem="cpu-QM-Uvh" secondAttribute="bottom" id="UGR-8z-2Sd"/>
+                <constraint firstItem="QxP-bA-UO0" firstAttribute="leading" secondItem="zqc-LZ-TVA" secondAttribute="leading" constant="8" id="bSG-Ze-XZb"/>
+                <constraint firstAttribute="trailing" secondItem="cpu-QM-Uvh" secondAttribute="trailing" id="mPk-CA-uZb"/>
+                <constraint firstItem="cpu-QM-Uvh" firstAttribute="leading" secondItem="zqc-LZ-TVA" secondAttribute="leading" id="pSz-dD-uWT"/>
+            </constraints>
+        </view>
+        <view contentMode="scaleToFill" id="oI0-jO-UPu">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="264"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tribe_header" translatesAutoresizingMaskIntoConstraints="NO" id="iDt-cH-rOD">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="264"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo_group_120.png" translatesAutoresizingMaskIntoConstraints="NO" id="sQN-gd-NRJ">
+                    <rect key="frame" x="138" y="84" width="100" height="99"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="sQN-gd-NRJ" secondAttribute="height" multiplier="101:100" id="7oP-PW-iiV"/>
+                        <constraint firstAttribute="width" constant="100" id="TwQ-DB-wuj"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[群名称]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPN-0Z-Upb">
+                    <rect key="frame" x="15" y="203" width="345" height="22"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[群号 123456789]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYS-Z5-ZTy">
+                    <rect key="frame" x="15" y="229" width="345" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="sQN-gd-NRJ" firstAttribute="centerX" secondItem="oI0-jO-UPu" secondAttribute="centerX" id="7wc-DM-BN5"/>
+                <constraint firstItem="aPN-0Z-Upb" firstAttribute="width" secondItem="oI0-jO-UPu" secondAttribute="width" constant="-30" id="BZm-WQ-QQD"/>
+                <constraint firstItem="aPN-0Z-Upb" firstAttribute="centerX" secondItem="sQN-gd-NRJ" secondAttribute="centerX" id="N89-EQ-Hsw"/>
+                <constraint firstItem="iDt-cH-rOD" firstAttribute="leading" secondItem="oI0-jO-UPu" secondAttribute="leading" id="RJG-Gv-1y8"/>
+                <constraint firstAttribute="trailing" secondItem="iDt-cH-rOD" secondAttribute="trailing" id="TkF-gN-zBg"/>
+                <constraint firstItem="xYS-Z5-ZTy" firstAttribute="centerX" secondItem="aPN-0Z-Upb" secondAttribute="centerX" id="Ui8-Gq-DR7"/>
+                <constraint firstItem="sQN-gd-NRJ" firstAttribute="top" secondItem="oI0-jO-UPu" secondAttribute="top" constant="84" id="a3u-Qh-xUt"/>
+                <constraint firstItem="xYS-Z5-ZTy" firstAttribute="top" secondItem="aPN-0Z-Upb" secondAttribute="bottom" constant="4" id="bfe-EG-RQ6"/>
+                <constraint firstItem="xYS-Z5-ZTy" firstAttribute="width" secondItem="aPN-0Z-Upb" secondAttribute="width" id="dJF-eO-bOd"/>
+                <constraint firstAttribute="bottom" secondItem="iDt-cH-rOD" secondAttribute="bottom" id="jhv-DP-36F"/>
+                <constraint firstItem="iDt-cH-rOD" firstAttribute="top" secondItem="oI0-jO-UPu" secondAttribute="top" id="mfO-Yg-E3e"/>
+                <constraint firstItem="aPN-0Z-Upb" firstAttribute="top" secondItem="sQN-gd-NRJ" secondAttribute="bottom" constant="20" id="s9L-wh-2cX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="224.5" y="589"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="demo_group_120.png" width="16" height="16"/>
+        <image name="tribe_header" width="375" height="249"/>
+    </resources>
+</document>

@@ -19,29 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SuperScholar/InteractiveModule/ContactsList/Index/Controller/ContactChatListViewController.m"
-            timestampString = "544514073.1229089"
+            filePath = "SuperScholar/InteractiveModule/ContactsList/ChatList/GroupChat/Controller/GroupChatListViewController.m"
+            timestampString = "546950800.927348"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "-scrollViewWillBeginDragging:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SuperScholar/InteractiveModule/ContactsList/Index/Controller/ContactChatListViewController.m"
-            timestampString = "544514073.955456"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "-scrollViewWillBeginDragging:"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "-actionSheet:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

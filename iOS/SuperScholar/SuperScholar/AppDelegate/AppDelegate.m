@@ -39,9 +39,6 @@
     [[UITextField appearance] setTintColor:KColorTheme];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
-    // 登录事件
-//    [[AppInfo share] loginEventTest];
-    
     [self setupAliPush];//阿里推送
     
     return YES;

@@ -277,30 +277,57 @@
         {
             SelectTypeModel *model5 = [[SelectTypeModel alloc]init];
             model5.type = @"全部";
-            [self.leftArray addObject:model5];
             
+            [self.leftArray addObject:model5];
             SelectTypeModel *model = [[SelectTypeModel alloc]init];
-            model.type = @"音乐培训";
-            model.subTypeArray = [NSArray arrayWithObjects:@"钢琴",@"吉塔",@"古筝",@"架子鼓",@"声乐",@"小提琴",@"其他", nil];
+            model.type = @"早教班";
+            model.subTypeArray = [NSArray arrayWithObjects:@"0～1岁",@"1～2岁",@"2～3岁",@"4～6岁",@"其他", nil];
             [self.leftArray addObject:model];
             
             SelectTypeModel *model1 = [[SelectTypeModel alloc]init];
-            model1.type = @"舞蹈培训";
-            model1.subTypeArray = [NSArray arrayWithObjects:@"芭蕾舞",@"民族舞",@"瑜伽",@"独舞",@"双人舞", nil];
+            model1.type = @"幼儿园";
+            model1.subTypeArray = [NSArray arrayWithObjects:@"小班",@"中班(3～3.5岁)",@"大班(4～4.5岁)",@"学前班(5～5.5岁)", nil];
             [self.leftArray addObject:model1];
             SelectTypeModel *model2 = [[SelectTypeModel alloc]init];
-            model2.type = @"外语培训";
-            model2.subTypeArray = [NSArray arrayWithObjects:@"英语",@"日语",@"汉语",@"法语",@"德语",@"西班牙语",@"其他", nil];
+            model2.type = @"托班";
+            model2.subTypeArray = [NSArray arrayWithObjects:@"早教",@"幼儿园",@"小学",@"中学",@"高中",@"其他托班", nil];
             [self.leftArray addObject:model2];
             
             SelectTypeModel *model3 = [[SelectTypeModel alloc]init];
-            model3.type = @"教育学院";
-            model3.subTypeArray = [NSArray arrayWithObjects:@"早教",@"学前教育",@"小学",@"中学",@"高中",@"大学",@"其他", nil];
+            model3.type = @"机构辅导";
+            model3.subTypeArray = [NSArray arrayWithObjects:@"小学辅导",@"初中辅导",@"高中辅导",@"专升本/自考",@"艺考",@"考研",@"其他升学辅导", nil];
             [self.leftArray addObject:model3];
             SelectTypeModel *model4 = [[SelectTypeModel alloc]init];
-            model4.type = @"美术培训";
-            model4.subTypeArray = [NSArray arrayWithObjects:@"绘画",@"书法",@"其他", nil];
-            [self.leftArray addObject:model];
+            model4.type = @"个人辅导";
+            model4.subTypeArray = [NSArray arrayWithObjects:@"小学数学",@"小学语文",@"小学英语",
+                                   @"初中语文",@"初中数学",@"初中英语",@"初中物理",
+                                   @"初中化学",@"初中生物",
+                                   @"高中语文",@"高中数学",@"高中英语",@"高中物理",
+                                   @"高中化学",@"高中生物",@"其他辅导",nil];
+            [self.leftArray addObject:model4];
+            
+//            SelectTypeModel *model = [[SelectTypeModel alloc]init];
+//            model.type = @"音乐培训";
+//            model.subTypeArray = [NSArray arrayWithObjects:@"钢琴",@"吉塔",@"古筝",@"架子鼓",@"声乐",@"小提琴",@"其他", nil];
+//            [self.leftArray addObject:model];
+//            
+//            SelectTypeModel *model1 = [[SelectTypeModel alloc]init];
+//            model1.type = @"舞蹈培训";
+//            model1.subTypeArray = [NSArray arrayWithObjects:@"芭蕾舞",@"民族舞",@"瑜伽",@"独舞",@"双人舞", nil];
+//            [self.leftArray addObject:model1];
+//            SelectTypeModel *model2 = [[SelectTypeModel alloc]init];
+//            model2.type = @"外语培训";
+//            model2.subTypeArray = [NSArray arrayWithObjects:@"英语",@"日语",@"汉语",@"法语",@"德语",@"西班牙语",@"其他", nil];
+//            [self.leftArray addObject:model2];
+//            
+//            SelectTypeModel *model3 = [[SelectTypeModel alloc]init];
+//            model3.type = @"教育学院";
+//            model3.subTypeArray = [NSArray arrayWithObjects:@"早教",@"学前教育",@"小学",@"中学",@"高中",@"大学",@"其他", nil];
+//            [self.leftArray addObject:model3];
+//            SelectTypeModel *model4 = [[SelectTypeModel alloc]init];
+//            model4.type = @"美术培训";
+//            model4.subTypeArray = [NSArray arrayWithObjects:@"绘画",@"书法",@"其他", nil];
+//            [self.leftArray addObject:model];
         }
             break;
         case 1:

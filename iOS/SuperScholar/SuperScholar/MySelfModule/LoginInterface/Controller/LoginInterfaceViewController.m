@@ -55,12 +55,14 @@
     [SMSManager commitVerificationCode:self.vertifyField.text phoneNumber:self.phoneField.text result:^(NSError *error) {
 //        dispatch_cancel(weakself.timer);
         if(!error){
-            NSLog(@"登录成功!");
-            [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
-            SaveInfoForKey(@"abcdefg", UserId_NSUserDefaults);
-            [[RemotePushManager defaultManager] bindAccountToAliPushServer];
-            [IMManager callThisAfterISVAccountLoginSuccessWithYWLoginId:GetInfoForKey(UserId_NSUserDefaults)];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            // 登录事件
+            [[AppInfo share] loginEventTestWithCompletion:^{
+                NSLog(@"登录成功!");
+                [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
+                [[RemotePushManager defaultManager] bindAccountToAliPushServer];
+                [IMManager callThisAfterISVAccountLoginSuccessWithYWLoginId:GetInfoForKey(UserId_NSUserDefaults)];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
         }else{//验证码错误
             self.vertifyErrorLog.text = @"验证码错误";
             self.vertifyErrorLog.hidden = NO;

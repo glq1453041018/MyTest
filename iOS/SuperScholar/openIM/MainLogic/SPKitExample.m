@@ -8,7 +8,7 @@
 
 #import "SPKitExample.h"
 #import <SVProgressHUD.h>
-#import "UIButton+AddBlock.h"
+#import "UIControl+AddBlock.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -628,7 +628,7 @@ UIAlertViewDelegate>
         NSLog(@"conversationViewController:%@", conversationViewController);
 //        viewControllers = @[conversationNavigationController.viewControllers.firstObject, conversationViewController];
         [conversationViewController.navigationBar setTitle:nil leftImage:kGoBackImageString rightText:@""];
-        [conversationViewController.navigationBar.letfBtn addBlock:^(UIButton *btn) {
+        [conversationViewController.navigationBar.letfBtn addBlock:^(UIControl *btn) {
             [conversationNavigationController popViewControllerAnimated:YES];
         } forControlEvents:UIControlEventTouchUpInside];
         [conversationNavigationController pushViewController:conversationViewController animated:YES];
@@ -651,11 +651,11 @@ UIAlertViewDelegate>
 /**
  *  打开群聊页面
  */
-- (void)exampleOpenConversationViewControllerWithTribe:(YWTribe *)aTribe fromNavigationController:(UINavigationController *)aNavigationController
+- (YWConversationViewController *)exampleOpenConversationViewControllerWithTribe:(YWTribe *)aTribe fromNavigationController:(UINavigationController *)aNavigationController
 {
     YWConversation *conversation = [YWTribeConversation fetchConversationByTribe:aTribe createIfNotExist:YES baseContext:self.ywIMKit.IMCore];
     
-    [self exampleOpenConversationViewControllerWithConversation:conversation fromNavigationController:aNavigationController];
+    return [self exampleOpenConversationViewControllerWithConversation:conversation fromNavigationController:aNavigationController];
 }
 
 - (void)exampleOpenEServiceConversationWithPersonId:(NSString *)aPersonId fromNavigationController:(UINavigationController *)aNavigationController
