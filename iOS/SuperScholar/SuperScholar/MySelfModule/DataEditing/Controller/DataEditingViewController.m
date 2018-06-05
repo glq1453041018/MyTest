@@ -284,7 +284,7 @@
         }
     }else{
         text = [NSString stringWithFormat:@"跳转%@", text];
-        LLAlert(text);
+        [LLAlertView showSystemAlertViewMessage:text buttonTitles:@[@"确定"] clickBlock:nil];
     }
 }
 

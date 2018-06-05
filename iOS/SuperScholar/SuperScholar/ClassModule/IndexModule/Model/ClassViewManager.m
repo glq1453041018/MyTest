@@ -39,27 +39,6 @@
             responseBlock(nil,@"获取数据失败");
         }
     }];
-    
-    
-    /*
-     NSArray *titles = @[@"AI学堂-机器学习",@"大数据基础篇",@"算法分析",@"人工智能-AlphaGo",@"Python-爬虫进阶"];
-     NSMutableArray *icons = [NSMutableArray array];
-     for (int i=0; i<titles.count; i++) {
-     [icons addObject:[TESTDATA randomUrlString]];
-     }
-     NSMutableArray *resArray = [NSMutableArray array];
-     for (int i=0; i<titles.count; i++) {
-     ClassViewModel *cvm = [ClassViewModel new];
-     cvm.name = titles[i];
-     cvm.icon = icons[i];
-     [resArray addObject:cvm];
-     }
-     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-     if (responseBlock) {
-     responseBlock(resArray,nil);
-     }
-     });
-     */
 }
 
 

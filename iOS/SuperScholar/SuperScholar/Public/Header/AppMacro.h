@@ -113,21 +113,5 @@
 #define NoMoreData_Description @"暂无相关数据"
 #define NoMoreData_Image @"NodataImage"
 
-// 警告框架
-// 弹出框Controller级，block 为重试回调 （页面无法重新激发且逻辑简单的需要重试）
-#define LLAlertControllerRetry(block,code) \
-[LLAlertView showSystemAlertViewClickBlock:^(NSInteger index){\
-if (index == 1) {\
-block();\
-}\
-} message:ServerError_Description(code) buttonTitles:@"取消",@"重试", nil]
-#define LLAlertControllerConfirm(code) [LLAlertView showSystemAlertViewClickBlock:nil message:ServerError_Description(code) buttonTitles:@"确定", nil]
-#define LLAlertControllerMsg(msg) [LLAlertView showSystemAlertViewClickBlock:nil message:msg buttonTitles:@"确定", nil]
-// 弹出框window级
-//#define Alert(title,msg) [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show]
-#define LLAlert(msg) [[[LLAlertView alloc]init]showSystemAlertViewClickBlock:nil message:msg buttonTitles:@"确定", nil]
-#define Alert(title,msg) [[[LLAlertView alloc]init]showSystemAlertViewClickBlock:nil AlertViewTitle:title  message:msg buttonTitles:@"确定", nil]
-#define LLAlertViewRetry(block,code) [[[LLAlertView alloc]init]showSystemAlertViewClickBlock:block message:ServerError_Description(code) buttonTitles:@"取消",@"重试", nil]
-#define LLAlertViewConfirm(code) [[[LLAlertView alloc]init]showSystemAlertViewClickBlock:nil message:ServerError_Description(code) buttonTitles:@"确定", nil]
 
 #endif /* AppMacro_h */

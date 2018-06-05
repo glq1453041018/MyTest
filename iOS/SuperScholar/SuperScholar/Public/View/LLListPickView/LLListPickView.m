@@ -25,22 +25,21 @@
     self.data = items;
     [self.table reloadData];
     
+    self.isCenterPoint = NO;
     self.animation = [CAAnimation new];
     self.contentView = self.table;
     CGFloat tableHeight = AdaptedWidthValue(50)*(items.count+1) + 10;
-    self.table.y = kScreenHeight;
+    self.table.top = kScreenHeight;
     self.table.viewHeight = tableHeight;
     
     
     [self show];
     [UIView animateWithDuration:0.25 animations:^{
-//        if (CGAffineTransformIsIdentity(self.table.transform)) {  
-//        }
         self.table.transform = CGAffineTransformTranslate(self.table.transform, 0, -self.table.viewHeight);
     } completion:nil];
     
     WS(ws);
-    self.touchBgView = ^{
+    self.touchBgView = ^(LLAlertView *alertView) {
         [ws closeLLAlertViewFinished:nil];
     };
 }
@@ -118,7 +117,7 @@
             self.table.transform = CGAffineTransformIdentity;
         }
     } completion:^(BOOL finished) {
-        [self hideWithBlock:nil];
+        [self hideCompletion:nil];
         if (finishHide) {
             finishHide();
         }

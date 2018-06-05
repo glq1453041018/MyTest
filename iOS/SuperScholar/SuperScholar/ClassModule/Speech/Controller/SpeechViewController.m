@@ -185,11 +185,11 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
 }
 -(void)navigationViewRightClickEvent{
     if ([[self.contentString stringByReplacingOccurrencesOfString:@" " withString:@""] length]==0&&self.selectedPhotos.count==0) {
-        [[LLAlertView new] showSystemAlertViewClickBlock:nil message:@"请填写内容哦" buttonTitles:@"好的", nil];
+        [LLAlertView showSystemAlertViewMessage:@"请填写内容哦" buttonTitles:@[@"好的"] clickBlock:nil];
     }else{
         [SpeechManager uploadMessageToServerWithMessage:self.contentString classId:self.classId response:^(NSDictionary *res, id error) {
             if (error) {
-                [[LLAlertView new] showSystemAlertViewClickBlock:nil message:@"发表失败，请重新上传" buttonTitles:@"好的", nil];
+                [LLAlertView showSystemAlertViewMessage:@"发表失败，请重新上传" buttonTitles:@[@"好的"] clickBlock:nil];
             }
             else{
                 NSString *articleId = [NSString stringWithFormat:@"%@",[res objectForKeyNotNull:@"articleId"]];
@@ -204,7 +204,7 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
                     
                     [SpeechManager uploadMediaToServerWithArticleId:articleId.integerValue classId:self.classId images:pics videos:videos response:^(NSArray *resArray, id error) {
                         if (error) {
-                            [[LLAlertView new] showSystemAlertViewClickBlock:nil message:@"发表失败，请重新上传" buttonTitles:@"好的", nil];
+                            [LLAlertView showSystemAlertViewMessage:@"发表失败，请重新上传" buttonTitles:@[@"好的"] clickBlock:nil];
                         }
                         else{
                             NSString *tip = nil;
@@ -216,15 +216,14 @@ const NSInteger numberOfRow = 4;  // 一行几张图片
                                 }
                             }
                             [self.contentView resignFirstResponder];
-                            WS(ws);
-                            [[LLAlertView new] showSystemAlertViewClickBlock:^(NSInteger index) {
-                                [ws navigationViewLeftClickEvent];
-                            } message:tip buttonTitles:@"好的", nil];
+                            [LLAlertView showSystemAlertViewMessage:tip buttonTitles:@[@"好的"] clickBlock:^(NSInteger index) {
+                                [self navigationViewLeftClickEvent];
+                            }];
                         }
                     }];
                 }
                 else{
-                    [[LLAlertView new] showSystemAlertViewClickBlock:nil message:@"发表失败，请重新上传" buttonTitles:@"好的", nil];
+                    [LLAlertView showSystemAlertViewMessage:@"发表失败，请重新上传" buttonTitles:@[@"好的"] clickBlock:nil];
                 }
             }
         }];

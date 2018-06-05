@@ -133,7 +133,7 @@
     
     AddressModel *am = self.resultArray[indexPath.row];
     if ([am.typeName isEqualToString:@"ERROR"]) {
-        [[LLAlertView new] showSystemAlertViewClickBlock:nil message:@"您的选择不再服务范围" buttonTitles:@"确定", nil];
+        [LLAlertView showSystemAlertViewMessage:@"您的选择不再服务范围" buttonTitles:@[@"确定"] clickBlock:nil];
     }
     else{
         if (self.delegate&&[self.delegate respondsToSelector:@selector(addressSearchController:cityModel:)]) {

@@ -113,9 +113,9 @@
     WeakObj(self);
     if(!_menu){
         _alert = [[LLAlertView alloc] initWithFrame:CGRectMake(0, kNavigationbarHeight, IEW_WIDTH, IEW_HEGHT - kNavigationbarHeight)];
-        [_alert setTouchBgView:^{//背景点击事件
+        _alert.touchBgView = ^(LLAlertView *alertView) {
             [weakself navigationViewRightClickEvent];//调自己收起来
-        }];
+        };
         [self.view addSubview:_alert];
         
         _menu = [[ArrowMenuView alloc] initWithFrame:CGRectZero withSelectionBlock:^(NSInteger index) {
@@ -141,7 +141,7 @@
         
         [_alert show];
     }else{
-        [_alert hideWithBlock:^{
+        [_alert hideCompletion:^{
             [weakself.alert removeFromSuperview];
             weakself.alert = nil;
             weakself.menu.hidden = YES;

@@ -103,7 +103,7 @@
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([text isEqualToString:@"\n"]){ //判断输入的字是否是回车，即按下return
         if ([self.content stringByReplacingOccurrencesOfString:@" " withString:@""].length==0) {
-            Alert(@"提示", @"请输入内容");
+            [LLAlertView showSystemAlertViewMessage:@"请输入内容" buttonTitles:@[@"确定"] clickBlock:nil];
             return NO;
         }else{
             [self senderBtnAction];
