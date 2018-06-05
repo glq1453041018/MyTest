@@ -20,4 +20,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneErrorLog;//手机号错误提示
 @property (weak, nonatomic) IBOutlet UILabel *vertifyErrorLog;//验证码错误提示
 
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;//标题
+@property (weak, nonatomic) IBOutlet UILabel *vertifiLoginTip;//验证码登录提示(未注册手机验证后自动登录)
+@property (weak, nonatomic) IBOutlet UIButton *findPasswordBtn;//找回密码按钮
+@property (weak, nonatomic) IBOutlet UIView *findPasswordBtnLeftLine;//找回密码按钮左边线
+@property (weak, nonatomic) IBOutlet UIView *getVertifyBtnLeftLine;//获取验证码按钮左边线
+
+
+
 @end

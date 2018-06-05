@@ -17,8 +17,8 @@
 
 #pragma mark - <************************** 用户 **************************>
 #define U_LoginUrlString YuMingAnd(@"/mobile/user/login?")      // 用户登录
-#define U_LogoutUrlString YuMingAnd(@"/mobile/user/out")
-
+#define U_LogoutUrlString YuMingAnd(@"/mobile/user/out")    //退出登录
+#define U_SmsLoginUrlString YuMingAnd(@"/public/user/smsLogin")    //短信登录
 
 
 

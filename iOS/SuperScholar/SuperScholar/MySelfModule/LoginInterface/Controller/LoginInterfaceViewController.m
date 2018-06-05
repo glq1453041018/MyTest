@@ -14,6 +14,8 @@
 @interface LoginInterfaceViewController ()<UITextFieldDelegate>
 @property (strong, nonatomic) dispatch_source_t timer;//定时器
 @property (assign, nonatomic) CGFloat second;//秒
+
+@property (assign, nonatomic) BOOL isLoginUsingPassword;//是否正在密码登录
 @end
 
 @implementation LoginInterfaceViewController
@@ -51,12 +53,12 @@
 
 - (void)commitVertifyCode{
     // !!!: 提交验证码请求
-//    WeakObj(self);
+    WeakObj(self);
     [SMSManager commitVerificationCode:self.vertifyField.text phoneNumber:self.phoneField.text result:^(NSError *error) {
 //        dispatch_cancel(weakself.timer);
         if(!error){
             // 登录事件
-            [[AppInfo share] loginEventTestWithCompletion:^{
+            [[AppInfo share] smsLoginEventTestWithMobile:weakself.phoneField.text code:weakself.vertifyField.text completion:^{
                 NSLog(@"登录成功!");
                 [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
                 [[RemotePushManager defaultManager] bindAccountToAliPushServer];
@@ -70,6 +72,18 @@
             [self shackView:self.vertifyErrorLog];
         }
     }];
+}
+
+- (void)commitPassword{
+    // !!!: 提交密码请求
+    [[AppInfo share] loginEventTestWithMobile:self.phoneField.text password:self.vertifyField.text andCompletion:^{
+        NSLog(@"登录成功!");
+        [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
+        [[RemotePushManager defaultManager] bindAccountToAliPushServer];
+        [IMManager callThisAfterISVAccountLoginSuccessWithYWLoginId:[NSString stringWithFormat:@"%ld", [AppInfo share].user.userId]];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+
 }
 
 
@@ -113,7 +127,8 @@
 - (IBAction)textFieldEditingChanged:(UITextField *)textField{
     if(textField == self.phoneField && [self phoneIsValid:textField.text]){
         [self showErrorFieldIfNeed:textField];
-    }else if(textField == self.vertifyField && [self vertifyCodeIsValid:textField.text]){
+    }else if(textField == self.vertifyField){
+        if(self.isLoginUsingPassword == YES || ([self vertifyCodeIsValid:textField.text]))
         [self showErrorFieldIfNeed:textField];
     }
     
@@ -173,10 +188,53 @@
 
 - (IBAction)onClickLoginBtn:(UIButton *)sender {
     // !!!: 登录事件
-    if([self phoneIsValid:self.phoneField.text] && [self vertifyCodeIsValid:self.vertifyField.text])
-        [self commitVertifyCode];
+    if([self phoneIsValid:self.phoneField.text] && [self vertifyCodeIsValid:self.vertifyField.text]){
+        if(self.isLoginUsingPassword == NO)//验证码登录
+            [self commitVertifyCode];
+        else//密码登录
+            [self commitPassword];
+    }
 }
 
+- (IBAction)onClickFindPasswordBtn:(UIButton *)sender {
+    //点击找回密码
+    [LLAlertView showSystemAlertViewMessage:@"找回密码！" buttonTitles:@[@"确定"] clickBlock:nil];
+}
+
+- (IBAction)onClickLoginMethodChangeBtn:(UIButton *)sender {
+    //登录方式改变按钮点击事件
+    sender.selected = !sender.selected;
+    NSInteger select = sender.selected;
+    switch (select) {
+        case 0:{//免密登录
+            self.isLoginUsingPassword = NO;
+            [self.titleLabel setText:@"登录你的学霸，精彩永不丢失"];
+            self.vertifyField.placeholder = @"请输入验证码";
+            self.vertifiLoginTip.text = @"未注册手机验证后自动登录";
+            self.findPasswordBtn.hidden = YES;
+            self.findPasswordBtnLeftLine.hidden = YES;
+            self.getVertifyBtn.hidden = NO;
+            self.getVertifyBtnLeftLine.hidden = NO;
+        }
+            break;
+        case 1:{//账号密码登录
+            self.isLoginUsingPassword = YES;
+            [self.titleLabel setText:@"账号密码登录"];
+            self.vertifyField.placeholder = @"密码";
+            self.vertifiLoginTip.text = @"";
+            self.getVertifyBtn.hidden = YES;
+            self.getVertifyBtnLeftLine.hidden = YES;
+            self.findPasswordBtn.hidden = NO;
+            self.findPasswordBtnLeftLine.hidden = NO;
+        }
+            break;
+        default:
+            break;
+    }
+    
+    self.vertifyField.text = @"";
+    [self textFieldEditingChanged:_vertifyField];
+}
 #pragma mark - <************************** 其他方法 **************************>
 
 - (BOOL)phoneIsValid:(NSString *)phone{
@@ -188,9 +246,13 @@
 
 - (BOOL)vertifyCodeIsValid:(NSString *)code{
     //TODO: 验证码合法性匹配
-    NSString *preidct = @"^\\d{4}$";
-    NSRange range = [code rangeOfString:preidct options:NSRegularExpressionSearch];
-    return range.location != NSNotFound;
+    if(self.isLoginUsingPassword == NO){
+        NSString *preidct = @"^\\d{4}$";
+        NSRange range = [code rangeOfString:preidct options:NSRegularExpressionSearch];
+        return range.location != NSNotFound;
+    }else{
+        return [code length] > 0;
+    }
 }
 
 - (void)showErrorFieldIfNeed:(UITextField *)textField{
@@ -206,14 +268,19 @@
             self.phoneBackView.layer.borderColor = [UIColor lightGrayColor].CGColor;
         }
     }else{
-        if(![self vertifyCodeIsValid:textField.text] && [textField.text length]){
-            self.vertifyErrorLog.text = @"验证码错误";
-            self.vertifyErrorLog.hidden = NO;
-            self.vertifycodeBackView.layer.borderColor = HexColor(0xff5e5e).CGColor;
-            [self shackView:self.vertifyErrorLog];
-        }else{
+        if(self.isLoginUsingPassword == YES){//账号密码登录的密码
             self.vertifyErrorLog.hidden = YES;
             self.vertifycodeBackView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        }else{//免密码登录的验证码
+            if(![self vertifyCodeIsValid:textField.text] && [textField.text length]){
+                self.vertifyErrorLog.text = @"验证码错误";
+                self.vertifyErrorLog.hidden = NO;
+                self.vertifycodeBackView.layer.borderColor = HexColor(0xff5e5e).CGColor;
+                [self shackView:self.vertifyErrorLog];
+            }else{
+                self.vertifyErrorLog.hidden = YES;
+                self.vertifycodeBackView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            }
         }
     }
 }

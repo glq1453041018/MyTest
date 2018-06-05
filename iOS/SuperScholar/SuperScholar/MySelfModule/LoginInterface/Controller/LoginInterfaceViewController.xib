@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="17E199" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginInterfaceViewController">
             <connections>
+                <outlet property="findPasswordBtn" destination="F8O-yh-AQv" id="cMJ-LK-iYj"/>
+                <outlet property="findPasswordBtnLeftLine" destination="ja1-xx-2uU" id="9uk-8X-m6G"/>
                 <outlet property="getVertifyBtn" destination="cAP-ct-Jra" id="SI5-ra-Mxt"/>
+                <outlet property="getVertifyBtnLeftLine" destination="QmO-C0-e2S" id="RMA-Iq-svd"/>
                 <outlet property="loginButton" destination="vPl-sQ-3EW" id="QuK-fW-x2U"/>
                 <outlet property="phoneBackView" destination="eB0-DU-qQ9" id="3gZ-FT-PGf"/>
                 <outlet property="phoneErrorLog" destination="Xez-tZ-9QY" id="XNd-Xf-dMT"/>
                 <outlet property="phoneField" destination="IOV-eY-hdZ" id="xha-Jr-60R"/>
+                <outlet property="titleLabel" destination="cJy-bi-hRd" id="npU-ja-768"/>
+                <outlet property="vertifiLoginTip" destination="UI8-4m-ogJ" id="IgQ-hC-tl0"/>
                 <outlet property="vertifyErrorLog" destination="ugB-BB-dM5" id="9Lp-4w-ZUX"/>
                 <outlet property="vertifyField" destination="CNz-He-3A8" id="DLT-tU-7fZ"/>
                 <outlet property="vertifycodeBackView" destination="ad1-jy-8MD" id="YvU-wc-CXK"/>
@@ -83,7 +89,7 @@
                     <rect key="frame" x="20" y="196" width="335" height="44"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CNz-He-3A8">
-                            <rect key="frame" x="20" y="8" width="303" height="28"/>
+                            <rect key="frame" x="20" y="8" width="217" height="28"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -92,13 +98,36 @@
                                 <outlet property="delegate" destination="-1" id="KWm-nn-ETf"/>
                             </connections>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8O-yh-AQv">
+                            <rect key="frame" x="262" y="0.0" width="58" height="44"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="找回密码">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="onClickFindPasswordBtn:" destination="-1" eventType="touchUpInside" id="KB3-aD-i8p"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ja1-xx-2uU">
+                            <rect key="frame" x="249" y="15" width="1" height="14"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="0.5" id="h4a-lM-Cd8"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="F8O-yh-AQv" firstAttribute="centerY" secondItem="ad1-jy-8MD" secondAttribute="centerY" id="6DE-lq-D5q"/>
+                        <constraint firstItem="F8O-yh-AQv" firstAttribute="leading" secondItem="ja1-xx-2uU" secondAttribute="trailing" constant="12" id="GXf-H2-6iw"/>
                         <constraint firstItem="CNz-He-3A8" firstAttribute="centerY" secondItem="ad1-jy-8MD" secondAttribute="centerY" id="IFf-MC-xCq"/>
                         <constraint firstItem="CNz-He-3A8" firstAttribute="top" secondItem="ad1-jy-8MD" secondAttribute="top" constant="8" id="YM0-nt-amL"/>
                         <constraint firstItem="CNz-He-3A8" firstAttribute="leading" secondItem="ad1-jy-8MD" secondAttribute="leading" constant="20" id="akr-jC-tdM"/>
-                        <constraint firstAttribute="trailing" secondItem="CNz-He-3A8" secondAttribute="trailing" constant="12" id="pdX-RG-Gxz"/>
+                        <constraint firstItem="ja1-xx-2uU" firstAttribute="centerY" secondItem="F8O-yh-AQv" secondAttribute="centerY" id="bFG-Gn-CQM"/>
+                        <constraint firstItem="F8O-yh-AQv" firstAttribute="height" secondItem="ad1-jy-8MD" secondAttribute="height" id="fLW-1F-gL3"/>
+                        <constraint firstItem="ja1-xx-2uU" firstAttribute="leading" secondItem="CNz-He-3A8" secondAttribute="trailing" constant="12" id="faE-of-xWb"/>
+                        <constraint firstAttribute="trailing" secondItem="F8O-yh-AQv" secondAttribute="trailing" constant="15" id="hKk-IA-vFe"/>
+                        <constraint firstItem="ja1-xx-2uU" firstAttribute="top" secondItem="ad1-jy-8MD" secondAttribute="top" constant="15" id="oW3-r9-JDS"/>
                         <constraint firstAttribute="height" constant="44" id="rjA-hH-CIJ"/>
                     </constraints>
                 </view>
@@ -122,12 +151,16 @@
                         <action selector="onClickLoginBtn:" destination="-1" eventType="touchUpInside" id="s6R-57-nyh"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfD-eY-ZQb">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfD-eY-ZQb">
                     <rect key="frame" x="144" y="345" width="86" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="账号密码登录">
                         <color key="titleColor" red="0.19223770216847672" green="0.31671192485923799" blue="0.6723310596446701" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <state key="selected" title="免密码登录"/>
+                    <connections>
+                        <action selector="onClickLoginMethodChangeBtn:" destination="-1" eventType="touchUpInside" id="HW4-5v-gOH"/>
+                    </connections>
                 </button>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机号错误" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xez-tZ-9QY">
                     <rect key="frame" x="40" y="172" width="52" height="21"/>

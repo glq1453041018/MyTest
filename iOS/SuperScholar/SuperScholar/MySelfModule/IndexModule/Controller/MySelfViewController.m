@@ -57,7 +57,7 @@
     self.tableView.tableHeaderView = self.tabelHeaderView;
     
     if(isLogin){//登录状态
-        //高斯模糊背景
+        //背景图
         UIImage *image = [UIImage imageNamed:@"timg"];
         self.backImageView.image = image;
     }else{//未登录状态

@@ -22,7 +22,8 @@
 /*
  测试登录事件
  */
--(void)loginEventTestWithCompletion:(void (^)())completion;
+-(void)loginEventTestWithMobile:(NSString *)mobile password:(NSString *)password andCompletion:(void (^)())completion;
+-(void)smsLoginEventTestWithMobile:(NSString *)mobile code:(NSString *)code completion:(void (^)())completion;
 
 /*
  测试退出登录事件
