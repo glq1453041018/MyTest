@@ -18,3 +18,5 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+WXOpenIMSDKFMWK.framework
+WXOUIModule.framework
