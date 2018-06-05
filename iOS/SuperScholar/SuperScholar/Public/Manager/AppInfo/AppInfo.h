@@ -17,6 +17,7 @@
  用户信息
  */
 @property (strong ,nonatomic) UserModel *user;
+- (void)clearUserInfo;//清除用户信息
 
 /*
  测试登录事件

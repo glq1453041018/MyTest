@@ -60,7 +60,7 @@
                 NSLog(@"登录成功!");
                 [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
                 [[RemotePushManager defaultManager] bindAccountToAliPushServer];
-                [IMManager callThisAfterISVAccountLoginSuccessWithYWLoginId:GetInfoForKey(UserId_NSUserDefaults)];
+                [IMManager callThisAfterISVAccountLoginSuccessWithYWLoginId:[NSString stringWithFormat:@"%ld", [AppInfo share].user.userId]];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }];
         }else{//验证码错误

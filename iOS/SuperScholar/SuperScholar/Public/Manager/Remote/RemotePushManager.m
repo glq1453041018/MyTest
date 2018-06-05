@@ -275,16 +275,16 @@ static RemotePushManager *instance;
 }
 
 - (void)bindAccountToAliPushServer{
-//    [CloudPushSDK addAlias:GetInfoForKey(UserId_NSUserDefaults) withCallback:^(CloudPushCallbackResult *res) {
+//    [CloudPushSDK addAlias:userid withCallback:^(CloudPushCallbackResult *res) {
 //        
 //    }];
-    NSString *userid = GetInfoForKey(UserId_NSUserDefaults);
+    NSString *userid = [NSString stringWithFormat:@"%ld", [AppInfo share].user.userId];
     [CloudPushSDK bindAccount:userid withCallback:^(CloudPushCallbackResult *res) {
         
     }];
 }
 - (void)unBindAccountToAliPushServer{
-//    [CloudPushSDK removeAlias:GetInfoForKey(UserId_NSUserDefaults) withCallback:^(CloudPushCallbackResult *res) {
+//    [CloudPushSDK removeAlias:userid withCallback:^(CloudPushCallbackResult *res) {
 //        
 //    }];
     [CloudPushSDK unbindAccount:^(CloudPushCallbackResult *res) {

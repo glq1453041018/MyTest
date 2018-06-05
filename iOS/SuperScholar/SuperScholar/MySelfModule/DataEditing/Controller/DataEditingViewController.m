@@ -322,7 +322,7 @@
         [SVProgressHUD showSuccessWithStatus:@"退出成功"];
         [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
         [IMManager callThisBeforeISVAccountLogout];
-        SaveInfoForKey(nil, UserId_NSUserDefaults);
+        [[AppInfo share] clearUserInfo];
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }

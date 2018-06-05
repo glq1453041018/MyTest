@@ -33,7 +33,7 @@
     [ShareManager applicationDidFinishLaunching];//mob分享
     
     [IMManager callThisInDidFinishLaunching];
-    [IMManager callThisAfterISVAccountLoginSuccessWithYWLoginId:GetInfoForKey(UserId_NSUserDefaults)];
+    [IMManager callThisAfterISVAccountLoginSuccessWithYWLoginId:[NSString stringWithFormat:@"%ld", [AppInfo share].user.userId]];
     
     [[UITextView appearance] setTintColor:KColorTheme];
     [[UITextField appearance] setTintColor:KColorTheme];

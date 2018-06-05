@@ -63,6 +63,16 @@
                 });
                 if (success) {
                     NSDictionary *dic=[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+                    
+                    NSString *code = [dic objectForKeyNotNull:@"code"];
+                    if (code.integerValue==999) {//登陆凭证过期
+                        [[AppInfo share] clearUserInfo];
+                        [LLAlertView showSystemAlertViewMessage:[dic objectForKeyNotNull:@"msg"] buttonTitles:@[@"确定"] clickBlock:^(NSInteger index){
+                           UITabBarController *tab = (UITabBarController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+                            tab.selectedIndex = 4;
+                            [(UINavigationController *)tab.selectedViewController popToRootViewControllerAnimated:NO];
+                        }];
+                    }else
                     success(dic);
                 }
                 
@@ -86,7 +96,17 @@
                 });
                 if (success) {
                     NSDictionary *dic=[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-                    success(dic);
+                    
+                    NSString *code = [dic objectForKeyNotNull:@"code"];
+                    if (code.integerValue==999) {//登陆凭证过期
+                        [[AppInfo share] clearUserInfo];
+                        [LLAlertView showSystemAlertViewMessage:[dic objectForKeyNotNull:@"msg"] buttonTitles:@[@"确定"] clickBlock:^(NSInteger index){
+                            UITabBarController *tab = (UITabBarController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+                            tab.selectedIndex = 4;
+                            [(UINavigationController *)tab.selectedViewController popToRootViewControllerAnimated:NO];
+                        }];
+                    }else
+                        success(dic);
                 }
                 
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
