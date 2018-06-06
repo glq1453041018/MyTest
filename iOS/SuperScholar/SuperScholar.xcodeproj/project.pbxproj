@@ -66,7 +66,6 @@
 		BE4928082074950400ADB9CA /* SingleChatListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE4928032074950400ADB9CA /* SingleChatListViewController.xib */; };
 		BE49280C2074953400ADB9CA /* ChatListIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE49280A2074953400ADB9CA /* ChatListIndexViewController.m */; };
 		BE49280D2074953400ADB9CA /* ChatListIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE49280B2074953400ADB9CA /* ChatListIndexViewController.xib */; };
-		BE4E8045206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4E8044206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework */; };
 		BE57A5A52071C83A00C5593D /* InteractiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A5992071C83A00C5593D /* InteractiveViewController.m */; };
 		BE57A5A62071C83A00C5593D /* InteractiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE57A59A2071C83A00C5593D /* InteractiveViewController.xib */; };
 		BE57A5AA2071D58600C5593D /* MessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE57A5A82071D58600C5593D /* MessageListViewController.m */; };
@@ -105,7 +104,6 @@
 		BE5C488F206CB3B20084BEB3 /* SGMain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5C486E206CB3B10084BEB3 /* SGMain.framework */; };
 		BE5C4890206CB3B20084BEB3 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5C486F206CB3B10084BEB3 /* UTMini.framework */; };
 		BE5C4892206CB3B20084BEB3 /* WXOpenIMSDKResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE5C4871206CB3B10084BEB3 /* WXOpenIMSDKResource.bundle */; };
-		BE5C4893206CB3B20084BEB3 /* WXOUIModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5C4872206CB3B10084BEB3 /* WXOUIModule.framework */; };
 		BE5C4894206CB3B20084BEB3 /* WXOUIModuleResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE5C4873206CB3B10084BEB3 /* WXOUIModuleResources.bundle */; };
 		BE5C4895206CB3B20084BEB3 /* yw_1222.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE5C4874206CB3B10084BEB3 /* yw_1222.jpg */; };
 		BE5C489A206CB3ED0084BEB3 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5C4899206CB3ED0084BEB3 /* CoreMotion.framework */; };
@@ -256,6 +254,8 @@
 		C7F2C0242063979E00C34D2D /* ClassEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C0232063979E00C34D2D /* ClassEnvironmentManager.m */; };
 		C7F2C027206397C000C34D2D /* ClassEnvironmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C026206397C000C34D2D /* ClassEnvironmentModel.m */; };
 		C7F2C02A2063B4FB00C34D2D /* PhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2C0292063B4FB00C34D2D /* PhotoBrowser.m */; };
+		C7F584ED20C76FE0003B8785 /* WXOpenIMSDKFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F584EB20C76FE0003B8785 /* WXOpenIMSDKFMWK.framework */; };
+		C7F584EE20C76FE0003B8785 /* WXOUIModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F584EC20C76FE0003B8785 /* WXOUIModule.framework */; };
 		D31B768E2061345D000AA637 /* testData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D31B768D2061345D000AA637 /* testData.plist */; };
 		D3FA488620666B350016D0B8 /* LolitaTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FA488520666B350016D0B8 /* LolitaTableView.m */; };
 		D3FA488E2066735A0016D0B8 /* PersonalInfoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FA488D2066735A0016D0B8 /* PersonalInfoListViewController.m */; };
@@ -378,7 +378,6 @@
 		BE4928092074953400ADB9CA /* ChatListIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListIndexViewController.h; sourceTree = "<group>"; };
 		BE49280A2074953400ADB9CA /* ChatListIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListIndexViewController.m; sourceTree = "<group>"; };
 		BE49280B2074953400ADB9CA /* ChatListIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatListIndexViewController.xib; sourceTree = "<group>"; };
-		BE4E8044206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WXOpenIMSDKFMWK.framework; sourceTree = "<group>"; };
 		BE57A5982071C83A00C5593D /* InteractiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveViewController.h; sourceTree = "<group>"; };
 		BE57A5992071C83A00C5593D /* InteractiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractiveViewController.m; sourceTree = "<group>"; };
 		BE57A59A2071C83A00C5593D /* InteractiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InteractiveViewController.xib; sourceTree = "<group>"; };
@@ -433,7 +432,6 @@
 		BE5C486E206CB3B10084BEB3 /* SGMain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SGMain.framework; sourceTree = "<group>"; };
 		BE5C486F206CB3B10084BEB3 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
 		BE5C4871206CB3B10084BEB3 /* WXOpenIMSDKResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WXOpenIMSDKResource.bundle; sourceTree = "<group>"; };
-		BE5C4872206CB3B10084BEB3 /* WXOUIModule.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WXOUIModule.framework; sourceTree = "<group>"; };
 		BE5C4873206CB3B10084BEB3 /* WXOUIModuleResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WXOUIModuleResources.bundle; sourceTree = "<group>"; };
 		BE5C4874206CB3B10084BEB3 /* yw_1222.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yw_1222.jpg; sourceTree = "<group>"; };
 		BE5C4899206CB3ED0084BEB3 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -680,6 +678,8 @@
 		C7F2C026206397C000C34D2D /* ClassEnvironmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassEnvironmentModel.m; sourceTree = "<group>"; };
 		C7F2C0282063B4FB00C34D2D /* PhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrowser.h; sourceTree = "<group>"; };
 		C7F2C0292063B4FB00C34D2D /* PhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowser.m; sourceTree = "<group>"; };
+		C7F584EB20C76FE0003B8785 /* WXOpenIMSDKFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WXOpenIMSDKFMWK.framework; sourceTree = "<group>"; };
+		C7F584EC20C76FE0003B8785 /* WXOUIModule.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WXOUIModule.framework; sourceTree = "<group>"; };
 		D31B768D2061345D000AA637 /* testData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testData.plist; sourceTree = "<group>"; };
 		D3FA488420666B350016D0B8 /* LolitaTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LolitaTableView.h; sourceTree = "<group>"; };
 		D3FA488520666B350016D0B8 /* LolitaTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LolitaTableView.m; sourceTree = "<group>"; };
@@ -725,12 +725,12 @@
 			files = (
 				BE66929F2063A56200111810 /* libicucore.tbd in Frameworks */,
 				BE6692A12063A56E00111810 /* libz.tbd in Frameworks */,
+				C7F584ED20C76FE0003B8785 /* WXOpenIMSDKFMWK.framework in Frameworks */,
 				BE6692A32063A57700111810 /* libstdc++.tbd in Frameworks */,
 				BE6692A42063A57D00111810 /* JavaScriptCore.framework in Frameworks */,
 				BE6692A52063A58800111810 /* libsqlite3.tbd in Frameworks */,
 				BE5C48B5206CB44F0084BEB3 /* UIKit.framework in Frameworks */,
 				BE5C48B3206CB4480084BEB3 /* AddressBook.framework in Frameworks */,
-				BE4E8045206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework in Frameworks */,
 				BE5C48B1206CB4400084BEB3 /* SystemConfiguration.framework in Frameworks */,
 				BE5C48AF206CB4390084BEB3 /* CoreLocation.framework in Frameworks */,
 				BE5C48AD206CB4330084BEB3 /* CoreTelephony.framework in Frameworks */,
@@ -742,9 +742,9 @@
 				BE5C48A2206CB4080084BEB3 /* ImageIO.framework in Frameworks */,
 				BE5C48A0206CB4010084BEB3 /* AudioToolbox.framework in Frameworks */,
 				BE5C489E206CB3FC0084BEB3 /* AVFoundation.framework in Frameworks */,
+				C7F584EE20C76FE0003B8785 /* WXOUIModule.framework in Frameworks */,
 				BE5C489C206CB3F50084BEB3 /* AssetsLibrary.framework in Frameworks */,
 				BE5C489A206CB3ED0084BEB3 /* CoreMotion.framework in Frameworks */,
-				BE5C4893206CB3B20084BEB3 /* WXOUIModule.framework in Frameworks */,
 				BE5C488E206CB3B20084BEB3 /* SecurityGuardSDK.framework in Frameworks */,
 				BE5C4890206CB3B20084BEB3 /* UTMini.framework in Frameworks */,
 				BE5C488F206CB3B20084BEB3 /* SGMain.framework in Frameworks */,
@@ -1412,14 +1412,14 @@
 		BE5C483E206CB3B10084BEB3 /* openIM */ = {
 			isa = PBXGroup;
 			children = (
+				C7F584EB20C76FE0003B8785 /* WXOpenIMSDKFMWK.framework */,
+				C7F584EC20C76FE0003B8785 /* WXOUIModule.framework */,
 				BE5C483F206CB3B10084BEB3 /* Customize */,
 				BE5C4863206CB3B10084BEB3 /* MainLogic */,
 				BE5C486D206CB3B10084BEB3 /* SecurityGuardSDK.framework */,
-				BE4E8044206CDF480022FEE6 /* WXOpenIMSDKFMWK.framework */,
 				BE5C486E206CB3B10084BEB3 /* SGMain.framework */,
 				BE5C486F206CB3B10084BEB3 /* UTMini.framework */,
 				BE5C4871206CB3B10084BEB3 /* WXOpenIMSDKResource.bundle */,
-				BE5C4872206CB3B10084BEB3 /* WXOUIModule.framework */,
 				BE5C4873206CB3B10084BEB3 /* WXOUIModuleResources.bundle */,
 				BE5C4874206CB3B10084BEB3 /* yw_1222.jpg */,
 			);
