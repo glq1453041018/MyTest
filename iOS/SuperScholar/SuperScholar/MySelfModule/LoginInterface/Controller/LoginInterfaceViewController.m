@@ -221,7 +221,7 @@
             self.isLoginUsingPassword = YES;
             [self.titleLabel setText:@"账号密码登录"];
             self.vertifyField.placeholder = @"密码";
-            self.vertifiLoginTip.text = @"";
+            self.vertifiLoginTip.text = @"未注册手机重置密码自动登录";
             self.getVertifyBtn.hidden = YES;
             self.getVertifyBtnLeftLine.hidden = YES;
             self.findPasswordBtn.hidden = NO;
