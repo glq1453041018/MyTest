@@ -19,6 +19,7 @@
     if (_letfBtn==nil) {
         _letfBtn = [UIButton new];
         [_letfBtn addTarget:self action:@selector(leftClickEvent) forControlEvents:UIControlEventTouchUpInside];
+        [_letfBtn setTintColor:[UIColor whiteColor]];
         [self addSubview:_letfBtn];
     }
     return _letfBtn;

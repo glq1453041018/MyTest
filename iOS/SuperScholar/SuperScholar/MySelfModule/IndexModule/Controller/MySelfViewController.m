@@ -190,7 +190,9 @@
 #pragma mark - <************************** 点击事件 **************************>
 - (IBAction)onClickMSMBtn:(UIButton *)sender {
     LoginInterfaceViewController *loginVc = [LoginInterfaceViewController new];
-    [self presentViewController:loginVc animated:YES completion:nil];
+    UINavigationController *nav= [[UINavigationController alloc] initWithRootViewController:loginVc];
+    nav.navigationBar.hidden = YES;
+    [self presentViewController:nav animated:YES completion:nil];
 }
 - (IBAction)onClickTitleButtons:(UIControl *)sender {
     // !!!: 评论、收藏、历史点击事件

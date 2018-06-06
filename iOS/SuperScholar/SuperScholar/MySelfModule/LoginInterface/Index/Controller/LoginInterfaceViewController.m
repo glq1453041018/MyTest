@@ -7,6 +7,7 @@
 //
 
 #import "LoginInterfaceViewController.h"
+#import "ResetPasswordViewController.h"
 #import "RemotePushManager.h"
 #import "SMSManager.h"
 #import "IMManager.h"
@@ -63,7 +64,7 @@
                 [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
                 [[RemotePushManager defaultManager] bindAccountToAliPushServer];
                 [IMManager callThisAfterISVAccountLoginSuccessWithYWLoginId:[NSString stringWithFormat:@"%ld", [AppInfo share].user.userId]];
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
             }];
         }else{//验证码错误
             self.vertifyErrorLog.text = @"验证码错误";
@@ -134,8 +135,10 @@
     
     if([self phoneIsValid:self.phoneField.text] && [self vertifyCodeIsValid:self.vertifyField.text]){
         self.loginButton.backgroundColor = HexColor(0xff5e5e);
+        self.loginButton.userInteractionEnabled = YES;
     }else{
         self.loginButton.backgroundColor = HexColor(0xf08080);
+        self.loginButton.userInteractionEnabled = NO;
     }
 }
 
@@ -143,11 +146,11 @@
 
 #pragma mark - <************************** 点击事件 **************************>
 - (IBAction)onClickCloseBtn:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)onSwipTriggerd{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onBackViewClicked{
@@ -197,12 +200,14 @@
 }
 
 - (IBAction)onClickFindPasswordBtn:(UIButton *)sender {
-    //点击找回密码
-    [LLAlertView showSystemAlertViewMessage:@"找回密码！" buttonTitles:@[@"确定"] clickBlock:nil];
+    // !!!: 点击找回密码
+    ResetPasswordViewController *vc = [ResetPasswordViewController new];
+    vc.phoneNumber = self.phoneField.text;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)onClickLoginMethodChangeBtn:(UIButton *)sender {
-    //登录方式改变按钮点击事件
+    // !!!: 登录方式改变按钮点击事件(账号密码、免登录)
     sender.selected = !sender.selected;
     NSInteger select = sender.selected;
     switch (select) {
