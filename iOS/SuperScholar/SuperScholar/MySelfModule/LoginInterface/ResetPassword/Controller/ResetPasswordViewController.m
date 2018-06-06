@@ -8,6 +8,7 @@
 
 #import "ResetPasswordViewController.h"
 #import "ResetPasswordStep2ViewController.h"
+#import "SMSManager.h"
 
 @interface ResetPasswordViewController ()<UITextFieldDelegate>
 
@@ -85,10 +86,19 @@
 #pragma mark - <************************** 点击事件 **************************>
 - (IBAction)onClickNextBtn:(id)sender {
     // !!!: 下一步按钮点击事件
-    ResetPasswordStep2ViewController *vc = [ResetPasswordStep2ViewController new];
-    vc.view.frame = self.view.frame;
-    [self.view addSubview:vc.view];
-    [self addChildViewController:vc];
+    WeakObj(self);
+    //请求验证码
+    [SMSManager getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneField.text result:^(NSError *error) {
+        if(!error){
+            ResetPasswordStep2ViewController *vc = [ResetPasswordStep2ViewController new];
+            vc.phoneNumber = weakself.phoneField.text;
+            vc.view.frame = weakself.view.frame;
+            [weakself.view addSubview:vc.view];
+            [weakself addChildViewController:vc];
+        }else{
+            [LLAlertView showSystemAlertViewMessage:@"验证码获取失败！" buttonTitles:@[@"确定"] clickBlock:nil];
+        }
+    }];
 }
 
 
@@ -99,6 +109,10 @@
     NSString *preidct = @"^1\\d{10}$";
     NSRange range = [phone rangeOfString:preidct options:NSRegularExpressionSearch];
     return range.location != NSNotFound;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 
 
