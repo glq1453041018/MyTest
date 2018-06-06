@@ -15,7 +15,7 @@
 
 #pragma mark - <************************** 应用配置信息 **************************>
 // 域名
-#define YuMing @"http://www.ldz1130.club/server"
+#define YuMing @"http://118.24.146.251:8090"
 #define YuMingAnd(urlString) [urlString hasPrefix:@"http"]?urlString:[NSString stringWithFormat:@"%@%@",YuMing,urlString]
 
 // 主题色
@@ -86,7 +86,6 @@ static NSString *AMapSearchCityCompletionNotification = @"AMapSearchCityCompleti
 
 
 #pragma mark - <************************** NSUserDefaults **************************>
-static NSString *UserId_NSUserDefaults      = @"userid";
 static NSString *UserInfo_NSUserDefaults    = @"userInfo";      // 用户信息
 
 

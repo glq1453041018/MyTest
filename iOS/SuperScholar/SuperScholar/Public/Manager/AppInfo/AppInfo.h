@@ -17,11 +17,13 @@
  用户信息
  */
 @property (strong ,nonatomic) UserModel *user;
+- (void)clearUserInfo;//清除用户信息
 
 /*
  测试登录事件
  */
--(void)loginEventTestWithCompletion:(void (^)())completion;
+-(void)loginEventTestWithMobile:(NSString *)mobile password:(NSString *)password andCompletion:(void (^)())completion;
+-(void)smsLoginEventTestWithMobile:(NSString *)mobile code:(NSString *)code completion:(void (^)())completion;
 
 /*
  测试退出登录事件

@@ -45,7 +45,9 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    BOOL isLogin = GetInfoForKey(UserId_NSUserDefaults) != nil;
+    NSInteger userid = [AppInfo share].user.userId;
+    BOOL isLogin = userid > 0;
+    
     self.loginButtton.hidden = isLogin;//登录按钮显隐
     self.navigationBar.hidden = isLogin;//导航栏显隐
     self.didLoginView.hidden = !isLogin;//已登录视图显隐
@@ -55,7 +57,7 @@
     self.tableView.tableHeaderView = self.tabelHeaderView;
     
     if(isLogin){//登录状态
-        //高斯模糊背景
+        //背景图
         UIImage *image = [UIImage imageNamed:@"timg"];
         self.backImageView.image = image;
     }else{//未登录状态
@@ -71,7 +73,8 @@
 #pragma mark - <************************** 获取数据 **************************>
 // !!!: 获取数据
 -(void)getDataFormServer{
-    BOOL islogin = GetInfoForKey(UserId_NSUserDefaults) != nil;
+    NSInteger userid = [AppInfo share].user.userId;
+    BOOL islogin = userid > 0;
     if(islogin)
         self.data = [NSMutableArray arrayWithObjects:@[@"消息通知", @"我的动态"],  @[@"用户反馈", @"当前版本"], nil];
     else
@@ -156,7 +159,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    BOOL islogin = GetInfoForKey(UserId_NSUserDefaults) != nil;
+    NSInteger userid = [AppInfo share].user.userId;
+    BOOL islogin = userid > 0;
     return section == 0 ? (islogin ? 10 : CGFLOAT_MIN) : CGFLOAT_MIN;
 }
 
