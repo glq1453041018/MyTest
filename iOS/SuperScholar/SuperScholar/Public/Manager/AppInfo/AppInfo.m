@@ -84,7 +84,7 @@
             NSString *uuid = [responseObject objectForKeyNotNull:@"uuid"];
             [dic setValue:uuid.length?uuid:@"" forKey:@"uuid"];
             // 将用户信息保存到本地
-            SaveInfoForKey(dic.copy, UserInfo_NSUserDefaults);
+            SaveInfoForKey(dic, UserInfo_NSUserDefaults);
             self.user = [UserModel objectWithModuleDic:dic hintDic:nil];
             if(completion)
                 completion();
