@@ -69,7 +69,7 @@
         UIImage *image = [UIImage imageNamed:@"timg"];
         self.backImageView.image = image;
         
-        [self.headerBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[AppInfo share].user.img] forState:UIControlStateNormal];;
+        [self.headerBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[AppInfo share].user.img] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"bgImage"] completed:nil];
         [self.nameLabel setText:[AppInfo share].user.useName];
         [self.shortInfo setText:[AppInfo share].user.desc];
     }else{//未登录状态
