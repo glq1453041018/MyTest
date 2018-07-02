@@ -120,8 +120,28 @@
         _sexPicker.alpha = 0;
         [_sexPicker setCurrentDateRow:0];
         [_sexPicker setDateSelectedBlock:^(NSString *selectSex){
-            [SVProgressHUD showSuccessWithStatus:@"设置成功"];
-            [weakself hideBackgrounView];
+            UserModel *origin_model = [UserModel new];
+            origin_model.useName = [AppInfo share].user.useName;
+            origin_model.userId = [AppInfo share].user.userId;
+            origin_model.img = [AppInfo share].user.img;
+            origin_model.address = [AppInfo share].user.address;
+            origin_model.gender = [AppInfo share].user.gender;
+            origin_model.desc = [AppInfo share].user.desc;
+            origin_model.uuid = [AppInfo share].user.uuid;
+            origin_model.account = [AppInfo share].user.account;
+            
+            
+            //提交，成功才回调
+            [AppInfo share].user.gender = selectSex;
+            [[AppInfo share] editUserInfoWithCompletion:^(BOOL successed){
+                if(!successed){
+                    [AppInfo share].user = origin_model;
+                    [weakself hideBackgrounView];
+                }else{
+                    [SVProgressHUD showSuccessWithStatus:@"设置成功"];
+                    [weakself hideBackgrounView];
+                }
+            }];
         }];
         [_sexPicker setSelectCanceledBlock:^(){
             [weakself hideBackgrounView];
