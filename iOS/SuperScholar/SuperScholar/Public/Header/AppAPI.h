@@ -20,6 +20,7 @@
 #define U_LogoutUrlString YuMingAnd(@"/mobile/user/out")    //退出登录
 #define U_SmsLoginUrlString YuMingAnd(@"/public/user/smsLogin")    //短信登录
 #define U_ResetPasswordUrlString YuMingAnd(@"/public/user/resetPw")    //密码重置
+#define U_UpdateUserInfoUrlString YuMingAnd(@"/mobile/user/update")    //用户信息变更
 
 
 

@@ -35,6 +35,11 @@
  */
 - (void)resetPasswordWithMobile:(NSString *)mobile password:(NSString *)password code:(NSString *)code withCompletion:(void(^)())completion;
 
+/*
+ 编辑资料事件
+ */
+- (void)editUserInfoWithCompletion:(void (^)())completion;
+
 
 
 @end

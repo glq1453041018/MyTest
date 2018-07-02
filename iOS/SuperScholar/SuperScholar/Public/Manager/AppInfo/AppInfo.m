@@ -141,8 +141,49 @@
         NSString *code = [responseObject objectForKeyNotNull:@"code"];
         if (code.integerValue==1) {
             // 将用户信息保存到本地
-            SaveInfoForKey(nil, UserInfo_NSUserDefaults);
-            self.user = nil;
+            SaveInfoForKey(responseObject, UserInfo_NSUserDefaults);
+            if(completion)
+                completion();
+        }
+        else{
+            [LLAlertView showSystemAlertViewMessage:[responseObject objectForKeyNotNull:@"msg"] buttonTitles:@[@"确定"] clickBlock:nil];
+        }
+        
+    } failure:^(NSError *error) {
+        [LLAlertView showSystemAlertViewMessage:error.localizedDescription buttonTitles:@[@"确定"] clickBlock:nil];
+    }];
+}
+
+- (void)editUserInfoWithCompletion:(void (^)())completion{
+    NSString *username = self.user.useName;//用户姓名
+    NSString *desc = self.user.desc;//用户简介
+    NSInteger gender = [self.user.gender integerValue];//用户性别
+    NSString *address = self.user.address;//用户地址
+    
+    NSString *url = U_UpdateUserInfoUrlString;
+    NSMutableDictionary *dic = [@{
+                          @"userId":@(self.user.userId),
+                          @"uuid":self.user.uuid ? self.user.uuid : @"",
+                          } mutableCopy];
+
+    if([username length]){
+        [dic setValue:username forKey:@"userName"];
+    }
+    if([desc length]){
+        [dic setValue:desc forKey:@"desc"];
+    }
+    if(gender){
+        [dic setValue:@(gender) forKey:@"gender"];
+    }
+    if(address){
+        [dic setValue:address forKey:@"address"];
+    }
+    AFService *request = [AFService new];
+    [request requestWithURLString:url parameters:dic type:Post success:^(NSDictionary *responseObject) {
+        NSString *code = [responseObject objectForKeyNotNull:@"code"];
+        if (code.integerValue==1) {
+            // 将用户信息保存到本地
+            SaveInfoForKey(responseObject, UserInfo_NSUserDefaults);
             if(completion)
                 completion();
         }
