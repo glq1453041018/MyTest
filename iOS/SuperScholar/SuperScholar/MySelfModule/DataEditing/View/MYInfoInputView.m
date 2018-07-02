@@ -176,6 +176,7 @@ static int view_height = 154;
 - (void)show{
 // !!!: 显示
     [self.textView becomeFirstResponder];
+    [self textViewDidChange:self.textView];
     
     self.alpha =1;
 }

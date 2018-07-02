@@ -157,7 +157,7 @@
 - (void)editUserInfoWithCompletion:(void (^)())completion{
     NSString *username = self.user.useName;//用户姓名
     NSString *desc = self.user.desc;//用户简介
-    NSInteger gender = [self.user.gender integerValue];//用户性别
+    NSString *gender = self.user.gender;//用户性别
     NSString *address = self.user.address;//用户地址
     
     NSString *url = U_UpdateUserInfoUrlString;
@@ -172,8 +172,8 @@
     if([desc length]){
         [dic setValue:desc forKey:@"desc"];
     }
-    if(gender){
-        [dic setValue:@(gender) forKey:@"gender"];
+    if([gender length]){
+        [dic setValue:gender forKey:@"gender"];
     }
     if(address){
         [dic setValue:address forKey:@"address"];

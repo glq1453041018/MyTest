@@ -218,7 +218,24 @@
     cell.leftLabel.text = text;
     cell.headerImage.hidden = !(indexPath.section == 0 && indexPath.row == 0);
     cell.rightLabel.hidden = !cell.headerImage.hidden;
-    cell.rightLabel.text = @"待完善";
+    
+    NSString *rightLabel = @"待完善";
+    if(indexPath.section == 0 && indexPath.row == 1 && [[AppInfo share].user.useName length])
+        rightLabel = [AppInfo share].user.useName;
+    else if(indexPath.section == 0 && indexPath.row == 2 && [[AppInfo share].user.desc length]){
+        rightLabel = [AppInfo share].user.desc;
+    }else if(indexPath.section == 1 && indexPath.row == 0 && [[AppInfo share].user.gender length]){
+        rightLabel = [AppInfo share].user.gender;
+    }else if(indexPath.section == 1 && indexPath.row == 2 && [[AppInfo share].user.address length]){
+        rightLabel = [AppInfo share].user.address;
+    }
+    cell.rightLabel.text = rightLabel;
+    
+    if([rightLabel isEqualToString:@"待完善"]){
+        cell.rightLabel.textColor = KColorTheme;
+    }else{
+        cell.rightLabel.textColor = [UIColor lightGrayColor];
+    }
     
     if(indexPath.section == 0 && indexPath.row == 0){
         cell.headerImage.hidden = NO;
@@ -251,6 +268,7 @@
     }else if([text isEqualToString:@"性别"]){
         if(self.sexPicker.isOnShow == NO){
             [self.sexPicker show];
+            [self.sexPicker setCurrentDateRow:[[AppInfo share].user.gender isEqualToString:@"女"] ? 1 : 0];
             [self showBackgrounView];
         }else{
             [self.sexPicker hidden];
@@ -268,6 +286,7 @@
         [self pushImagePickerController];
     }else if([text isEqualToString:@"用户名"]){
         if(self.usernameInputView.isOnShow == NO){
+            [self.usernameInputView.textView setText:[AppInfo share].user.useName];
             [self.usernameInputView show];
             [self showBackgrounView];
         }else{
@@ -276,6 +295,7 @@
         }
     }else if([text isEqualToString:@"介绍"]){
         if(self.introduceInputView.isOnShow == NO){
+            [self.introduceInputView.textView setText:[AppInfo share].user.desc];
             [self.introduceInputView show];
             [self showBackgrounView];
         }else{
