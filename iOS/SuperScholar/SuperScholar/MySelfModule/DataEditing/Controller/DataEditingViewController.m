@@ -242,7 +242,10 @@
     cell.rightLabel.hidden = !cell.headerImage.hidden;
     
     NSString *rightLabel = @"待完善";
-    if(indexPath.section == 0 && indexPath.row == 1 && [[AppInfo share].user.useName length])
+    if(indexPath.section == 0 && indexPath.row == 0 && [[AppInfo share].user.img length]){
+        [cell.headerImage sd_setImageWithURL:[NSURL URLWithString:[AppInfo share].user.img] placeholderImage:[UIImage imageNamed:@"bgImage"]];
+    }
+    else if(indexPath.section == 0 && indexPath.row == 1 && [[AppInfo share].user.useName length])
         rightLabel = [AppInfo share].user.useName;
     else if(indexPath.section == 0 && indexPath.row == 2 && [[AppInfo share].user.desc length]){
         rightLabel = [AppInfo share].user.desc;
@@ -344,7 +347,7 @@
 
 #pragma mark TZImagePickerControllerDelegate
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto{
-//    WeakObj(self);
+    WeakObj(self);
 //    [photos enumerateObjectsUsingBlock:^(UIImage *obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //        [TeacherSpaceManager uploadImage:obj response:^(NSString *imageUrlString, id error) {
 //            weakself.photoUrl = imageUrlString;
@@ -352,9 +355,15 @@
 //            [weakself textFieldShouldReturn:weakself.textField];
 //        }];
 //    }];
+    
     UIImage *image = [photos firstObject];
-    self.photoImage = image;
-    [self.tableView reloadData];
+    
+    [[AppInfo share] uploadHeaderWithImage:image Completion:^(BOOL successed) {
+        if(successed){
+            weakself.photoImage = image;
+            [weakself.tableView reloadData];
+        }
+    }];
 }
 
 

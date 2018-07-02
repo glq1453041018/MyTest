@@ -198,4 +198,55 @@
     }];
 }
 
+- (void)uploadHeaderWithImage:(UIImage *)image Completion:(void (^)(BOOL))completion{
+    NSMutableDictionary *dic = [@{
+                                  @"userId":@(self.user.userId),
+                                  @"uuid":self.user.uuid ? self.user.uuid : @"",
+                                  } mutableCopy];
+    
+    AFService *request = [AFService new];
+    [request requestWithURLString:U_UploadUserHeaderImageUrlString parameters:dic type:Post images:@[image] videosArray:nil uploadProgress:nil success:^(NSDictionary *responseObject) {
+        NSString *code = [responseObject objectForKeyNotNull:@"code"];
+        if (code.integerValue==1) {//上传成功成功
+            NSArray *images = [responseObject objectForKeyNotNull:@"data"];
+            
+            
+            //修改资料
+            UserModel *origin_model = [UserModel new];
+            origin_model.useName = [AppInfo share].user.useName;
+            origin_model.userId = [AppInfo share].user.userId;
+            origin_model.img = [AppInfo share].user.img;
+            origin_model.address = [AppInfo share].user.address;
+            origin_model.gender = [AppInfo share].user.gender;
+            origin_model.desc = [AppInfo share].user.desc;
+            origin_model.uuid = [AppInfo share].user.uuid;
+            origin_model.account = [AppInfo share].user.account;
+            
+            
+            NSString *img = [images firstObject];
+            [AppInfo share].user.img = img;
+            
+            //提交，成功才回调
+            [[AppInfo share] editUserInfoWithCompletion:^(BOOL successed){
+                if(!successed){
+                    [AppInfo share].user = origin_model;
+                }else{
+                    if(completion)
+                        completion(YES);
+                }
+            }];
+        }
+        else{
+            [LLAlertView showSystemAlertViewMessage:[responseObject objectForKeyNotNull:@"msg"] buttonTitles:@[@"确定"] clickBlock:nil];
+            if(completion)
+                completion(NO);
+        }
+        
+    } failure:^(NSError *error) {
+        if(completion)
+            completion(NO);
+        [LLAlertView showSystemAlertViewMessage:error.localizedDescription buttonTitles:@[@"确定"] clickBlock:nil];
+    }];
+}
+
 @end

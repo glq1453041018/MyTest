@@ -40,6 +40,10 @@
  */
 - (void)editUserInfoWithCompletion:(void (^)(BOOL successed))completion;
 
+/*
+ 头像上传事件
+ */
+- (void)uploadHeaderWithImage:(UIImage *)image Completion:(void (^)(BOOL))completion;
 
 
 @end

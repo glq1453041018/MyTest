@@ -214,7 +214,7 @@
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
-        if (uploadProgress) {
+        if (uploadPro) {
             uploadPro(uploadProgress);
         }
         
