@@ -38,7 +38,7 @@
 /*
  编辑资料事件
  */
-- (void)editUserInfoWithCompletion:(void (^)())completion;
+- (void)editUserInfoWithCompletion:(void (^)(BOOL successed))completion;
 
 
 

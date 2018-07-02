@@ -154,6 +154,7 @@
         _usernameInputView.alpha = 0;
         [self.backgroundView addSubview:_usernameInputView];
         [_usernameInputView setInfoInputDownBlock:^(NSString *username){
+            [[weakself.data objectAtIndex:0] replaceObjectAtIndex:1 withObject:username] ;
             [SVProgressHUD showSuccessWithStatus:@"设置成功"];
             [weakself hideBackgrounView];
         }];
@@ -172,6 +173,7 @@
         _introduceInputView.alpha = 0;
         [self.backgroundView addSubview:_introduceInputView];
         [_introduceInputView setInfoInputDownBlock:^(NSString *username){
+            [[weakself.data objectAtIndex:0] replaceObjectAtIndex:2 withObject:username] ;
             [SVProgressHUD showSuccessWithStatus:@"设置成功"];
             [weakself hideBackgrounView];
         }];

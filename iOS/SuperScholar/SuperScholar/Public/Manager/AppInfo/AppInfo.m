@@ -154,7 +154,7 @@
     }];
 }
 
-- (void)editUserInfoWithCompletion:(void (^)())completion{
+- (void)editUserInfoWithCompletion:(void (^)(BOOL successed))completion{
     NSString *username = self.user.useName;//用户姓名
     NSString *desc = self.user.desc;//用户简介
     NSString *gender = self.user.gender;//用户性别
@@ -181,17 +181,19 @@
     AFService *request = [AFService new];
     [request requestWithURLString:url parameters:dic type:Post success:^(NSDictionary *responseObject) {
         NSString *code = [responseObject objectForKeyNotNull:@"code"];
-        if (code.integerValue==1) {
-            // 将用户信息保存到本地
-            SaveInfoForKey(responseObject, UserInfo_NSUserDefaults);
+        if (code.integerValue==1) {//修改成功
             if(completion)
-                completion();
+                completion(YES);
         }
         else{
             [LLAlertView showSystemAlertViewMessage:[responseObject objectForKeyNotNull:@"msg"] buttonTitles:@[@"确定"] clickBlock:nil];
+            if(completion)
+                completion(NO);
         }
         
     } failure:^(NSError *error) {
+        if(completion)
+            completion(NO);
         [LLAlertView showSystemAlertViewMessage:error.localizedDescription buttonTitles:@[@"确定"] clickBlock:nil];
     }];
 }

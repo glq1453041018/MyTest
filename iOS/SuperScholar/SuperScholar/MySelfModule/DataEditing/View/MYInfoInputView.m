@@ -167,10 +167,47 @@ static int view_height = 154;
 #pragma mark 事件处理
 - (IBAction)onClickCommitBtn:(UIButton *)sender {
 // !!!: 点击确定按钮
-    if(self.infoInputDownBlock){
-        self.infoInputDownBlock(self.textView.text);
+    if([self.textView.text length] == 0){
+        [LLAlertView showSystemAlertViewMessage:@"输入不能为空" buttonTitles:@[@"确定"] clickBlock:nil];
+        return;
     }
-    [self hide];
+    
+    UserModel *origin_model = [UserModel new];
+    origin_model.useName = [AppInfo share].user.useName;
+    origin_model.userId = [AppInfo share].user.userId;
+    origin_model.img = [AppInfo share].user.img;
+    origin_model.address = [AppInfo share].user.address;
+    origin_model.gender = [AppInfo share].user.gender;
+    origin_model.desc = [AppInfo share].user.desc;
+    origin_model.uuid = [AppInfo share].user.uuid;
+    origin_model.account = [AppInfo share].user.account;
+    
+
+    //提交，成功才回调
+    switch (self.inputType) {
+        case MYInfoInputTypeUserName:
+            [AppInfo share].user.useName = self.textView.text;
+            break;
+        case MYInfoInputTypeIntroduce:
+            [AppInfo share].user.desc = self.textView.text;
+            break;
+        default:
+            break;
+    }
+
+    
+    WeakObj(self);
+    [[AppInfo share] editUserInfoWithCompletion:^(BOOL successed){
+        if(!successed){
+            [weakself hide];
+            [AppInfo share].user = origin_model;
+        }else{
+            if(weakself.infoInputDownBlock){
+                weakself.infoInputDownBlock(weakself.textView.text);
+            }
+            [weakself hide];
+        }
+    }];
 }
 
 - (void)show{
