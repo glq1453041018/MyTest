@@ -31,6 +31,13 @@
 @property (weak, nonatomic) IBOutlet UIView *titleButtonsBackView;//已登录，评论、收藏、历史背景视图
 //未登录
 @property (weak, nonatomic) IBOutlet UIButton *loginButtton;//未登录，短信登录按钮
+
+
+
+@property (weak, nonatomic) IBOutlet UIButton *headerBtn;//头像
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;//昵称
+@property (weak, nonatomic) IBOutlet UILabel *shortInfo;//简介
+
 @end
 
 @implementation MySelfViewController
@@ -56,12 +63,20 @@
     self.tabelHeaderView.viewHeight =  IEW_WIDTH * 483 / 1024.0 + (isLogin ?  70 : 0);
     self.tableView.tableHeaderView = self.tabelHeaderView;
     
+    
     if(isLogin){//登录状态
         //背景图
         UIImage *image = [UIImage imageNamed:@"timg"];
         self.backImageView.image = image;
+        
+        [self.headerBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[AppInfo share].user.img] forState:UIControlStateNormal];;
+        [self.nameLabel setText:[AppInfo share].user.useName];
+        [self.shortInfo setText:[AppInfo share].user.desc];
     }else{//未登录状态
         self.backImageView.image = nil;
+        [self.headerBtn setBackgroundImage:[UIImage imageNamed:@"bgImage"] forState:UIControlStateNormal];
+        [self.nameLabel setText:@""];
+        [self.shortInfo setText:@""];
     }
     
     // 获取数据

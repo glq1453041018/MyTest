@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="17E199" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +15,10 @@
             <connections>
                 <outlet property="backImageView" destination="KpY-8l-PnU" id="kII-0H-gDn"/>
                 <outlet property="didLoginView" destination="cuT-6O-MJl" id="Bwg-n0-4ei"/>
+                <outlet property="headerBtn" destination="OEv-P0-3V7" id="V1p-gL-wuB"/>
                 <outlet property="loginButtton" destination="xhK-7F-axB" id="4lo-Fy-Gpu"/>
+                <outlet property="nameLabel" destination="Iqe-8B-j1f" id="9bC-cy-tFz"/>
+                <outlet property="shortInfo" destination="jCX-z7-mdf" id="zPG-0I-Svv"/>
                 <outlet property="tabelHeaderView" destination="tJP-ka-RGo" id="MVq-GQ-Ner"/>
                 <outlet property="tableView" destination="VSU-Zb-a5k" id="Prv-cn-NAe"/>
                 <outlet property="titleButtonsBackView" destination="5hS-qg-c7k" id="nAg-4r-ShJ"/>
