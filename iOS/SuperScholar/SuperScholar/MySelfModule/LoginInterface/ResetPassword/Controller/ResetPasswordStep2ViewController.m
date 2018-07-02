@@ -159,17 +159,11 @@
         if(!error){
             // 登录事件
             //调重置密码的接口
-            [self.navigationController dismissViewControllerAnimated:NO completion:^(){
-                [LLAlertView showSystemAlertViewMessage:@"密码重置成功，登录成功" buttonTitles:@[@"确定"] clickBlock:nil];
+            [[AppInfo share] resetPasswordWithMobile:self.phoneNumber password:self.passwordField.text code:self.vertifyField.text withCompletion:^{
+                [self.navigationController dismissViewControllerAnimated:NO completion:^(){
+                    [LLAlertView showSystemAlertViewMessage:@"密码重置成功，登录成功" buttonTitles:@[@"确定"] clickBlock:nil];
+                }];
             }];
-            
-//            [[AppInfo share] smsLoginEventTestWithMobile:weakself.phoneField.text code:weakself.vertifyField.text completion:^{
-//                NSLog(@"登录成功!");
-//                [[RemotePushManager defaultManager] unBindAccountToAliPushServer];
-//                [[RemotePushManager defaultManager] bindAccountToAliPushServer];
-//                [IMManager callThisAfterISVAccountLoginSuccessWithYWLoginId:[NSString stringWithFormat:@"%ld", [AppInfo share].user.userId]];
-//                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-//            }];
         }else{//验证码错误
             weakself.vertifyErrorLog.text = @"验证码错误";
             weakself.vertifyErrorLog.hidden = NO;

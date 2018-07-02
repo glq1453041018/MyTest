@@ -30,6 +30,11 @@
  */
 -(void)logoutEventTestWithCompletion:(void (^)())completion;
 
+/*
+ 重置密码事件
+ */
+- (void)resetPasswordWithMobile:(NSString *)mobile password:(NSString *)password code:(NSString *)code withCompletion:(void(^)())completion;
+
 
 
 @end
