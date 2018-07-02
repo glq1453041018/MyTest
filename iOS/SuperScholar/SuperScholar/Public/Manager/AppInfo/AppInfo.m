@@ -47,22 +47,19 @@
                           };
     AFService *request = [AFService new];
     [request requestWithURLString:url parameters:dic type:Post success:^(NSDictionary *responseObject) {
-        BOOL result = [[responseObject objectForKeyNotNull:@"result"] boolValue];
-        if(result){
-            NSString *code = [responseObject objectForKeyNotNull:@"code"];
-            if (code.integerValue==1) {
-                NSMutableDictionary *dic = [responseObject objectForKeyNotNull:@"data"];
-                NSString *uuid = [responseObject objectForKeyNotNull:@"uuid"];
-                [dic setValue:uuid.length?uuid:@"" forKey:@"uuid"];
-                // 将用户信息保存到本地
-                SaveInfoForKey(dic.copy, UserInfo_NSUserDefaults);
-                self.user = [UserModel objectWithModuleDic:dic hintDic:nil];
-                if(completion)
-                    completion();
-            }
-            else{
-                [LLAlertView showSystemAlertViewMessage:[NSString stringWithFormat:@"%@ 可以试试 \n账号:%@ 密码:%@", [responseObject objectForKeyNotNull:@"msg"], @"15059421608", @"123456"] buttonTitles:@[@"确定"] clickBlock:nil];
-            }
+        NSString *code = [responseObject objectForKeyNotNull:@"code"];
+        if (code.integerValue==1) {
+            NSMutableDictionary *dic = [responseObject objectForKeyNotNull:@"data"];
+            NSString *uuid = [responseObject objectForKeyNotNull:@"uuid"];
+            [dic setValue:uuid.length?uuid:@"" forKey:@"uuid"];
+            // 将用户信息保存到本地
+            SaveInfoForKey(dic.copy, UserInfo_NSUserDefaults);
+            self.user = [UserModel objectWithModuleDic:dic hintDic:nil];
+            if(completion)
+                completion();
+        }
+        else{
+            [LLAlertView showSystemAlertViewMessage:[NSString stringWithFormat:@"%@ 可以试试 \n账号:%@ 密码:%@", [responseObject objectForKeyNotNull:@"msg"], @"15059421608", @"123456"] buttonTitles:@[@"确定"] clickBlock:nil];
         }
     } failure:^(NSError *error) {
         [LLAlertView showSystemAlertViewMessage:error.localizedDescription buttonTitles:@[@"确定"] clickBlock:nil];
